@@ -169,7 +169,7 @@ public class clsUsuario {
     }
     @Override
     public String toString() {
-        return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + '}';
+        return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + ", UltimaSesionUsuario=" + UltimaSesionUsuario + ", EstatusUsuario=" + EstatusUsuario + ", NombreRealUsuario=" + NombreRealUsuario + ", CorreoUsuario=" + CorreoUsuario + ", TelefonoUsuario=" + TelefonoUsuario + ", DireccionUsuario=" + DireccionUsuario +'}';
     }
     //Metodos de acceso a la capa controlador
     public clsUsuario getBuscarInformacionUsuarioPorNombre(clsUsuario usuario)
