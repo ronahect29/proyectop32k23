@@ -6,7 +6,7 @@
 package Seguridad.Vista;
 
 
-import Seguridad.Controlador.clsAplicacion;
+import Seguridad.Controlador.clsTipoUsuario;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -34,15 +34,15 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
         modelo.addColumn("ID");
         modelo.addColumn("nombre");
         modelo.addColumn("Estatus");
-        clsAplicacion aplicacion = new clsAplicacion();
+        clsTipoUsuario tipou = new clsTipoUsuario();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsAplicacion> listaAplicaciones = aplicacion.getListadoAplicaciones();
+        List<clsTipoUsuario> listaTipoUsuarios = tipou.getListadoTipoUsuarios();
         tablaUsuarios.setModel(modelo);
         String[] dato = new String[3];
-        for (int i = 0; i < listaAplicaciones.size(); i++) {
-            dato[0] = Integer.toString(listaAplicaciones.get(i).getIdAplicacion());
-            dato[1] = listaAplicaciones.get(i).getNombreAplicacion();
-            dato[2] = listaAplicaciones.get(i).getEstatusAplicacion();
+        for (int i = 0; i < listaTipoUsuarios.size(); i++) {
+            dato[0] = Integer.toString(listaTipoUsuarios.get(i).getIdTipoUsuario());
+            dato[1] = listaTipoUsuarios.get(i).getNombreTipoUsuario();
+            dato[2] = listaTipoUsuarios.get(i).getEstatusTipoUsuario();
             modelo.addRow(dato);
         }       
     }
@@ -114,7 +114,7 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Aplicaciones");
+        label1.setText("Tipo de Usuario");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +226,7 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 562, Short.MAX_VALUE))
+                        .addGap(294, 550, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -274,10 +274,11 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        //----------
         int registrosBorrados=0;
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=aplicacion.setBorrarAplicacion(aplicacion);
+        clsTipoUsuario tipou = new clsTipoUsuario();
+        tipou.setIdTipoUsuario(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=tipou.setBorrarTipoUsuario(tipou);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -285,10 +286,10 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setNombreAplicacion(txtNombre.getText());
-        aplicacion.setEstatusAplicacion(txtContrasena.getText());
-        aplicacion.setIngresarAplicacion(aplicacion);
+        clsTipoUsuario tipou = new clsTipoUsuario();
+        tipou.setNombreTipoUsuario(txtNombre.getText());
+        tipou.setEstatusTipoUsuario(txtContrasena.getText());
+        tipou.setIngresarTipoUsuario(tipou);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -297,22 +298,22 @@ public class frmMantenimientoTipoUsuario extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        clsAplicacion aplicacion = new clsAplicacion();
+        clsTipoUsuario tipou = new clsTipoUsuario();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));        
-        aplicacion = aplicacion.getBuscarInformacionAplicacionPorId(aplicacion);
-        System.out.println("Usuario retornado:" + aplicacion);        
-        txtNombre.setText(aplicacion.getNombreAplicacion());
-        txtContrasena.setText(aplicacion.getEstatusAplicacion());
+        tipou.setIdTipoUsuario(Integer.parseInt(txtbuscado.getText()));        
+        tipou = tipou.getBuscarInformacionTipoUsuarioPorId(tipou);
+        System.out.println("Usuario retornado:" + tipou);        
+        txtNombre.setText(tipou.getNombreTipoUsuario());
+        txtContrasena.setText(tipou.getEstatusTipoUsuario());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsAplicacion aplicacion = new clsAplicacion();
-        aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));
-        aplicacion.setNombreAplicacion(txtNombre.getText());
-        aplicacion.setEstatusAplicacion(txtContrasena.getText());
-        aplicacion.setModificarAplicacion(aplicacion);
+        clsTipoUsuario tipou = new clsTipoUsuario();
+        tipou.setIdTipoUsuario(Integer.parseInt(txtbuscado.getText()));
+        tipou.setNombreTipoUsuario(txtNombre.getText());
+        tipou.setEstatusTipoUsuario(txtContrasena.getText());
+        tipou.setModificarTipoUsuario(tipou);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
