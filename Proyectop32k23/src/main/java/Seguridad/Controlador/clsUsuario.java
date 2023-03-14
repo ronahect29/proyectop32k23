@@ -14,12 +14,13 @@ public class clsUsuario {
     private int IdUsuario;
     private String NombreUsuario;
     private String ContrasenaUsuario;
-    private long UltimaSesionUsuario;
+    private String UltimaSesionUsuario;
     private String EstatusUsuario;
     private String NombreRealUsuario;
     private String CorreoUsuario;
     private String TelefonoUsuario;
     private String DireccionUsuario;
+    private int TipoUsuario;
 
     public clsUsuario() {
     }
@@ -39,14 +40,14 @@ public class clsUsuario {
         this.ContrasenaUsuario = ContrasenaUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
         this.UltimaSesionUsuario = UltimaSesionUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario, String EstatusUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
@@ -54,7 +55,7 @@ public class clsUsuario {
         this.EstatusUsuario = EstatusUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
@@ -63,7 +64,7 @@ public class clsUsuario {
         this.NombreRealUsuario = NombreRealUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
@@ -73,7 +74,7 @@ public class clsUsuario {
         this.CorreoUsuario = CorreoUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
@@ -84,7 +85,7 @@ public class clsUsuario {
         this.TelefonoUsuario = TelefonoUsuario;
     }
 
-    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario, String DireccionUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, String UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario, String DireccionUsuario, int TipoUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
@@ -94,6 +95,7 @@ public class clsUsuario {
         this.CorreoUsuario = CorreoUsuario;
         this.TelefonoUsuario = TelefonoUsuario;
         this.DireccionUsuario = DireccionUsuario;
+        this.TipoUsuario = TipoUsuario;
     }
 
     public int getIdUsuario() {
@@ -120,11 +122,11 @@ public class clsUsuario {
         this.ContrasenaUsuario = ContrasenaUsuario;
     }
 
-    public long getUltimaSesionUsuario() {
+    public String getUltimaSesionUsuario() {
         return UltimaSesionUsuario;
     }
 
-    public void setUltimaSesionUsuario(long UltimaSesionUsuario) {
+    public void setUltimaSesionUsuario(String UltimaSesionUsuario) {
         this.UltimaSesionUsuario = UltimaSesionUsuario;
     }
 
@@ -167,9 +169,18 @@ public class clsUsuario {
     public void setDireccionUsuario(String DireccionUsuario) {
         this.DireccionUsuario = DireccionUsuario;
     }
+    
+    public int getTipoUsuario() {
+        return TipoUsuario;
+    }
+
+    public void setTipoUsuario(int TipoUsuario) {
+        this.TipoUsuario = TipoUsuario;
+    }
+    
     @Override
     public String toString() {
-        return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + ", UltimaSesionUsuario=" + UltimaSesionUsuario + ", EstatusUsuario=" + EstatusUsuario + ", NombreRealUsuario=" + NombreRealUsuario + ", CorreoUsuario=" + CorreoUsuario + ", TelefonoUsuario=" + TelefonoUsuario + ", DireccionUsuario=" + DireccionUsuario +'}';
+        return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + ", UltimaSesionUsuario=" + UltimaSesionUsuario + ", EstatusUsuario=" + EstatusUsuario + ", NombreRealUsuario=" + NombreRealUsuario + ", CorreoUsuario=" + CorreoUsuario + ", TelefonoUsuario=" + TelefonoUsuario + ", DireccionUsuario=" + DireccionUsuario + ", TipoUsuario=" + TipoUsuario +'}';
     }
     //Metodos de acceso a la capa controlador
     public clsUsuario getBuscarInformacionUsuarioPorNombre(clsUsuario usuario)
