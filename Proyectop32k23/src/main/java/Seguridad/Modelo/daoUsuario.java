@@ -40,7 +40,7 @@ public class daoUsuario {
                 String sesion = rs.getString("usuultimasesion");
 		String estatus = rs.getString("usuestatus");
                 String nombrereal= rs.getString("usunombrereal");
-                String correo= rs.getString("usucorreo");
+                String correo= rs.getString("usucorreoe");
                 String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
 		int tipoid= rs.getInt("tipuid");
@@ -168,7 +168,7 @@ public class daoUsuario {
                 String sesion = rs.getString("usuultimasesion");
 		String estatus = rs.getString("usuestatus");
                 String nombrereal= rs.getString("usunombrereal");
-		String correo= rs.getString("usucorreo");
+		String correo= rs.getString("usucorreoe");
 		String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
 		int tipoid= rs.getInt("tipuid");
@@ -215,7 +215,7 @@ public class daoUsuario {
                 String sesion = rs.getString("usuultimasesion");
 		String estatus = rs.getString("usuestatus");
                 String nombrereal= rs.getString("usunombrereal");
-		String correo= rs.getString("usucorreo");
+		String correo= rs.getString("usucorreoe");
 		String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
 		int tipoid= rs.getInt("tipuid");

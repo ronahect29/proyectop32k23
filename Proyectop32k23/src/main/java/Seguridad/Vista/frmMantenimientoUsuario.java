@@ -56,7 +56,7 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
             dato[6] = listaUsuarios.get(i).getCorreoUsuario();
             dato[7] = listaUsuarios.get(i).getTelefonoUsuario();
             dato[8] = listaUsuarios.get(i).getDireccionUsuario();
-            dato[9] = listaUsuarios.get(i).getTipoUsuario();
+            dato[9] = Integer.toString(listaUsuarios.get(i).getTipoUsuario());
             modelo.addRow(dato);
         }       
     }
@@ -431,7 +431,7 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
         usuario.setCorreoUsuario(txtCorreo.getText());
         usuario.setTelefonoUsuario(txtTelefono.getText());
         usuario.setDireccionUsuario(txtDireccion.getText());
-        usuario.setTipoUsuario(txtTipoUsuario.getText());
+        usuario.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
         usuario.setIngresarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -454,7 +454,7 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
         txtCorreo.setText(usuario.getCorreoUsuario());
         txtTelefono.setText(usuario.getTelefonoUsuario());
         txtDireccion.setText(usuario.getDireccionUsuario());
-        txtTipoUsuario.setText(usuario.getTipoUsuario());
+        txtTipoUsuario.setText(Integer.toString(usuario.getTipoUsuario()));
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -469,7 +469,7 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
         usuario.setCorreoUsuario(txtCorreo.getText());
         usuario.setTelefonoUsuario(txtTelefono.getText());
         usuario.setDireccionUsuario(txtDireccion.getText());
-        usuario.setTipoUsuario(txtTipoUsuario.getText());
+        usuario.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
         usuario.setModificarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
