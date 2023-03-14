@@ -95,7 +95,78 @@ public class clsUsuario {
         this.TelefonoUsuario = TelefonoUsuario;
         this.DireccionUsuario = DireccionUsuario;
     }
-    
+
+    public int getIdUsuario() {
+        return IdUsuario;
+    }
+
+    public void setIdUsuario(int IdUsuario) {
+        this.IdUsuario = IdUsuario;
+    }
+
+    public String getNombreUsuario() {
+        return NombreUsuario;
+    }
+
+    public void setNombreUsuario(String NombreUsuario) {
+        this.NombreUsuario = NombreUsuario;
+    }
+
+    public String getContrasenaUsuario() {
+        return ContrasenaUsuario;
+    }
+
+    public void setContrasenaUsuario(String ContrasenaUsuario) {
+        this.ContrasenaUsuario = ContrasenaUsuario;
+    }
+
+    public long getUltimaSesionUsuario() {
+        return UltimaSesionUsuario;
+    }
+
+    public void setUltimaSesionUsuario(long UltimaSesionUsuario) {
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+    }
+
+    public String getEstatusUsuario() {
+        return EstatusUsuario;
+    }
+
+    public void setEstatusUsuario(String EstatusUsuario) {
+        this.EstatusUsuario = EstatusUsuario;
+    }
+
+    public String getNombreRealUsuario() {
+        return NombreRealUsuario;
+    }
+
+    public void setNombreRealUsuario(String NombreRealUsuario) {
+        this.NombreRealUsuario = NombreRealUsuario;
+    }
+
+    public String getCorreoUsuario() {
+        return CorreoUsuario;
+    }
+
+    public void setCorreoUsuario(String CorreoUsuario) {
+        this.CorreoUsuario = CorreoUsuario;
+    }
+
+    public String getTelefonoUsuario() {
+        return TelefonoUsuario;
+    }
+
+    public void setTelefonoUsuario(String TelefonoUsuario) {
+        this.TelefonoUsuario = TelefonoUsuario;
+    }
+
+    public String getDireccionUsuario() {
+        return DireccionUsuario;
+    }
+
+    public void setDireccionUsuario(String DireccionUsuario) {
+        this.DireccionUsuario = DireccionUsuario;
+    }
     @Override
     public String toString() {
         return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + '}';
