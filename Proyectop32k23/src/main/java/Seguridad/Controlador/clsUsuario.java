@@ -14,7 +14,13 @@ public class clsUsuario {
     private int IdUsuario;
     private String NombreUsuario;
     private String ContrasenaUsuario;
-
+    private long UltimaSesionUsuario;
+    private String EstatusUsuario;
+    private String NombreRealUsuario;
+    private String CorreoUsuario;
+    private String TelefonoUsuario;
+    private String DireccionUsuario;
+    
     public clsUsuario() {
     }
     
