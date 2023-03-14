@@ -20,48 +20,82 @@ public class clsUsuario {
     private String CorreoUsuario;
     private String TelefonoUsuario;
     private String DireccionUsuario;
-    
+
     public clsUsuario() {
     }
-    
+
     public clsUsuario(int IdUsuario) {
         this.IdUsuario = IdUsuario;
-    }    
-    
-    public clsUsuario(String NombreUsuario, String ContrasenaUsuario) {
-        this.NombreUsuario = NombreUsuario;
-        this.ContrasenaUsuario = ContrasenaUsuario;
     }
-    
+
+    public clsUsuario(int IdUsuario, String NombreUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+    }
+
     public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ContrasenaUsuario = ContrasenaUsuario;
-    }    
-
-    public int getIdUsuario() {
-        return IdUsuario;
     }
 
-    public void setIdUsuario(int IdUsuario) {
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario) {
         this.IdUsuario = IdUsuario;
-    }
-
-    public String getNombreUsuario() {
-        return NombreUsuario;
-    }
-
-    public void setNombreUsuario(String NombreUsuario) {
         this.NombreUsuario = NombreUsuario;
-    }
-
-    public String getContrasenaUsuario() {
-        return ContrasenaUsuario;
-    }
-
-    public void setContrasenaUsuario(String ContrasenaUsuario) {
         this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
     }
+
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+        this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+        this.EstatusUsuario = EstatusUsuario;
+    }
+
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+        this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+        this.EstatusUsuario = EstatusUsuario;
+        this.NombreRealUsuario = NombreRealUsuario;
+    }
+
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+        this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+        this.EstatusUsuario = EstatusUsuario;
+        this.NombreRealUsuario = NombreRealUsuario;
+        this.CorreoUsuario = CorreoUsuario;
+    }
+
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+        this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+        this.EstatusUsuario = EstatusUsuario;
+        this.NombreRealUsuario = NombreRealUsuario;
+        this.CorreoUsuario = CorreoUsuario;
+        this.TelefonoUsuario = TelefonoUsuario;
+    }
+
+    public clsUsuario(int IdUsuario, String NombreUsuario, String ContrasenaUsuario, long UltimaSesionUsuario, String EstatusUsuario, String NombreRealUsuario, String CorreoUsuario, String TelefonoUsuario, String DireccionUsuario) {
+        this.IdUsuario = IdUsuario;
+        this.NombreUsuario = NombreUsuario;
+        this.ContrasenaUsuario = ContrasenaUsuario;
+        this.UltimaSesionUsuario = UltimaSesionUsuario;
+        this.EstatusUsuario = EstatusUsuario;
+        this.NombreRealUsuario = NombreRealUsuario;
+        this.CorreoUsuario = CorreoUsuario;
+        this.TelefonoUsuario = TelefonoUsuario;
+        this.DireccionUsuario = DireccionUsuario;
+    }
+    
     @Override
     public String toString() {
         return "clsUsuario{" + "IdUsuario=" + IdUsuario + ", NombreUsuario=" + NombreUsuario + ", ContrasenaUsuario=" + ContrasenaUsuario + '}';
