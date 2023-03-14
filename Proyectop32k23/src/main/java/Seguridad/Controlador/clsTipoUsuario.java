@@ -56,39 +56,37 @@ public class clsTipoUsuario {
 
     public clsTipoUsuario() {
     }
-
-    
     
     //Metodos de acceso a la capa controlador
     public clsTipoUsuario getBuscarInformacionTipoUsuarioPorNombre(clsTipoUsuario tipoUsuario)
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        return daotipoUsuario.consultaAplicacionPorNombre(tipoUsuario);
+        return daotipoUsuario.consultaTipoPorNombre(tipoUsuario);
     }
     public clsTipoUsuario getBuscarInformacionTipoUsuarioPorId(clsTipoUsuario tipoUsuario)
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        return daotipoUsuario.consultaAplicacionPorId(tipoUsuario);
-    }    
+        return daotipoUsuario.consultaTipoPorId(tipoUsuario);
+    }
     public List<clsTipoUsuario> getListadoTipoUsuarios()
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        List<clsTipoUsuario> listadoTipoUsuarios = daotipoUsuario.consultaAplicacion();
+        List<clsTipoUsuario> listadoTipoUsuarios = daotipoUsuario.consultaTipo();
         return listadoTipoUsuarios;
     }
     public int setBorrarTipoUsuario(clsTipoUsuario tipoUsuario)
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        return daotipoUsuario.borrarAplicacion(tipoUsuario);
-    }          
+        return daotipoUsuario.borrarTipo(tipoUsuario);
+    }
     public int setIngresarTipoUsuario(clsTipoUsuario tipoUsuario)
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        return daotipoUsuario.ingresaAplicacion(tipoUsuario);
+        return daotipoUsuario.ingresaTipo(tipoUsuario);
     }              
     public int setModificarTipoUsuario(clsTipoUsuario tipoUsuario)
     {
         daoTipoUsuario daotipoUsuario = new daoTipoUsuario();
-        return daotipoUsuario.actualizaAplicacion(tipoUsuario);
-    }              
+        return daotipoUsuario.actualizaTipo(tipoUsuario);
+    }
 }
