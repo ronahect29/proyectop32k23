@@ -141,7 +141,7 @@ public class frmLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 
                     "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
 
-                    MdiGeneral menuGeneral = new MdiGeneral();
+                    MdiSeguridad menuGeneral = new MdiSeguridad();
                     menuGeneral.setVisible(true);
                     this.dispose();
 
