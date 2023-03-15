@@ -35,13 +35,15 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre Modulo");
         modelo.addColumn("Estatus Modulo");
        
+
         clsModulo modulos = new clsModulo();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsModulo> listamodulos = modulos.getListadoModulos();
+        List<clsModulo> listamodulos = modulos.getListadoModulo();
+     
         tablaModulos.setModel(modelo);
         String[] dato = new String[10];
         for (int i = 0; i < listamodulos.size(); i++) {
-            dato[0] = Integer.toString(listamodulos.get(i).getIdModulos());
+            dato[0] = Integer.toString(listamodulos.get(i).getIdModulo());
             dato[1] = listamodulos.get(i).getNombreModulo();
             dato[2] = listamodulos.get(i).getEstatusModulo();
             modelo.addRow(dato);
@@ -278,8 +280,9 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int registrosBorrados=0;
         clsModulo modulos= new clsModulo();
-        modulos.setIdUsuario(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=modulos.setBorrarModulos(modulos);
+        modulos.setIdModulo(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=modulos.setBorrarModulo(modulos);
+
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -290,8 +293,10 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         clsModulo modulo = new clsModulo();
         modulo.setNombreModulo(txtNombre.getText());
         //modulos.setIdModulos(txtContrasena.getText());
-        modulo. setEstatusModulos(txtEstatus.getText());
-        modulo.setIngresarUsuario(modulo);
+
+        modulo. setEstatusModulo(txtEstatus.getText());
+        modulo.setIngresarModulo(modulo);
+
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -302,21 +307,25 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
-        modulo.setIdModulos(Integer.parseInt(txtbuscado.getText()));        
-        modulo = modulo.getBuscarInformacionModulosPorId(modulo);
+
+        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));        
+        modulo = modulo.getBuscarInformacionModuloPorId(modulo);
         System.out.println("Modulo retornado:" + modulo);        
-        txtNombre.setText(modulo.getNombreModulos());
+        txtNombre.setText(modulo.getNombreModulo());
         //txtContrasena.setText(modulos.getIdModulos());
-        txtEstatus.setText(modulo.getEstatusUsuario());
+        txtEstatus.setText(modulo.getEstatusModulo());
+
        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
         clsModulo modulo = new clsModulo();
-        modulo.setIdModulos(Integer.parseInt(txtbuscado.getText()));
-        modulo.setNombreModulos(txtNombre.getText());
-        modulo.setEstatusModulos(txtEstatus.getText());
+
+        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));
+        modulo.setNombreModulo(txtNombre.getText());
+        modulo.setEstatusModulo(txtEstatus.getText());
+
         modulo.setModificarModulo(modulo);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
