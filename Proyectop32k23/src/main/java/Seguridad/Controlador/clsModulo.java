@@ -57,7 +57,6 @@ public class clsModulo {
     public clsModulo() {
     }
 
-
     @Override
     public String toString() {
         return "clsModulo{" + "IdModulo=" + IdModulo + ", NombreModulo=" + NombreModulo + ", EstatusModulo=" + EstatusModulo + '}';
