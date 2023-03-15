@@ -6,7 +6,7 @@
 package Seguridad.Vista;
 
 
-import Seguridad.Controlador.clsModulos;
+import Seguridad.Controlador.clsModulo;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -35,13 +35,13 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre Modulo");
         modelo.addColumn("Estatus Modulo");
        
-        clsModulos modulos = new clsModulos();
+        clsModulo modulo = new clsModulo();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsModulos> listamodulos = modulos.getListadoModulos();
+        List<clsModulo> listamodulos = modulo.getListadoModulo();
         tablaModulos.setModel(modelo);
         String[] dato = new String[10];
         for (int i = 0; i < listamodulos.size(); i++) {
-            dato[0] = Integer.toString(listamodulos.get(i).getIdModulos());
+            dato[0] = Integer.toString(listamodulos.get(i).getIdModulo());
             dato[1] = listamodulos.get(i).getNombreModulo();
             dato[2] = listamodulos.get(i).getEstatusModulo();
             modelo.addRow(dato);
@@ -277,9 +277,9 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsModulos modulos= new clsModulos();
-        modulos.setIdUsuario(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=modulos.setBorrarModulos(modulos);
+        clsModulo modulos= new clsModulo();
+        modulos.setIdModulo(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=modulos.setBorrarModulo(modulos);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -287,11 +287,11 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsModulos modulos = new clsModulos();
-        modulos.setNombreModulo(txtNombre.getText());
+        clsModulo modulo = new clsModulo();
+        modulo.setNombreModulo(txtNombre.getText());
         //modulos.setIdModulos(txtContrasena.getText());
-        modulos. setEstatusModulos(txtEstatus.getText());
-        modulos.setIngresarUsuario(modulos);
+        modulo. setEstatusModulo(txtEstatus.getText());
+        modulo.setIngresarModulo(modulo);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -300,24 +300,24 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        clsModulos modulos = new clsModulos();
+        clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
-        modulos.setIdModulos(Integer.parseInt(txtbuscado.getText()));        
-        modulos = modulos.getBuscarInformacionModulosPorId(modulos);
-        System.out.println("Modulo retornado:" + modulos);        
-        txtNombre.setText(modulos.getNombreModulos());
+        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));        
+        modulo = modulo.getBuscarInformacionModuloPorId(modulo);
+        System.out.println("Modulo retornado:" + modulo);        
+        txtNombre.setText(modulo.getNombreModulo());
         //txtContrasena.setText(modulos.getIdModulos());
-        txtEstatus.setText(modulos.getEstatusUsuario());
+        txtEstatus.setText(modulo.getEstatusModulo());
        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsModulos modulos = new clsModulos();
-        modulos.setIdModulos(Integer.parseInt(txtbuscado.getText()));
-        modulos.setNombreModulos(txtNombre.getText());
-        modulos.setEstatusModulos(txtEstatus.getText());
-        modulos.setModificarModulo(modulos);
+        clsModulo modulo = new clsModulo();
+        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));
+        modulo.setNombreModulo(txtNombre.getText());
+        modulo.setEstatusModulo(txtEstatus.getText());
+        modulo.setModificarModulo(modulo);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
