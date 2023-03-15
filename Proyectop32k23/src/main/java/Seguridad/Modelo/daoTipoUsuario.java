@@ -34,9 +34,9 @@ public class daoTipoUsuario {
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
+                int id = rs.getInt("tipuid");
+                String nombre = rs.getString("tipunombre");
+                String estatus = rs.getString("tipuestatus");
                 clsTipoUsuario tipousuario = new clsTipoUsuario();
                 tipousuario.setIdTipoUsuario(id);
                 tipousuario.setNombreTipoUsuario(nombre);
@@ -135,9 +135,9 @@ public class daoTipoUsuario {
             stmt.setString(1, tipousuario.getNombreTipoUsuario());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
+                int id = rs.getInt("tipuid");
+                String nombre = rs.getString("tipunombre");
+                String estatus = rs.getString("tipuestatus");
 
                 //aplicacion = new clsAplicacion();
                 tipousuario.setIdTipoUsuario(id);
@@ -169,9 +169,9 @@ public class daoTipoUsuario {
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
+                int id = rs.getInt("tipuid");
+                String nombre = rs.getString("tipunombre");
+                String estatus = rs.getString("tipuestatus");
 
                 //aplicacion = new clsAplicacion();
                 tipousuario.setIdTipoUsuario(id);
