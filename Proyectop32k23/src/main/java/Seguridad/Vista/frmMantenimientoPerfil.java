@@ -40,7 +40,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
         modelo.addColumn("Estatus");
         clsPerfil perfil = new clsPerfil();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsPerfiles> listaPerfiles = perfil.getListadoPerfil();
+        List<clsPerfil> listaPerfiles = perfil.getListadoPerfiles();
         tablaUsuarios.setModel(modelo);
         String[] dato = new String[3];
         for (int i = 0; i < listaPerfiles.size(); i++) {
@@ -93,7 +93,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Aplicaciones");
+        setTitle("Mantenimiento Perfiles");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -118,7 +118,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Aplicaciones");
+        label1.setText("Perfil");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +230,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 562, Short.MAX_VALUE))
+                        .addGap(294, 612, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
                         .addContainerGap())))
