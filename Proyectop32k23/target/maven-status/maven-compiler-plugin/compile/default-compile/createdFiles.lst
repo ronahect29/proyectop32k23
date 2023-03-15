@@ -1,15 +1,22 @@
 Seguridad\Controlador\clsAplicacion.class
 Seguridad\Controlador\clsUsuario.class
+<<<<<<< HEAD
 Seguridad\Vista\frmMantenimientoBitacora$3.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$4.class
 Seguridad\Controlador\clsTipoUsuario.class
 Seguridad\Vista\frmMantenimientoUsuario$8.class
+=======
+Seguridad\Vista\MdiGeneral.class
+Seguridad\Vista\frmMantenimientoUsuario$8.class
+Seguridad\Vista\MdiGeneral$2.class
+>>>>>>> e29cb2f2b04b7c8bb9e356452ecb5dfd92015c79
 Seguridad\Vista\frmLogin$3.class
 Seguridad\Vista\frmMantenimientoAplicacion.class
 Seguridad\Vista\frmMantenimientoUsuario$1.class
 Seguridad\Vista\frmMantenimientoUsuario$3.class
 Seguridad\Vista\frmMantenimientoUsuario$6.class
 Seguridad\Vista\frmMantenimientoAplicacion$4.class
+<<<<<<< HEAD
 Seguridad\Vista\frmMantenimientoTipoUsuario$7.class
 Seguridad\Vista\frmLogin$1.class
 Seguridad\Vista\frmMantenimientoAplicacion$1.class
@@ -25,10 +32,22 @@ Seguridad\Vista\frmMantenimientoUsuario$7.class
 Seguridad\Controlador\clsBitacora.class
 Seguridad\Vista\frmLogin.class
 Seguridad\Vista\frmMantenimientoBitacora$2.class
+=======
+Seguridad\Vista\frmLogin$1.class
+Seguridad\Vista\frmMantenimientoAplicacion$1.class
+Seguridad\Vista\frmMantenimientoUsuario$5.class
+Seguridad\Vista\frmMantenimientoAplicacion$6.class
+Seguridad\Modelo\daoAplicacion.class
+Seguridad\Vista\MdiGeneral$4.class
+Seguridad\Vista\frmLogin$4.class
+Seguridad\Vista\frmMantenimientoUsuario$7.class
+Seguridad\Vista\frmLogin.class
+>>>>>>> e29cb2f2b04b7c8bb9e356452ecb5dfd92015c79
 Seguridad\Vista\frmMantenimientoAplicacion$5.class
 Seguridad\Vista\frmLogin$2.class
 Seguridad\Vista\frmMantenimientoAplicacion$3.class
 Seguridad\Modelo\daoUsuario.class
+<<<<<<< HEAD
 Seguridad\Vista\frmMantenimientoAplicacion$8.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$5.class
 Seguridad\Vista\frmMantenimientoUsuario$2.class
@@ -42,4 +61,16 @@ Seguridad\Vista\frmMantenimientoBitacora$1.class
 Seguridad\Vista\frmMantenimientoUsuario.class
 Seguridad\Vista\frmMantenimientoAplicacion$2.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$3.class
+=======
+Seguridad\Vista\MdiGeneral$1.class
+Seguridad\Vista\frmMantenimientoAplicacion$8.class
+Seguridad\Vista\MdiGeneral$6.class
+Seguridad\Vista\frmMantenimientoUsuario$2.class
+Seguridad\Vista\MdiGeneral$5.class
+Seguridad\Modelo\Conexion.class
+Seguridad\Vista\frmMantenimientoAplicacion$7.class
+Seguridad\Vista\MdiGeneral$3.class
+Seguridad\Vista\frmMantenimientoUsuario.class
+Seguridad\Vista\frmMantenimientoAplicacion$2.class
+>>>>>>> e29cb2f2b04b7c8bb9e356452ecb5dfd92015c79
 Seguridad\Vista\frmMantenimientoUsuario$4.class

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Controlador\clsUsuario.java
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Controlador\clsUsuarioConectado.java
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Modelo\daoUsuario.java
@@ -13,3 +14,14 @@ C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\mai
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Controlador\clsTipoUsuario.java
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Modelo\daoAplicacion.java
 C:\Users\visitante\Proyectos\didactica2k23\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Vista\frmMantenimientoBitacora.java
+=======
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Modelo\daoUsuario.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Vista\MdiGeneral.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Controlador\clsAplicacion.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Modelo\daoAplicacion.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Vista\frmLogin.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Controlador\clsUsuario.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Vista\frmMantenimientoAplicacion.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Modelo\Conexion.java
+C:\Users\vjere\Proyectos3\Proyecto\proyectop32k23\Proyectop32k23\src\main\java\Seguridad\Vista\frmMantenimientoUsuario.java
+>>>>>>> e29cb2f2b04b7c8bb9e356452ecb5dfd92015c79

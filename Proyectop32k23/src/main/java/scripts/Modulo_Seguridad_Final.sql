@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS tbl_usuario (
     FOREIGN KEY (tipuid) REFERENCES tbl_tipousuario (tipuid)
     )
 ENGINE = InnoDB CHARACTER SET = latin1;
-DROP TABLE tbl_usuario;
+//DROP TABLE tbl_usuario;
 CREATE TABLE IF NOT EXISTS tbl_perfil (
     perid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pernombre VARCHAR(30) NOT NULL,
