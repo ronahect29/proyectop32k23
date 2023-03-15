@@ -16,12 +16,12 @@ import java.util.List;
  */
 public class daoUsuario {
 
-    private static final String SQL_SELECT = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario";
-    private static final String SQL_INSERT = "INSERT INTO tbl_usuario(usunombre, usucontrasena) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_usuario SET usunombre=?, usucontrasena=? WHERE usuid = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_usuario WHERE usuid=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario WHERE usunombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT usuid, usunombre, usucontrasena FROM tbl_usuario WHERE usuid = ?";    
+    private static final String SQL_SELECT = "SELECT usuid, usunombre, usucontrasena FROM proyectop312023.tbl_usuario";
+    private static final String SQL_INSERT = "INSERT INTO proyectop312023.tbl_usuario(usunombre, usucontrasena) VALUES(?, ?)";
+    private static final String SQL_UPDATE = "UPDATE proyectop312023.tbl_usuario SET usunombre=?, usucontrasena=? WHERE usuid = ?";
+    private static final String SQL_DELETE = "DELETE FROM proyectop312023.tbl_usuario WHERE usuid=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT usuid, usunombre, usucontrasena FROM proyectop312023.tbl_usuario WHERE usunombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT usuid, usunombre, usucontrasena FROM proyectop312023.tbl_usuario WHERE usuid = ?";    
 
     public List<clsUsuario> consultaUsuarios() {
         Connection conn = null;
