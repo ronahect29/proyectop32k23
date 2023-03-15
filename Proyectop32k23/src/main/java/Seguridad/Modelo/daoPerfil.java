@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+//Meyglin del Rosario Rosales Ochoa Carne: 9959-21-4490
 package Seguridad.Modelo;
 
-import Seguridad.Controlador.clsAplicacion;
+import Seguridad.Controlador.clsPerfil;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,32 +20,38 @@ import java.util.List;
  */
 public class daoPerfil {
 
-    private static final String SQL_SELECT = "SELECT aplid, aplnombre, aplestatus FROM tbl_aplicacion";
-    private static final String SQL_INSERT = "INSERT INTO tbl_aplicacion(aplnombre, aplestatus) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_aplicacion SET aplnombre=?, aplestatus=? WHERE aplid = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_aplicacion WHERE aplid=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT aplid, aplnombre, aplestatus FROM tbl_aplicacion WHERE aplnombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT aplid, aplnombre, aplestatus FROM tbl_aplicacion WHERE aplid = ?";    
 
-    public List<clsAplicacion> consultaAplicacion() {
+    private static final String SQL_SELECT = "SELECT perid, pernombre, perestatus FROM tbl_perfil";
+    private static final String SQL_INSERT = "INSERT INTO tbl_perfil(pernombre, perestatus) VALUES(?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_perfil SET pernombre=?, perestatus=? WHERE perid = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_perfil WHERE perid=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT perid, pernombre, perestatus FROM tbl_perfil WHERE pernombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT perid, pernombre, perestatus FROM tbl_perfil WHERE perid = ?";    
+
+    public List<clsPerfil> consultaPerfil() {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<clsAplicacion> aplicaciones = new ArrayList<>();
+
+        List<clsPerfil> perfiles = new ArrayList<>();
+
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
-                clsAplicacion aplicacion = new clsAplicacion();
-                aplicacion.setIdAplicacion(id);
-                aplicacion.setNombreAplicacion(nombre);
-                aplicacion.setEstatusAplicacion(estatus);
-                aplicaciones.add(aplicacion);
+
+                int id = rs.getInt("perid");
+                String nombre = rs.getString("pernombre");
+                String estatus = rs.getString("perestatus");
+                clsPerfil perfil = new clsPerfil();
+                perfil.setIdPerfil(id);
+                perfil.setNombrePerfil(nombre);
+                perfil.setEstatusPerfil(estatus);
+                perfiles.add(perfil);
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -50,18 +60,22 @@ public class daoPerfil {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return aplicaciones;
+
+        return perfiles;
     }
 
-    public int ingresaAplicacion(clsAplicacion aplicacion) {
+    public int ingresaPerfil(clsPerfil perfil) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, aplicacion.getNombreAplicacion());
-            stmt.setString(2, aplicacion.getEstatusAplicacion());
+
+            stmt.setString(1, perfil.getNombrePerfil());
+            stmt.setString(2, perfil.getEstatusPerfil());
+
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -76,7 +90,9 @@ public class daoPerfil {
         return rows;
     }
 
-    public int actualizaAplicacion(clsAplicacion aplicacion) {
+
+    public int actualizaPerfil(clsPerfil perfil) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -84,9 +100,11 @@ public class daoPerfil {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, aplicacion.getNombreAplicacion());
-            stmt.setString(2, aplicacion.getEstatusAplicacion());
-            stmt.setInt(3, aplicacion.getIdAplicacion());
+
+            stmt.setString(1, perfil.getNombrePerfil());
+            stmt.setString(2, perfil.getEstatusPerfil());
+            stmt.setInt(3, perfil.getIdPerfil());
+
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -101,7 +119,9 @@ public class daoPerfil {
         return rows;
     }
 
-    public int borrarAplicacion(clsAplicacion aplicacion) {
+
+    public int borrarPerfil(clsPerfil perfil) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -110,7 +130,9 @@ public class daoPerfil {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, aplicacion.getIdAplicacion());
+
+            stmt.setInt(1, perfil.getIdPerfil());
+
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -123,27 +145,31 @@ public class daoPerfil {
         return rows;
     }
 
-    public clsAplicacion consultaAplicacionPorNombre(clsAplicacion aplicacion) {
+
+    public clsPerfil consultaPerfilPorNombre(clsPerfil perfil) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + aplicacion);
+
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
-            //stmt.setInt(1, aplicacion.getIdAplicacion());            
-            stmt.setString(1, aplicacion.getNombreAplicacion());
+            //stmt.setInt(1, perfil.getIdPerfil());            
+            stmt.setString(1, perfil.getNombrePerfil());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
+                int id = rs.getInt("perid");
+                String nombre = rs.getString("pernombre");
+                String estatus = rs.getString("perestatus");
 
-                //aplicacion = new clsAplicacion();
-                aplicacion.setIdAplicacion(id);
-                aplicacion.setNombreAplicacion(nombre);
-                aplicacion.setEstatusAplicacion(estatus);
-                System.out.println(" registro consultado: " + aplicacion);                
+                //perfil = new clsPerfil();
+                perfil.setIdPerfil(id);
+                perfil.setNombrePerfil(nombre);
+                perfil.setEstatusPerfil(estatus);
+                System.out.println(" registro consultado: " + perfil);                
+
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -155,29 +181,33 @@ public class daoPerfil {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return aplicacion;
+
+        return perfil;
     }
-    public clsAplicacion consultaAplicacionPorId(clsAplicacion aplicacion) {
+    public clsPerfil consultaPerfilPorId(clsPerfil perfil) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + aplicacion);
+
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, aplicacion.getIdAplicacion());            
-            //stmt.setString(1, aplicacion.getNombreAplicacion());
+            stmt.setInt(1, perfil.getIdPerfil());            
+            //stmt.setString(1, perfil.getNombrePerfil());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("aplid");
-                String nombre = rs.getString("aplnombre");
-                String estatus = rs.getString("aplestatus");
+                int id = rs.getInt("perid");
+                String nombre = rs.getString("pernombre");
+                String estatus = rs.getString("perestatus");
 
-                //aplicacion = new clsAplicacion();
-                aplicacion.setIdAplicacion(id);
-                aplicacion.setNombreAplicacion(nombre);
-                aplicacion.setEstatusAplicacion(estatus);
-                System.out.println(" registro consultado: " + aplicacion);                
+                //perfil = new clsPerfil();
+                perfil.setIdPerfil(id);
+                perfil.setNombrePerfil(nombre);
+                perfil.setEstatusPerfil(estatus);
+                System.out.println(" registro consultado: " + perfil);                
+
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -189,6 +219,8 @@ public class daoPerfil {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return aplicacion;
+
+        return perfil;
+
     }    
 }
