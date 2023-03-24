@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
 import Seguridad.Controlador.clsBitacora;
+import Seguridad.Controlador.clsPerfil;
 
 /**
  *
@@ -65,8 +66,9 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
           modelo.addColumn("Id Aplicacion");
            modelo.addColumn("IP");
             modelo.addColumn("Nombre PC");
-        daoBitacora aplicacionDAO = new daoBitacora();
-       List<clsBitacora> aplicaciones = aplicacionDAO.query(Primerafecha, Segundafecha);
+        clsBitacora bitacora = new clsBitacora();
+        //VendedorDAO vendedorDAO = new VendedorDAO();
+        List<clsBitacora> aplicaciones = bitacora.getListadoBitacora(Primerafecha, Segundafecha);
         tablaAplicaciones.setModel(modelo);
         String[] dato = new String[7];
         for (int i = 0; i < aplicaciones.size(); i++) {

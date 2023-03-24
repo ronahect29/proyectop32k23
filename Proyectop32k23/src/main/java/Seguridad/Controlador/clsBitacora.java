@@ -5,6 +5,13 @@
  */
 package Seguridad.Controlador;
 
+import Seguridad.Modelo.daoBitacora;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+
 /**
  *
  * @author visitante
@@ -97,4 +104,15 @@ public class clsBitacora {
     public String toString() {
         return "clsBitacora{" + "IdBitacora=" + IdBitacora + ", FechaBitacora=" + FechaBitacora + ", AccionBitacora=" + AccionBitacora + ", IpBitacora=" + IpBitacora + ", IdUsuario=" + IdUsuario + ", IdAplicacion=" + IdAplicacion + ", NombrePcBitacora=" + NombrePcBitacora + '}';
     }
+    public int setIngresarBitacora(int codigoUsuario, int codigoAplicacion, String accion)
+    {
+        daoBitacora daobitacora = new daoBitacora();
+        return daobitacora.insert(codigoUsuario, codigoAplicacion, accion);
+    }                  
+    public List<clsBitacora> getListadoBitacora(String primeraFecha, String segundaFecha) throws ParseException
+    {
+        daoBitacora daobitacora = new daoBitacora();
+        List<clsBitacora> listadoBitacora = daobitacora.query(primeraFecha, segundaFecha);
+        return listadoBitacora;
+    }    
 }

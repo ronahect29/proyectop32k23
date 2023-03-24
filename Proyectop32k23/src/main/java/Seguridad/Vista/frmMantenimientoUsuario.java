@@ -440,7 +440,7 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         clsUsuario usuario = new clsUsuario();
         //usuario.setNombreUsuario(txtbuscado.getText());        
         usuario.setIdUsuario(Integer.parseInt(txtbuscado.getText()));        

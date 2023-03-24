@@ -37,7 +37,8 @@ public class daoBitacora {
     public String fechaActual() {
 
         java.util.Date fecha = new java.util.Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+        //SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY/MM/dd HH:mm:ss");
 
         return formatoFecha.format(fecha);
 
@@ -52,8 +53,9 @@ public class daoBitacora {
 
     }
     
-    private String obtenerNombrePc(){
-        return System.getProperty("user.name");
+    private String obtenerNombrePc() throws UnknownHostException {
+        // return System.getProperty("user.name");        
+        return InetAddress.getLocalHost().getHostName();
     }
             
     private String obtenerIP() throws UnknownHostException {
@@ -117,11 +119,11 @@ public class daoBitacora {
         try {
             conn = Conexion.getConnection();
             try {
-               ipAsignada= obtenerIP();
+                   ipAsignada= obtenerIP();
+                   nombrepcAsignada= obtenerNombrePc();            
             } catch (UnknownHostException ex)
-            {
-            }
-            nombrepcAsignada= obtenerNombrePc();            
+                {
+                }               
             stmt = conn.prepareStatement(SQL_INSERT);
                        
             stmt.setString(1, fechaActual());
@@ -145,6 +147,7 @@ public class daoBitacora {
  // Modificacion acceso a Bitacora  
     public List<clsBitacora> query( String primeraFecha, String segundaFecha )
     {
+        System.out.println("Fechas recibidas : " + primeraFecha + " " + segundaFecha);        
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
