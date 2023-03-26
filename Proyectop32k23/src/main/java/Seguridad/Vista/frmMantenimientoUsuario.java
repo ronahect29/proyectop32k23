@@ -439,6 +439,7 @@ int codigoAplicacion=110;
         usuario.setIngresarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -461,7 +462,7 @@ int codigoAplicacion=110;
         txtTipoUsuario.setText(Integer.toString(usuario.getTipoUsuario()));
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "INS");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "REA");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
