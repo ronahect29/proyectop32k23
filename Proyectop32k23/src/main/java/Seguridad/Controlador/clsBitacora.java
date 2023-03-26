@@ -108,7 +108,10 @@ public class clsBitacora {
     {
         daoBitacora daobitacora = new daoBitacora();
         return daobitacora.insert(codigoUsuario, codigoAplicacion, accion);
-    }                  
+    }
+    public int setIngresaUsuarioBitacora(int codigoUsuario, int cdofigoAplicacion, String accion){
+        
+    }
     public List<clsBitacora> getListadoBitacora(String primeraFecha, String segundaFecha) throws ParseException
     {
         daoBitacora daobitacora = new daoBitacora();

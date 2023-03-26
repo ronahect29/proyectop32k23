@@ -6,6 +6,7 @@
 package Seguridad.Vista;
 
 
+import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuario;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -14,11 +15,14 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author visitante
  */
 public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
+    
+int codigoAplicacion=110;
 
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
@@ -455,6 +459,9 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
         txtTelefono.setText(usuario.getTelefonoUsuario());
         txtDireccion.setText(usuario.getDireccionUsuario());
         txtTipoUsuario.setText(Integer.toString(usuario.getTipoUsuario()));
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "INS");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed

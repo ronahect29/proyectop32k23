@@ -1,5 +1,4 @@
 Seguridad\Controlador\clsUsuario.class
-Seguridad\Vista\frmMantenimientoBitacora$3.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$4.class
 Seguridad\Controlador\clsTipoUsuario.class
 Seguridad\Vista\frmMantenimientoUsuario$8.class
@@ -9,16 +8,13 @@ Seguridad\Vista\frmMantenimientoAplicacion.class
 Seguridad\Vista\MdiSeguridad$2.class
 Seguridad\Vista\frmMantenimientoUsuario$1.class
 Seguridad\Vista\frmMantenimientoPerfil.class
-Seguridad\Controlador\clsPerfil.class
 Seguridad\Vista\frmMantenimientoAplicacion$4.class
 Seguridad\Vista\frmMantenimientoPerfil$8.class
 Seguridad\Vista\frmMantenimientoModulos$3.class
-Seguridad\Modelo\daoPerfil.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$7.class
 Seguridad\Vista\frmLogin$1.class
 Seguridad\Vista\frmMantenimientoAplicacion$1.class
 Seguridad\Vista\frmMantenimientoModulos$6.class
-Seguridad\Vista\frmMantenimientoBitacora.class
 Seguridad\Vista\MdiSeguridad$5.class
 Seguridad\Vista\frmMantenimientoUsuario$5.class
 Seguridad\Vista\frmMantenimientoPerfil$5.class
@@ -36,10 +32,8 @@ Seguridad\Vista\frmMantenimientoAplicacion$8.class
 Seguridad\Vista\MdiSeguridad$8.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$5.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$1.class
-Seguridad\Modelo\daoBitacora.class
 Seguridad\Vista\MdiSeguridad$4.class
 Seguridad\Modelo\daoModulo.class
-Seguridad\Vista\frmMantenimientoBitacora$1.class
 Seguridad\Vista\frmMantenimientoUsuario.class
 Seguridad\Vista\frmMantenimientoAplicacion$2.class
 Seguridad\Vista\frmMantenimientoModulos$5.class
@@ -57,10 +51,8 @@ Seguridad\Vista\frmMantenimientoPerfil$7.class
 Seguridad\Vista\frmMantenimientoAplicacion$6.class
 Seguridad\Vista\frmMantenimientoModulos$1.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$2.class
-.netbeans_automatic_build
 Seguridad\Controlador\clsUsuarioConectado.class
 Seguridad\Controlador\clsBitacora.class
-Seguridad\Vista\frmMantenimientoBitacora$2.class
 Seguridad\Vista\frmMantenimientoModulos$4.class
 Seguridad\Vista\frmLogin$2.class
 Seguridad\Vista\frmMantenimientoAplicacion$3.class
@@ -70,7 +62,6 @@ Seguridad\Vista\frmMantenimientoPerfil$4.class
 Seguridad\Vista\frmMantenimientoUsuario$2.class
 Seguridad\Vista\frmMantenimientoModulos.class
 Seguridad\Modelo\daoTipoUsuario.class
-Seguridad\Modelo\Conexion.class
 Seguridad\Vista\frmMantenimientoAplicacion$7.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$6.class
 Seguridad\Vista\MdiSeguridad$6.class
