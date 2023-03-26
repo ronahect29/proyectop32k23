@@ -439,7 +439,9 @@ int codigoAplicacion=110;
         usuario.setIngresarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
