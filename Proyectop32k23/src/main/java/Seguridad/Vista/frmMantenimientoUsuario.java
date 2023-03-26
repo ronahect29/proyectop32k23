@@ -481,6 +481,11 @@ int codigoAplicacion=110;
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "UPD");
+        
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
 
