@@ -12,7 +12,7 @@ package Seguridad.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsPerfil;
-import Seguridad.Controlador.clsBitacora;
+import Seguridad.Controlador.clsUsuarioConectado;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -291,9 +291,10 @@ int codigoAplicacion = 114;
         registrosBorrados=perfil.setBorrarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        clsUsuarioConectado usuario = new clsUsuarioConectado();
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(),codigoAplicacion,"DEL"); 
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(),codigoAplicacion,"DEL"); 
         llenadoDeTablas();
         limpiarTextos();
         
@@ -307,10 +308,10 @@ int codigoAplicacion = 114;
         perfil.setIngresarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        
+        clsUsuarioConectado usuario = new clsUsuarioConectado();
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "INS");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
         
@@ -325,10 +326,10 @@ int codigoAplicacion = 114;
         System.out.println("Usuario retornado:" + perfil);        
         txtNombre.setText(perfil.getNombrePerfil());
         txtContrasena.setText(perfil.getEstatusPerfil());
-        
+        clsUsuarioConectado usuario = new clsUsuarioConectado();
          int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "READ");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "READ");
                  
         
         
@@ -343,9 +344,10 @@ int codigoAplicacion = 114;
         perfil.setModificarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
+        clsUsuarioConectado usuario = new clsUsuarioConectado();
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "UPD");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
