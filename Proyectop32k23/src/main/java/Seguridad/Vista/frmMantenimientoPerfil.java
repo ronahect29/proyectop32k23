@@ -12,6 +12,7 @@ package Seguridad.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsPerfil;
+import Seguridad.Controlador.clsBitacora;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -53,6 +54,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
 
 
     }
+
 int codigoAplicacion = 114;
 
     public frmMantenimientoPerfil() {
@@ -304,8 +306,13 @@ int codigoAplicacion = 114;
         perfil.setIngresarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
