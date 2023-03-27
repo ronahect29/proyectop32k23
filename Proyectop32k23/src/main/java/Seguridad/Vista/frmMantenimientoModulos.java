@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import Seguridad.Controlador.clsBitacora;
 
 /**
  *
@@ -301,6 +302,9 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
         limpiarTextos();
+        int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "INS");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -320,6 +324,9 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
+int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
 
         modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));
