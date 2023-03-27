@@ -426,7 +426,7 @@ int codigoAplicacion=10;
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "DEL");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
         
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
