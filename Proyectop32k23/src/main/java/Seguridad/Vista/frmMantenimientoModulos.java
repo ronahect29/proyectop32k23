@@ -14,6 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsBitacora;
+import Seguridad.Controlador.clsUsuarioConectado;
+
 
 /**
  *
@@ -304,7 +306,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         limpiarTextos();
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "INS");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -326,7 +328,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 //        // TODO add your handling code here:
 int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
 
         modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));
