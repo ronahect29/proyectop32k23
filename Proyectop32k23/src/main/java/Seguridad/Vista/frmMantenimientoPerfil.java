@@ -12,6 +12,7 @@ package Seguridad.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsPerfil;
+import Seguridad.Controlador.clsBitacora;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -50,10 +51,13 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
             dato[2] = listaPerfiles.get(i).getEstatusPerfil();
             modelo.addRow(dato);
         }       
+
+
     }
 
-    
-    int codigoAplicacion = 114; 
+
+int codigoAplicacion = 114;
+
     public frmMantenimientoPerfil() {
         initComponents();
         llenadoDeTablas();
@@ -287,8 +291,13 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
         registrosBorrados=perfil.setBorrarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(),codigoAplicacion,"DEL"); 
         llenadoDeTablas();
         limpiarTextos();
+        
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -298,8 +307,13 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
         perfil.setIngresarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
