@@ -55,6 +55,7 @@ public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
 
     }
 
+
 int codigoAplicacion = 114;
 
     public frmMantenimientoPerfil() {
@@ -324,6 +325,13 @@ int codigoAplicacion = 114;
         System.out.println("Usuario retornado:" + perfil);        
         txtNombre.setText(perfil.getNombrePerfil());
         txtContrasena.setText(perfil.getEstatusPerfil());
+        
+         int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "READ");
+                 
+        
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
