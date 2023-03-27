@@ -13,12 +13,8 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
-=======
-
->>>>>>> 4e7699334e383232a9a63228ba7364ea0dd3c861
 /**
  *
  * @author visitante
