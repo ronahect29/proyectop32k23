@@ -13,13 +13,12 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author visitante
  */
 public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
-
+int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
         List<Empleado> empleados = empleadoDAO.select();
@@ -279,9 +278,15 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
+        
         clsModulo modulos= new clsModulo();
         modulos.setIdModulo(Integer.parseInt(txtbuscado.getText()));
         registrosBorrados=modulos.setBorrarModulo(modulos);
+        
+         // Registro de Bitacora en boton eliminar
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "DEL");
 
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -334,6 +339,11 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+         // Registro de Bitacora en boton limpiar
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "DEL");
+        
         limpiarTextos();
         habilitarBotones();
         // TODO add your handling code here:
