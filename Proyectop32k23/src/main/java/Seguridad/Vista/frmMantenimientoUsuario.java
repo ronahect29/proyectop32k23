@@ -8,6 +8,7 @@ package Seguridad.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuario;
+import Seguridad.Controlador.clsUsuarioConectado;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -425,7 +426,7 @@ int codigoAplicacion=110;
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "DEL");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "DEL");
         
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -446,7 +447,7 @@ int codigoAplicacion=110;
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "INS");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -469,7 +470,7 @@ int codigoAplicacion=110;
         txtTipoUsuario.setText(Integer.toString(usuario.getTipoUsuario()));
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "REA");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "REA");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -492,7 +493,7 @@ int codigoAplicacion=110;
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuario.getIdUsuario(), codigoAplicacion, "UPD");
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
         
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
