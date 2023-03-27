@@ -7,6 +7,7 @@ package Seguridad.Vista;
 
 
 import Seguridad.Controlador.clsModulo;
+import Seguridad.Controlador.clsBitacora;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -15,14 +16,17 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0163777444870687737655635e2dc0b0324d2f7a
 /**
  *
  * @author visitante
  */
 public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
-
+int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
         List<Empleado> empleados = empleadoDAO.select();
@@ -82,7 +86,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaModulos = new javax.swing.JTable();
         lb = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnAyuda = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
         label9 = new javax.swing.JLabel();
@@ -134,7 +138,6 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtNombre.setOpaque(false);
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -165,10 +168,10 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
 
-        jButton2.setText("Ayuda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAyuda.setText("Ayuda");
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAyudaActionPerformed(evt);
             }
         });
 
@@ -187,7 +190,6 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 
         txtEstatus.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtEstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtEstatus.setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,7 +218,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(14, 14, 14)
                                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -267,7 +269,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
-                    .addComponent(jButton2))
+                    .addComponent(btnAyuda))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
@@ -282,9 +284,15 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
+        
         clsModulo modulos= new clsModulo();
         modulos.setIdModulo(Integer.parseInt(txtbuscado.getText()));
         registrosBorrados=modulos.setBorrarModulo(modulos);
+        
+         // Registro de Bitacora en boton eliminar
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
 
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -306,11 +314,15 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         limpiarTextos();
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+    
+                   resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
 
@@ -326,7 +338,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-int resultadoBitacora=0;
+        int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
@@ -343,6 +355,11 @@ int resultadoBitacora=0;
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+         // Registro de Bitacora en boton limpiar
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
+        
         limpiarTextos();
         habilitarBotones();
         // TODO add your handling code here:
@@ -370,8 +387,11 @@ int resultadoBitacora=0;
         btnEliminar.setEnabled(false);
     }    
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
         // TODO add your handling code here:
+        int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
         try {
             if ((new File("src\\main\\java\\ayudas\\ProcesoMayor.chm")).exists()) {
                 Process p = Runtime
@@ -385,22 +405,25 @@ int resultadoBitacora=0;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAyudaActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+        // Registro de Bitacora
+                    int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label3;

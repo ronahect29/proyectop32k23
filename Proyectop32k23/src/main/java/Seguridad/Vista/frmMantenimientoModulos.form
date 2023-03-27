@@ -65,7 +65,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnLimpiar" min="-2" pref="95" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="btnAyuda" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -135,7 +135,7 @@
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAyuda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -298,12 +298,12 @@
         <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnAyuda">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ayuda"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="label4">
