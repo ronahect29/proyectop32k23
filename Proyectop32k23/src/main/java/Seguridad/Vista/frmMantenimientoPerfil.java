@@ -342,7 +342,10 @@ int codigoAplicacion = 114;
         perfil.setEstatusPerfil(txtContrasena.getText());
         perfil.setModificarPerfil(perfil);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(perfil.getIdPerfil(), codigoAplicacion, "UPD");
         llenadoDeTablas();
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
