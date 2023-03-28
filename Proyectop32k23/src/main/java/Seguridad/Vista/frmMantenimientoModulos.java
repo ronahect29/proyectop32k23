@@ -16,11 +16,10 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0163777444870687737655635e2dc0b0324d2f7a
+
+
 /**
  *
  * @author visitante
@@ -410,8 +409,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // Registro de Bitacora
                     int resultadoBitacora=0;
-                    clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
