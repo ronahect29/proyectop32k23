@@ -322,11 +322,11 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // TODO add your handling code here:
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
 
-        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));        
+        modulo. setIdModulo(Integer.parseInt(txtbuscado.getText()));        
         modulo = modulo.getBuscarInformacionModuloPorId(modulo);
         System.out.println("Modulo retornado:" + modulo);        
         txtNombre.setText(modulo.getNombreModulo());
@@ -391,7 +391,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // TODO add your handling code here:
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         try {
             if ((new File("src\\main\\java\\ayudas\\ProcesoMayor.chm")).exists()) {
                 Process p = Runtime
@@ -411,7 +411,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // Registro de Bitacora
                     int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
