@@ -382,7 +382,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         // Registro de Bitacora
                     int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(ClsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
