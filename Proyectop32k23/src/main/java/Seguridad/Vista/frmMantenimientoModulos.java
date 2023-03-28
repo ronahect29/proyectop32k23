@@ -381,7 +381,7 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // Registro de Bitacora
                     int resultadoBitacora=0;
-                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    clsBitacora bitacoraRegistro = new clsBitacora();       //correccion de error 
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(ClsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
