@@ -100,7 +100,7 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         txtTipoUsuario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BtnBorrarUno = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         rbRegistrar = new javax.swing.JRadioButton();
         rbModificar = new javax.swing.JRadioButton();
@@ -209,7 +209,7 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
 
         jButton2.setText(">>");
 
-        jButton3.setText("<");
+        BtnBorrarUno.setText("<");
 
         jButton4.setText("<<");
 
@@ -275,7 +275,7 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BtnBorrarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(label6))
@@ -333,7 +333,7 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(BtnBorrarUno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addGap(53, 53, 53)))
@@ -408,11 +408,11 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBorrarUno;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
