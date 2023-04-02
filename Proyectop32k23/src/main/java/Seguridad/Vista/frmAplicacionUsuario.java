@@ -98,8 +98,8 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         label7 = new javax.swing.JLabel();
         txtTipoUsuario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAgregarUno = new javax.swing.JButton();
+        btnAgregarTodos = new javax.swing.JButton();
         BtnBorrarUno = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         rbRegistrar = new javax.swing.JRadioButton();
@@ -205,9 +205,19 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText(">");
+        btnAgregarUno.setText(">");
+        btnAgregarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarUnoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText(">>");
+        btnAgregarTodos.setText(">>");
+        btnAgregarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarTodosActionPerformed(evt);
+            }
+        });
 
         BtnBorrarUno.setText("<");
         BtnBorrarUno.addActionListener(new java.awt.event.ActionListener() {
@@ -282,9 +292,9 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgregarTodos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgregarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(BtnBorrarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -337,9 +347,9 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btnAgregarUno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnAgregarTodos)
                         .addGap(14, 14, 14)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -426,6 +436,36 @@ int a = tablaAplicacionesAsignadas.getRowCount();
             modelo.removeRow(i); 
         }   }       
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnAgregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUnoActionPerformed
+        // TODO add your handling code here:
+        int FilaSeleccionada= tablaAplicacionesDisponibles.getSelectedRow();
+        if(FilaSeleccionada !=-1)
+        {
+            String idAplicacion, nombreAplicacion;
+            idAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,0).toString();
+            nombreAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,1).toString();
+            
+            String datos[]={idAplicacion, nombreAplicacion};
+            DefaultTableModel modeloAplicacionesAsignadas = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+            modeloAplicacionesAsignadas.addRow(datos);
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
+        }
+    }//GEN-LAST:event_btnAgregarUnoActionPerformed
+
+    private void btnAgregarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTodosActionPerformed
+        // TODO add your handling code here:
+        /*DefaultTableModel modelo = (DefaultTableModel)tablaAplicacionesDisponibles.getModel();
+        for (int i=0;i<tablaAplicacionesDisponibles.getRowCount(); i++) {
+        Object fila [] = new Object [tablaAplicacionesDisponibles.getColumnCount()];
+        for (int j=0; j<tablaAplicacionesDisponibles.getColumnCount(); j++){
+          fila[j] = tablaAplicacionesDisponibles.getValueAt(i,j);
+        }
+        //tablaAplicacionesAsignadas.addRow(fila);
+        */
+
+    }//GEN-LAST:event_btnAgregarTodosActionPerformed
     public void limpiarTextos()
     {
         txtNombre.setText("");
@@ -448,10 +488,10 @@ int a = tablaAplicacionesAsignadas.getRowCount();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBorrarUno;
+    private javax.swing.JButton btnAgregarTodos;
+    private javax.swing.JButton btnAgregarUno;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
