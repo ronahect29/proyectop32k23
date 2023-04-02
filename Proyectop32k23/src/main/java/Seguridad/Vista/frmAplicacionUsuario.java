@@ -217,6 +217,11 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         });
 
         jButton4.setText("<<");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         rbRegistrar.setText("Registrar");
         rbRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -411,6 +416,16 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         }
     }
     }//GEN-LAST:event_BtnBorrarUnoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    DefaultTableModel modelo = (DefaultTableModel)
+         tablaAplicacionesAsignadas.getModel();{             
+int a = tablaAplicacionesAsignadas.getRowCount();
+        for(int i=a-1; i>=0; i--){
+            modelo.removeRow(i); 
+        }   }       
+    }//GEN-LAST:event_jButton4ActionPerformed
     public void limpiarTextos()
     {
         txtNombre.setText("");
