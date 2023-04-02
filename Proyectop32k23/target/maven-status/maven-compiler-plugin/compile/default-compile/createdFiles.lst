@@ -37,6 +37,7 @@ Seguridad\Vista\frmMantenimientoAplicacion$5.class
 Seguridad\Vista\frmMantenimientoModulos$2.class
 Seguridad\Vista\frmAplicacionUsuario$6.class
 Seguridad\Vista\frmAplicacionUsuario$9.class
+Seguridad\Vista\frmAplicacionUsuario$11.class
 Seguridad\Modelo\daoUsuario.class
 Seguridad\Vista\frmMantenimientoAplicacion$8.class
 Seguridad\Vista\MdiSeguridad$8.class
@@ -80,6 +81,7 @@ Seguridad\Vista\frmAplicacionUsuario$1.class
 Seguridad\Vista\frmMantenimientoUsuario$2.class
 Seguridad\Vista\frmMantenimientoModulos.class
 Seguridad\Modelo\daoTipoUsuario.class
+Seguridad\Vista\frmAplicacionUsuario$12.class
 Seguridad\Modelo\Conexion.class
 Seguridad\Vista\frmAplicacionUsuario$7.class
 Seguridad\Vista\frmMantenimientoAplicacion$7.class

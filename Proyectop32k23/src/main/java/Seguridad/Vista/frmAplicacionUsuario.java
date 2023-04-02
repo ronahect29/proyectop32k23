@@ -100,8 +100,8 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         txtTipoUsuario = new javax.swing.JTextField();
         btnAgregarUno = new javax.swing.JButton();
         btnAgregarTodos = new javax.swing.JButton();
-        BtnBorrarUno = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnQuitarUno = new javax.swing.JButton();
+        btnQuitarTodos = new javax.swing.JButton();
         rbRegistrar = new javax.swing.JRadioButton();
         rbModificar = new javax.swing.JRadioButton();
         rbEliminar = new javax.swing.JRadioButton();
@@ -219,17 +219,17 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        BtnBorrarUno.setText("<");
-        BtnBorrarUno.addActionListener(new java.awt.event.ActionListener() {
+        btnQuitarUno.setText("<");
+        btnQuitarUno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBorrarUnoActionPerformed(evt);
+                btnQuitarUnoActionPerformed(evt);
             }
         });
 
-        jButton4.setText("<<");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnQuitarTodos.setText("<<");
+        btnQuitarTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnQuitarTodosActionPerformed(evt);
             }
         });
 
@@ -293,9 +293,9 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btnAgregarTodos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnQuitarTodos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAgregarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(BtnBorrarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnQuitarUno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(label6))
@@ -353,9 +353,9 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnBorrarUno)
+                        .addComponent(btnQuitarUno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(btnQuitarTodos)
                         .addGap(53, 53, 53)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbRegistrar)
@@ -408,40 +408,40 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbImprimirActionPerformed
 
-    private void BtnBorrarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBorrarUnoActionPerformed
+    private void btnQuitarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarUnoActionPerformed
         // TODO add your handling code here:
+        //Acción realizada por Karla Gómez
         DefaultTableModel model = (DefaultTableModel)
         tablaAplicacionesAsignadas.getModel();
-    int s = tablaAplicacionesAsignadas.getSelectedRow();
-    if (s<0){
-        JOptionPane.showMessageDialog(null,
-            "Debe seleccionar una fila de la tabla" );
-    }else {
-        int confirmar=JOptionPane.showConfirmDialog(null,
-            "Esta seguro que desea Eliminar esta aplicacion para usuario? ");
-    if(JOptionPane.OK_OPTION==confirmar) {
-        model.removeRow(s);
-            JOptionPane.showMessageDialog(null,
-                "aplicacion para usuario Eliminada exitosamente" );
+        int s = tablaAplicacionesAsignadas.getSelectedRow();
+        if (s<0){
+            JOptionPane.showMessageDialog(null,"Debe seleccionar una fila de la tabla" );
+        }else {
+            int confirmar=JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea Eliminar esta aplicacion para usuario? ");
+            if(JOptionPane.OK_OPTION==confirmar) {
+                model.removeRow(s);
+                JOptionPane.showMessageDialog(null,"Aplicacion para el usuario Eliminada exitosamente" );
+            }
         }
-    }
-    }//GEN-LAST:event_BtnBorrarUnoActionPerformed
+    }//GEN-LAST:event_btnQuitarUnoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
         // TODO add your handling code here:
+        //Acción realizada por Nelson Pineda
     DefaultTableModel modelo = (DefaultTableModel)
-         tablaAplicacionesAsignadas.getModel();{             
-int a = tablaAplicacionesAsignadas.getRowCount();
-        for(int i=a-1; i>=0; i--){
-            modelo.removeRow(i); 
-        }   }       
-    }//GEN-LAST:event_jButton4ActionPerformed
+        tablaAplicacionesAsignadas.getModel();{             
+        int a = tablaAplicacionesAsignadas.getRowCount();
+            for(int i=a-1; i>=0; i--){
+                modelo.removeRow(i); 
+            }   
+        }       
+    }//GEN-LAST:event_btnQuitarTodosActionPerformed
 
     private void btnAgregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUnoActionPerformed
         // TODO add your handling code here:
+        // Acción realizada por Alyson Rodríguez
         int FilaSeleccionada= tablaAplicacionesDisponibles.getSelectedRow();
-        if(FilaSeleccionada !=-1)
-        {
+        if(FilaSeleccionada !=-1){
             String idAplicacion, nombreAplicacion;
             idAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,0).toString();
             nombreAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,1).toString();
@@ -456,15 +456,15 @@ int a = tablaAplicacionesAsignadas.getRowCount();
 
     private void btnAgregarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTodosActionPerformed
         // TODO add your handling code here:
-        /*DefaultTableModel modelo = (DefaultTableModel)tablaAplicacionesDisponibles.getModel();
+        //Acción realizada por Alyson Rodriguez
+        DefaultTableModel modeloOrigen = (DefaultTableModel)tablaAplicacionesDisponibles.getModel(), modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
         for (int i=0;i<tablaAplicacionesDisponibles.getRowCount(); i++) {
-        Object fila [] = new Object [tablaAplicacionesDisponibles.getColumnCount()];
-        for (int j=0; j<tablaAplicacionesDisponibles.getColumnCount(); j++){
-          fila[j] = tablaAplicacionesDisponibles.getValueAt(i,j);
+            Object fila [] = new Object [tablaAplicacionesDisponibles.getColumnCount()];
+            for (int j=0; j<tablaAplicacionesDisponibles.getColumnCount(); j++){
+                fila[j] = tablaAplicacionesDisponibles.getValueAt(i,j);
+            }
+            modeloDestino.addRow(fila);
         }
-        //tablaAplicacionesAsignadas.addRow(fila);
-        */
-
     }//GEN-LAST:event_btnAgregarTodosActionPerformed
     public void limpiarTextos()
     {
@@ -487,12 +487,12 @@ int a = tablaAplicacionesAsignadas.getRowCount();
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnBorrarUno;
     private javax.swing.JButton btnAgregarTodos;
     private javax.swing.JButton btnAgregarUno;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnQuitarTodos;
+    private javax.swing.JButton btnQuitarUno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
