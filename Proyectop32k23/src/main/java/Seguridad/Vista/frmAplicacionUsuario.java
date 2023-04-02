@@ -210,6 +210,11 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
         jButton2.setText(">>");
 
         BtnBorrarUno.setText("<");
+        BtnBorrarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBorrarUnoActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("<<");
 
@@ -387,6 +392,25 @@ public class frmAplicacionUsuario extends javax.swing.JInternalFrame {
     private void rbImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbImprimirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbImprimirActionPerformed
+
+    private void BtnBorrarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBorrarUnoActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)
+        tablaAplicacionesAsignadas.getModel();
+    int s = tablaAplicacionesAsignadas.getSelectedRow();
+    if (s<0){
+        JOptionPane.showMessageDialog(null,
+            "Debe seleccionar una fila de la tabla" );
+    }else {
+        int confirmar=JOptionPane.showConfirmDialog(null,
+            "Esta seguro que desea Eliminar esta aplicacion para usuario? ");
+    if(JOptionPane.OK_OPTION==confirmar) {
+        model.removeRow(s);
+            JOptionPane.showMessageDialog(null,
+                "aplicacion para usuario Eliminada exitosamente" );
+        }
+    }
+    }//GEN-LAST:event_BtnBorrarUnoActionPerformed
     public void limpiarTextos()
     {
         txtNombre.setText("");
