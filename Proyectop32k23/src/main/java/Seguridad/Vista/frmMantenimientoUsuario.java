@@ -452,7 +452,7 @@ int codigoAplicacion=10;
         
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    int contador=0; 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         String cont=txtContrasena.getText(),conf=txtConfContraseña.getText();
         if(cont.equals(conf)){
@@ -477,7 +477,7 @@ int codigoAplicacion=10;
         }else{
             JOptionPane.showMessageDialog(null, "La contraseña debe ser la misma, vuelva a intentarlo\n", 
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-            int contador=0; contador++;
+            contador++;
             if(contador==5){
                 JOptionPane.showMessageDialog(null, "Demasiados intentos fallidos, espere 5min. Se le recomienda no tocar nada.", 
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
