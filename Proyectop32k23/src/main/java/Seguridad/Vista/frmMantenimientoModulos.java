@@ -16,11 +16,9 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0163777444870687737655635e2dc0b0324d2f7a
+
 /**
  *
  * @author visitante
@@ -322,7 +320,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // TODO add your handling code here:
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
 
@@ -391,7 +389,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // TODO add your handling code here:
         int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         try {
             if ((new File("src\\main\\java\\ayudas\\ProcesoMayor.chm")).exists()) {
                 Process p = Runtime
@@ -411,7 +409,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         // Registro de Bitacora
                     int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
-                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "UPD");
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
