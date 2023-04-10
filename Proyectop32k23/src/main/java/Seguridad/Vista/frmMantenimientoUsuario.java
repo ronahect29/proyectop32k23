@@ -454,24 +454,36 @@ int codigoAplicacion=10;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsUsuario usuario = new clsUsuario();
-        usuario.setNombreUsuario(txtNombre.getText());
-        usuario.setContrasenaUsuario(txtContrasena.getText());
-        usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
-        usuario.setEstatusUsuario(txtEstatus.getText());
-        usuario.setNombreRealUsuario(txtNombreReal.getText());
-        usuario.setCorreoUsuario(txtCorreo.getText());
-        usuario.setTelefonoUsuario(txtTelefono.getText());
-        usuario.setDireccionUsuario(txtDireccion.getText());
-        usuario.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
-        usuario.setIngresarUsuario(usuario);
-        JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
-        limpiarTextos();
+        String cont=txtContrasena.getText(),conf=txtConfContraseña.getText();
+        if(cont.equals(conf)){
+            clsUsuario usuario = new clsUsuario();
+            usuario.setNombreUsuario(txtNombre.getText());
+            usuario.setContrasenaUsuario(txtContrasena.getText());
+            usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
+            usuario.setEstatusUsuario(txtEstatus.getText());
+            usuario.setNombreRealUsuario(txtNombreReal.getText());
+            usuario.setCorreoUsuario(txtCorreo.getText());
+            usuario.setTelefonoUsuario(txtTelefono.getText());
+            usuario.setDireccionUsuario(txtDireccion.getText());
+            usuario.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+            usuario.setIngresarUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+            llenadoDeTablas();
+            limpiarTextos();
+        }else{
+            JOptionPane.showMessageDialog(null, "La contraseña debe ser la misma, vuelva a intentarlo\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            int contador=0; contador++;
+            if(contador==5){
+                JOptionPane.showMessageDialog(null, "Demasiados intentos fallidos, espere 5min. Se le recomienda no tocar nada.", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+                esperar5min();
+            }
+           }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -550,7 +562,13 @@ int codigoAplicacion=10;
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }    
-    
+    public void esperar5min(){
+        try {
+            //Ponemos a "Dormir" el programa durante los minutos que querramos
+            Thread.sleep(5*60*1000);
+        } catch (Exception e) {
+            System.out.println(e);}
+    }   
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
