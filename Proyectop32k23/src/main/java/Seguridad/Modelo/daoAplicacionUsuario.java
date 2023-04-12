@@ -19,7 +19,7 @@ public class daoAplicacionUsuario {
     private static final String SQL_SELECT = "SELECT aplid, usuid, ins, upd, del, pri FROM tbl_aplicacionusuario";
     private static final String SQL_INSERT = "INSERT INTO tbl_aplicacionusuario(aplid, usuid, ins, upd, del, pri) VALUES(?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_aplicacionusuario SET aplid=?,  ins=?, upd=?, del=?, pri=?  WHERE usuid = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_aplicacionusuario WHERE usuid=?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_aplicacionusuario WHERE aplid=? AND usuid=?";
     //private static final String SQL_SELECT_NOMBRE = "SELECT aplid, usuid, ins, upd, del, pri FROM tbl_usuario WHERE aplid = ?";
     private static final String SQL_SELECT_ID = "SELECT aplid, usuid, ins, upd, del, pri FROM tbl_aplicacionusuario WHERE usuid = ?";        
     private static final String SQL_DETELE_ALL = "TRUNCATE TABLE tbl_aplicacionusuario ";
@@ -125,7 +125,8 @@ public class daoAplicacionUsuario {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, aplicacionusuario.getIdUsuario());
+            stmt.setInt(1, aplicacionusuario.getIdAplicacion());
+            stmt.setInt(2, aplicacionusuario.getIdUsuario());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {

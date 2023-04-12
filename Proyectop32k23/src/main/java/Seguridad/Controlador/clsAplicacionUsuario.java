@@ -129,7 +129,7 @@ public class clsAplicacionUsuario {
         List<clsAplicacionUsuario> listadoAplicacionUsuarios = daoaplicacionusuario.consultaAplicacionUsuarios();
         return listadoAplicacionUsuarios;
     }
-    public int setBorrarAplicacion(clsAplicacionUsuario aplicacion)
+    public int setBorrarAplicacion(clsAplicacionUsuario aplicacionusuario)
     {
         daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
         return daoaplicacionusuario.borrarAplicacionUsuario(aplicacionusuario);
