@@ -435,15 +435,22 @@ public void llenadoDeTabla1() {
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Nelson Pineda
-  DefaultTableModel modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
-        tablaAplicacionesAsignadas.getModel();{        
-               clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+ String is= txtIdUsuario.getText();
+     if (is.length()>0){
+     DefaultTableModel modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+        tablaAplicacionesAsignadas.getModel();{  
+       clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+    aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
        int a = tablaAplicacionesAsignadas.getRowCount();
             for(int i=a-1; i>=0; i--){
                 aplicacionusuario.setBorrarTodoAplicacion(aplicacionusuario);
-                modeloDestino.removeRow(i);  
-            }   
-        }       
+                modeloDestino.removeRow(i);          
+     }
+      }  
+        } else{
+    JOptionPane.showMessageDialog(null, "Dbee ingresar el ID del Uusario");
+               
+         }       
     }//GEN-LAST:event_btnQuitarTodosActionPerformed
 
     private void btnAgregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUnoActionPerformed
