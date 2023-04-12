@@ -408,7 +408,7 @@ public void llenadoDeTabla1() {
     private void btnQuitarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarUnoActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Karla Gómez
-  String is=txtIdUsuario.getText();
+        String is=txtIdUsuario.getText();
         if(is.length()>0){
             DefaultTableModel model = (DefaultTableModel)
             tablaAplicacionesAsignadas.getModel();
@@ -429,7 +429,7 @@ public void llenadoDeTabla1() {
             }
         }else{
             JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
-            }
+        }
     }//GEN-LAST:event_btnQuitarUnoActionPerformed
 
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
@@ -448,87 +448,97 @@ public void llenadoDeTabla1() {
 
     private void btnAgregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUnoActionPerformed
         // TODO add your handling code here:
-        // Acción realizada por Alyson Rodríguez
-        if(rbRegistrar.isSelected()||rbModificar.isSelected()||rbEliminar.isSelected()||rbImprimir.isSelected()){
-            int FilaSeleccionada= tablaAplicacionesDisponibles.getSelectedRow();
-            if(FilaSeleccionada !=-1){
-                String idAplicacion, idUsuario=txtIdUsuario.getText();
-                idAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,0).toString();
-                idUsuario= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,1).toString();
+        // Acción realizada por Alyson Rodríguez y Carlos González
+        String is=txtIdUsuario.getText();
+        if(is.length()>0){
+            if(rbRegistrar.isSelected()||rbModificar.isSelected()||rbEliminar.isSelected()||rbImprimir.isSelected()){
+                int FilaSeleccionada= tablaAplicacionesDisponibles.getSelectedRow();
+                if(FilaSeleccionada !=-1){
+                    String idAplicacion, idUsuario=txtIdUsuario.getText();
+                    idAplicacion= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,0).toString();
+                    idUsuario= tablaAplicacionesDisponibles.getValueAt(FilaSeleccionada,1).toString();
 
-                String datos[]={idAplicacion, idUsuario};
-                DefaultTableModel modeloAplicacionesAsignadas = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
-                modeloAplicacionesAsignadas.addRow(datos);
-                clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
-                aplicacionusuario.setIdAplicacion(Integer.parseInt(idAplicacion));
-                aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
-                if(rbRegistrar.isSelected()){
-                    aplicacionusuario.setRegAplUsu("T");
+                    String datos[]={idAplicacion, idUsuario};
+                    DefaultTableModel modeloAplicacionesAsignadas = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+                    modeloAplicacionesAsignadas.addRow(datos);
+                    clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+                    aplicacionusuario.setIdAplicacion(Integer.parseInt(idAplicacion));
+                    aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+                    if(rbRegistrar.isSelected()){
+                        aplicacionusuario.setRegAplUsu("T");
+                    }else{
+                        aplicacionusuario.setRegAplUsu("F");
+                    }if(rbModificar.isSelected()){
+                        aplicacionusuario.setModAplUsu("T");
+                    }else{
+                        aplicacionusuario.setModAplUsu("F");
+                    }if(rbEliminar.isSelected()){
+                        aplicacionusuario.setEliAplUsu("T");
+                    }else{
+                        aplicacionusuario.setEliAplUsu("F");
+                    }if(rbImprimir.isSelected()){
+                        aplicacionusuario.setImpAplUsu("T");
+                    }else{
+                        aplicacionusuario.setImpAplUsu("F");
+                    }
+                    aplicacionusuario.setIngresarAplicacionUsuario(aplicacionusuario);
+                    JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
+                                "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
                 }else{
-                    aplicacionusuario.setRegAplUsu("F");
-                }if(rbModificar.isSelected()){
-                    aplicacionusuario.setModAplUsu("T");
-                }else{
-                    aplicacionusuario.setModAplUsu("F");
-                }if(rbEliminar.isSelected()){
-                    aplicacionusuario.setEliAplUsu("T");
-                }else{
-                    aplicacionusuario.setEliAplUsu("F");
-                }if(rbImprimir.isSelected()){
-                    aplicacionusuario.setImpAplUsu("T");
-                }else{
-                    aplicacionusuario.setImpAplUsu("F");
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
                 }
-                aplicacionusuario.setIngresarAplicacionUsuario(aplicacionusuario);
-                JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                            "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
+                JOptionPane.showMessageDialog(null,"Debe seleccionar por lo menos un permiso");
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Debe seleccionar por lo menos un permiso");
+            JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
         }
     }//GEN-LAST:event_btnAgregarUnoActionPerformed
 
     private void btnAgregarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTodosActionPerformed
         // TODO add your handling code here:
-        //Acción realizada por Alyson Rodriguez
-        if(rbRegistrar.isSelected()||rbModificar.isSelected()||rbEliminar.isSelected()||rbImprimir.isSelected()){
-            DefaultTableModel modeloOrigen = (DefaultTableModel)tablaAplicacionesDisponibles.getModel(), modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
-            for (int i=0;i<tablaAplicacionesDisponibles.getRowCount(); i++) {
-                Object fila [] = new Object [tablaAplicacionesDisponibles.getColumnCount()];
-                for (int j=0; j<tablaAplicacionesDisponibles.getColumnCount(); j++){
-                    fila[j] = tablaAplicacionesDisponibles.getValueAt(i,j);
-                    String idAplicacion= tablaAplicacionesDisponibles.getValueAt(i,j).toString();
+        //Acción realizada por Alyson Rodriguez y Carlos González
+        String is=txtIdUsuario.getText();
+        if(is.length()>0){
+            if(rbRegistrar.isSelected()||rbModificar.isSelected()||rbEliminar.isSelected()||rbImprimir.isSelected()){
+                DefaultTableModel modeloOrigen = (DefaultTableModel)tablaAplicacionesDisponibles.getModel(), modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+                for (int i=0;i<tablaAplicacionesDisponibles.getRowCount(); i++) {
+                    Object fila [] = new Object [tablaAplicacionesDisponibles.getColumnCount()];
+                    for (int j=0; j<tablaAplicacionesDisponibles.getColumnCount(); j++){
+                        fila[j] = tablaAplicacionesDisponibles.getValueAt(i,j);
+                        String idAplicacion= tablaAplicacionesDisponibles.getValueAt(i,j).toString();
+                    }
+                    String idAplicacion= tablaAplicacionesDisponibles.getValueAt(i,0).toString();
+                    clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+                    aplicacionusuario.setIdAplicacion(Integer.parseInt(idAplicacion));
+                    aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+                    if(rbRegistrar.isSelected()){
+                        aplicacionusuario.setRegAplUsu("T");
+                    }else{
+                        aplicacionusuario.setRegAplUsu("F");
+                    }if(rbModificar.isSelected()){
+                        aplicacionusuario.setModAplUsu("T");
+                    }else{
+                        aplicacionusuario.setModAplUsu("F");
+                    }if(rbEliminar.isSelected()){
+                        aplicacionusuario.setEliAplUsu("T");
+                    }else{
+                        aplicacionusuario.setEliAplUsu("F");
+                    }if(rbImprimir.isSelected()){
+                        aplicacionusuario.setImpAplUsu("T");
+                    }else{
+                        aplicacionusuario.setImpAplUsu("F");
+                    }
+                    aplicacionusuario.setIngresarAplicacionUsuario(aplicacionusuario);
+                    JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
+                                "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+                    modeloDestino.addRow(fila);
                 }
-                String idAplicacion= tablaAplicacionesDisponibles.getValueAt(i,0).toString();
-                clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
-                aplicacionusuario.setIdAplicacion(Integer.parseInt(idAplicacion));
-                aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
-                if(rbRegistrar.isSelected()){
-                    aplicacionusuario.setRegAplUsu("T");
-                }else{
-                    aplicacionusuario.setRegAplUsu("F");
-                }if(rbModificar.isSelected()){
-                    aplicacionusuario.setModAplUsu("T");
-                }else{
-                    aplicacionusuario.setModAplUsu("F");
-                }if(rbEliminar.isSelected()){
-                    aplicacionusuario.setEliAplUsu("T");
-                }else{
-                    aplicacionusuario.setEliAplUsu("F");
-                }if(rbImprimir.isSelected()){
-                    aplicacionusuario.setImpAplUsu("T");
-                }else{
-                    aplicacionusuario.setImpAplUsu("F");
-                }
-                aplicacionusuario.setIngresarAplicacionUsuario(aplicacionusuario);
-                JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                            "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-                modeloDestino.addRow(fila);
+            }else{
+                JOptionPane.showMessageDialog(null,"Debe seleccionar por lo menos un permiso");
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Debe seleccionar por lo menos un permiso");
+            JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
         }
     }//GEN-LAST:event_btnAgregarTodosActionPerformed
 
