@@ -122,7 +122,7 @@ public class clsAplicacionUsuario {
     {
         daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
         return daoaplicacionusuario.consultaAplicacionUsuarioPorId(aplicacionusuario);
-    }    
+    }
     public List<clsAplicacionUsuario> getListadoAplicacionUsuario()
     {
         daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
