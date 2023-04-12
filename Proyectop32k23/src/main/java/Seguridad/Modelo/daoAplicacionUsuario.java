@@ -22,7 +22,7 @@ public class daoAplicacionUsuario {
     private static final String SQL_DELETE = "DELETE FROM tbl_aplicacionusuario WHERE aplid=? AND usuid=?";
     //private static final String SQL_SELECT_NOMBRE = "SELECT aplid, usuid, ins, upd, del, pri FROM tbl_usuario WHERE aplid = ?";
     private static final String SQL_SELECT_ID = "SELECT aplid, usuid, ins, upd, del, pri FROM tbl_aplicacionusuario WHERE usuid = ?";        
-    private static final String SQL_DELETE_ALL = "DELETE FROM tbl_aplicacionusuario WHERE usuid=?";
+    private static final String SQL_DETELE_ALL = "DELETE FROM tbl_aplicacionusuario WHERE  usuid=?";
     
     public List<clsAplicacionUsuario> consultaAplicacionUsuarios() {
         Connection conn = null;
@@ -220,9 +220,9 @@ public class daoAplicacionUsuario {
 
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_DELETE_ALL);
-            stmt = conn.prepareStatement(SQL_DELETE_ALL);
-            stmt.setInt(1, aplicacionusuario.getIdUsuario());
+            System.out.println("Ejecutando query:" + SQL_DETELE_ALL);
+            stmt = conn.prepareStatement(SQL_DETELE_ALL);
+            stmt.setInt(1,aplicacionusuario.getIdUsuario());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -231,9 +231,6 @@ public class daoAplicacionUsuario {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         return rows;
-        
-  
     }
 }

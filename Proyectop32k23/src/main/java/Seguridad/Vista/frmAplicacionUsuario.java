@@ -435,22 +435,22 @@ public void llenadoDeTabla1() {
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Nelson Pineda
- String is= txtIdUsuario.getText();
-     if (is.length()>0){
-     DefaultTableModel modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
-        tablaAplicacionesAsignadas.getModel();{  
-       clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
-    aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
-       int a = tablaAplicacionesAsignadas.getRowCount();
-            for(int i=a-1; i>=0; i--){
-                aplicacionusuario.setBorrarTodoAplicacion(aplicacionusuario);
-                modeloDestino.removeRow(i);          
-     }
-      }  
-        } else{
-    JOptionPane.showMessageDialog(null, "Dbee ingresar el ID del Uusario");
-               
-         }       
+        String is=txtIdUsuario.getText();
+        if(is.length()>0){
+            DefaultTableModel modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+            tablaAplicacionesAsignadas.getModel();{        
+                clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+                aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+                int a = tablaAplicacionesAsignadas.getRowCount();
+                for(int i=a-1; i>=0; i--){
+                    aplicacionusuario.setBorrarTodoAplicacion(aplicacionusuario);
+                    modeloDestino.removeRow(i);  
+                }  
+                JOptionPane.showMessageDialog(null,"Aplicaciones para el usuario Eliminada exitosamente");
+            }   
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
+        }
     }//GEN-LAST:event_btnQuitarTodosActionPerformed
 
     private void btnAgregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUnoActionPerformed
@@ -491,6 +491,7 @@ public void llenadoDeTabla1() {
                     aplicacionusuario.setIngresarAplicacionUsuario(aplicacionusuario);
                     JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                                 "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+                    llenadoDeTabla2();
                 }else{
                     JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
                 }
@@ -540,6 +541,7 @@ public void llenadoDeTabla1() {
                     JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                                 "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
                     modeloDestino.addRow(fila);
+                    llenadoDeTabla2();
                 }
             }else{
                 JOptionPane.showMessageDialog(null,"Debe seleccionar por lo menos un permiso");
