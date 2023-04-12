@@ -408,8 +408,9 @@ public void llenadoDeTabla1() {
     private void btnQuitarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarUnoActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Karla Gómez
-        DefaultTableModel model = (DefaultTableModel)
-        tablaAplicacionesAsignadas.getModel();
+        DefaultTableModel model = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+         tablaAplicacionesAsignadas.getModel();{        
+               clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
         int s = tablaAplicacionesAsignadas.getSelectedRow();
         if (s<0){
             JOptionPane.showMessageDialog(null,"Debe seleccionar una fila de la tabla" );
@@ -420,6 +421,7 @@ public void llenadoDeTabla1() {
                 JOptionPane.showMessageDialog(null,"Aplicacion para el usuario Eliminada exitosamente" );
             }
         }
+    }
     }//GEN-LAST:event_btnQuitarUnoActionPerformed
 
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
