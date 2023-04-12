@@ -115,7 +115,7 @@ public class daoAplicacionUsuario {
         return rows;
     }
 
-    public int borrarAplicacion(clsAplicacionUsuario aplicacionusuario) {
+    public int borrarAplicacionUsuario(clsAplicacionUsuario aplicacionusuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;

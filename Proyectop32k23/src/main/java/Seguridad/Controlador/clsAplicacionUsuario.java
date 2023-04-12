@@ -131,8 +131,8 @@ public class clsAplicacionUsuario {
     }
     public int setBorrarAplicacion(clsAplicacionUsuario aplicacion)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.borrarAplicacion(aplicacion);
+        daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
+        return daoaplicacionusuario.borrarAplicacionUsuario(aplicacionusuario);
     }          
     public int setIngresarAplicacionUsuario(clsAplicacionUsuario aplicacionusuario)
     {
