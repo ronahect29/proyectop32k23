@@ -173,7 +173,7 @@ public class daoAplicacionUsuario {
         //return personas;  // Si se utiliza un ArrayList
         return aplicacion;
     }*/
-    public clsAplicacionUsuario consultaUsuarioPorId(clsAplicacionUsuario aplicacionusuario) {
+    public clsAplicacionUsuario consultaAplicacionUsuarioPorId(clsAplicacionUsuario aplicacionusuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;

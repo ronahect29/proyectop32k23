@@ -118,11 +118,11 @@ public class clsAplicacionUsuario {
         daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
         return daoaplicacionusuario.consultaAplicacionPorNombre(aplicacion);
     }*/
-    /*public clsAplicacionUsuario getBuscarInformacionAplicacionPorId(clsAplicacionUsuario aplicacion)
+    public clsAplicacionUsuario getBuscarInformacionAplicacionUsuarioPorId(clsAplicacionUsuario aplicacionusuario)
     {
-        daoAplicacion daoAplicacion = new daoAplicacion();
-        return daoAplicacion.consultaAplicacionPorId(aplicacion);
-    }    */
+        daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();
+        return daoaplicacionusuario.consultaAplicacionUsuarioPorId(aplicacionusuario);
+    }    
     public List<clsAplicacionUsuario> getListadoAplicacionUsuario()
     {
         daoAplicacionUsuario daoaplicacionusuario = new daoAplicacionUsuario();

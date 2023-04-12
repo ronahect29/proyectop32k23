@@ -379,6 +379,24 @@ public void llenadoDeTabla1() {
         System.out.println("Usuario retornado:" + usuario);
         txtNombre.setText(usuario.getNombreUsuario());
         txtTipoUsuario.setText(Integer.toString(usuario.getTipoUsuario()));
+        clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+        aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+        aplicacionusuario = aplicacionusuario.getBuscarInformacionAplicacionUsuarioPorId(aplicacionusuario);
+        DefaultTableModel model = (DefaultTableModel) tablaAplicacionesAsignadas.getModel();
+        String[] dato = new String[6];
+        if (aplicacionusuario != null) {
+            // Rellenar el array con los datos del usuario
+            dato[0] = Integer.toString(aplicacionusuario.getIdAplicacion());
+            dato[1] = Integer.toString(aplicacionusuario.getIdUsuario());
+            dato[2] = aplicacionusuario.getRegAplUsu();
+            dato[3] = aplicacionusuario.getEliAplUsu();
+            dato[4] = aplicacionusuario.getEliAplUsu();
+            dato[5] = aplicacionusuario.getImpAplUsu();
+            // Agregar el array a la tabla
+            model.addRow(dato);
+        }else{
+            JOptionPane.showMessageDialog(null, "El usuario no existe.");
+        }
         
         //corregir bitácora
         
