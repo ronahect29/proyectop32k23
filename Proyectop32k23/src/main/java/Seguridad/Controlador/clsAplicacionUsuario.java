@@ -143,5 +143,10 @@ public class clsAplicacionUsuario {
     {
         daoAplicacion daoAplicacion = new daoAplicacion();
         return daoAplicacion.actualizaAplicacion(aplicacion);
-    }              
+    }  
+     public int setBorrarTodoAplicacion(clsAplicacionUsuario aplicacion)
+    {
+        daoAplicacion daoAplicacion = new daoAplicacion();
+        return daoAplicacion.borrarTodoAplicacion(aplicacion);
+    }
 }

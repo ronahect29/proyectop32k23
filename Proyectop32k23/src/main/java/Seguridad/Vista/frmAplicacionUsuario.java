@@ -425,11 +425,13 @@ public void llenadoDeTabla1() {
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Nelson Pineda
-    DefaultTableModel modelo = (DefaultTableModel)
-        tablaAplicacionesAsignadas.getModel();{             
-        int a = tablaAplicacionesAsignadas.getRowCount();
+  DefaultTableModel modeloDestino = (DefaultTableModel)tablaAplicacionesAsignadas.getModel();
+        tablaAplicacionesAsignadas.getModel();{        
+               clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+       int a = tablaAplicacionesAsignadas.getRowCount();
             for(int i=a-1; i>=0; i--){
-                modelo.removeRow(i); 
+                aplicacionusuario.setBorrarTodoAplicacion(aplicacionusuario);
+                modeloDestino.removeRow(i);  
             }   
         }       
     }//GEN-LAST:event_btnQuitarTodosActionPerformed
