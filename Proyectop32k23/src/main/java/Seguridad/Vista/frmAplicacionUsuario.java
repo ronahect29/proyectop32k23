@@ -418,7 +418,7 @@ public void llenadoDeTabla1() {
             if (s<0){
                 JOptionPane.showMessageDialog(null,"Debe seleccionar una fila de la tabla" );
             }else {
-                int aid=(int)tablaAplicacionesAsignadas.getValueAt(s, 1);
+                int aid=Integer.parseInt(tablaAplicacionesAsignadas.getValueAt(s, 0).toString());
                 aplicacionusuario.setIdAplicacion(aid);
                 int confirmar=JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea Eliminar esta aplicacion para usuario? ");
                 if(JOptionPane.OK_OPTION==confirmar) {
