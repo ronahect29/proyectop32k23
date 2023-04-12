@@ -9,6 +9,7 @@ import Seguridad.Controlador.clsUsuario;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import seguridad.modelo.clsConexion;
 
 /**
  *
@@ -244,5 +245,28 @@ public class daoUsuario {
 
         //return personas;  // Si se utiliza un ArrayList
         return usuario;
-    }    
-}
+    }
+public Boolean obtenerEstadoUsuario(String usuario, String contra)
+{
+        Connection conn = null;
+        CallableStatement stmt = null;
+        Boolean validacionUsuario=false;
+        try {
+            conn = clsConexion.getConnection();
+            String sql = "{call getValidarUsuario (?, ?, ?)}";
+            stmt = conn.prepareCall(sql);
+            stmt.setString(1, usuario);
+            stmt.setString(2, contra);
+            stmt.registerOutParameter(3, java.sql.Types.BOOLEAN);
+            stmt.execute();
+            validacionUsuario = stmt.getBoolean(3);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            clsConexion.close(stmt);
+            clsConexion.close(conn);   
+        }
+        return validacionUsuario;
+    }
+}    
+
