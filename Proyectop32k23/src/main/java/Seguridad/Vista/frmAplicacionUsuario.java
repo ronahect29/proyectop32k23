@@ -408,23 +408,28 @@ public void llenadoDeTabla1() {
     private void btnQuitarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarUnoActionPerformed
         // TODO add your handling code here:
         //Acción realizada por Karla Gómez
-DefaultTableModel model = (DefaultTableModel)
-        tablaAplicacionesAsignadas.getModel();
-        clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
-        aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
-        int s = tablaAplicacionesAsignadas.getSelectedRow();
-        if (s<0){
-            JOptionPane.showMessageDialog(null,"Debe seleccionar una fila de la tabla" );
-        }else {
-            int aid=(int)tablaAplicacionesAsignadas.getValueAt(s, 1);
-            aplicacionusuario.setIdAplicacion(aid);
-            int confirmar=JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea Eliminar esta aplicacion para usuario? ");
-            if(JOptionPane.OK_OPTION==confirmar) {
-                aplicacionusuario.setBorrarAplicacion(aplicacionusuario);
-                model.removeRow(s);
-                JOptionPane.showMessageDialog(null,"Aplicacion para el usuario Eliminada exitosamente" );
+  String is=txtIdUsuario.getText();
+        if(is.length()>0){
+            DefaultTableModel model = (DefaultTableModel)
+            tablaAplicacionesAsignadas.getModel();
+            clsAplicacionUsuario aplicacionusuario = new clsAplicacionUsuario();
+            aplicacionusuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+            int s = tablaAplicacionesAsignadas.getSelectedRow();
+            if (s<0){
+                JOptionPane.showMessageDialog(null,"Debe seleccionar una fila de la tabla" );
+            }else {
+                int aid=(int)tablaAplicacionesAsignadas.getValueAt(s, 1);
+                aplicacionusuario.setIdAplicacion(aid);
+                int confirmar=JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea Eliminar esta aplicacion para usuario? ");
+                if(JOptionPane.OK_OPTION==confirmar) {
+                    aplicacionusuario.setBorrarAplicacion(aplicacionusuario);
+                    model.removeRow(s);
+                    JOptionPane.showMessageDialog(null,"Aplicacion para el usuario Eliminada exitosamente" );
+                }
             }
-        }
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
+            }
     }//GEN-LAST:event_btnQuitarUnoActionPerformed
 
     private void btnQuitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarTodosActionPerformed
