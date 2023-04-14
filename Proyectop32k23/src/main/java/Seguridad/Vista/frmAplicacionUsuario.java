@@ -75,7 +75,8 @@ public void llenadoDeTabla1() {
             modelo.addRow(dato);
         }   
     }
-
+    
+    int codigoAplicacion= 12;
     public frmAplicacionUsuario() {
         initComponents();
         llenadoDeTabla1();
@@ -410,11 +411,11 @@ public void llenadoDeTabla1() {
             JOptionPane.showMessageDialog(null, "El usuario no existe.");
         }
         
-        //corregir bitácora
+        //Agregando bitácora 
         
-        /*int resultadoBitacora=0;
+        int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");*/
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "REA");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
