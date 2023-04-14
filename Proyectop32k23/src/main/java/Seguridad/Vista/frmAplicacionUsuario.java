@@ -545,6 +545,9 @@ public void llenadoDeTabla1() {
             JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
         }
         
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
         
     }//GEN-LAST:event_btnAgregarUnoActionPerformed
 
@@ -594,6 +597,10 @@ public void llenadoDeTabla1() {
         }else{
             JOptionPane.showMessageDialog(null,"Debe ingresar el ID del Usuario");
         }
+        
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INSALL");
     }//GEN-LAST:event_btnAgregarTodosActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
