@@ -19,6 +19,7 @@ import Seguridad.Controlador.clsUsuarioConectado;
 
 
 
+
 /**
  *
  * @author visitante
@@ -324,7 +325,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
         clsModulo modulo = new clsModulo();
         //usuario.setNombreUsuario(txtbuscado.getText());        
 
-        modulo.setIdModulo(Integer.parseInt(txtbuscado.getText()));        
+        modulo. setIdModulo(Integer.parseInt(txtbuscado.getText()));        
         modulo = modulo.getBuscarInformacionModuloPorId(modulo);
         System.out.println("Modulo retornado:" + modulo);        
         txtNombre.setText(modulo.getNombreModulo());
@@ -410,7 +411,7 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
                     int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-        llenadoDeTablas();
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
 
