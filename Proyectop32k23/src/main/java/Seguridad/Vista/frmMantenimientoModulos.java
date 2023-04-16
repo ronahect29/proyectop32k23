@@ -409,8 +409,9 @@ int codigoAplicacion = 116;//Se agrega codigo de aplicación modulos
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // Registro de Bitacora
                     int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
 
-        llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
 
