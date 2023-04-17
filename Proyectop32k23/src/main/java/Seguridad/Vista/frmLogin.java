@@ -47,7 +47,7 @@ public class frmLogin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtContraseña = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cboOpciones = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +81,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Mantenimiento");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Tipo de Usuario", "Perfil", "Modulos", "Bitacora", "Aplicaciones" }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Tipo de Usuario", "Perfil", "Modulos", "Bitacora", "Aplicaciones" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +106,7 @@ public class frmLogin extends javax.swing.JFrame {
                                 .addComponent(jButton2))
                             .addComponent(txtUsuario)
                             .addComponent(txtContraseña)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cboOpciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -124,7 +124,7 @@ public class frmLogin extends javax.swing.JFrame {
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -165,10 +165,57 @@ public class frmLogin extends javax.swing.JFrame {
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "BEG");
                     // Menu general
-                    MdiSeguridad menuGeneral = new MdiSeguridad();
-                    menuGeneral.setVisible(true);
-                    this.dispose();
-
+                    //MdiSeguridad menuGeneral = new MdiSeguridad();
+                    //menuGeneral.setVisible(true);
+                    //this.dispose();
+                    
+                    //Se agrega switch case para darle funcionalidad al combobox
+                    //Victor Josué Jerez Mijangos
+                    String areaSeleccionada;
+                    areaSeleccionada = cboOpciones.getSelectedItem().toString();
+             
+                     switch (areaSeleccionada) {
+                        case "Ventas":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Compras":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Bancos":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Cuentas corrientes":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        default:
+                            break;
+                     }        
+                //En todas las opciones del "case" se utiliza el mismo acceso de "MdiSeguridad" debido a que
+                //al no tener los demás MDI'S se estipulo que iban a tener el mismo.
                 } else {
                     JOptionPane.showMessageDialog(this, "ERROR AL ENCONTRAR USUARIO o CONTRASEÑA",                              "ERROR", JOptionPane.ERROR_MESSAGE);
                     txtContraseña.setText("");
@@ -228,8 +275,8 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JComboBox<String> cboOpciones;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
