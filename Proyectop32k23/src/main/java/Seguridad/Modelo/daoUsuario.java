@@ -9,7 +9,7 @@ import Seguridad.Controlador.clsUsuario;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import seguridad.modelo.clsConexion;
+import Seguridad.Modelo.Conexion;
 
 /**
  *
@@ -252,7 +252,7 @@ public Boolean obtenerEstadoUsuario(String usuario, String contra)
         CallableStatement stmt = null;
         Boolean validacionUsuario=false;
         try {
-            conn = clsConexion.getConnection();
+            conn = Conexion.getConnection();
             String sql = "{call getValidarUsuario (?, ?, ?)}";
             stmt = conn.prepareCall(sql);
             stmt.setString(1, usuario);
@@ -263,8 +263,8 @@ public Boolean obtenerEstadoUsuario(String usuario, String contra)
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            clsConexion.close(stmt);
-            clsConexion.close(conn);   
+            Conexion.close(stmt);
+            Conexion.close(conn);   
         }
         return validacionUsuario;
     }
