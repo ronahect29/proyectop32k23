@@ -7,7 +7,7 @@ package Seguridad.Vista;
 
 import Seguridad.Controlador.clsUsuario;
 import java.awt.HeadlessException;
-
+import Seguridad.Vista.frmMantenimientoUsuario;
 import javax.swing.JOptionPane;
 import seguridad.controlador.clsSeguridad;
 import Seguridad.Modelo.daoUsuario;
@@ -84,6 +84,12 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Mantenimiento");
 
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas", "Compras", "Bancos", "Cuentas corrientes" }));
+        cboOpciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,7 +164,7 @@ public class frmLogin extends javax.swing.JFrame {
                 if (txtContraseña.getText().equals(usuario.getContrasenaUsuario()) && 
                     txtUsuario.getText().equals(usuario.getNombreUsuario())) {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 
-                    "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
+                    "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);                   
                     clsSeguridad c = new clsSeguridad();
                     Boolean estadoUsuarioRegistrado=false;
                     estadoUsuarioRegistrado = usuarioDAO.obtenerEstadoUsuario(txtUsuario.getText(), c.encode(txtContraseña.getText()));
