@@ -9,6 +9,9 @@ import Seguridad.Controlador.clsUsuario;
 import java.awt.HeadlessException;
 
 import javax.swing.JOptionPane;
+import seguridad.controlador.clsSeguridad;
+import Seguridad.Modelo.daoUsuario;
+import javax.swing.UIManager;
 import Seguridad.Controlador.clsUsuarioConectado;
 import Seguridad.Controlador.clsBitacora;
 
@@ -143,11 +146,12 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (txtUsuario.getText().trim().isEmpty() || txtContraseña.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "NO PUEDEN HABER CAMPOS VACIOS", "ERROR", JOptionPane.                  ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "NO PUEDEN HABER CAMPOS VACIOS", "ERROR", JOptionPane.                 ERROR_MESSAGE);
         } else {
             try {
                 clsUsuario usuario = new clsUsuario();
-          
+                daoUsuario usuarioDAO = new daoUsuario();
+                
                 usuario.setNombreUsuario(txtUsuario.getText().trim());
                 // Recuperación de información a través de otro objeto
                 usuario = usuario.getBuscarInformacionUsuarioPorNombre(usuario);
@@ -155,6 +159,9 @@ public class frmLogin extends javax.swing.JFrame {
                     txtUsuario.getText().equals(usuario.getNombreUsuario())) {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 
                     "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
+                    clsSeguridad c = new clsSeguridad();
+                    Boolean estadoUsuarioRegistrado=false;
+                    estadoUsuarioRegistrado = usuarioDAO.obtenerEstadoUsuario(txtUsuario.getText(), c.encode(txtContraseña.getText()));
                     // registrando usuario conectado
                     clsUsuarioConectado usuarioRegistrado = new clsUsuarioConectado();
                     usuarioRegistrado.setIdUsuario(usuario.getIdUsuario());
@@ -275,7 +282,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JComboBox<String> cboOpciones;

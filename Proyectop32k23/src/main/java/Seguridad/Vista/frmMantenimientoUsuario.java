@@ -7,6 +7,7 @@ package Seguridad.Vista;
 
 
 import Seguridad.Controlador.clsUsuario;
+import seguridad.controlador.clsSeguridad;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -423,8 +424,9 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         clsUsuario usuario = new clsUsuario();
+        clsSeguridad c = new clsSeguridad();
         usuario.setNombreUsuario(txtNombre.getText());
-        usuario.setContrasenaUsuario(txtContrasena.getText());
+        usuario.setContrasenaUsuario(c.encode(txtContrasena.getText())); 
         usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
         usuario.setEstatusUsuario(txtEstatus.getText());
         usuario.setNombreRealUsuario(txtNombreReal.getText());
@@ -460,9 +462,10 @@ public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
         clsUsuario usuario = new clsUsuario();
+        clsSeguridad c = new clsSeguridad();
         usuario.setIdUsuario(Integer.parseInt(txtbuscado.getText()));
         usuario.setNombreUsuario(txtNombre.getText());
-        usuario.setContrasenaUsuario(txtContrasena.getText());
+        usuario.setContrasenaUsuario(c.encode(txtContrasena.getText()));
         usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
         usuario.setEstatusUsuario(txtEstatus.getText());
         usuario.setNombreRealUsuario(txtNombreReal.getText());
