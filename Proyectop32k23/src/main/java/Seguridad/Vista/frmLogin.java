@@ -160,8 +160,8 @@ public class frmLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 
                     "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
                     clsSeguridad c = new clsSeguridad();
-                Boolean estadoUsuarioRegistrado=false;
-                estadoUsuarioRegistrado = usuarioDAO.obtenerEstadoUsuario(txtUsuario.getText(), c.encode(txtContraseña.getText()));
+                    Boolean estadoUsuarioRegistrado=false;
+                    estadoUsuarioRegistrado = usuarioDAO.obtenerEstadoUsuario(txtUsuario.getText(), c.encode(txtContraseña.getText()));
                     // registrando usuario conectado
                     clsUsuarioConectado usuarioRegistrado = new clsUsuarioConectado();
                     usuarioRegistrado.setIdUsuario(usuario.getIdUsuario());
@@ -282,7 +282,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JComboBox<String> cboOpciones;
