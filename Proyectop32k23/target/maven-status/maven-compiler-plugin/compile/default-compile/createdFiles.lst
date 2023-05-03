@@ -47,6 +47,7 @@ Seguridad\Modelo\daoBitacora.class
 Seguridad\Vista\MdiSeguridad$4.class
 Seguridad\Modelo\daoModulo.class
 Seguridad\Vista\frmAplicacionUsuario$2.class
+Seguridad\Modelo\daoAplicacionUsuario.class
 Seguridad\Vista\frmMantenimientoBitacora$1.class
 Seguridad\Vista\frmMantenimientoUsuario.class
 Seguridad\Vista\frmMantenimientoAplicacion$2.class
@@ -88,6 +89,7 @@ Seguridad\Vista\frmMantenimientoAplicacion$7.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$6.class
 Seguridad\Vista\MdiSeguridad$6.class
 Seguridad\Vista\MdiSeguridad$9.class
+Seguridad\Controlador\clsAplicacionUsuario.class
 Seguridad\Vista\frmMantenimientoPerfil$1.class
 Seguridad\Vista\frmMantenimientoTipoUsuario$3.class
 Seguridad\Vista\MdiSeguridad$10.class
