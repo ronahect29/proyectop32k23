@@ -84,9 +84,9 @@
                   <Component id="txtContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="cboOpciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cboOpciones" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -154,9 +154,9 @@
           <StringArray count="5">
             <StringItem index="0" value="Bancos"/>
             <StringItem index="1" value="Compras"/>
-            <StringItem index="2" value="Inventario"/>
-            <StringItem index="3" value="Cuentas Corrientes"/>
-            <StringItem index="4" value="Inventarios"/>
+            <StringItem index="2" value="Cuentas Corrientes"/>
+            <StringItem index="3" value="Inventarios"/>
+            <StringItem index="4" value="Seguridad"/>
           </StringArray>
         </Property>
       </Properties>

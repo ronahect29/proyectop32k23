@@ -81,7 +81,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Departamento");
 
-        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Inventario", "Cuentas Corrientes", "Inventarios" }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Cuentas Corrientes", "Inventarios", "Seguridad" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,7 +132,7 @@ public class frmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(cboOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
@@ -173,10 +173,66 @@ public class frmLogin extends javax.swing.JFrame {
                     int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(usuarioRegistrado.getIdUsuario(), codigoAplicacion, "BEG");
-                    // Menu general
-                    MdiSeguridad menuGeneral = new MdiSeguridad();
+                    // Menu general---
+                    /*MdiSeguridad menuGeneral = new MdiSeguridad();
                     menuGeneral.setVisible(true);
-                    this.dispose();
+                    this.dispose();*/
+                    
+                    //---Agregando switch case para funcionalidad de todos los módulos(incompleto porque aún no hay MDI'S de todos)
+                    //Victor Jerez
+                    String areaSeleccionada;
+                    areaSeleccionada = cboOpciones.getSelectedItem().toString();
+                    
+                    switch (areaSeleccionada) {
+
+                        case "Bancos":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Compras":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Cuentas Corrientes":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Inventarios":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Seguridad":
+                        try {
+                            MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        default:
+                            break;
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(this, "ERROR AL ENCONTRAR USUARIO o CONTRASEÑA",                              "ERROR", JOptionPane.ERROR_MESSAGE);
