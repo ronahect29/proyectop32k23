@@ -385,6 +385,12 @@ public void llenadoDeTabla1() {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        //se agrego codigo para modificar en la bitacora= David Rojas
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
+        
+        
         clsUsuario usuario = new clsUsuario();
         //usuario.setNombreUsuario(txtbuscado.getText());
         usuario.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
@@ -410,12 +416,7 @@ public void llenadoDeTabla1() {
         }else{
             JOptionPane.showMessageDialog(null, "El usuario no existe.");
         }
-        
-        //Agregando bitácora 
-        
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "REA");
+       
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
