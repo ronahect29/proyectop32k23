@@ -279,7 +279,11 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        // se agrega el codigo para la eliminacion de registros de la bitacora = Victor Jerez
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
+        
         int registrosBorrados=0;
         clsModulo modulos= new clsModulo();
         modulos.setIdModulo(Integer.parseInt(txtbuscado.getText()));
@@ -346,6 +350,11 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // se agrega el codigo para limpiar campos en el mantenimiento = Victor Jerez
+        int resultadoBitacora=0;
+        clsBitacora bitacoraRegistro = new clsBitacora();
+        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
+        
         limpiarTextos();
         habilitarBotones();
         // TODO add your handling code here:
