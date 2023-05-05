@@ -5,7 +5,7 @@
  */
 package Seguridad.Vista;
 
-
+import Seguridad.Controlador.clsSeguridad;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuario;
 import Seguridad.Controlador.clsUsuarioConectado;
@@ -458,9 +458,13 @@ int codigoAplicacion=10;
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         String cont=txtContrasena.getText(),conf=txtConfContraseña.getText();
         if(cont.equals(conf)){
+            clsSeguridad c = new clsSeguridad();
             clsUsuario usuario = new clsUsuario();
             usuario.setNombreUsuario(txtNombre.getText());
-            usuario.setContrasenaUsuario(txtContrasena.getText());
+            usuario.setContrasenaUsuario(c.encode(txtContrasena.getText()));
+                    
+            //Agregando codificado de contraseña = Anthony Avalos 
+            //usuario.setContrasenaUsuario(txtContrasena.getText());
             usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
             usuario.setEstatusUsuario(txtEstatus.getText());
             usuario.setNombreRealUsuario(txtNombreReal.getText());
@@ -515,10 +519,15 @@ int codigoAplicacion=10;
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
+        
+        clsSeguridad c = new clsSeguridad();
         clsUsuario usuario = new clsUsuario();
         usuario.setIdUsuario(Integer.parseInt(txtbuscado.getText()));
         usuario.setNombreUsuario(txtNombre.getText());
-        usuario.setContrasenaUsuario(txtContrasena.getText());
+        usuario.setContrasenaUsuario(c.encode(txtContrasena.getText()));
+        
+        //agregando codificado de contraseña modificar = Anthony Avalos
+        //usuario.setContrasenaUsuario(txtContrasena.getText());
         usuario.setUltimaSesionUsuario(txtUltimaSesion.getText());
         usuario.setEstatusUsuario(txtEstatus.getText());
         usuario.setNombreRealUsuario(txtNombreReal.getText());

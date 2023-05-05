@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import Seguridad.Controlador.clsSeguridad;
 
 /**
  *
@@ -300,7 +301,9 @@ public class frmMantenimientoModulos extends javax.swing.JInternalFrame {
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS");
-       
+        
+        
+        clsSeguridad c = new clsSeguridad();
         clsModulo modulo = new clsModulo();
         modulo.setNombreModulo(txtNombre.getText());
         //modulos.setIdModulos(txtContrasena.getText());
