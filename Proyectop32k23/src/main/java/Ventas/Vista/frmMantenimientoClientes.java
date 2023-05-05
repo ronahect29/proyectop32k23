@@ -5,8 +5,9 @@
  */
 
 
-//Carlos Emanuel Hernandez Garcia
-//9959-21-363
+//Carlos Javier Sandoval Catalán
+//9959-21-1324
+//Mantenimiento Clientes
 package Ventas.Vista;
 
 
@@ -40,15 +41,15 @@ public class frmMantenimientoClientes extends javax.swing.JInternalFrame {
         modelo.addColumn("ID");
         modelo.addColumn("nombre");
         modelo.addColumn("Estatus");
-        clsClientes perfil = new clsClientes();
+        clsClientes cliente = new clsClientes();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsClientes> listaPerfiles = perfil.getListadoPerfiles();
+        List<clsClientes> listaClientes = cliente.getListadoClientes();
         tablaUsuarios.setModel(modelo);
         String[] dato = new String[3];
-        for (int i = 0; i < listaPerfiles.size(); i++) {
-            dato[0] = Integer.toString(listaPerfiles.get(i).getIdPerfil());
-            dato[1] = listaPerfiles.get(i).getNombrePerfil();
-            dato[2] = listaPerfiles.get(i).getEstatusPerfil();
+        for (int i = 0; i < listaClientes.size(); i++) {
+            dato[0] = Integer.toString(listaClientes.get(i).getIdCliente());
+            dato[1] = listaClientes.get(i).getNombreCliente();
+            dato[2] = listaClientes.get(i).getEstatusCliente();
             modelo.addRow(dato);
         }       
 
@@ -56,7 +57,7 @@ public class frmMantenimientoClientes extends javax.swing.JInternalFrame {
     }
 
 
-int codigoAplicacion = 40;
+int codigoAplicacion = 3001;
 
     public frmMantenimientoClientes() {
         initComponents();
@@ -286,9 +287,9 @@ int codigoAplicacion = 40;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsClientes perfil = new clsClientes();
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=perfil.setBorrarPerfil(perfil);
+        clsClientes cliente = new clsClientes();
+        cliente.setIdCliente(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=cliente.setBorrarCliente(cliente);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -301,10 +302,10 @@ int codigoAplicacion = 40;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsClientes perfil = new clsClientes();
-        perfil.setNombrePerfil(txtNombre.getText());
-        perfil.setEstatusPerfil(txtContrasena.getText());
-        perfil.setIngresarPerfil(perfil);
+        clsClientes cliente = new clsClientes();
+        cliente.setNombreCliente(txtNombre.getText());
+        cliente.setEstatusCliente(txtContrasena.getText());
+        cliente.setIngresarCliente(cliente);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -317,13 +318,13 @@ int codigoAplicacion = 40;
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        clsClientes perfil = new clsClientes();
+        clsClientes cliente = new clsClientes();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));        
-        perfil = perfil.getBuscarInformacionPerfilPorId(perfil);
-        System.out.println("Usuario retornado:" + perfil);        
-        txtNombre.setText(perfil.getNombrePerfil());
-        txtContrasena.setText(perfil.getEstatusPerfil());
+       cliente.setIdCliente(Integer.parseInt(txtbuscado.getText()));        
+        cliente = cliente.getBuscarInformacionClientePorId(cliente);
+        System.out.println("Usuario retornado:" + cliente);        
+        txtNombre.setText(cliente.getNombreCliente());
+        txtContrasena.setText(cliente.getEstatusCliente());
          int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");
@@ -334,11 +335,11 @@ int codigoAplicacion = 40;
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsClientes perfil = new clsClientes();
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));
-        perfil.setNombrePerfil(txtNombre.getText());
-        perfil.setEstatusPerfil(txtContrasena.getText());
-        perfil.setModificarPerfil(perfil);
+        clsClientes cliente = new clsClientes();
+        cliente.setIdCliente(Integer.parseInt(txtbuscado.getText()));
+        cliente.setNombreCliente(txtNombre.getText());
+        cliente.setEstatusCliente(txtContrasena.getText());
+        cliente.setModificarCliente(cliente);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
         int resultadoBitacora=0;

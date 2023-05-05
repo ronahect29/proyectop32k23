@@ -5,7 +5,9 @@
  */
 
 
-//Meyglin del Rosario Rosales Ochoa Carne: 9959-21-4490
+//Carlos Javier Sandoval Catalán
+//9959-21-1324
+//DaoClientes
 package Ventas.Modelo;
 
 import Ventas.Controlador.clsClientes;
@@ -28,14 +30,14 @@ public class daoClientes {
     private static final String SQL_SELECT_NOMBRE = "SELECT clid, clnombre, clestatus FROM tbl_cliente WHERE clnombre = ?";
     private static final String SQL_SELECT_ID = "SELECT clid, clnombre, clestatus FROM tbl_cliente WHERE clid = ?";    
 
-    public List<clsClientes> consultaPerfil() {
+    public List<clsClientes> consultaCliente() {
 
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
 
-        List<clsClientes> perfiles = new ArrayList<>();
+        List<clsClientes> clientes = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -46,11 +48,11 @@ public class daoClientes {
                 int id = rs.getInt("clid");
                 String nombre = rs.getString("clnombre");
                 String estatus = rs.getString("clestatus");
-                clsClientes perfil = new clsClientes();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                perfiles.add(perfil);
+                clsClientes cliente = new clsClientes();
+                cliente.setIdCliente(id);
+                cliente.setNombreCliente(nombre);
+                cliente.setEstatusCliente(estatus);
+                clientes.add(cliente);
 
             }
         } catch (SQLException ex) {
@@ -61,10 +63,10 @@ public class daoClientes {
             Conexion.close(conn);
         }
 
-        return perfiles;
+        return clientes;
     }
 
-    public int ingresaPerfil(clsClientes perfil) {
+    public int ingresaCliente(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -73,8 +75,8 @@ public class daoClientes {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
 
-            stmt.setString(1, perfil.getNombrePerfil());
-            stmt.setString(2, perfil.getEstatusPerfil());
+            stmt.setString(1, cliente.getNombreCliente());
+            stmt.setString(2, cliente.getEstatusCliente());
 
 
             System.out.println("ejecutando query:" + SQL_INSERT);
@@ -91,7 +93,7 @@ public class daoClientes {
     }
 
 
-    public int actualizaPerfil(clsClientes perfil) {
+    public int actualizaCliente(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -101,9 +103,9 @@ public class daoClientes {
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
 
-            stmt.setString(1, perfil.getNombrePerfil());
-            stmt.setString(2, perfil.getEstatusPerfil());
-            stmt.setInt(3, perfil.getIdPerfil());
+            stmt.setString(1, cliente.getNombreCliente());
+            stmt.setString(2, cliente.getEstatusCliente());
+            stmt.setInt(3, cliente.getIdCliente());
 
 
             rows = stmt.executeUpdate();
@@ -120,7 +122,7 @@ public class daoClientes {
     }
 
 
-    public int borrarPerfil(clsClientes perfil) {
+    public int borrarCliente(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -131,7 +133,7 @@ public class daoClientes {
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
 
-            stmt.setInt(1, perfil.getIdPerfil());
+            stmt.setInt(1, cliente.getIdCliente());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
@@ -146,7 +148,7 @@ public class daoClientes {
     }
 
 
-    public clsClientes consultaPerfilPorNombre(clsClientes perfil) {
+    public clsClientes consultaClientePorNombre(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -154,10 +156,10 @@ public class daoClientes {
         try {
             conn = Conexion.getConnection();
 
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, perfil.getIdPerfil());            
-            stmt.setString(1, perfil.getNombrePerfil());
+            stmt.setString(1, cliente.getNombreCliente());
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("clid");
@@ -165,10 +167,10 @@ public class daoClientes {
                 String estatus = rs.getString("clestatus");
 
                 //perfil = new clsPerfil();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                System.out.println(" registro consultado: " + perfil);                
+                cliente.setIdCliente(id);
+                cliente.setNombreCliente(nombre);
+                cliente.setEstatusCliente(estatus);
+                System.out.println(" registro consultado: " + cliente);                
 
             }
             //System.out.println("Registros buscado:" + persona);
@@ -182,9 +184,9 @@ public class daoClientes {
 
         //return personas;  // Si se utiliza un ArrayList
 
-        return perfil;
+        return cliente;
     }
-    public clsClientes consultaPerfilPorId(clsClientes perfil) {
+    public clsClientes consultaClientePorId(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -192,9 +194,9 @@ public class daoClientes {
         try {
             conn = Conexion.getConnection();
 
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, perfil.getIdPerfil());            
+            stmt.setInt(1, cliente.getIdCliente());            
             //stmt.setString(1, perfil.getNombrePerfil());
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -203,10 +205,10 @@ public class daoClientes {
                 String estatus = rs.getString("clestatus");
 
                 //perfil = new clsPerfil();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                System.out.println(" registro consultado: " + perfil);                
+                cliente.setIdCliente(id);
+                cliente.setNombreCliente(nombre);
+                cliente.setEstatusCliente(estatus);
+                System.out.println(" registro consultado: " + cliente);                
 
             }
             //System.out.println("Registros buscado:" + persona);
@@ -220,7 +222,7 @@ public class daoClientes {
 
         //return personas;  // Si se utiliza un ArrayList
 
-        return perfil;
+        return cliente;
 
     }    
 }

@@ -10,90 +10,92 @@ import Ventas.Modelo.daoClientes;
  *
  * @author visitante
  */
- /*Creado por María José Véliz Ochoa 9959-21-5909 */
+//Carlos Javier Sandoval Catalán
+//9959-21-1324
+//clsClientes
 
 public class clsClientes {
-    private int IdPerfil;
-    private String NombrePerfil;
-    private String EstatusPerfil;
+    private int IdCliente;
+    private String NombreCliente;
+    private String EstatusCliente;
 
     public clsClientes() {
     }
 
-    public clsClientes(int IdPerfil) {
-        this.IdPerfil = IdPerfil;
+    public clsClientes(int IdCliente) {
+        this.IdCliente = IdCliente;
     }
 
-    public clsClientes(String NombrePerfil, String EstatusPerfil) {
-        this.NombrePerfil = NombrePerfil;
-        this.EstatusPerfil = EstatusPerfil;
+    public clsClientes(String NombreCliente, String EstatusCliente) {
+        this.NombreCliente = NombreCliente;
+        this.EstatusCliente = EstatusCliente;
     }
 
-    public clsClientes(int IdPerfil, String NombrePerfil, String EstatusPerfil) {
-        this.IdPerfil = IdPerfil;
-        this.NombrePerfil = NombrePerfil;
-        this.EstatusPerfil = EstatusPerfil;
+    public clsClientes(int IdCliente, String NombreCliente, String EstatusCliente) {
+        this.IdCliente = IdCliente;
+        this.NombreCliente = NombreCliente;
+        this.EstatusCliente = EstatusCliente;
     }
 
-    public int getIdPerfil() {
-        return IdPerfil;
+    public int getIdCliente() {
+        return IdCliente;
     }
 
-    public void setIdPerfil(int IdPerfil) {
-        this.IdPerfil = IdPerfil;
+    public void setIdCliente(int IdCliente) {
+        this.IdCliente = IdCliente;
     }
 
-    public String getNombrePerfil() {
-        return NombrePerfil;
+    public String getNombreCliente() {
+        return NombreCliente;
     }
 
-    public void setNombrePerfil(String NombrePerfil) {
-        this.NombrePerfil = NombrePerfil;
+    public void setNombreCliente(String NombreCliente) {
+        this.NombreCliente = NombreCliente;
     }
 
-    public String getEstatusPerfil() {
-        return EstatusPerfil;
+    public String getEstatusCliente() {
+        return EstatusCliente;
     }
 
-    public void setEstatusPerfil(String EstatusPerfil) {
-        this.EstatusPerfil = EstatusPerfil;
+    public void setEstatusCliente(String EstatusCliente) {
+        this.EstatusCliente = EstatusCliente;
     }
 
     
     @Override
     public String toString() {
-        return "clsClientes{" + "IdCliente=" + IdPerfil + ", NombreCliente=" + NombrePerfil + ", EstatusCliente=" + EstatusPerfil + '}';
+        return "clsClientes{" + "IdCliente=" + IdCliente + ", NombreCliente=" + NombreCliente + ", EstatusCliente=" + EstatusCliente + '}';
     }
     //Metodos de acceso a la capa controlador
-    public clsClientes getBuscarInformacionPerfilPorNombre(clsClientes perfil)
+    public clsClientes getBuscarInformacionClientePorNombre(clsClientes cliente)
     {
-        daoClientes daoperfil = new daoClientes();
-        return daoperfil.consultaPerfilPorNombre(perfil);
+        daoClientes daocliente = new daoClientes();
+        return daocliente.consultaClientePorNombre(cliente);
     }
-    public clsClientes getBuscarInformacionPerfilPorId(clsClientes perfil)
+    public clsClientes getBuscarInformacionClientePorId(clsClientes cliente)
     {
-        daoClientes daoperfil = new daoClientes();
-        return daoperfil.consultaPerfilPorId(perfil);
+        daoClientes daocliente = new daoClientes();
+        return daocliente.consultaClientePorId(cliente);
     }    
-    public List<clsClientes> getListadoPerfiles()
+    public List<clsClientes> getListadoClientes()
     {
-        daoClientes daoperfil = new daoClientes();
-        List<clsClientes> listadoPerfiles = daoperfil.consultaPerfil();
-        return listadoPerfiles;
+        daoClientes daocliente = new daoClientes();
+        List<clsClientes> listadoClientes = daocliente.consultaCliente();
+        return listadoClientes;
     }
-    public int setBorrarPerfil(clsClientes perfil)
+    public int setBorrarCliente(clsClientes cliente)
     {
-        daoClientes daoperfil = new daoClientes();
-        return daoperfil.borrarPerfil(perfil);
+        daoClientes daocliente = new daoClientes();
+        return daocliente.borrarCliente(cliente);
     }          
-    public int setIngresarPerfil(clsClientes perfil)
+    public int setIngresarCliente(clsClientes cliente)
     {
-        daoClientes daoperfil = new daoClientes();
-        return daoperfil.ingresaPerfil(perfil);
+        daoClientes daocliente = new daoClientes();
+        return daocliente.ingresaCliente(cliente);
     }              
-    public int setModificarPerfil(clsClientes perfil)
+    public int setModificarCliente(clsClientes cliente)
     {
-        daoClientes daoperfil = new daoClientes();
-        return daoperfil.actualizaPerfil(perfil);
+        daoClientes daocliente = new daoClientes();
+        return daocliente.actualizaCliente(cliente);
     }              
 }
