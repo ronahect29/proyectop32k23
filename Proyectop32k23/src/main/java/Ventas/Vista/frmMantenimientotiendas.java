@@ -55,7 +55,7 @@ public class frmMantenimientotiendas extends javax.swing.JInternalFrame {
             modelo.addRow(dato);
         }       
 
-
+//a
     }
 
 
