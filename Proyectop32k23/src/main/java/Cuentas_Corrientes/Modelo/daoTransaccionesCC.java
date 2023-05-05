@@ -8,8 +8,8 @@
 //Meyglin del Rosario Rosales Ochoa Carne: 9959-21-4490
 package Cuentas_Corrientes.Modelo;
 
-import Seguridad.Modelo.*;
-import Seguridad.Controlador.clsPerfil;
+import Cuentas_Corrientes.Controlador.clsTransaccionesCC;
+import Seguridad.Modelo.Conexion;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,38 +21,35 @@ import java.util.List;
  */
 public class daoTransaccionesCC {
 
+    private static final String SQL_SELECT = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transaciones_cc";
+    private static final String SQL_INSERT = "INSERT INTO tbl_transaciones_cc(traNombre, traEstatus, traEfecto) VALUES(?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_transaciones_cc SET traNombre=?, trEstatus=?,traEfecto WHERE tracodigo = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_transaciones_cc WHERE tracodigo=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_perfil WHERE traNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transacciones_cc WHERE tracodigo = ?";    
 
-    private static final String SQL_SELECT = "SELECT perid, pernombre, perestatus FROM tbl_perfil";
-    private static final String SQL_INSERT = "INSERT INTO tbl_perfil(pernombre, perestatus) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_perfil SET pernombre=?, perestatus=? WHERE perid = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_perfil WHERE perid=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT perid, pernombre, perestatus FROM tbl_perfil WHERE pernombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT perid, pernombre, perestatus FROM tbl_perfil WHERE perid = ?";    
-
-    public List<clsPerfil> consultaPerfil() {
+    public List<clsTransaccionesCC> consultaT() {
 
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
-
-        List<clsPerfil> perfiles = new ArrayList<>();
-
+        List<clsTransaccionesCC> transacciones = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
 
-                int id = rs.getInt("perid");
-                String nombre = rs.getString("pernombre");
-                String estatus = rs.getString("perestatus");
-                clsPerfil perfil = new clsPerfil();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                perfiles.add(perfil);
-
+                int id = rs.getInt("tracodigo");
+                String nombre = rs.getString("trNombre");
+                String estatus = rs.getString("traEstatus");
+                String efecto = rs.getString("traEfecto");
+                clsTransaccionesCC transaccion = new clsTransaccionesCC();
+                transaccion.setCodigoT(id);
+                transaccion.setNombreT(nombre);
+                transaccion.setEstatusT(estatus);
+                transaccion.setEfectoT(efecto);
+                transacciones.add(transaccion);
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -61,11 +58,10 @@ public class daoTransaccionesCC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
-        return perfiles;
+        return transacciones;
     }
 
-    public int ingresaPerfil(clsPerfil perfil) {
+    public int ingresaT(clsTransaccionesCC transaccion) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -73,11 +69,9 @@ public class daoTransaccionesCC {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-
-            stmt.setString(1, perfil.getNombrePerfil());
-            stmt.setString(2, perfil.getEstatusPerfil());
-
-
+            stmt.setString(1, transaccion.getNombreT());
+            stmt.setString(2, transaccion.getEstatusT());
+            stmt.setString(3, transaccion.getEfectoT());
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);
@@ -87,13 +81,9 @@ public class daoTransaccionesCC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         return rows;
     }
-
-
-    public int actualizaPerfil(clsPerfil perfil) {
-
+    public int actualizaT(clsTransaccionesCC transaccion) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -101,39 +91,31 @@ public class daoTransaccionesCC {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-
-            stmt.setString(1, perfil.getNombrePerfil());
-            stmt.setString(2, perfil.getEstatusPerfil());
-            stmt.setInt(3, perfil.getIdPerfil());
-
-
+            stmt.setString(1, transaccion.getNombreT());
+            stmt.setString(2, transaccion.getEstatusT());
+            stmt.setString(3, transaccion.getEfectoT());
+            stmt.setInt(4, transaccion.getCodigoT());
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
-
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         return rows;
     }
 
 
-    public int borrarPerfil(clsPerfil perfil) {
-
+    public int borrarT(clsTransaccionesCC transaccion) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
-
         try {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-
-            stmt.setInt(1, perfil.getIdPerfil());
-
+            stmt.setInt(1, transaccion.getCodigoT());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -142,35 +124,30 @@ public class daoTransaccionesCC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         return rows;
     }
 
-
-    public clsPerfil consultaPerfilPorNombre(clsPerfil perfil) {
-
+    public clsTransaccionesCC consultaTrPorNombre(clsTransaccionesCC transaccion) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + transaccion);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, perfil.getIdPerfil());            
-            stmt.setString(1, perfil.getNombrePerfil());
+            stmt.setString(1, transaccion.getNombreT());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("perid");
-                String nombre = rs.getString("pernombre");
-                String estatus = rs.getString("perestatus");
-
-                //perfil = new clsPerfil();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                System.out.println(" registro consultado: " + perfil);                
-
+                int id = rs.getInt("tracodigo");
+                String nombre = rs.getString("TraNombre");
+                String estatus = rs.getString("traEstatus");
+                String efecto = rs.getString("traEfecto");
+                transaccion.setCodigoT(id);
+                transaccion.setNombreT(nombre);
+                transaccion.setEstatusT(estatus);
+                transaccion.setEfectoT(efecto);
+                System.out.println(" registro consultado: " + transaccion);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -180,35 +157,31 @@ public class daoTransaccionesCC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         //return personas;  // Si se utiliza un ArrayList
-
-        return perfil;
+        return transaccion;
     }
-    public clsPerfil consultaPerfilPorId(clsPerfil perfil) {
-
+    public clsTransaccionesCC consultaTrPorId(clsTransaccionesCC transaccion) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + perfil);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + transaccion);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, perfil.getIdPerfil());            
+            stmt.setInt(1, transaccion.getCodigoT());            
             //stmt.setString(1, perfil.getNombrePerfil());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("perid");
-                String nombre = rs.getString("pernombre");
-                String estatus = rs.getString("perestatus");
-
+                int id = rs.getInt("tracodigo");
+                String nombre = rs.getString("traNombre");
+                String estatus = rs.getString("traEstatus");
+                String efecto = rs.getString("traEfecto");
                 //perfil = new clsPerfil();
-                perfil.setIdPerfil(id);
-                perfil.setNombrePerfil(nombre);
-                perfil.setEstatusPerfil(estatus);
-                System.out.println(" registro consultado: " + perfil);                
-
+                transaccion.setCodigoT(id);
+                transaccion.setNombreT(nombre);
+                transaccion.setEstatusT(estatus);
+                transaccion.setEfectoT(efecto);
+                System.out.println(" registro consultado: " + transaccion);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -218,10 +191,7 @@ public class daoTransaccionesCC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-
         //return personas;  // Si se utiliza un ArrayList
-
-        return perfil;
-
+        return transaccion;
     }    
 }
