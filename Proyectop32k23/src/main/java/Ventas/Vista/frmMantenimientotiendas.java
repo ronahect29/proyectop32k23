@@ -45,7 +45,7 @@ public class frmMantenimientotiendas extends javax.swing.JInternalFrame {
         clsTienda tienda = new clsTienda();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsTienda> listaTiendas = tienda.getListadoTiendas();
-        tablaUsuarios.setModel(modelo);
+        tablaTiendas.setModel(modelo);
         String[] dato = new String[4];
         for (int i = 0; i < listaTiendas.size(); i++) {
             dato[0] = Integer.toString(listaTiendas.get(i).getIdTienda());
@@ -59,7 +59,7 @@ public class frmMantenimientotiendas extends javax.swing.JInternalFrame {
     }
 
 
-int codigoAplicacion = 3001;
+int codigoAplicacion = 3002;
 
     public frmMantenimientotiendas() {
         initComponents();
@@ -76,30 +76,29 @@ int codigoAplicacion = 3001;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2 = new javax.swing.JLabel();
-        lbusu = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        label1 = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
-        label3 = new javax.swing.JLabel();
-        txtbuscado = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        btnLimpiar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaUsuarios = new javax.swing.JTable();
-        txtDireccion = new javax.swing.JTextField();
-        label5 = new javax.swing.JLabel();
-        lb = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        label4 = new javax.swing.JLabel();
-        btnActualizar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtTipo = new javax.swing.JTextField();
+        lb2Tienda = new javax.swing.JLabel();
+        lbusuTienda = new javax.swing.JLabel();
+        btnEliminarTienda = new javax.swing.JButton();
+        btnRegistrarTienda = new javax.swing.JButton();
+        btnBuscarTienda = new javax.swing.JButton();
+        lbTiendaT = new javax.swing.JLabel();
+        btnModificarTienda = new javax.swing.JButton();
+        lbNombreTienda = new javax.swing.JLabel();
+        txtTiendabuscado = new javax.swing.JTextField();
+        txtNombreTienda = new javax.swing.JTextField();
+        btnLimpiarTienda = new javax.swing.JButton();
+        jScrollPane1Tienda = new javax.swing.JScrollPane();
+        tablaTiendas = new javax.swing.JTable();
+        txtDireccionTienda = new javax.swing.JTextField();
+        lbDireccionTienda = new javax.swing.JLabel();
+        btnAyudaTienda = new javax.swing.JButton();
+        lbBuscarTienda = new javax.swing.JLabel();
+        btnActualizarTienda = new javax.swing.JButton();
+        lbTipoTienda = new javax.swing.JLabel();
+        txtTipoTienda = new javax.swing.JTextField();
 
-        lb2.setForeground(new java.awt.Color(204, 204, 204));
-        lb2.setText(".");
+        lb2Tienda.setForeground(new java.awt.Color(204, 204, 204));
+        lb2Tienda.setText(".");
 
         setClosable(true);
         setIconifiable(true);
@@ -108,52 +107,52 @@ int codigoAplicacion = 3001;
         setTitle("Mantenimiento Tiendas");
         setVisible(true);
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarTienda.setText("Eliminar");
+        btnEliminarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEliminarTiendaActionPerformed(evt);
             }
         });
 
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarTienda.setText("Registrar");
+        btnRegistrarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                btnRegistrarTiendaActionPerformed(evt);
             }
         });
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarTienda.setText("Buscar");
+        btnBuscarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscarTiendaActionPerformed(evt);
             }
         });
 
-        label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Tienda");
+        lbTiendaT.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbTiendaT.setText("Tienda");
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarTienda.setText("Modificar");
+        btnModificarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnModificarTiendaActionPerformed(evt);
             }
         });
 
-        label3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label3.setText("Nombre");
+        lbNombreTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbNombreTienda.setText("Nombre");
 
-        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtNombreTienda.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtNombreTienda.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
 
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiarTienda.setText("Limpiar");
+        btnLimpiarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
+                btnLimpiarTiendaActionPerformed(evt);
             }
         });
 
-        tablaUsuarios.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tablaTiendas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tablaTiendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -161,42 +160,39 @@ int codigoAplicacion = 3001;
 
             }
         ));
-        jScrollPane1.setViewportView(tablaUsuarios);
+        jScrollPane1Tienda.setViewportView(tablaTiendas);
 
-        txtDireccion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtDireccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtDireccionTienda.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtDireccionTienda.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
 
-        label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label5.setText("Direccion");
+        lbDireccionTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbDireccionTienda.setText("Direccion");
 
-        lb.setForeground(new java.awt.Color(204, 204, 204));
-        lb.setText(".");
-
-        jButton2.setText("Ayuda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAyudaTienda.setText("Ayuda");
+        btnAyudaTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAyudaTiendaActionPerformed(evt);
             }
         });
 
-        label4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label4.setText("ID a buscar");
+        lbBuscarTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbBuscarTienda.setText("ID a buscar");
 
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarTienda.setText("Actualizar");
+        btnActualizarTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+                btnActualizarTiendaActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel1.setText("Tipo");
+        lbTipoTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbTipoTienda.setText("Tipo");
 
-        txtTipo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtTipo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtTipo.addActionListener(new java.awt.event.ActionListener() {
+        txtTipoTienda.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtTipoTienda.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtTipoTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoActionPerformed(evt);
+                txtTipoTiendaActionPerformed(evt);
             }
         });
 
@@ -206,106 +202,103 @@ int codigoAplicacion = 3001;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(14, 14, 14)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label3)
-                                    .addComponent(label5))
+                                    .addComponent(lbNombreTienda)
+                                    .addComponent(lbDireccionTienda))
                                 .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                    .addComponent(txtNombre)))
+                                    .addComponent(txtDireccionTienda, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                                    .addComponent(txtNombreTienda)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lbTipoTienda)
                                 .addGap(61, 61, 61)
-                                .addComponent(txtTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
+                                .addComponent(txtTipoTienda, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)))
+                        .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbBuscarTienda)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTiendabuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnRegistrarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnModificarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLimpiarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAyudaTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(btnEliminarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
+                        .addComponent(btnActualizarTienda)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(label1)
+                        .addComponent(lbTiendaT)
                         .addGap(294, 591, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1Tienda, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(label1)
+                .addComponent(lbTiendaT)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1Tienda, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label5)))
-                            .addComponent(lb))
+                            .addComponent(txtNombreTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbNombreTienda))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDireccionTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbDireccionTienda))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbTipoTienda)
+                            .addComponent(txtTipoTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegistrar)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnModificar))
+                            .addComponent(btnRegistrarTienda)
+                            .addComponent(btnEliminarTienda)
+                            .addComponent(btnModificarTienda))
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimpiar)
-                            .addComponent(jButton2))
+                            .addComponent(btnLimpiarTienda)
+                            .addComponent(btnAyudaTienda))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscar)
-                            .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label4))))
+                            .addComponent(btnBuscarTienda)
+                            .addComponent(txtTiendabuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbBuscarTienda))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnActualizar)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(btnActualizarTienda)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnEliminarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTiendaActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
         clsTienda tienda = new clsTienda();
-        tienda.setIdTienda(Integer.parseInt(txtbuscado.getText()));
+        tienda.setIdTienda(Integer.parseInt(txtTiendabuscado.getText()));
         registrosBorrados=tienda.setBorrarTienda(tienda);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -316,13 +309,13 @@ int codigoAplicacion = 3001;
         limpiarTextos();
         
         
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarTiendaActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void btnRegistrarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarTiendaActionPerformed
         clsTienda tienda = new clsTienda();
-        tienda.setNombreTienda(txtNombre.getText());
-        tienda.setDireccionTienda(txtDireccion.getText());
-        tienda.setTipoTienda(txtTipo.getText());
+        tienda.setNombreTienda(txtNombreTienda.getText());
+        tienda.setDireccionTienda(txtDireccionTienda.getText());
+        tienda.setTipoTienda(txtTipoTienda.getText());
         tienda.setIngresarTienda(tienda);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -332,33 +325,33 @@ int codigoAplicacion = 3001;
         llenadoDeTablas();
         limpiarTextos();
         
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_btnRegistrarTiendaActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTiendaActionPerformed
         // TODO add your handling code here:
         clsTienda tienda = new clsTienda();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-       tienda.setIdTienda(Integer.parseInt(txtbuscado.getText()));        
+       tienda.setIdTienda(Integer.parseInt(txtTiendabuscado.getText()));        
         tienda = tienda.getBuscarInformacionTiendaPorId(tienda);
         System.out.println("Usuario retornado:" + tienda);        
-        txtNombre.setText(tienda.getNombreTienda());
-        txtDireccion.setText(tienda.getDireccionTienda());
-        txtTipo.setText(tienda.getTipoTienda());
+        txtNombreTienda.setText(tienda.getNombreTienda());
+        txtDireccionTienda.setText(tienda.getDireccionTienda());
+        txtTipoTienda.setText(tienda.getTipoTienda());
          int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");
                  
         
         
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscarTiendaActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnModificarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTiendaActionPerformed
 //        // TODO add your handling code here:
         clsTienda tienda = new clsTienda();
-        tienda.setIdTienda(Integer.parseInt(txtbuscado.getText()));
-        tienda.setNombreTienda(txtNombre.getText());
-        tienda.setDireccionTienda(txtDireccion.getText());
-        tienda.setTipoTienda(txtTipo.getText());
+        tienda.setIdTienda(Integer.parseInt(txtTiendabuscado.getText()));
+        tienda.setNombreTienda(txtNombreTienda.getText());
+        tienda.setDireccionTienda(txtDireccionTienda.getText());
+        tienda.setTipoTienda(txtTipoTienda.getText());
         tienda.setModificarTienda(tienda);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
@@ -367,34 +360,34 @@ int codigoAplicacion = 3001;
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
         limpiarTextos();
-    }//GEN-LAST:event_btnModificarActionPerformed
+    }//GEN-LAST:event_btnModificarTiendaActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+    private void btnLimpiarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTiendaActionPerformed
         limpiarTextos();
         habilitarBotones();
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    }//GEN-LAST:event_btnLimpiarTiendaActionPerformed
     public void limpiarTextos()
     {
-        txtNombre.setText("");
-        txtDireccion.setText("");
-        txtTipo.setText("");
-        txtbuscado.setText("");
+        txtNombreTienda.setText("");
+        txtDireccionTienda.setText("");
+        txtTipoTienda.setText("");
+        txtTiendabuscado.setText("");
     }
     public void habilitarBotones()
     {
-        btnRegistrar.setEnabled(true);
-        btnModificar.setEnabled(true);
-        btnEliminar.setEnabled(true);
+        btnRegistrarTienda.setEnabled(true);
+        btnModificarTienda.setEnabled(true);
+        btnEliminarTienda.setEnabled(true);
     }
     public void desHabilitarBotones()
     {
-        btnRegistrar.setEnabled(false);
-        btnModificar.setEnabled(false);
-        btnEliminar.setEnabled(false);
+        btnRegistrarTienda.setEnabled(false);
+        btnModificarTienda.setEnabled(false);
+        btnEliminarTienda.setEnabled(false);
     }    
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAyudaTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaTiendaActionPerformed
         // TODO add your handling code here:
         try {
             if ((new File("src\\main\\java\\ayudas\\ProcesoMayor.chm")).exists()) {
@@ -409,39 +402,38 @@ int codigoAplicacion = 3001;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAyudaTiendaActionPerformed
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+    private void btnActualizarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTiendaActionPerformed
         // TODO add your handling code here:
         llenadoDeTablas();
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    }//GEN-LAST:event_btnActualizarTiendaActionPerformed
 
-    private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
+    private void txtTipoTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoTiendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoActionPerformed
+    }//GEN-LAST:event_txtTipoTiendaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel label1;
-    private javax.swing.JLabel label3;
-    private javax.swing.JLabel label4;
-    private javax.swing.JLabel label5;
-    private javax.swing.JLabel lb;
-    private javax.swing.JLabel lb2;
-    private javax.swing.JLabel lbusu;
-    private javax.swing.JTable tablaUsuarios;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTipo;
-    private javax.swing.JTextField txtbuscado;
+    private javax.swing.JButton btnActualizarTienda;
+    private javax.swing.JButton btnAyudaTienda;
+    private javax.swing.JButton btnBuscarTienda;
+    private javax.swing.JButton btnEliminarTienda;
+    private javax.swing.JButton btnLimpiarTienda;
+    private javax.swing.JButton btnModificarTienda;
+    private javax.swing.JButton btnRegistrarTienda;
+    private javax.swing.JScrollPane jScrollPane1Tienda;
+    private javax.swing.JLabel lb2Tienda;
+    private javax.swing.JLabel lbBuscarTienda;
+    private javax.swing.JLabel lbDireccionTienda;
+    private javax.swing.JLabel lbNombreTienda;
+    private javax.swing.JLabel lbTiendaT;
+    private javax.swing.JLabel lbTipoTienda;
+    private javax.swing.JLabel lbusuTienda;
+    private javax.swing.JTable tablaTiendas;
+    private javax.swing.JTextField txtDireccionTienda;
+    private javax.swing.JTextField txtNombreTienda;
+    private javax.swing.JTextField txtTiendabuscado;
+    private javax.swing.JTextField txtTipoTienda;
     // End of variables declaration//GEN-END:variables
 }

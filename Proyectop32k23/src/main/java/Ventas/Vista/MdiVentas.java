@@ -34,11 +34,11 @@ public class MdiVentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1MdiVentas = new javax.swing.JMenuItem();
+        jMenuItem2MdiVentas = new javax.swing.JMenuItem();
+        jMenuItem4MdiVentas = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1MdiVentas = new javax.swing.JCheckBoxMenuItem();
+        jMenu1MdiVentas = new javax.swing.JMenu();
         jDesktopPaneVentas = new javax.swing.JDesktopPane();
         mnuGeneralVentas = new javax.swing.JMenuBar();
         mnuArchivoVentas = new javax.swing.JMenu();
@@ -52,16 +52,16 @@ public class MdiVentas extends javax.swing.JFrame {
         mnuReportesVentas = new javax.swing.JMenu();
         mnuAyudasVentas = new javax.swing.JMenu();
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1MdiVentas.setText("jMenuItem1");
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2MdiVentas.setText("jMenuItem2");
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4MdiVentas.setText("jMenuItem4");
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jCheckBoxMenuItem1MdiVentas.setSelected(true);
+        jCheckBoxMenuItem1MdiVentas.setText("jCheckBoxMenuItem1");
 
-        jMenu1.setText("jMenu1");
+        jMenu1MdiVentas.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -240,13 +240,13 @@ public class MdiVentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1MdiVentas;
     private javax.swing.JDesktopPane jDesktopPaneVentas;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu jMenu1MdiVentas;
+    private javax.swing.JMenuItem jMenuItem1MdiVentas;
+    private javax.swing.JMenuItem jMenuItem2MdiVentas;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem4MdiVentas;
     private javax.swing.JCheckBoxMenuItem mantenimientoClientes;
     private javax.swing.JMenu mnuArchivoVentas;
     private javax.swing.JMenu mnuAyudasVentas;
