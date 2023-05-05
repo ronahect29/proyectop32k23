@@ -384,12 +384,7 @@ public void llenadoDeTabla1() {
     }//GEN-LAST:event_txtIdUsuarioActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        //se agrego codigo para modificar en la bitacora= David Rojas
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
-        
+        // TODO add your handling code here:        
         
         clsUsuario usuario = new clsUsuario();
         //usuario.setNombreUsuario(txtbuscado.getText());

@@ -301,10 +301,7 @@ int codigoAplicacion=120;
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        //se agrego codigo para modificar en la bitacora= David Rojas
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
+        
         clsAplicacion aplicacion = new clsAplicacion();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
         aplicacion.setIdAplicacion(Integer.parseInt(txtbuscado.getText()));        
@@ -353,10 +350,6 @@ int codigoAplicacion=120;
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        //se agrego codigo para modificar en la bitacora= David Rojas
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora= bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"DEL");
         try {
             if ((new File("src\\main\\java\\ayudas\\ProcesoMayor.chm")).exists()) {
                 Process p = Runtime
