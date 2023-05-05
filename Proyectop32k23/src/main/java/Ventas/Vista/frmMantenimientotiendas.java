@@ -12,7 +12,7 @@ package Ventas.Vista;
 
 
 import Seguridad.Controlador.clsBitacora;
-import Ventas.Controlador.clsClientes;
+import Ventas.Controlador.clsTienda;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -51,7 +51,7 @@ public class frmMantenimientotiendas extends javax.swing.JInternalFrame {
             dato[0] = Integer.toString(listaTiendas.get(i).getIdTienda());
             dato[1] = listaTiendas.get(i).getNombreTienda();
             dato[2] = listaTiendas.get(i).getDireccionTienda();
-            dato[3] = listaTiendas.get(i).getTipoTienda;
+            dato[3] = listaTiendas.get(i).getTipoTienda();
             modelo.addRow(dato);
         }       
 
@@ -105,7 +105,7 @@ int codigoAplicacion = 3001;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Clientes");
+        setTitle("Mantenimiento Tiendas");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -305,8 +305,8 @@ int codigoAplicacion = 3001;
         // TODO add your handling code here:
         int registrosBorrados=0;
         clsTienda tienda = new clsTienda();
-        tienda.setIdCliente(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=tienda.setBorrarCliente(tienda);
+        tienda.setIdTienda(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=tienda.setBorrarTienda(tienda);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;

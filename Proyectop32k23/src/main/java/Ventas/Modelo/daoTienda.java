@@ -149,7 +149,7 @@ public class daoTienda {
     }
 
 
-    public clsClientes consultaTiendaPorNombre(clsTienda tienda) {
+    public clsTienda consultaTiendaPorNombre(clsTienda tienda) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -160,10 +160,10 @@ public class daoTienda {
             System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + tienda);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, perfil.getIdPerfil());            
-            stmt.setString(1, tienda.getNombreCliente());
+            stmt.setString(1, tienda.getNombreTienda());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("clid");
+                int id = rs.getInt("tieid");
                 String nombre = rs.getString("tienombre");
                 String direccion = rs.getString("tiedireccion");
                 String tipo = rs.getString("tietipo");
@@ -189,7 +189,7 @@ public class daoTienda {
 
         return tienda;
     }
-    public clsClientes consultaTiendaPorId(clsTienda tienda) {
+    public clsTienda consultaTiendaPorId(clsTienda tienda) {
 
         Connection conn = null;
         PreparedStatement stmt = null;

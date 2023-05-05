@@ -21,7 +21,7 @@ public class MdiVentas extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.setExtendedState(MdiVentas.MAXIMIZED_BOTH);
-        this.setTitle("Ejemplo Capas");
+        this.setTitle("Menu Gestión de Ventas");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
