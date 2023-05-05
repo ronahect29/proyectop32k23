@@ -46,6 +46,7 @@ public class MdiVentas extends javax.swing.JFrame {
         mnuCatalogosVentas = new javax.swing.JMenu();
         mnuCatalogosMantenimientosVentas = new javax.swing.JMenu();
         mantenimientoClientes = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mnuProcesosVentas = new javax.swing.JMenu();
         mnuConsultasVentas = new javax.swing.JMenu();
         mnuReportesVentas = new javax.swing.JMenu();
@@ -110,6 +111,14 @@ public class MdiVentas extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientosVentas.add(mantenimientoClientes);
+
+        jMenuItem3.setText("Mantenimineto tiendas");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimientosVentas.add(jMenuItem3);
 
         mnuCatalogosVentas.add(mnuCatalogosMantenimientosVentas);
 
@@ -183,6 +192,15 @@ public class MdiVentas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuConsultasVentasActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        frmMantenimientotiendas ventana = new frmMantenimientotiendas();
+        jDesktopPaneVentas.add(ventana);
+        Dimension desktopSize = jDesktopPaneVentas.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,6 +245,7 @@ public class MdiVentas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JCheckBoxMenuItem mantenimientoClientes;
     private javax.swing.JMenu mnuArchivoVentas;
