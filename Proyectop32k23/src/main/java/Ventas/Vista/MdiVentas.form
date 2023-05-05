@@ -32,38 +32,38 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Menu class="javax.swing.JMenuBar" name="mnuGeneral">
+    <Menu class="javax.swing.JMenuBar" name="mnuGeneralVentas">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mnuArchivo">
+        <Menu class="javax.swing.JMenu" name="mnuArchivoVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuArchivoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuArchivoVentasActionPerformed"/>
           </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mnuSalirSistema">
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mnuSalirSistemaVentas">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Salir del Sistema"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSalirSistemaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSalirSistemaVentasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuCatalogos">
+        <Menu class="javax.swing.JMenu" name="mnuCatalogosVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Catalogos"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="mnuCatalogosMantenimientos">
+            <Menu class="javax.swing.JMenu" name="mnuCatalogosMantenimientosVentas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mantenimientos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCatalogosMantenimientosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCatalogosMantenimientosVentasActionPerformed"/>
               </Events>
               <SubComponents>
                 <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mantenimientoClientes">
@@ -79,25 +79,25 @@
             </Menu>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuProcesos">
+        <Menu class="javax.swing.JMenu" name="mnuProcesosVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Procesos"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuConsultas">
+        <Menu class="javax.swing.JMenu" name="mnuConsultasVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuConsultasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuConsultasVentasActionPerformed"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuReportes">
+        <Menu class="javax.swing.JMenu" name="mnuReportesVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuAyudas">
+        <Menu class="javax.swing.JMenu" name="mnuAyudasVentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ayudas"/>
           </Properties>
@@ -109,7 +109,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="mnuGeneral"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="mnuGeneralVentas"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -128,17 +128,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jDesktopPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jDesktopPaneVentas" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jDesktopPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jDesktopPaneVentas" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
+    <Container class="javax.swing.JDesktopPane" name="jDesktopPaneVentas">
 
       <Layout>
         <DimensionLayout dim="0">

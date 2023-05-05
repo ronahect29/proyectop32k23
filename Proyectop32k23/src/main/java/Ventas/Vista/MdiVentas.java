@@ -39,17 +39,17 @@ public class MdiVentas extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        mnuGeneral = new javax.swing.JMenuBar();
-        mnuArchivo = new javax.swing.JMenu();
-        mnuSalirSistema = new javax.swing.JCheckBoxMenuItem();
-        mnuCatalogos = new javax.swing.JMenu();
-        mnuCatalogosMantenimientos = new javax.swing.JMenu();
+        jDesktopPaneVentas = new javax.swing.JDesktopPane();
+        mnuGeneralVentas = new javax.swing.JMenuBar();
+        mnuArchivoVentas = new javax.swing.JMenu();
+        mnuSalirSistemaVentas = new javax.swing.JCheckBoxMenuItem();
+        mnuCatalogosVentas = new javax.swing.JMenu();
+        mnuCatalogosMantenimientosVentas = new javax.swing.JMenu();
         mantenimientoClientes = new javax.swing.JCheckBoxMenuItem();
-        mnuProcesos = new javax.swing.JMenu();
-        mnuConsultas = new javax.swing.JMenu();
-        mnuReportes = new javax.swing.JMenu();
-        mnuAyudas = new javax.swing.JMenu();
+        mnuProcesosVentas = new javax.swing.JMenu();
+        mnuConsultasVentas = new javax.swing.JMenu();
+        mnuReportesVentas = new javax.swing.JMenu();
+        mnuAyudasVentas = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -64,41 +64,41 @@ public class MdiVentas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneVentasLayout = new javax.swing.GroupLayout(jDesktopPaneVentas);
+        jDesktopPaneVentas.setLayout(jDesktopPaneVentasLayout);
+        jDesktopPaneVentasLayout.setHorizontalGroup(
+            jDesktopPaneVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPaneVentasLayout.setVerticalGroup(
+            jDesktopPaneVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        mnuArchivo.setText("Archivo");
-        mnuArchivo.addActionListener(new java.awt.event.ActionListener() {
+        mnuArchivoVentas.setText("Archivo");
+        mnuArchivoVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuArchivoActionPerformed(evt);
+                mnuArchivoVentasActionPerformed(evt);
             }
         });
 
-        mnuSalirSistema.setSelected(true);
-        mnuSalirSistema.setText("Salir del Sistema");
-        mnuSalirSistema.addActionListener(new java.awt.event.ActionListener() {
+        mnuSalirSistemaVentas.setSelected(true);
+        mnuSalirSistemaVentas.setText("Salir del Sistema");
+        mnuSalirSistemaVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuSalirSistemaActionPerformed(evt);
+                mnuSalirSistemaVentasActionPerformed(evt);
             }
         });
-        mnuArchivo.add(mnuSalirSistema);
+        mnuArchivoVentas.add(mnuSalirSistemaVentas);
 
-        mnuGeneral.add(mnuArchivo);
+        mnuGeneralVentas.add(mnuArchivoVentas);
 
-        mnuCatalogos.setText("Catalogos");
+        mnuCatalogosVentas.setText("Catalogos");
 
-        mnuCatalogosMantenimientos.setText("Mantenimientos");
-        mnuCatalogosMantenimientos.addActionListener(new java.awt.event.ActionListener() {
+        mnuCatalogosMantenimientosVentas.setText("Mantenimientos");
+        mnuCatalogosMantenimientosVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuCatalogosMantenimientosActionPerformed(evt);
+                mnuCatalogosMantenimientosVentasActionPerformed(evt);
             }
         });
 
@@ -109,56 +109,56 @@ public class MdiVentas extends javax.swing.JFrame {
                 mantenimientoClientesActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimientos.add(mantenimientoClientes);
+        mnuCatalogosMantenimientosVentas.add(mantenimientoClientes);
 
-        mnuCatalogos.add(mnuCatalogosMantenimientos);
+        mnuCatalogosVentas.add(mnuCatalogosMantenimientosVentas);
 
-        mnuGeneral.add(mnuCatalogos);
+        mnuGeneralVentas.add(mnuCatalogosVentas);
 
-        mnuProcesos.setText("Procesos");
-        mnuGeneral.add(mnuProcesos);
+        mnuProcesosVentas.setText("Procesos");
+        mnuGeneralVentas.add(mnuProcesosVentas);
 
-        mnuConsultas.setText("Consultas");
-        mnuConsultas.addActionListener(new java.awt.event.ActionListener() {
+        mnuConsultasVentas.setText("Consultas");
+        mnuConsultasVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuConsultasActionPerformed(evt);
+                mnuConsultasVentasActionPerformed(evt);
             }
         });
-        mnuGeneral.add(mnuConsultas);
+        mnuGeneralVentas.add(mnuConsultasVentas);
 
-        mnuReportes.setText("Reportes");
-        mnuGeneral.add(mnuReportes);
+        mnuReportesVentas.setText("Reportes");
+        mnuGeneralVentas.add(mnuReportesVentas);
 
-        mnuAyudas.setText("Ayudas");
-        mnuGeneral.add(mnuAyudas);
+        mnuAyudasVentas.setText("Ayudas");
+        mnuGeneralVentas.add(mnuAyudasVentas);
 
-        setJMenuBar(mnuGeneral);
+        setJMenuBar(mnuGeneralVentas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPaneVentas)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPaneVentas)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuCatalogosMantenimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosActionPerformed
+    private void mnuCatalogosMantenimientosVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosVentasActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_mnuCatalogosMantenimientosActionPerformed
+    }//GEN-LAST:event_mnuCatalogosMantenimientosVentasActionPerformed
 
-    private void mnuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArchivoActionPerformed
+    private void mnuArchivoVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArchivoVentasActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_mnuArchivoActionPerformed
+    }//GEN-LAST:event_mnuArchivoVentasActionPerformed
 
-    private void mnuSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirSistemaActionPerformed
+    private void mnuSalirSistemaVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirSistemaVentasActionPerformed
         // TODO add your handling code here:
                 /*===== OPERACIÓN CERRAR SESIÓN ====
           Variable entera respuesta_cs*/
@@ -168,20 +168,20 @@ public class MdiVentas extends javax.swing.JFrame {
         if (respuesta_cs == 0) {
             this.dispose();
         }        
-    }//GEN-LAST:event_mnuSalirSistemaActionPerformed
+    }//GEN-LAST:event_mnuSalirSistemaVentasActionPerformed
 
     private void mantenimientoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoClientesActionPerformed
         // TODO add your handling code here:
         frmMantenimientoClientes ventana = new frmMantenimientoClientes();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
+        jDesktopPaneVentas.add(ventana);
+        Dimension desktopSize = jDesktopPaneVentas.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);       
     }//GEN-LAST:event_mantenimientoClientesActionPerformed
 
-    private void mnuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuConsultasActionPerformed
+    private void mnuConsultasVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuConsultasVentasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mnuConsultasActionPerformed
+    }//GEN-LAST:event_mnuConsultasVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,20 +223,20 @@ public class MdiVentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPaneVentas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JCheckBoxMenuItem mantenimientoClientes;
-    private javax.swing.JMenu mnuArchivo;
-    private javax.swing.JMenu mnuAyudas;
-    private javax.swing.JMenu mnuCatalogos;
-    private javax.swing.JMenu mnuCatalogosMantenimientos;
-    private javax.swing.JMenu mnuConsultas;
-    private javax.swing.JMenuBar mnuGeneral;
-    private javax.swing.JMenu mnuProcesos;
-    private javax.swing.JMenu mnuReportes;
-    private javax.swing.JCheckBoxMenuItem mnuSalirSistema;
+    private javax.swing.JMenu mnuArchivoVentas;
+    private javax.swing.JMenu mnuAyudasVentas;
+    private javax.swing.JMenu mnuCatalogosMantenimientosVentas;
+    private javax.swing.JMenu mnuCatalogosVentas;
+    private javax.swing.JMenu mnuConsultasVentas;
+    private javax.swing.JMenuBar mnuGeneralVentas;
+    private javax.swing.JMenu mnuProcesosVentas;
+    private javax.swing.JMenu mnuReportesVentas;
+    private javax.swing.JCheckBoxMenuItem mnuSalirSistemaVentas;
     // End of variables declaration//GEN-END:variables
 }
