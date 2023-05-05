@@ -11,6 +11,7 @@ import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsUsuarioConectado;
 import Seguridad.Controlador.clsBitacora;
+import Seguridad.Controlador.clsSeguridad;
 
 /**
  *
@@ -160,6 +161,10 @@ public class frmLogin extends javax.swing.JFrame {
           
                 usuario.setNombreUsuario(txtUsuario.getText().trim());
                 // Recuperación de información a través de otro objeto
+                // se agrego codificacion de seguridad = David Rojas
+                clsSeguridad c = new clsSeguridad();
+                usuario.setContrasenaUsuario(c.encode(txtContraseña.getText()));
+                
                 usuario = usuario.getBuscarInformacionUsuarioPorNombre(usuario);
                 if (txtContraseña.getText().equals(usuario.getContrasenaUsuario()) && 
                     txtUsuario.getText().equals(usuario.getNombreUsuario())) {
