@@ -166,7 +166,7 @@ public class frmLogin extends javax.swing.JFrame {
                 usuario.setContrasenaUsuario(c.encode(txtContraseña.getText()));
                 
                 usuario = usuario.getBuscarInformacionUsuarioPorNombre(usuario);
-                if (txtContraseña.getText().equals(usuario.getContrasenaUsuario()) && 
+                if (c.encode(txtContraseña.getText()).equals(usuario.getContrasenaUsuario()) && 
                     txtUsuario.getText().equals(usuario.getNombreUsuario())) {
                     JOptionPane.showMessageDialog(null, "Bienvenido al SISTEMA\n", 
                     "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
