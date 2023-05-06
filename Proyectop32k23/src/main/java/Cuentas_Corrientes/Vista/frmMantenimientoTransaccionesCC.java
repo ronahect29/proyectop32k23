@@ -12,7 +12,7 @@ package Cuentas_Corrientes.Vista;
 
 import Seguridad.Vista.*;
 import Seguridad.Controlador.clsBitacora;
-import Seguridad.Controlador.clsPerfil;
+import Cuentas_Corrientes.Controlador.clsTransaccionesCC;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -39,21 +39,21 @@ public class frmMantenimientoTransaccionesCC extends javax.swing.JInternalFrame 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("nombre");
+        modelo.addColumn("Nombre");
         modelo.addColumn("Estatus");
-        clsPerfil perfil = new clsPerfil();
+        modelo.addColumn("Efecto");
+        clsTransaccionesCC transaccion = new clsTransaccionesCC();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsPerfil> listaPerfiles = perfil.getListadoPerfiles();
+        List<clsTransaccionesCC> listaPerfiles = transaccion.getListadoPerfiles();
         tablaUsuarios.setModel(modelo);
         String[] dato = new String[3];
         for (int i = 0; i < listaPerfiles.size(); i++) {
-            dato[0] = Integer.toString(listaPerfiles.get(i).getIdPerfil());
-            dato[1] = listaPerfiles.get(i).getNombrePerfil();
-            dato[2] = listaPerfiles.get(i).getEstatusPerfil();
+            dato[0] = Integer.toString(listaPerfiles.get(i).getCodigoT());
+            dato[1] = listaPerfiles.get(i).getNombreT();
+            dato[2] = listaPerfiles.get(i).getEstatusT();
+            dato[3] = listaPerfiles.get(i).getEfectoT();
             modelo.addRow(dato);
         }       
-
-
     }
 
 
@@ -93,6 +93,8 @@ int codigoAplicacion = 40;
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
+        txtEfecto = new javax.swing.JTextField();
+        label6 = new javax.swing.JLabel();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -193,23 +195,18 @@ int codigoAplicacion = 40;
             }
         });
 
+        txtEfecto.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtEfecto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+
+        label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label6.setText("Efecto");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label3)
-                            .addComponent(label5))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(txtNombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
@@ -230,7 +227,21 @@ int codigoAplicacion = 40;
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(14, 14, 14)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label3)
+                            .addComponent(label5)
+                            .addComponent(label6))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtEfecto, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                                .addComponent(txtNombre)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -262,6 +273,10 @@ int codigoAplicacion = 40;
                                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label5)))
                             .addComponent(lb))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEfecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -278,7 +293,7 @@ int codigoAplicacion = 40;
                             .addComponent(label4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnActualizar)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -287,9 +302,9 @@ int codigoAplicacion = 40;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsPerfil perfil = new clsPerfil();
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=perfil.setBorrarPerfil(perfil);
+        clsTransaccionesCC transaccion = new clsTransaccionesCC();
+        transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=transaccion.setBorrarPerfil(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -302,10 +317,11 @@ int codigoAplicacion = 40;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsPerfil perfil = new clsPerfil();
-        perfil.setNombrePerfil(txtNombre.getText());
-        perfil.setEstatusPerfil(txtContrasena.getText());
-        perfil.setIngresarPerfil(perfil);
+        clsTransaccionesCC transaccion = new clsTransaccionesCC();
+        transaccion.setNombreT(txtNombre.getText());
+        transaccion.setEstatusT(txtContrasena.getText());
+        transaccion.setEfectoT(txtEfecto.getText());
+        transaccion.setIngresarPerfil(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -319,25 +335,25 @@ int codigoAplicacion = 40;
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         
-        clsPerfil perfil = new clsPerfil();
+        clsTransaccionesCC transaccion = new clsTransaccionesCC();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));        
-        perfil = perfil.getBuscarInformacionPerfilPorId(perfil);
-        System.out.println("Usuario retornado:" + perfil);        
-        txtNombre.setText(perfil.getNombrePerfil());
-        txtContrasena.setText(perfil.getEstatusPerfil()); 
-                 
-        
-        
+        transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));        
+        transaccion = transaccion.getBuscarInformacionPerfilPorId(transaccion);
+        System.out.println("Transacción retornada:" + transaccion);        
+        txtNombre.setText(transaccion.getNombreT());
+        txtContrasena.setText(transaccion.getEstatusT()); 
+        txtEfecto.setText(transaccion.getEfectoT()); 
+           
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsPerfil perfil = new clsPerfil();
-        perfil.setIdPerfil(Integer.parseInt(txtbuscado.getText()));
-        perfil.setNombrePerfil(txtNombre.getText());
-        perfil.setEstatusPerfil(txtContrasena.getText());
-        perfil.setModificarPerfil(perfil);
+        clsTransaccionesCC transaccion = new clsTransaccionesCC();
+        transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));
+        transaccion.setNombreT(txtNombre.getText());
+        transaccion.setEstatusT(txtContrasena.getText());
+        transaccion.setEfectoT(txtEfecto.getText());
+        transaccion.setModificarPerfil(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
         int resultadoBitacora=0;
@@ -408,11 +424,13 @@ int codigoAplicacion = 40;
     private javax.swing.JLabel label3;
     private javax.swing.JLabel label4;
     private javax.swing.JLabel label5;
+    private javax.swing.JLabel label6;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaUsuarios;
     private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtEfecto;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
