@@ -5,8 +5,8 @@
  */
 
 
-//Carlos Emanuel Hernandez Garcia
-//9959-21-363
+//Monica Gabriela Perez Velásquez
+//9959-21-1840
 package Cuentas_Corrientes.Vista;
 
 
@@ -44,14 +44,14 @@ public class frmMantenimientoTransaccionesCC extends javax.swing.JInternalFrame 
         modelo.addColumn("Efecto");
         clsTransaccionesCC transaccion = new clsTransaccionesCC();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsTransaccionesCC> listaPerfiles = transaccion.getListadoPerfiles();
+        List<clsTransaccionesCC> Listadotransaccion = transaccion.getListadotransaccion();
         tablaUsuarios.setModel(modelo);
         String[] dato = new String[3];
-        for (int i = 0; i < listaPerfiles.size(); i++) {
-            dato[0] = Integer.toString(listaPerfiles.get(i).getCodigoT());
-            dato[1] = listaPerfiles.get(i).getNombreT();
-            dato[2] = listaPerfiles.get(i).getEstatusT();
-            dato[3] = listaPerfiles.get(i).getEfectoT();
+        for (int i = 0; i < Listadotransaccion.size(); i++) {
+            dato[0] = Integer.toString(Listadotransaccion.get(i).getCodigoT());
+            dato[1] = Listadotransaccion.get(i).getNombreT();
+            dato[2] = Listadotransaccion.get(i).getEstatusT();
+            dato[3] = Listadotransaccion.get(i).getEfectoT();
             modelo.addRow(dato);
         }       
     }
@@ -103,7 +103,7 @@ int codigoAplicacion = 40;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Perfiles");
+        setTitle("Mantenimiento Transacciones CC");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -237,9 +237,8 @@ int codigoAplicacion = 40;
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtEfecto, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                .addComponent(txtNombre)))
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19)
@@ -304,7 +303,7 @@ int codigoAplicacion = 40;
         int registrosBorrados=0;
         clsTransaccionesCC transaccion = new clsTransaccionesCC();
         transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=transaccion.setBorrarPerfil(transaccion);
+        registrosBorrados=transaccion.setBorrartransaccion(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -321,7 +320,7 @@ int codigoAplicacion = 40;
         transaccion.setNombreT(txtNombre.getText());
         transaccion.setEstatusT(txtContrasena.getText());
         transaccion.setEfectoT(txtEfecto.getText());
-        transaccion.setIngresarPerfil(transaccion);
+        transaccion.setIngresartransaccion(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -338,7 +337,7 @@ int codigoAplicacion = 40;
         clsTransaccionesCC transaccion = new clsTransaccionesCC();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
         transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));        
-        transaccion = transaccion.getBuscarInformacionPerfilPorId(transaccion);
+        transaccion = transaccion.getBuscarInformaciontransaccionPorId(transaccion);
         System.out.println("Transacción retornada:" + transaccion);        
         txtNombre.setText(transaccion.getNombreT());
         txtContrasena.setText(transaccion.getEstatusT()); 
@@ -353,7 +352,7 @@ int codigoAplicacion = 40;
         transaccion.setNombreT(txtNombre.getText());
         transaccion.setEstatusT(txtContrasena.getText());
         transaccion.setEfectoT(txtEfecto.getText());
-        transaccion.setModificarPerfil(transaccion);
+        transaccion.setModificartransaccion(transaccion);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
         int resultadoBitacora=0;
@@ -373,6 +372,7 @@ int codigoAplicacion = 40;
         txtNombre.setText("");
         txtContrasena.setText("");
         txtbuscado.setText("");
+        txtEfecto.setText("");
     }
     public void habilitarBotones()
     {

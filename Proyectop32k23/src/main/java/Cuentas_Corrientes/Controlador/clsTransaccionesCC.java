@@ -11,7 +11,7 @@ import java.util.List;
  * @author visitante
  */
  //Creado por Alan Abimael Galicia Ruano; 9959-21-3632
-
+// Arreglos por Daniel Alexander Hall Alvarez; 9959-21-1395
 public class clsTransaccionesCC {
     private int CodigoT;
     private String NombreT;
@@ -80,35 +80,35 @@ public class clsTransaccionesCC {
         return "clsTransaccionesCC{" + "CodigoT=" + CodigoT + ", NombreT=" + NombreT + ", EstatusT=" + EstatusT + ", EfectoT=" + EfectoT +'}';
     }
     //Metodos de acceso a la capa controlador
-    public clsTransaccionesCC getBuscarInformacionPerfilPorNombre(clsTransaccionesCC transaccion)
+    public clsTransaccionesCC getBuscarInformaciontransaccionPorNombre(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        return daoTransaccionesCC.consultaPerfilPorNombre(transaccion);
+        return daoTransaccionesCC.consultaTrPorNombre(transaccion);
     }
-    public clsTransaccionesCC getBuscarInformacionPerfilPorId(clsTransaccionesCC transaccion)
+    public clsTransaccionesCC getBuscarInformaciontransaccionPorId(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        return daoTransaccionesCC.consultaPerfilPorId(transaccion);
+        return daoTransaccionesCC.consultaTrPorId(transaccion);
     }    
-    public List<clsTransaccionesCC> getListadoPerfiles()
+    public List<clsTransaccionesCC> getListadotransaccion()
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        List<clsTransaccionesCC> listadoTransacciones = daoTransaccionesCC.consultaPerfil();
-        return listadoTransacciones;
+        List<clsTransaccionesCC> Listadotransaccion = daoTransaccionesCC.consultaT();
+        return Listadotransaccion;
     }
-    public int setBorrarPerfil(clsTransaccionesCC transaccion)
+    public int setBorrartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        return daoTransaccionesCC.borrarPerfil(transaccion);
+        return daoTransaccionesCC.borrarT(transaccion);
     }          
-    public int setIngresarPerfil(clsTransaccionesCC transaccion)
+    public int setIngresartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        return daoTransaccionesCC.ingresaPerfil(transaccion);
+        return daoTransaccionesCC.ingresaT(transaccion);
     }              
-    public int setModificarPerfil(clsTransaccionesCC transaccion)
+    public int setModificartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
-        return daoTransaccionesCC.actualizaPerfil(transaccion);
+        return daoTransaccionesCC.actualizaT(transaccion);
     }              
 }
