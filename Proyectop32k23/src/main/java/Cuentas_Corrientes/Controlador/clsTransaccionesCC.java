@@ -90,6 +90,12 @@ public class clsTransaccionesCC {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.consultaTrPorId(transaccion);
     }    
+    public List<clsTransaccionesCC> getListadoT()
+    {
+        daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
+        List<clsTransaccionesCC> listadoTransacciones = daoTransaccionesCC.consultaT();
+        return listadoTransacciones;
+    }
     public List<clsTransaccionesCC> getListadotransaccion()
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
