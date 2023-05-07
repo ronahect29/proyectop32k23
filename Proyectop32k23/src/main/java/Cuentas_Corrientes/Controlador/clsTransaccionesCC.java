@@ -11,7 +11,7 @@ import java.util.List;
  * @author visitante
  */
  //Creado por Alan Abimael Galicia Ruano; 9959-21-3632
-
+// Arreglos por Daniel Alexander Hall Alvarez; 9959-21-1395
 public class clsTransaccionesCC {
     private int CodigoT;
     private String NombreT;
@@ -80,12 +80,12 @@ public class clsTransaccionesCC {
         return "clsTransaccionesCC{" + "CodigoT=" + CodigoT + ", NombreT=" + NombreT + ", EstatusT=" + EstatusT + ", EfectoT=" + EfectoT +'}';
     }
     //Metodos de acceso a la capa controlador
-    public clsTransaccionesCC getBuscarInformacionTrPorNombre(clsTransaccionesCC transaccion)
+    public clsTransaccionesCC getBuscarInformaciontransaccionPorNombre(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.consultaTrPorNombre(transaccion);
     }
-    public clsTransaccionesCC getBuscarInformacionTrPorId(clsTransaccionesCC transaccion)
+    public clsTransaccionesCC getBuscarInformaciontransaccionPorId(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.consultaTrPorId(transaccion);
@@ -96,17 +96,23 @@ public class clsTransaccionesCC {
         List<clsTransaccionesCC> listadoTransacciones = daoTransaccionesCC.consultaT();
         return listadoTransacciones;
     }
-    public int setBorrarT(clsTransaccionesCC transaccion)
+    public List<clsTransaccionesCC> getListadotransaccion()
+    {
+        daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
+        List<clsTransaccionesCC> Listadotransaccion = daoTransaccionesCC.consultaT();
+        return Listadotransaccion;
+    }
+    public int setBorrartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.borrarT(transaccion);
     }          
-    public int setIngresarT(clsTransaccionesCC transaccion)
+    public int setIngresartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.ingresaT(transaccion);
     }              
-    public int setModificarT(clsTransaccionesCC transaccion)
+    public int setModificartransaccion(clsTransaccionesCC transaccion)
     {
         daoTransaccionesCC daoTransaccionesCC = new daoTransaccionesCC();
         return daoTransaccionesCC.actualizaT(transaccion);
