@@ -10,7 +10,6 @@ package Cuentas_Corrientes.Modelo;
 
 import Cuentas_Corrientes.Controlador.clsTransaccionesCC;
 import Seguridad.Modelo.Conexion;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +22,10 @@ public class daoTransaccionesCC {
 
     private static final String SQL_SELECT = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transaciones_cc";
     private static final String SQL_INSERT = "INSERT INTO tbl_transaciones_cc(traNombre, traEstatus, traEfecto) VALUES(?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_transaciones_cc SET traNombre=?, traEstatus=?,traEfecto WHERE tracodigo = ?";
+    private static final String SQL_UPDATE = "UPDATE tbl_transaciones_cc SET traNombre=?, traEstatus=?,traEfecto=? WHERE tracodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_transaciones_cc WHERE tracodigo=?";
     private static final String SQL_SELECT_NOMBRE = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transaciones_cc WHERE traNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transacciones_cc WHERE tracodigo = ?";    
+    private static final String SQL_SELECT_ID = "SELECT tracodigo, traNombre, traEstatus, traEfecto FROM tbl_transaciones_cc WHERE tracodigo = ?";    
 
     public List<clsTransaccionesCC> consultaT() {
 

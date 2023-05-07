@@ -46,7 +46,7 @@ public class frmMantenimientoTransaccionesCC extends javax.swing.JInternalFrame 
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsTransaccionesCC> Listadotransaccion = transaccion.getListadotransaccion();
         tablaUsuarios.setModel(modelo);
-        String[] dato = new String[3];
+        String[] dato = new String[4];
         for (int i = 0; i < Listadotransaccion.size(); i++) {
             dato[0] = Integer.toString(Listadotransaccion.get(i).getCodigoT());
             dato[1] = Listadotransaccion.get(i).getNombreT();
@@ -333,7 +333,6 @@ int codigoAplicacion = 40;
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        
         clsTransaccionesCC transaccion = new clsTransaccionesCC();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
         transaccion.setCodigoT(Integer.parseInt(txtbuscado.getText()));        
