@@ -5,6 +5,7 @@
  */
 package Seguridad.Vista;
 
+import Inventarios.Vista.MdiInventario;
 import Seguridad.Controlador.clsUsuario;
 import java.awt.HeadlessException;
 
@@ -219,7 +220,7 @@ public class frmLogin extends javax.swing.JFrame {
                         break;
                         case "Inventarios":
                         try {
-                            MdiSeguridad menu = new MdiSeguridad();
+                            MdiInventario menu = new MdiInventario();
                             menu.setVisible(true);
                             this.dispose();
                         } catch (Exception e) {
