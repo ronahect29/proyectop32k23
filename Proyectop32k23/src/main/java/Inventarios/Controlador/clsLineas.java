@@ -16,7 +16,7 @@ import  Inventarios.Modelo.daoLineas;
 public class clsLineas {
     private int linCodigo;
     private String linNombre;
-    private String linPrecios;
+    private int linPrecios;
     private String linEstatus;
 
     public int getLinCodigo() {
@@ -35,11 +35,11 @@ public class clsLineas {
         this.linNombre = linNombre;
     }
 
-    public String getLinPrecios() {
+    public int getLinPrecios() {
         return linPrecios;
     }
 
-    public void setLinPrecios(String linPrecios) {
+    public void setLinPrecios(int linPrecios) {
         this.linPrecios = linPrecios;
     }
 
@@ -51,14 +51,14 @@ public class clsLineas {
         this.linEstatus = linEstatus;
     }
 
-    public clsLineas(int linCodigo, String linNombre, String linPrecios, String linEstatus) {
+    public clsLineas(int linCodigo, String linNombre, int linPrecios, String linEstatus) {
         this.linCodigo = linCodigo;
         this.linNombre = linNombre;
         this.linPrecios = linPrecios;
         this.linEstatus = linEstatus;
     }
 
-    public clsLineas(int linCodigo, String linNombre, String linPrecios) {
+    public clsLineas(int linCodigo, String linNombre, int linPrecios) {
         this.linCodigo = linCodigo;
         this.linNombre = linNombre;
         this.linPrecios = linPrecios;

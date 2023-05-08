@@ -6,7 +6,7 @@
 package Inventarios.Modelo;
 
 import  Seguridad.Modelo.*;
-import  Inventarios.Controlador.clsLineas;
+import  Inventarios.Controlador.clsMovimientos;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,36 +15,36 @@ import java.util.List;
  *
  * @author visitante
  */
-public class daoLineas {
+public class daoMovimientos {
 
-    private static final String SQL_SELECT = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(linNombre,linPrecios, linEstatus) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_lineas SET linNombre=?, linPrecios=?,linEstatus=?  WHERE linCodigo = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_lineas WHERE linCodigo=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas WHERE linNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas WHERE linCodigo = ?";    
+    private static final String SQL_SELECT = "SELECT movCodigo, movDescripcion, movEfecto,movEstatus FROM tbl_movimientos";
+    private static final String SQL_INSERT = "INSERT INTO tbl_movimientos(movDescripcion,movEfecto, movEstatus) VALUES(?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_movimientos SET movDescripcion=?, movEfecto=?,movEstatus=?  WHERE movCodigo = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_movimientos WHERE movCodigo=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_movimientos WHERE movDescripcion = ?";
+    private static final String SQL_SELECT_ID = "SELECT movCodigo, movDescripcion, movEfecto,movEstatus FROM tbl_movimientos WHERE movCodigo = ?";    
 
-    public List<clsLineas> consultaLineas() {
+    public List<clsMovimientos> consultaMovimientos() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<clsLineas> lineas = new ArrayList<>();
+        List<clsMovimientos> movimientos = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int codigo = rs.getInt("linCodigo");
-                String nombre = rs.getString("linNombre");
-                int precios= rs.getInt("linPrecios");
-                String estatus = rs.getString("linEstatus");
+                int codigo = rs.getInt("movCodigo");
+                String nombre = rs.getString("movDescripcion");
+                int precios= rs.getInt("movEfecto");
+                String estatus = rs.getString("movEstatus");
                
-                clsLineas nuevo = new clsLineas();
-                nuevo.setLinCodigo(codigo);
-                nuevo.setLinNombre(nombre);
-                 nuevo.setLinPrecios(precios);
-                nuevo.setLinEstatus(estatus);
+                clsMovimientos nuevo = new clsMovimientos();
+                nuevo.setMovCodigo(codigo);
+                nuevo.setMovDescripcion(nombre);
+                 nuevo.setMovEfecto(precios);
+                nuevo.setMovEstatus(estatus);
                 nuevo.add(nuevo);
             }
         } catch (SQLException ex) {
@@ -54,18 +54,18 @@ public class daoLineas {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return lineas;
+        return movimientos;
     }
 
-    public int ingresaLineas(clsLineas lineas) {
+    public int ingresaMovimientos(clsMovimientos mov) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, lineas.getLinNombre());
-            stmt.setString(2, lineas.getLinEstatus());
+            stmt.setString(1, mov.getMovDescripcion());
+            stmt.setString(2, mov.getMovEstatus());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -80,7 +80,7 @@ public class daoLineas {
         return rows;
     }
 
-    public int actualizaLineas(clsLineas lineas) {
+    public int actualizaMovimientos(clsMovimientos mov) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -88,9 +88,9 @@ public class daoLineas {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, lineas.getLinNombre());
-            stmt.setString(2, lineas.getLinEstatus());
-            stmt.setInt(3, lineas.getLinCodigo());
+            stmt.setString(1, mov.getMovDescripcion());
+            stmt.setString(2, mov.getMovEstatus());
+            stmt.setInt(3, mov.getMovCodigo());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -105,7 +105,7 @@ public class daoLineas {
         return rows;
     }
 
-    public int borrarLineas(clsLineas lineas) {
+    public int borrarMovimientos(clsMovimientos mov) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -114,7 +114,7 @@ public class daoLineas {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, lineas.getLinCodigo());
+            stmt.setInt(1, mov.getMovCodigo());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -127,29 +127,31 @@ public class daoLineas {
         return rows;
     }
 
-    public clsLineas consultaLineasPorNombre(clsLineas lineas) {
+    public clsMovimientos  consultaMovimientosPorNombre(clsMovimientos mov) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + lineas);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + mov);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, aplicacion.getIdAplicacion());            
-            stmt.setString(1, lineas.getLinNombre());
+            stmt.setString(1, mov.getMovDescripcion());
             rs = stmt.executeQuery();
-            while (rs.next()) {
-                int codigo = rs.getInt("linCodigo");
-                String nombre = rs.getString("linNombre");
-                int precios = rs.getInt("linPrecios");
-                String estatus = rs.getString("linEstatus");
+            while (rs.next()) {               
+                
+                
+                int codigo = rs.getInt("movCodigo");
+                String nombre = rs.getString("movDescripcion");
+                int precios= rs.getInt("movEfecto");
+                String estatus = rs.getString("movEstatus");
 
                 //aplicacion = new clsAplicacion();
-                lineas.setLinCodigo(codigo);
-                lineas.setLinNombre(nombre);
-                 lineas.setLinPrecios(precios);
-                lineas.setLinEstatus(estatus);
-                System.out.println(" registro consultado: " + lineas);                
+                mov.setMovCodigo(codigo);
+                mov.setMovDescripcion(nombre);
+                 mov.setMovEfecto(precios);
+                mov.setMovEstatus(estatus);
+                System.out.println(" registro consultado: " + mov);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -161,31 +163,31 @@ public class daoLineas {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return lineas;
+        return mov;
     }
-    public clsLineas consultaLineasPorcodigo(clsLineas lineas) {
+    public clsMovimientos consultaMovimientosPorcodigo(clsMovimientos mov) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + lineas);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + mov);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, lineas.getLinCodigo());            
+            stmt.setString(1, mov.getMovDescripcion());            
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int codigo = rs.getInt("linCodigo");
-                String nombre = rs.getString("linNombre");
-                int precios = rs.getInt("linPrecios");
-                String estatus = rs.getString("linEstatus");
+               int codigo = rs.getInt("movCodigo");
+                String nombre = rs.getString("movDescripcion");
+                int precios= rs.getInt("movEfecto");
+                String estatus = rs.getString("movEstatus");
 
                 //aplicacion = new clsAplicacion();
-                lineas.setLinCodigo(codigo);
-                lineas.setLinNombre(nombre);
-                 lineas.setLinPrecios(precios);
-                lineas.setLinEstatus(estatus);
-                System.out.println(" registro consultado: " + lineas);                
+                mov.setMovCodigo(codigo);
+                mov.setMovDescripcion(nombre);
+                 mov.setMovEfecto(precios);
+                mov.setMovEstatus(estatus);
+                System.out.println(" registro consultado: " + mov);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -197,6 +199,6 @@ public class daoLineas {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return lineas;
+        return mov;
     }    
 }
