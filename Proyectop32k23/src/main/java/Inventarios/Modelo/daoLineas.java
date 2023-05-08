@@ -18,7 +18,7 @@ import java.util.List;
 public class daoLineas {
 
     private static final String SQL_SELECT = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(linNombre,linPrecios, linEstatus) VALUES(?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(linCodigo,linNombre,linPrecios, linEstatus) VALUES(?,?,?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_lineas SET linNombre=?, linPrecios=?,linEstatus=?  WHERE linCodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_lineas WHERE linCodigo=?";
     private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas WHERE linNombre = ?";
@@ -64,8 +64,10 @@ public class daoLineas {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, lineas.getLinNombre());
-            stmt.setString(2, lineas.getLinEstatus());
+            stmt.setInt(1, lineas.getLinCodigo());
+            stmt.setString(2, lineas.getLinNombre());
+            stmt.setInt(3, lineas.getLinPrecios());
+            stmt.setString(4, lineas.getLinEstatus());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
