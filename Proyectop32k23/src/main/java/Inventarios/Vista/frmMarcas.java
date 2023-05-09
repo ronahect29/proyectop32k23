@@ -362,6 +362,8 @@ public class frmMarcas extends javax.swing.JInternalFrame {
         txtExistencias.setText(Integer.toString(marcas.getExistenciasMarcas()));
         txtPrecios.setText(Double.toString(marcas.getPreciosMarcas()));
         txtEstatus.setText(marcas.getEstatusMarcas());
+        
+        txtCodigo.setEnabled(false);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -382,6 +384,8 @@ public class frmMarcas extends javax.swing.JInternalFrame {
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
         limpiarTextos();
+        
+        txtCodigo.setEnabled(true);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -392,6 +396,7 @@ public class frmMarcas extends javax.swing.JInternalFrame {
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), clsBitacora, "DEL");
         
+        txtCodigo.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
