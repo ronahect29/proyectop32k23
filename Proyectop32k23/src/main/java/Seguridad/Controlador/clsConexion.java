@@ -7,8 +7,8 @@ public class clsConexion {
 
   private static final String JDBC_URL = "jdbc:mysql://localhost/pruebaproyecto?useSSL=false&serverTimezone=UTC";  
 
-    private static final String JDBC_USER = "root";
-    private static final String JDBC_PASS = "Rosales2811";
+    private static final String JDBC_USER = "";
+    private static final String JDBC_PASS = "";
 
    
     public static Connection getConnection() throws SQLException {
