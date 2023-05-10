@@ -3,9 +3,15 @@
 import java.sql.*;
 
 public class Conexion {
+<<<<<<< HEAD
 private static final String JDBC_URL = "jdbc:mysql://localhost/pruebaproyecto?useSSL=false&serverTimezone=UTC";    
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "rosales2811";
+=======
+private static final String JDBC_URL = "jdbc:mysql://localhost/proyectop312023?useSSL=false&serverTimezone=UTC";    
+    private static final String JDBC_USER = "root";
+    private static final String JDBC_PASS = "";
+>>>>>>> f062c769a98ca199ccf201373af52eaf898d8ddb
    
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
