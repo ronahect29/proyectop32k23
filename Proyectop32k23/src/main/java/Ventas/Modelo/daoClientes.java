@@ -23,12 +23,12 @@ import java.util.List;
 public class daoClientes {
 
 
-private static final String SQL_SELECT = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente";
-private static final String SQL_INSERT = "INSERT INTO tbl_cliente(clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe) VALUES(?, ?, ?, ?, ?, ?, ?)";
-private static final String SQL_UPDATE = "UPDATE tbl_cliente SET clNombre=?, clDireccion=?, clTelefono=?, clEmail=?, clNit=?, clHaber=?, clDebe=? WHERE clId = ?";
+private static final String SQL_SELECT = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente";
+private static final String SQL_INSERT = "INSERT INTO tbl_cliente(clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe) VALUES(?, ?, ?, ?, ?, ?, ?)";
+private static final String SQL_UPDATE = "UPDATE tbl_cliente SET clNombre=?, cldireccion=?, cltelefono=?, clemail=?, clNit=?, clHaber=?, clDebe=? WHERE clId = ?";
 private static final String SQL_DELETE = "DELETE FROM tbl_cliente WHERE clId=?";
-private static final String SQL_SELECT_NOMBRE = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clNombre = ?";
-private static final String SQL_SELECT_ID = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clId = ?";
+private static final String SQL_SELECT_NOMBRE = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clNombre = ?";
+private static final String SQL_SELECT_ID = "SELECT clId, clNombre, cldireccion, cltelefono, clemail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clId = ?";
 
 public List<clsClientes> consultaCliente() {
 
@@ -45,9 +45,9 @@ public List<clsClientes> consultaCliente() {
             rs = stmt.executeQuery();
             while (rs.next()) {
 
-                int Id = rs.getInt("clid");
-                String Nombre = rs.getString("clnombre");
-                String Direccion = rs.getString("clestatus");
+                int Id = rs.getInt("clId");
+                String Nombre = rs.getString("clNombre");
+                String Direccion = rs.getString("cldireccion");
                 String Telefono = rs.getString("cltelefono");
                 String Email = rs.getString("clemail");
                 String Nit = rs.getString("clNit");
@@ -185,9 +185,9 @@ public List<clsClientes> consultaCliente() {
         while (rs.next()) {
             int id = rs.getInt("clId");
             String nombre = rs.getString("clNombre");
-            String direccion = rs.getString("clDireccion");
-            String telefono = rs.getString("clTelefono");
-            String email = rs.getString("clEmail");
+            String direccion = rs.getString("cldireccion");
+            String telefono = rs.getString("cltelefono");
+            String email = rs.getString("clemail");
             String nit = rs.getString("clNit");
             Double haber = rs.getDouble("clHaber");
             Double debe = rs.getDouble("clDebe");
@@ -232,23 +232,23 @@ try {
     stmt.setInt(1, cliente.getIdCliente());            
     rs = stmt.executeQuery();
     while (rs.next()) {
-        int clId = rs.getInt("clid");
-        String clNombre = rs.getString("clnombre");
-        String cldireccion = rs.getString("clestatus");
-        String clTelefono = rs.getString("cltelefono");
-        String clEmail = rs.getString("clemail");
-        String clNit = rs.getString("clNit");
-        Double clHaber = rs.getDouble("clHaber");
-        Double clDebe = rs.getDouble("clDebe");
+        int Id = rs.getInt("clId");
+        String Nombre = rs.getString("clNombre");
+        String direccion = rs.getString("cldireccion");
+        String Telefono = rs.getString("cltelefono");
+        String Email = rs.getString("clemail");
+        String Nit = rs.getString("clNit");
+        Double Haber = rs.getDouble("clHaber");
+        Double Debe = rs.getDouble("clDebe");
 
-        cliente.setIdCliente(clId);
-        cliente.setNombreCliente(clNombre);
-        cliente.setEstatusCliente(cldireccion);
-        cliente.setTelefonoCliente(clTelefono);
-        cliente.setEmailCliente(clEmail);
-        cliente.setNitCliente(clNit);
-        cliente.setHaberCliente(clHaber);
-        cliente.setDebeCliente(clDebe);
+        cliente.setIdCliente(Id);
+        cliente.setNombreCliente(Nombre);
+        cliente.setEstatusCliente(direccion);
+        cliente.setTelefonoCliente(Telefono);
+        cliente.setEmailCliente(Email);
+        cliente.setNitCliente(Nit);
+        cliente.setHaberCliente(Haber);
+        cliente.setDebeCliente(Debe);
 
         System.out.println("registro consultado: " + cliente);                
     }

@@ -39,17 +39,27 @@ public class frmMantenimientoClientes extends javax.swing.JInternalFrame {
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("nombre");
-        modelo.addColumn("Estatus");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Email");
+        modelo.addColumn("Nit");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
         clsClientes cliente = new clsClientes();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsClientes> listaClientes = cliente.getListadoClientes();
         tablaClientes.setModel(modelo);
-        String[] dato = new String[3];
+        String[] dato = new String[8];
         for (int i = 0; i < listaClientes.size(); i++) {
             dato[0] = Integer.toString(listaClientes.get(i).getIdCliente());
             dato[1] = listaClientes.get(i).getNombreCliente();
             dato[2] = listaClientes.get(i).getEstatusCliente();
+            dato[3] = listaClientes.get(i).getTelefonoCliente();
+            dato[4] = listaClientes.get(i).getEmailCliente();
+            dato[5] = listaClientes.get(i).getNitCliente();
+            dato[6] = Double.toString(listaClientes.get(i).getHaberCliente());
+            dato[7] = Double.toString(listaClientes.get(i).getDebeCliente());
             modelo.addRow(dato);
         }       
 
@@ -375,6 +385,11 @@ int codigoAplicacion = 3001;
         clsClientes cliente = new clsClientes();
         cliente.setNombreCliente(txtNombreCliente.getText());
         cliente.setEstatusCliente(txtDireccionCliente.getText());
+        cliente.setTelefonoCliente(txtTelefonoCliente.getText());
+        cliente.setEmailCliente(txtEmailCliente.getText());
+        cliente.setNitCliente(txtNitCliente.getText());
+        cliente.setHaberCliente(Double.valueOf(txtHaberCliente.getText()));
+        cliente.setDebeCliente(Double.valueOf(txtDebeCliente.getText()));
         cliente.setIngresarCliente(cliente);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -395,6 +410,11 @@ int codigoAplicacion = 3001;
         System.out.println("Usuario retornado:" + cliente);        
         txtNombreCliente.setText(cliente.getNombreCliente());
         txtDireccionCliente.setText(cliente.getEstatusCliente());
+        txtTelefonoCliente.setText(cliente.getTelefonoCliente());
+        txtEmailCliente.setText(cliente.getEmailCliente());
+        txtNitCliente.setText(cliente.getNitCliente());
+        txtHaberCliente.setText(String.valueOf(cliente.getHaberCliente()));
+        txtDebeCliente.setText(String.valueOf(cliente.getDebeCliente()));
          int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");
@@ -409,6 +429,11 @@ int codigoAplicacion = 3001;
         cliente.setIdCliente(Integer.parseInt(txtClientebuscado.getText()));
         cliente.setNombreCliente(txtNombreCliente.getText());
         cliente.setEstatusCliente(txtDireccionCliente.getText());
+        cliente.setTelefonoCliente(txtTelefonoCliente.getText());
+        cliente.setEmailCliente(txtEmailCliente.getText());
+        cliente.setNitCliente(txtNitCliente.getText());
+        cliente.setHaberCliente(Double.valueOf(txtHaberCliente.getText()));
+        cliente.setDebeCliente(Double.valueOf(txtDebeCliente.getText()));
         cliente.setModificarCliente(cliente);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
@@ -428,6 +453,11 @@ int codigoAplicacion = 3001;
     {
         txtNombreCliente.setText("");
         txtDireccionCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtEmailCliente.setText("");
+        txtNitCliente.setText("");
+        txtHaberCliente.setText("");
+        txtDebeCliente.setText("");
         txtClientebuscado.setText("");
     }
     public void habilitarBotones()

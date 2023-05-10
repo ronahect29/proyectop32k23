@@ -31,15 +31,25 @@ public class clsClientes {
         this.IdCliente = IdCliente;
     }
 
-    public clsClientes(String NombreCliente, String EstatusCliente) {
+    public clsClientes(String NombreCliente, String EstatusCliente, String TelefonoCliente, String EmailCliente, String NitCliente, double HaberCliente, double DebeCliente) {
         this.NombreCliente = NombreCliente;
         this.EstatusCliente = EstatusCliente;
+        this.TelefonoCliente = TelefonoCliente;
+        this.EmailCliente =EmailCliente;
+        this.NitCliente = NitCliente;
+        this.HaberCliente = HaberCliente;
+        this.DebeCliente = DebeCliente;
     }
 
-    public clsClientes(int IdCliente, String NombreCliente, String EstatusCliente) {
+    public clsClientes(int IdCliente, String NombreCliente, String EstatusCliente, String TelefonoCliente, String EmailCliente, String NitCliente, double HaberCliente, double DebeCliente) {
         this.IdCliente = IdCliente;
         this.NombreCliente = NombreCliente;
         this.EstatusCliente = EstatusCliente;
+        this.TelefonoCliente = TelefonoCliente;
+        this.EmailCliente =EmailCliente;
+        this.NitCliente = NitCliente;
+        this.HaberCliente = HaberCliente;
+        this.DebeCliente = DebeCliente;
     }
 
     public int getIdCliente() {

@@ -61,7 +61,7 @@ public class frmMantenimientoVendedores extends javax.swing.JInternalFrame {
     }
 
 
-int codigoAplicacion = 3002;
+int codigoAplicacion = 3003;
 
     public frmMantenimientoVendedores() {
         initComponents();
@@ -78,37 +78,37 @@ int codigoAplicacion = 3002;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Tienda = new javax.swing.JLabel();
-        lbusuTienda = new javax.swing.JLabel();
+        lb2Vendedores = new javax.swing.JLabel();
+        lbusuVendedores = new javax.swing.JLabel();
         btnEliminarVendedor = new javax.swing.JButton();
         btnRegistrarVendedor = new javax.swing.JButton();
-        btnBuscarTienda = new javax.swing.JButton();
-        lbTiendaT = new javax.swing.JLabel();
+        btnBuscarVendedor = new javax.swing.JButton();
+        lbVendedoresT = new javax.swing.JLabel();
         btnModificarVendedor = new javax.swing.JButton();
-        lbNombreTienda = new javax.swing.JLabel();
+        lbNombreVendedor = new javax.swing.JLabel();
         txtVendedorbuscado = new javax.swing.JTextField();
         txtNombreVendedor = new javax.swing.JTextField();
         btnLimpiarVendedor = new javax.swing.JButton();
-        jScrollPane1Tienda = new javax.swing.JScrollPane();
+        jScrollPane1Vendedor = new javax.swing.JScrollPane();
         tablaVendedores = new javax.swing.JTable();
         txtDireccionVendedor = new javax.swing.JTextField();
-        lbDireccionTienda = new javax.swing.JLabel();
+        lbDireccionVendedor = new javax.swing.JLabel();
         btnAyudaVendedor = new javax.swing.JButton();
-        lbBuscarTienda = new javax.swing.JLabel();
-        btnActualizarTienda = new javax.swing.JButton();
-        lbTipoTienda = new javax.swing.JLabel();
+        lbBuscarVendedor = new javax.swing.JLabel();
+        btnActualizarVendedor = new javax.swing.JButton();
+        lbTelefonoVendedor = new javax.swing.JLabel();
         txtTelefonoVendedor = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lbEmailVendedor = new javax.swing.JLabel();
         txtEmailVendedor = new javax.swing.JTextField();
 
-        lb2Tienda.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Tienda.setText(".");
+        lb2Vendedores.setForeground(new java.awt.Color(204, 204, 204));
+        lb2Vendedores.setText(".");
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Tiendas");
+        setTitle("Mantenimiento Vendedores");
         setVisible(true);
 
         btnEliminarVendedor.setText("Eliminar");
@@ -125,15 +125,15 @@ int codigoAplicacion = 3002;
             }
         });
 
-        btnBuscarTienda.setText("Buscar");
-        btnBuscarTienda.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarVendedor.setText("Buscar");
+        btnBuscarVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarTiendaActionPerformed(evt);
+                btnBuscarVendedorActionPerformed(evt);
             }
         });
 
-        lbTiendaT.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lbTiendaT.setText("Vendedores");
+        lbVendedoresT.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbVendedoresT.setText("Vendedores");
 
         btnModificarVendedor.setText("Modificar");
         btnModificarVendedor.addActionListener(new java.awt.event.ActionListener() {
@@ -142,8 +142,8 @@ int codigoAplicacion = 3002;
             }
         });
 
-        lbNombreTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lbNombreTienda.setText("Nombre");
+        lbNombreVendedor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbNombreVendedor.setText("Nombre");
 
         txtNombreVendedor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNombreVendedor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -164,7 +164,7 @@ int codigoAplicacion = 3002;
 
             }
         ));
-        jScrollPane1Tienda.setViewportView(tablaVendedores);
+        jScrollPane1Vendedor.setViewportView(tablaVendedores);
 
         txtDireccionVendedor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtDireccionVendedor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -174,8 +174,8 @@ int codigoAplicacion = 3002;
             }
         });
 
-        lbDireccionTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lbDireccionTienda.setText("Direccion");
+        lbDireccionVendedor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbDireccionVendedor.setText("Direccion");
 
         btnAyudaVendedor.setText("Ayuda");
         btnAyudaVendedor.addActionListener(new java.awt.event.ActionListener() {
@@ -184,18 +184,18 @@ int codigoAplicacion = 3002;
             }
         });
 
-        lbBuscarTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lbBuscarTienda.setText("ID a buscar");
+        lbBuscarVendedor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbBuscarVendedor.setText("ID a buscar");
 
-        btnActualizarTienda.setText("Actualizar");
-        btnActualizarTienda.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarVendedor.setText("Actualizar");
+        btnActualizarVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTiendaActionPerformed(evt);
+                btnActualizarVendedorActionPerformed(evt);
             }
         });
 
-        lbTipoTienda.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lbTipoTienda.setText("Telefono");
+        lbTelefonoVendedor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbTelefonoVendedor.setText("Telefono");
 
         txtTelefonoVendedor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtTelefonoVendedor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -205,8 +205,8 @@ int codigoAplicacion = 3002;
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel1.setText("Email");
+        lbEmailVendedor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lbEmailVendedor.setText("Email");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,87 +215,82 @@ int codigoAplicacion = 3002;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(lbBuscarTienda)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtVendedorbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnBuscarTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(52, 52, 52)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnRegistrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnModificarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnLimpiarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnAyudaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(14, 14, 14)
-                                    .addComponent(btnEliminarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel1)))
+                                .addComponent(lbBuscarVendedor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtVendedorbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnRegistrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnModificarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLimpiarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAyudaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(btnEliminarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombreVendedor)
+                            .addComponent(lbDireccionVendedor)
+                            .addComponent(lbTelefonoVendedor)
+                            .addComponent(lbEmailVendedor))
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtEmailVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbNombreTienda)
-                                    .addComponent(lbDireccionTienda)
-                                    .addComponent(lbTipoTienda))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefonoVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTelefonoVendedor, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtEmailVendedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtDireccionVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                        .addComponent(txtNombreVendedor)))))
+                                        .addComponent(txtNombreVendedor)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizarTienda)
+                        .addComponent(btnActualizarVendedor)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbTiendaT)
+                        .addComponent(lbVendedoresT)
                         .addGap(294, 546, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1Tienda, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1Vendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(lbTiendaT)
+                .addComponent(lbVendedoresT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1Tienda, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1Vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbNombreTienda)
-                                    .addComponent(txtNombreVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbDireccionTienda)
-                                    .addComponent(txtDireccionVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lbTipoTienda)
-                                .addComponent(txtTelefonoVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtEmailVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbNombreVendedor)
+                            .addComponent(txtNombreVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbDireccionVendedor)
+                            .addComponent(txtDireccionVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTelefonoVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbTelefonoVendedor))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbEmailVendedor))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrarVendedor)
@@ -307,12 +302,12 @@ int codigoAplicacion = 3002;
                             .addComponent(btnAyudaVendedor))
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscarTienda)
+                            .addComponent(btnBuscarVendedor)
                             .addComponent(txtVendedorbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbBuscarTienda))))
+                            .addComponent(lbBuscarVendedor))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnActualizarTienda)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(btnActualizarVendedor)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -352,7 +347,7 @@ int codigoAplicacion = 3002;
         
     }//GEN-LAST:event_btnRegistrarVendedorActionPerformed
 
-    private void btnBuscarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTiendaActionPerformed
+    private void btnBuscarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendedorActionPerformed
         // TODO add your handling code here:
         clsVendedores vendedor = new clsVendedores();
         //aplicacion.setNombreAplicacion(txtbuscado.getText());        
@@ -369,7 +364,7 @@ int codigoAplicacion = 3002;
                  
         
         
-    }//GEN-LAST:event_btnBuscarTiendaActionPerformed
+    }//GEN-LAST:event_btnBuscarVendedorActionPerformed
 
     private void btnModificarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarVendedorActionPerformed
 //        // TODO add your handling code here:
@@ -399,6 +394,7 @@ int codigoAplicacion = 3002;
         txtNombreVendedor.setText("");
         txtDireccionVendedor.setText("");
         txtTelefonoVendedor.setText("");
+        txtEmailVendedor.setText("");
         txtVendedorbuscado.setText("");
     }
     public void habilitarBotones()
@@ -431,10 +427,10 @@ int codigoAplicacion = 3002;
         }
     }//GEN-LAST:event_btnAyudaVendedorActionPerformed
 
-    private void btnActualizarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTiendaActionPerformed
+    private void btnActualizarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarVendedorActionPerformed
         // TODO add your handling code here:
         llenadoDeTablas();
-    }//GEN-LAST:event_btnActualizarTiendaActionPerformed
+    }//GEN-LAST:event_btnActualizarVendedorActionPerformed
 
     private void txtTelefonoVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoVendedorActionPerformed
         // TODO add your handling code here:
@@ -446,22 +442,22 @@ int codigoAplicacion = 3002;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizarTienda;
+    private javax.swing.JButton btnActualizarVendedor;
     private javax.swing.JButton btnAyudaVendedor;
-    private javax.swing.JButton btnBuscarTienda;
+    private javax.swing.JButton btnBuscarVendedor;
     private javax.swing.JButton btnEliminarVendedor;
     private javax.swing.JButton btnLimpiarVendedor;
     private javax.swing.JButton btnModificarVendedor;
     private javax.swing.JButton btnRegistrarVendedor;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1Tienda;
-    private javax.swing.JLabel lb2Tienda;
-    private javax.swing.JLabel lbBuscarTienda;
-    private javax.swing.JLabel lbDireccionTienda;
-    private javax.swing.JLabel lbNombreTienda;
-    private javax.swing.JLabel lbTiendaT;
-    private javax.swing.JLabel lbTipoTienda;
-    private javax.swing.JLabel lbusuTienda;
+    private javax.swing.JScrollPane jScrollPane1Vendedor;
+    private javax.swing.JLabel lb2Vendedores;
+    private javax.swing.JLabel lbBuscarVendedor;
+    private javax.swing.JLabel lbDireccionVendedor;
+    private javax.swing.JLabel lbEmailVendedor;
+    private javax.swing.JLabel lbNombreVendedor;
+    private javax.swing.JLabel lbTelefonoVendedor;
+    private javax.swing.JLabel lbVendedoresT;
+    private javax.swing.JLabel lbusuVendedores;
     private javax.swing.JTable tablaVendedores;
     private javax.swing.JTextField txtDireccionVendedor;
     private javax.swing.JTextField txtEmailVendedor;
