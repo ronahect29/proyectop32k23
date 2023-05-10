@@ -11,7 +11,7 @@ package Ventas.Modelo;
 
 import Ventas.Controlador.clsClientes;
 import Ventas.Controlador.clsVendedores;
-
+import Seguridad.Modelo.Conexion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class daoVendedores {
                 vendedor.setDireccionVendedor(direccion);
                 vendedor.setTelefonoVendedor(telefono);
                 vendedor.setEmailVendedor(email);
-                vendedor.add(vendedor);
+                vendedores.add(vendedor);
 
             }
         } catch (SQLException ex) {
@@ -76,8 +76,8 @@ public class daoVendedores {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
 
-            stmt.setString(1, vendedor.getNombreTienda());
-            stmt.setString(2, vendedor.getDireccionTienda());
+            stmt.setString(1, vendedor.getNombreVendedor());
+            stmt.setString(2, vendedor.getDireccionVendedor());
             stmt.setString(3, vendedor.getTelefonoVendedor());
             stmt.setString(4, vendedor.getTelefonoVendedor());
 
