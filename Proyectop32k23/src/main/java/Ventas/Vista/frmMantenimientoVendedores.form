@@ -48,7 +48,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lbBuscarTienda" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtTiendabuscado" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="txtVendedorbuscado" min="-2" pref="95" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnBuscarTienda" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
@@ -56,18 +56,18 @@
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="btnRegistrarTienda" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="btnRegistrarVendedor" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnModificarTienda" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="btnModificarVendedor" min="-2" pref="95" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnLimpiarTienda" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="btnLimpiarVendedor" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnAyudaTienda" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="btnAyudaVendedor" min="-2" pref="95" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="btnEliminarTienda" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarVendedor" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -148,26 +148,25 @@
                               <Component id="txtTelefonoVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmailVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnRegistrarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEliminarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnModificarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRegistrarVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEliminarVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnModificarVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnLimpiarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAyudaTienda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAyudaVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnBuscarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTiendabuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVendedorbuscado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbBuscarTienda" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -180,20 +179,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnEliminarTienda">
+    <Component class="javax.swing.JButton" name="btnEliminarVendedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarTiendaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarVendedorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRegistrarTienda">
+    <Component class="javax.swing.JButton" name="btnRegistrarVendedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarTiendaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarVendedorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscarTienda">
@@ -212,12 +211,12 @@
         <Property name="text" type="java.lang.String" value="Vendedores"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnModificarTienda">
+    <Component class="javax.swing.JButton" name="btnModificarVendedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarTiendaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarVendedorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbNombreTienda">
@@ -228,7 +227,7 @@
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTiendabuscado">
+    <Component class="javax.swing.JTextField" name="txtVendedorbuscado">
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombreVendedor">
       <Properties>
@@ -244,12 +243,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnLimpiarTienda">
+    <Component class="javax.swing.JButton" name="btnLimpiarVendedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpiar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarTiendaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarVendedorActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1Tienda">
@@ -259,7 +258,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tablaTiendas">
+        <Component class="javax.swing.JTable" name="tablaVendedores">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="12" style="0"/>
@@ -302,12 +301,12 @@
         <Property name="text" type="java.lang.String" value="Direccion"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAyudaTienda">
+    <Component class="javax.swing.JButton" name="btnAyudaVendedor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ayuda"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaTiendaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaVendedorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbBuscarTienda">

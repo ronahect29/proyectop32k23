@@ -212,7 +212,7 @@ public class MdiVentas extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        frmMantenimientovendedores ventana = new frmMantenimientovendedores();
+        frmMantenimientoVendedores ventana = new frmMantenimientoVendedores();
         jDesktopPaneVentas.add(ventana);
         Dimension desktopSize = jDesktopPaneVentas.getSize();
         Dimension FrameSize = ventana.getSize();
