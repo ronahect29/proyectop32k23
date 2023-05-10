@@ -44,7 +44,7 @@ public class frmProductos1 extends javax.swing.JInternalFrame {
         clsProductos productos = new clsProductos();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsProductos> listaProductos = productos.getListadoProductos();
-        tablaBodegas.setModel(modelo);
+        tablaProductos.setModel(modelo);
         String[] dato = new String[7];
         for (int i = 0; i < listaProductos.size(); i++) {
             dato[0] = Integer.toString(listaProductos.get(i).getIdProductos());
@@ -85,7 +85,7 @@ public class frmProductos1 extends javax.swing.JInternalFrame {
         txtNombre = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaBodegas = new javax.swing.JTable();
+        tablaProductos = new javax.swing.JTable();
         txtLinea = new javax.swing.JTextField();
         label5 = new javax.swing.JLabel();
         lb = new javax.swing.JLabel();
@@ -157,8 +157,8 @@ public class frmProductos1 extends javax.swing.JInternalFrame {
             }
         });
 
-        tablaBodegas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        tablaBodegas.setModel(new javax.swing.table.DefaultTableModel(
+        tablaProductos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -166,7 +166,7 @@ public class frmProductos1 extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tablaBodegas);
+        jScrollPane1.setViewportView(tablaProductos);
 
         txtLinea.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtLinea.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -518,7 +518,7 @@ public class frmProductos1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
-    private javax.swing.JTable tablaBodegas;
+    private javax.swing.JTable tablaProductos;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtExistencias;

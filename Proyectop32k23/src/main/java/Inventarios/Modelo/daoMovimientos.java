@@ -18,10 +18,10 @@ import java.util.List;
 public class daoMovimientos {
 
     private static final String SQL_SELECT = "SELECT movCodigo, movDescripcion, movEfecto,movEstatus FROM tbl_movimientos";
-    private static final String SQL_INSERT = "INSERT INTO tbl_movimientos(movDescripcion,movEfecto, movEstatus) VALUES(?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO tbl_movimientos(movCodigo,movDescripcion,movEfecto, movEstatus) VALUES(?,?,?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_movimientos SET movDescripcion=?, movEfecto=?,movEstatus=?  WHERE movCodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_movimientos WHERE movCodigo=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_movimientos WHERE movDescripcion = ?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT movCodigo, movDescripcion, movEfecto,movEstatus FROM tbl_movimientos WHERE movDescripcion = ?";
     private static final String SQL_SELECT_ID = "SELECT movCodigo, movDescripcion, movEfecto,movEstatus FROM tbl_movimientos WHERE movCodigo = ?";    
 
     public List<clsMovimientos> consultaMovimientos() {
@@ -64,8 +64,10 @@ public class daoMovimientos {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, mov.getMovDescripcion());
-            stmt.setString(2, mov.getMovEstatus());
+            stmt.setInt(1, mov.getMovCodigo());
+            stmt.setString(2, mov.getMovDescripcion());
+            stmt.setInt(3, mov.getMovEfecto());
+            stmt.setString(4, mov.getMovEstatus());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -88,9 +90,10 @@ public class daoMovimientos {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, mov.getMovDescripcion());
-            stmt.setString(2, mov.getMovEstatus());
-            stmt.setInt(3, mov.getMovCodigo());
+             stmt.setInt(1, mov.getMovCodigo());
+            stmt.setString(2, mov.getMovDescripcion());
+            stmt.setInt(3, mov.getMovEfecto());
+            stmt.setString(4, mov.getMovEstatus());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -136,7 +139,10 @@ public class daoMovimientos {
             System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + mov);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, aplicacion.getIdAplicacion());            
-            stmt.setString(1, mov.getMovDescripcion());
+            stmt.setInt(1, mov.getMovCodigo());
+            stmt.setString(2, mov.getMovDescripcion());
+            stmt.setInt(3, mov.getMovEfecto());
+            stmt.setString(4, mov.getMovEstatus());
             rs = stmt.executeQuery();
             while (rs.next()) {               
                 
@@ -173,7 +179,10 @@ public class daoMovimientos {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + mov);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setString(1, mov.getMovDescripcion());            
+            stmt.setInt(1, mov.getMovCodigo());
+            stmt.setString(2, mov.getMovDescripcion());
+            stmt.setInt(3, mov.getMovEfecto());
+            stmt.setString(4, mov.getMovEstatus());            
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {

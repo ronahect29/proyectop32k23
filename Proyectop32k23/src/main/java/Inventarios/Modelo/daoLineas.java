@@ -17,12 +17,12 @@ import java.util.List;
  */
 public class daoLineas {
 
-    private static final String SQL_SELECT = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_Lineas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_Lineas(linNombre,linPrecios, linEstatus) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_Lineas SET linNombre=?, linPrecios=?,linEstatus=?  WHERE linCodigo = ?";
+    private static final String SQL_SELECT = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas";
+    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(linCodigo,linNombre,linPrecios, linEstatus) VALUES(?,?,?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_lineas SET linNombre=?, linPrecios=?,linEstatus=?  WHERE linCodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_Lineas WHERE linCodigo=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_Lineass WHERE movDescripcion = ?";
-    private static final String SQL_SELECT_ID = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_Lineas WHERE linCodigo = ?";    
+    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas WHERE linNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT linCodigo, linNombre, linPrecios,linEstatus FROM tbl_lineas WHERE linCodigo = ?";    
 
     public List<clsLineas> consultaLineas() {
         Connection conn = null;
