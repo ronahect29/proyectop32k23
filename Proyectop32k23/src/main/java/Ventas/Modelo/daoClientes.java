@@ -171,79 +171,97 @@ public List<clsClientes> consultaCliente() {
 
     public clsClientes consultaClientePorNombre(clsClientes cliente) {
 
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = Conexion.getConnection();
+         Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    try {
+        conn = Conexion.getConnection();
 
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
-            stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
-            //stmt.setInt(1, perfil.getIdPerfil());            
-            stmt.setString(1, cliente.getNombreCliente());
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("clid");
-                String nombre = rs.getString("clnombre");
-                String estatus = rs.getString("clestatus");
+        System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
+        stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
+        //stmt.setInt(1, perfil.getIdPerfil());            
+        stmt.setString(1, cliente.getNombreCliente());
+        rs = stmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("clId");
+            String nombre = rs.getString("clNombre");
+            String direccion = rs.getString("clDireccion");
+            String telefono = rs.getString("clTelefono");
+            String email = rs.getString("clEmail");
+            String nit = rs.getString("clNit");
+            Double haber = rs.getDouble("clHaber");
+            Double debe = rs.getDouble("clDebe");
 
-                //perfil = new clsPerfil();
-                cliente.setIdCliente(id);
-                cliente.setNombreCliente(nombre);
-                cliente.setEstatusCliente(estatus);
-                System.out.println(" registro consultado: " + cliente);                
+            cliente.setIdCliente(id);
+            cliente.setNombreCliente(nombre);
+            cliente.setEstatusCliente(direccion);
+            cliente.setTelefonoCliente(telefono);
+            cliente.setEmailCliente(email);
+            cliente.setNitCliente(nit);
+            cliente.setHaberCliente(haber);
+            cliente.setDebeCliente(debe);
 
-            }
-            //System.out.println("Registros buscado:" + persona);
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
+            System.out.println("Registro consultado: " + cliente);                
+
         }
 
-        //return personas;  // Si se utiliza un ArrayList
-
-        return cliente;
+    } catch (SQLException ex) {
+        ex.printStackTrace(System.out);
+    } finally {
+        Conexion.close(rs);
+        Conexion.close(stmt);
+        Conexion.close(conn);
     }
+
+    return cliente;
+}
+
+
+
+
     public clsClientes consultaClientePorId(clsClientes cliente) {
 
         Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = Conexion.getConnection();
+PreparedStatement stmt = null;
+ResultSet rs = null;
+try {
+    conn = Conexion.getConnection();
 
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
-            stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, cliente.getIdCliente());            
-            //stmt.setString(1, perfil.getNombrePerfil());
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("clid");
-                String nombre = rs.getString("clnombre");
-                String estatus = rs.getString("clestatus");
+    System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + cliente);
+    stmt = conn.prepareStatement(SQL_SELECT_ID);
+    stmt.setInt(1, cliente.getIdCliente());            
+    rs = stmt.executeQuery();
+    while (rs.next()) {
+        int clId = rs.getInt("clid");
+        String clNombre = rs.getString("clnombre");
+        String cldireccion = rs.getString("clestatus");
+        String clTelefono = rs.getString("cltelefono");
+        String clEmail = rs.getString("clemail");
+        String clNit = rs.getString("clNit");
+        Double clHaber = rs.getDouble("clHaber");
+        Double clDebe = rs.getDouble("clDebe");
 
-                //perfil = new clsPerfil();
-                cliente.setIdCliente(id);
-                cliente.setNombreCliente(nombre);
-                cliente.setEstatusCliente(estatus);
-                System.out.println(" registro consultado: " + cliente);                
+        cliente.setIdCliente(clId);
+        cliente.setNombreCliente(clNombre);
+        cliente.setEstatusCliente(cldireccion);
+        cliente.setTelefonoCliente(clTelefono);
+        cliente.setEmailCliente(clEmail);
+        cliente.setNitCliente(clNit);
+        cliente.setHaberCliente(clHaber);
+        cliente.setDebeCliente(clDebe);
 
-            }
-            //System.out.println("Registros buscado:" + persona);
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
+        System.out.println("registro consultado: " + cliente);                
+    }
+} catch (SQLException ex) {
+    ex.printStackTrace(System.out);
+} finally {
+    Conexion.close(rs);
+    Conexion.close(stmt);
+    Conexion.close(conn);
+}
 
-        //return personas;  // Si se utiliza un ArrayList
+return cliente;
 
-        return cliente;
 
     }    
 }
