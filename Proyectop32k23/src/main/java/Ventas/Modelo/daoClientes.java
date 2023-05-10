@@ -23,14 +23,14 @@ import java.util.List;
 public class daoClientes {
 
 
-    private static final String SQL_SELECT = "SELECT clid, clnombre, clestatus FROM tbl_cliente";
-    private static final String SQL_INSERT = "INSERT INTO tbl_cliente(clnombre, clestatus) VALUES(?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_cliente SET clnombre=?, clestatus=? WHERE clid = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_cliente WHERE clid=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT clid, clnombre, clestatus FROM tbl_cliente WHERE clnombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT clid, clnombre, clestatus FROM tbl_cliente WHERE clid = ?";    
+private static final String SQL_SELECT = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente";
+private static final String SQL_INSERT = "INSERT INTO tbl_cliente(clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe) VALUES(?, ?, ?, ?, ?, ?, ?)";
+private static final String SQL_UPDATE = "UPDATE tbl_cliente SET clNombre=?, clDireccion=?, clTelefono=?, clEmail=?, clNit=?, clHaber=?, clDebe=? WHERE clId = ?";
+private static final String SQL_DELETE = "DELETE FROM tbl_cliente WHERE clId=?";
+private static final String SQL_SELECT_NOMBRE = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clNombre = ?";
+private static final String SQL_SELECT_ID = "SELECT clId, clNombre, clDireccion, clTelefono, clEmail, clNit, clHaber, clDebe FROM tbl_cliente WHERE clId = ?";
 
-    public List<clsClientes> consultaCliente() {
+public List<clsClientes> consultaCliente() {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -45,13 +45,24 @@ public class daoClientes {
             rs = stmt.executeQuery();
             while (rs.next()) {
 
-                int id = rs.getInt("clid");
-                String nombre = rs.getString("clnombre");
-                String estatus = rs.getString("clestatus");
+                int Id = rs.getInt("clid");
+                String Nombre = rs.getString("clnombre");
+                String Direccion = rs.getString("clestatus");
+                String Telefono = rs.getString("cltelefono");
+                String Email = rs.getString("clemail");
+                String Nit = rs.getString("clNit");
+                double Haber = rs.getDouble("clHaber");
+                double Debe = rs.getDouble("clDebe");
+                
                 clsClientes cliente = new clsClientes();
-                cliente.setIdCliente(id);
-                cliente.setNombreCliente(nombre);
-                cliente.setEstatusCliente(estatus);
+                cliente.setIdCliente(Id);
+                cliente.setNombreCliente(Nombre);
+                cliente.setEstatusCliente(Direccion);
+                cliente.setTelefonoCliente(Telefono);
+                cliente.setEmailCliente(Email);
+                cliente.setNitCliente(Nit);
+                cliente.setHaberCliente(Haber);
+                cliente.setDebeCliente(Debe);
                 clientes.add(cliente);
 
             }
@@ -66,7 +77,8 @@ public class daoClientes {
         return clientes;
     }
 
-    public int ingresaCliente(clsClientes cliente) {
+
+ public int ingresaCliente(clsClientes cliente) {
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -77,7 +89,11 @@ public class daoClientes {
 
             stmt.setString(1, cliente.getNombreCliente());
             stmt.setString(2, cliente.getEstatusCliente());
-
+            stmt.setString(3, cliente.getTelefonoCliente());
+            stmt.setString(4, cliente.getEmailCliente());
+            stmt.setString(5, cliente.getNitCliente());
+            stmt.setDouble(6, cliente.getHaberCliente());
+            stmt.setDouble(7, cliente.getDebeCliente());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -93,32 +109,37 @@ public class daoClientes {
     }
 
 
+
     public int actualizaCliente(clsClientes cliente) {
 
         Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-        try {
-            conn = Conexion.getConnection();
-            System.out.println("ejecutando query: " + SQL_UPDATE);
-            stmt = conn.prepareStatement(SQL_UPDATE);
+    PreparedStatement stmt = null;
+    int rows = 0;
+    try {
+        conn = Conexion.getConnection();
+        System.out.println("ejecutando query: " + SQL_UPDATE);
+        stmt = conn.prepareStatement(SQL_UPDATE);
 
-            stmt.setString(1, cliente.getNombreCliente());
-            stmt.setString(2, cliente.getEstatusCliente());
-            stmt.setInt(3, cliente.getIdCliente());
+        stmt.setString(1, cliente.getNombreCliente());
+        stmt.setString(2, cliente.getEstatusCliente());
+        stmt.setString(3, cliente.getTelefonoCliente());
+        stmt.setString(4, cliente.getEmailCliente());
+        stmt.setString(5, cliente.getNitCliente());
+        stmt.setDouble(6, cliente.getHaberCliente());
+        stmt.setDouble(7, cliente.getDebeCliente());
+        stmt.setInt(8, cliente.getIdCliente());
 
+        rows = stmt.executeUpdate();
+        System.out.println("Registros actualizado:" + rows);
 
-            rows = stmt.executeUpdate();
-            System.out.println("Registros actualizado:" + rows);
+    } catch (SQLException ex) {
+        ex.printStackTrace(System.out);
+    } finally {
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
 
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
+    return rows;
     }
 
 

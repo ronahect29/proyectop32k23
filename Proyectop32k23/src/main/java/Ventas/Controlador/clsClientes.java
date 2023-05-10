@@ -18,6 +18,11 @@ public class clsClientes {
     private int IdCliente;
     private String NombreCliente;
     private String EstatusCliente;
+    private String TelefonoCliente;
+    private String EmailCliente;
+    private String NitCliente;
+    private Double HaberCliente;
+    private Double DebeCliente;
 
     public clsClientes() {
     }
@@ -61,7 +66,47 @@ public class clsClientes {
         this.EstatusCliente = EstatusCliente;
     }
 
-    
+    public String getTelefonoCliente() {
+    return TelefonoCliente;
+}
+
+public void setTelefonoCliente(String TelefonoCliente) {
+    this.TelefonoCliente = TelefonoCliente;
+}
+
+public String getEmailCliente() {
+    return EmailCliente;
+}
+
+public void setEmailCliente(String EmailCliente) {
+    this.EmailCliente = EmailCliente;
+}
+
+public String getNitCliente() {
+    return NitCliente;
+}
+
+public void setNitCliente(String NitCliente) {
+    this.NitCliente = NitCliente;
+}
+
+public Double getHaberCliente() {
+    return HaberCliente;
+}
+
+public void setHaberCliente(Double HaberCliente) {
+    this.HaberCliente = HaberCliente;
+}
+
+public Double getDebeCliente() {
+    return DebeCliente;
+}
+
+public void setDebeCliente(Double DebeCliente) {
+    this.DebeCliente = DebeCliente;
+}
+
+
     @Override
     public String toString() {
         return "clsClientes{" + "IdCliente=" + IdCliente + ", NombreCliente=" + NombreCliente + ", EstatusCliente=" + EstatusCliente + '}';
