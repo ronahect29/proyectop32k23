@@ -82,7 +82,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Departamento");
 
-        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Ventas", "Cuentas Corrientes", "Inventarios", "Seguridad" }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Cuentas Corrientes", "Inventarios", "Seguridad", "Ventas" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
