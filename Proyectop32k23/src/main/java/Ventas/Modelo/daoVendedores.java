@@ -79,7 +79,7 @@ public class daoVendedores {
             stmt.setString(1, vendedor.getNombreVendedor());
             stmt.setString(2, vendedor.getDireccionVendedor());
             stmt.setString(3, vendedor.getTelefonoVendedor());
-            stmt.setString(4, vendedor.getTelefonoVendedor());
+            stmt.setString(4, vendedor.getEmailVendedor());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
