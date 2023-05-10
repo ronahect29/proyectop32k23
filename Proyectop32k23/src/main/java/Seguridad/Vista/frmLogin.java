@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import Seguridad.Controlador.clsUsuarioConectado;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsSeguridad;
-
+import Ventas.Vista.MdiVentas;
 /**
  *
  * @author visitante
@@ -82,7 +82,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Departamento");
 
-        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Cuentas Corrientes", "Inventarios", "Seguridad" }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Compras", "Ventas", "Cuentas Corrientes", "Inventarios", "Seguridad" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,6 +229,15 @@ public class frmLogin extends javax.swing.JFrame {
                         case "Seguridad":
                         try {
                             MdiSeguridad menu = new MdiSeguridad();
+                            menu.setVisible(true);
+                            this.dispose();
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }   
+                        break;
+                        case "Ventas":
+                        try {
+                            MdiVentas menu = new MdiVentas();
                             menu.setVisible(true);
                             this.dispose();
                         } catch (Exception e) {
