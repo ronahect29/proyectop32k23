@@ -18,7 +18,7 @@ import java.util.List;
 public class daoBodegas {
 
     private static final String SQL_SELECT = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_bodegas(bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO tbl_bodegas(bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus) VALUES(?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_bodegas SET bodNombre=?, bodDescripcion=?, bodFechaIngreso=?, bodFechaSalida=?, bodEstatus=? WHERE bodCodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_bodegas WHERE bodCodigo=?";
     private static final String SQL_SELECT_NOMBRE = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas WHERE bodNombre = ?";
@@ -69,12 +69,11 @@ public class daoBodegas {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setInt(1, bodegas.getIdBodegas());
-            stmt.setString(2, bodegas.getNombreBodegas());
-            stmt.setString(3, bodegas.getDescripcionBodega());
-            stmt.setString(4, bodegas.getfIngresoBodega());
-            stmt.setString(5, bodegas.getfSalidaBodega());
-            stmt.setString(6, bodegas.getEstatusBodegas());;
+            stmt.setString(1, bodegas.getNombreBodegas());
+            stmt.setString(2, bodegas.getDescripcionBodega());
+            stmt.setString(3, bodegas.getfIngresoBodega());
+            stmt.setString(4, bodegas.getfSalidaBodega());
+            stmt.setString(5, bodegas.getEstatusBodegas());;
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();

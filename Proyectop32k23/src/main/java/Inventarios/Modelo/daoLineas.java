@@ -5,8 +5,8 @@
  */
 package Inventarios.Modelo;
 
-import  Seguridad.Modelo.*;
-import Inventarios.Controlador.clsMarcas;
+import Seguridad.Modelo.*;
+import Inventarios.Controlador.clsLineas;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,39 +15,37 @@ import java.util.List;
  *
  * @author visitante
  */
-public class daoMarcas {
+public class daoLineas {
 
-    private static final String SQL_SELECT = "SELECT marCodigo, marNombre, marExistencias, marPrecios, marEstatus FROM tbl_marcas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_marcas(marNombre, marExistencias, marPrecios, marEstatus) VALUES(?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_marcas SET marNombre=?, marExistencias=?, marPrecios=?, marEstatus=? WHERE marCodigo = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_marcas WHERE marCodigo=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT marCodigo, marNombre, marExistencias, marPrecios, marEstatus FROM tbl_marcas WHERE marNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT marCodigo, marNombre, marExistencias, marPrecios, marEstatus FROM tbl_marcas WHERE marCodigo = ?";    
+    private static final String SQL_SELECT = "SELECT linCodigo, linNombre, linPrecios, linEstatus FROM tbl_lineas";
+    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(linNombre, linPrecios, linEstatus) VALUES(?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_lineas SET linNombre=?, linPrecios=?, linEstatus=? WHERE linCodigo = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_lineas WHERE linCodigo=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT linCodigo, linNombre, linPrecios, linEstatus FROM tbl_lineas WHERE linNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT linCodigo, linNombre, linPrecios, linEstatus FROM tbl_lineas WHERE linCodigo = ?";    
 
-    public List<clsMarcas> consultaMarcas() {
+    public List<clsLineas> consultaLineas() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<clsMarcas> marcas = new ArrayList<>();
+        List<clsLineas> lineas = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("marCodigo");
-                String nombre = rs.getString("marNombre");
-                int existencias = rs.getInt("marExistencias");
-                double precio = rs.getDouble("marPrecios");
-                String estatus = rs.getString("marEstatus");
-                clsMarcas Marcas = new clsMarcas();
-                Marcas.setIdMarcas(id);
-                Marcas.setNombreMarcas(nombre);
-                Marcas.setExistenciasMarcas(existencias);
-                Marcas.setPreciosMarcas(precio);
-                Marcas.setEstatusMarcas(estatus);
+                int id = rs.getInt("linCodigo");
+                String nombre = rs.getString("linNombre");
+                double precio = rs.getDouble("linPrecios");
+                String estatus = rs.getString("linEstatus");
+                clsLineas Lineas = new clsLineas();
+                Lineas.setIdLineas(id);
+                Lineas.setNombreLineas(nombre);
+                Lineas.setPreciosLineas(precio);
+                Lineas.setEstatusLineas(estatus);
                 
-                marcas.add(Marcas);
+                lineas.add(Lineas);
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -56,20 +54,19 @@ public class daoMarcas {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return marcas;
+        return lineas;
     }
 
-    public int ingresaMarcas(clsMarcas marcas) {
+    public int ingresaLineas(clsLineas lineas) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, marcas.getNombreMarcas());
-            stmt.setInt(2, marcas.getExistenciasMarcas());
-            stmt.setDouble(3, marcas.getPreciosMarcas());
-            stmt.setString(4, marcas.getEstatusMarcas());
+            stmt.setString(1, lineas.getNombreLineas());
+            stmt.setDouble(2, lineas.getPreciosLineas());
+            stmt.setString(3, lineas.getEstatusLineas());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -84,7 +81,7 @@ public class daoMarcas {
         return rows;
     }
 
-    public int actualizaMarcas(clsMarcas marcas) {
+    public int actualizaLineas(clsLineas lineas) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -92,11 +89,10 @@ public class daoMarcas {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, marcas.getNombreMarcas());
-            stmt.setInt(2, marcas.getExistenciasMarcas());
-            stmt.setDouble(3, marcas.getPreciosMarcas());
-            stmt.setString(4, marcas.getEstatusMarcas());
-            stmt.setInt(5, marcas.getIdMarcas());
+            stmt.setString(1, lineas.getNombreLineas());
+            stmt.setDouble(2, lineas.getPreciosLineas());
+            stmt.setString(3, lineas.getEstatusLineas());
+            stmt.setInt(4, lineas.getIdLineas());
             
 
             rows = stmt.executeUpdate();
@@ -112,7 +108,7 @@ public class daoMarcas {
         return rows;
     }
 
-    public int borrarMarcas(clsMarcas marcas) {
+    public int borrarLineas(clsLineas lineas) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -121,7 +117,7 @@ public class daoMarcas {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, marcas.getIdMarcas());
+            stmt.setInt(1, lineas.getIdLineas());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -134,31 +130,29 @@ public class daoMarcas {
         return rows;
     }
 
-    public clsMarcas consultaMarcasPorNombre(clsMarcas marcas) {
+    public clsLineas consultaLineasPorNombre(clsLineas lineas) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + marcas);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + lineas);
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, aplicacion.getIdAplicacion());            
-            stmt.setString(1, marcas.getNombreMarcas());
+            stmt.setString(1, lineas.getNombreLineas());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("marCodigo");
-                String nombre = rs.getString("marNombre");
-                int existencias = rs.getInt("marExistencias");
-                double precios = rs.getDouble("marPrecios");
-                String estatus = rs.getString("marEstatus");
+                int id = rs.getInt("linCodigo");
+                String nombre = rs.getString("linNombre");
+                double precios = rs.getDouble("linPrecios");
+                String estatus = rs.getString("linEstatus");
 
                 //aplicacion = new clsAplicacion();
-                marcas.setIdMarcas(id);
-                marcas.setNombreMarcas(nombre);
-                marcas.setExistenciasMarcas(existencias);
-                marcas.setPreciosMarcas(precios);
-                marcas.setEstatusMarcas(estatus);
-                System.out.println(" registro consultado: " + marcas);                
+                lineas.setIdLineas(id);
+                lineas.setNombreLineas(nombre);
+                lineas.setPreciosLineas(precios);
+                lineas.setEstatusLineas(estatus);
+                System.out.println(" registro consultado: " + lineas);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -170,33 +164,31 @@ public class daoMarcas {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return marcas;
+        return lineas;
     }
-    public clsMarcas consultaMarcasPorId(clsMarcas marcas) {
+    public clsLineas consultaLineasPorId(clsLineas lineas) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + marcas);
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + lineas);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, marcas.getIdMarcas());            
+            stmt.setInt(1, lineas.getIdLineas());            
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("marCodigo");
-                String nombre = rs.getString("marNombre");
-                int existencias = rs.getInt("marExistencias");
-                double precios = rs.getDouble("marPrecios");
-                String estatus = rs.getString("marEstatus");
+                int id = rs.getInt("linCodigo");
+                String nombre = rs.getString("linNombre");
+                double precios = rs.getDouble("linPrecios");
+                String estatus = rs.getString("linEstatus");
 
                 //aplicacion = new clsAplicacion();
-                marcas.setIdMarcas(id);
-                marcas.setNombreMarcas(nombre);
-                marcas.setExistenciasMarcas(existencias);
-                marcas.setPreciosMarcas(precios);
-                marcas.setEstatusMarcas(estatus);
-                System.out.println(" registro consultado: " + marcas);                
+                lineas.setIdLineas(id);
+                lineas.setNombreLineas(nombre);
+                lineas.setPreciosLineas(precios);
+                lineas.setEstatusLineas(estatus);
+                System.out.println(" registro consultado: " + lineas);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -208,6 +200,6 @@ public class daoMarcas {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return marcas;
+        return lineas;
     }    
 }
