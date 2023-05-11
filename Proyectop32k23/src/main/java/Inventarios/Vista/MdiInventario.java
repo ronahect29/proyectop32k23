@@ -221,8 +221,11 @@ public class MdiInventario extends javax.swing.JFrame {
 
     private void mantenimientoLineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoLineasActionPerformed
         // TODO add your handling code here:
-       
-       
+        frmLineas ventana = new frmLineas();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_mantenimientoLineasActionPerformed
 
     private void mnuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArchivoActionPerformed
