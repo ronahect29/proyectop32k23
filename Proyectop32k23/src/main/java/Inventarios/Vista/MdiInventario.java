@@ -51,6 +51,7 @@ public class MdiInventario extends javax.swing.JFrame {
         mantenimientoProductos = new javax.swing.JCheckBoxMenuItem();
         mantenimientoBodegas = new javax.swing.JCheckBoxMenuItem();
         mantenimientoMovimientos = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         ProcesoExistencias = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
@@ -153,6 +154,10 @@ public class MdiInventario extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(mantenimientoMovimientos);
 
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Mantenimiento Existencias");
+        mnuCatalogosMantenimientos.add(jCheckBoxMenuItem2);
+
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
         mnuGeneral.add(mnuCatalogos);
@@ -216,11 +221,7 @@ public class MdiInventario extends javax.swing.JFrame {
 
     private void mantenimientoLineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoLineasActionPerformed
         // TODO add your handling code here:
-        frmLineas ventana = new frmLineas();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+       
        
     }//GEN-LAST:event_mantenimientoLineasActionPerformed
 
@@ -252,11 +253,7 @@ public class MdiInventario extends javax.swing.JFrame {
 
     private void mantenimientoProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoProductosActionPerformed
         // TODO add your handling code here:
-        frmProductos1 ventana = new frmProductos1();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+        
         
     }//GEN-LAST:event_mantenimientoProductosActionPerformed
 
@@ -351,6 +348,7 @@ public class MdiInventario extends javax.swing.JFrame {
     private javax.swing.JMenuItem ProcesoExistencias;
     private javax.swing.JCheckBoxMenuItem consultaBitacora;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;

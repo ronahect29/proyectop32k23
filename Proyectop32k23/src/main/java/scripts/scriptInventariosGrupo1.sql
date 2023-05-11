@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS `scriptInventarios` DEFAULT CHARACTER SET utf8 ;
 USE `scriptInventarios` ;
 
 CREATE TABLE IF NOT EXISTS tbl_Marcas (
-	marCodigo integer,
+	marCodigo int not null auto_increment,
 	marNombre VARCHAR(60),
 	marExistencias integer,
     marPrecios double,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS tbl_Marcas (
 ENGINE = InnoDB CHARACTER SET = latin1;
 
 CREATE TABLE IF NOT EXISTS tbl_Lineas (
-	linCodigo integer,
+	linCodigo int not null auto_increment,
 	linNombre VARCHAR(60),
     linPrecios double,
     linEstatus CHAR,
@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS tbl_Lineas (
 ENGINE = InnoDB CHARACTER SET = latin1;
 
 CREATE TABLE IF NOT EXISTS tbl_Productos (
-	proCodigo integer,
-	linCodigo integer,
-    marCodigo integer,
+	proCodigo int not null auto_increment,
+	linCodigo int not null,
+    marCodigo int not null,
 	proNombre VARCHAR(60),
     proPrecios double,
     proExistencias integer,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS tbl_Productos (
 ENGINE = InnoDB CHARACTER SET = latin1;
 
 CREATE TABLE IF NOT EXISTS tbl_Bodegas (
-	bodCodigo integer,
+	bodCodigo int not null auto_increment,
 	bodNombre VARCHAR(60),
     bodDescripcion VARCHAR(60),
     bodFechaIngreso DATE,
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS tbl_Bodegas (
 ENGINE = InnoDB CHARACTER SET = latin1;
 
 CREATE TABLE IF NOT EXISTS tbl_Existencias (
-    proCodigo integer,
-    bodCodigo integer,
+    proCodigo int not null,
+    bodCodigo int not null,
     exiSaldo integer,
     primary key (proCodigo, bodCodigo),
     foreign key (proCodigo) REFERENCES tbl_Productos (proCodigo),
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS tbl_Existencias (
 ENGINE = InnoDB CHARACTER SET = latin1;
 
 CREATE TABLE IF NOT EXISTS tbl_Movimientos (
-	movCodigo integer,
+	movCodigo int not null auto_increment,
     movDescripcion VARCHAR(60),
 	movEfecto CHAR,
     movEstatus char, 
