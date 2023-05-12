@@ -256,8 +256,11 @@ public class MdiInventario extends javax.swing.JFrame {
 
     private void mantenimientoProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoProductosActionPerformed
         // TODO add your handling code here:
-        
-        
+        frmProductos ventana = new frmProductos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);   
     }//GEN-LAST:event_mantenimientoProductosActionPerformed
 
     private void mantenimientoBodegasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoBodegasActionPerformed
