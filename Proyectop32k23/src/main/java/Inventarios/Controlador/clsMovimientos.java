@@ -50,6 +50,7 @@ public class clsMovimientos {
         this.movEstatus = movEstatus;
     }
 
+    
     public clsMovimientos(int movCodigo, String movDescripcion, int movEfecto, String movEstatus) {
         this.movCodigo = movCodigo;
         this.movDescripcion = movDescripcion;
