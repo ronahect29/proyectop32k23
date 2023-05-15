@@ -43,7 +43,7 @@ public class daoMovimientos {
                 clsMovimientos nuevo = new clsMovimientos();
                 nuevo.setMovCodigo(codigo);
                 nuevo.setMovDescripcion(nombre);
-                 nuevo.setMovEfecto(precios);
+                nuevo.setMovEfecto(precios);
                 nuevo.setMovEstatus(estatus);
                 nuevo.add(nuevo);
             }
