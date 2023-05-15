@@ -22,7 +22,7 @@ public class MdiInventario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.setExtendedState(MdiInventario.MAXIMIZED_BOTH);
-        this.setTitle("Ejemplo Capas");
+        this.setTitle("MDI Inventarios");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
@@ -51,6 +51,7 @@ public class MdiInventario extends javax.swing.JFrame {
         mantenimientoProductos = new javax.swing.JCheckBoxMenuItem();
         mantenimientoBodegas = new javax.swing.JCheckBoxMenuItem();
         mantenimientoExistencias = new javax.swing.JCheckBoxMenuItem();
+        mantenimientoMovimientos = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         ProcesoExistencias = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
@@ -152,6 +153,15 @@ public class MdiInventario extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientos.add(mantenimientoExistencias);
+
+        mantenimientoMovimientos.setSelected(true);
+        mantenimientoMovimientos.setText("Mantenimiento Movimientos");
+        mantenimientoMovimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoMovimientosActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimientos.add(mantenimientoMovimientos);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -303,6 +313,15 @@ public class MdiInventario extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_mantenimientoExistenciasActionPerformed
 
+    private void mantenimientoMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoMovimientosActionPerformed
+        // TODO add your handling code here:
+        frmMovimientos ventana = new frmMovimientos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_mantenimientoMovimientosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +377,7 @@ public class MdiInventario extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem mantenimientoExistencias;
     private javax.swing.JMenuItem mantenimientoLineas;
     private javax.swing.JCheckBoxMenuItem mantenimientoMarcas;
+    private javax.swing.JCheckBoxMenuItem mantenimientoMovimientos;
     private javax.swing.JCheckBoxMenuItem mantenimientoProductos;
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenu mnuAyudas;
