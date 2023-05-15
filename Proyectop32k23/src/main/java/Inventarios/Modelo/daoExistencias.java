@@ -22,7 +22,7 @@ public class daoExistencias {
     private static final String SQL_UPDATE = "UPDATE tbl_existencias SET proCodigo=?, bodCodigo=?, exiSaldo=? WHERE proCodigo = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_existencias WHERE proCodigo=?";
     private static final String SQL_SELECT_NOMBRE = "SELECT proCodigo, bodCodigo, exiSaldo FROM tbl_existencias WHERE proCodigo = ?";
-    private static final String SQL_SELECT_ID = "SELECT proCodigo, proCodigo, proCodigo FROM tbl_existencias WHERE proCodigo = ?";    
+    private static final String SQL_SELECT_ID = "SELECT proCodigo, bodCodigo, exiSaldo FROM tbl_existencias WHERE proCodigo = ?";    
 
     public List<clsExistencias> consultaExistencias() {
         Connection conn = null;
@@ -139,7 +139,7 @@ public class daoExistencias {
             stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
             //stmt.setInt(1, aplicacion.getIdAplicacion());            
             stmt.setInt(1, existencias.getIdBodegas());
-            stmt.setInt(2, existencias.getIdProductos());
+            
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int id1 = rs.getInt("proCodigo");
@@ -174,8 +174,7 @@ public class daoExistencias {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + existencias);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, existencias.getIdProductos());     
-            stmt.setInt(2, existencias.getIdBodegas());   
+            stmt.setInt(1, existencias.getIdProductos());  
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {
