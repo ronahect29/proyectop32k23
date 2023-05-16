@@ -55,8 +55,10 @@ int codigoAplicacion = 3004;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Vendedores = new javax.swing.JLabel();
-        lbusuVendedores = new javax.swing.JLabel();
+        lb2Cotizacion = new javax.swing.JLabel();
+        lbusuCotizacion = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         lbCodProdCot = new javax.swing.JLabel();
         lbCotActual = new javax.swing.JLabel();
         lbCantProdCot = new javax.swing.JLabel();
@@ -67,17 +69,33 @@ int codigoAplicacion = 3004;
         btnModificarCot = new javax.swing.JButton();
         txtCantProdCot = new javax.swing.JTextField();
         btnEliminarCot = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneCotActual = new javax.swing.JScrollPane();
         tblCotActual = new javax.swing.JTable();
+        jScrollPaneProdDispCot = new javax.swing.JScrollPane();
+        tblProdDispCot = new javax.swing.JTable();
+        lbCantProdCot1 = new javax.swing.JLabel();
 
-        lb2Vendedores.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Vendedores.setText(".");
+        lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
+        lb2Cotizacion.setText(".");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Vendedores");
+        setTitle("Cotizaciones");
         setVisible(true);
 
         lbCodProdCot.setText("Codigo del Producto:");
@@ -107,54 +125,76 @@ int codigoAplicacion = 3004;
                 "Codigo Producto", "Cantidad", "SubTotal"
             }
         ));
-        jScrollPane2.setViewportView(tblCotActual);
+        jScrollPaneCotActual.setViewportView(tblCotActual);
+
+        tblProdDispCot.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneProdDispCot.setViewportView(tblProdDispCot);
+
+        lbCantProdCot1.setText("Productos Disponibles:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(224, 621, Short.MAX_VALUE)
-                .addComponent(lbTotalCot)
-                .addGap(18, 18, 18)
-                .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lbCantProdCot)
-                        .addComponent(lbCodProdCot))
-                    .addComponent(btnAgregarCot))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnModificarCot)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnEliminarCot))
-                    .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lbCantProdCot)
+                                        .addComponent(lbCodProdCot))
+                                    .addComponent(btnAgregarCot))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(btnModificarCot)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnEliminarCot))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(lbCantProdCot1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(lbTotalCot)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(86, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbCotActual)
-                        .addGap(231, 231, 231))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbCotActual)
+                                .addGap(168, 168, 168))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lbCotActual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbCodProdCot)
                             .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -166,13 +206,24 @@ int codigoAplicacion = 3004;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregarCot)
                             .addComponent(btnModificarCot)
-                            .addComponent(btnEliminarCot))
-                        .addGap(0, 8, Short.MAX_VALUE)))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTotalCot))
-                .addGap(182, 182, 182))
+                            .addComponent(btnEliminarCot)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbCotActual)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbTotalCot)
+                            .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbCantProdCot1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,14 +235,19 @@ int codigoAplicacion = 3004;
     private javax.swing.JButton btnAgregarCot;
     private javax.swing.JButton btnEliminarCot;
     private javax.swing.JButton btnModificarCot;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lb2Vendedores;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneCotActual;
+    private javax.swing.JScrollPane jScrollPaneProdDispCot;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lb2Cotizacion;
     private javax.swing.JLabel lbCantProdCot;
+    private javax.swing.JLabel lbCantProdCot1;
     private javax.swing.JLabel lbCodProdCot;
     private javax.swing.JLabel lbCotActual;
     private javax.swing.JLabel lbTotalCot;
-    private javax.swing.JLabel lbusuVendedores;
+    private javax.swing.JLabel lbusuCotizacion;
     private javax.swing.JTable tblCotActual;
+    private javax.swing.JTable tblProdDispCot;
     private javax.swing.JTextField txtCantProdCot;
     private javax.swing.JTextField txtCodProdCot;
     private javax.swing.JTextField txtTotalCot;
