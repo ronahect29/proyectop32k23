@@ -74,6 +74,12 @@ int codigoAplicacion = 3004;
         jScrollPaneProdDispCot = new javax.swing.JScrollPane();
         tblProdDispCot = new javax.swing.JTable();
         lbCantProdCot1 = new javax.swing.JLabel();
+        txtIdClienteCot = new javax.swing.JTextField();
+        txtIdVendedorCot = new javax.swing.JTextField();
+        btnRegistrarCot = new javax.swing.JButton();
+        lbInstCot = new javax.swing.JLabel();
+        lbIdClienteCot = new javax.swing.JLabel();
+        lbIdVendedorCot = new javax.swing.JLabel();
 
         lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
         lb2Cotizacion.setText(".");
@@ -142,6 +148,14 @@ int codigoAplicacion = 3004;
 
         lbCantProdCot1.setText("Productos Disponibles:");
 
+        btnRegistrarCot.setText("Registrar Cotización");
+
+        lbInstCot.setText("Para registrar esta cotización debes ingresar los siguientes datos:");
+
+        lbIdClienteCot.setText("ID del Cliente:");
+
+        lbIdVendedorCot.setText("ID del Vendedor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,16 +192,33 @@ int codigoAplicacion = 3004;
                         .addComponent(lbTotalCot)
                         .addGap(18, 18, 18)
                         .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(86, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lbCotActual)
-                                .addGap(168, 168, 168))))))
+                                .addGap(168, 168, 168))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addComponent(lbIdVendedorCot)
+                                                .addGap(31, 31, 31)
+                                                .addComponent(txtIdVendedorCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbIdClienteCot)
+                                                .addGap(46, 46, 46)
+                                                .addComponent(txtIdClienteCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lbInstCot))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnRegistrarCot)
+                                            .addGap(95, 95, 95)))
+                                    .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,8 +253,22 @@ int codigoAplicacion = 3004;
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbCantProdCot1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lbInstCot)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbIdClienteCot)
+                            .addComponent(txtIdClienteCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbIdVendedorCot)
+                            .addComponent(txtIdVendedorCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegistrarCot)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,6 +280,7 @@ int codigoAplicacion = 3004;
     private javax.swing.JButton btnAgregarCot;
     private javax.swing.JButton btnEliminarCot;
     private javax.swing.JButton btnModificarCot;
+    private javax.swing.JButton btnRegistrarCot;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneCotActual;
     private javax.swing.JScrollPane jScrollPaneProdDispCot;
@@ -244,12 +290,17 @@ int codigoAplicacion = 3004;
     private javax.swing.JLabel lbCantProdCot1;
     private javax.swing.JLabel lbCodProdCot;
     private javax.swing.JLabel lbCotActual;
+    private javax.swing.JLabel lbIdClienteCot;
+    private javax.swing.JLabel lbIdVendedorCot;
+    private javax.swing.JLabel lbInstCot;
     private javax.swing.JLabel lbTotalCot;
     private javax.swing.JLabel lbusuCotizacion;
     private javax.swing.JTable tblCotActual;
     private javax.swing.JTable tblProdDispCot;
     private javax.swing.JTextField txtCantProdCot;
     private javax.swing.JTextField txtCodProdCot;
+    private javax.swing.JTextField txtIdClienteCot;
+    private javax.swing.JTextField txtIdVendedorCot;
     private javax.swing.JTextField txtTotalCot;
     // End of variables declaration//GEN-END:variables
 }

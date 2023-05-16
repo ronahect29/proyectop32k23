@@ -103,18 +103,41 @@
                       <Component id="lbTotalCot" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtTotalCot" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace pref="86" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jScrollPaneCotActual" min="-2" pref="289" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lbCotActual" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="lbIdVendedorCot" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="txtIdVendedorCot" min="-2" pref="191" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lbIdClienteCot" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                              <Component id="txtIdClienteCot" min="-2" pref="191" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="lbInstCot" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace pref="20" max="-2" attributes="0"/>
+                                          <Component id="btnRegistrarCot" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jScrollPaneCotActual" min="-2" pref="289" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -165,8 +188,26 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="jScrollPaneProdDispCot" min="-2" pref="95" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPaneProdDispCot" min="-2" pref="95" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="lbInstCot" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbIdClienteCot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIdClienteCot" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbIdVendedorCot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIdVendedorCot" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnRegistrarCot" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -275,6 +316,30 @@
     <Component class="javax.swing.JLabel" name="lbCantProdCot1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Productos Disponibles:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIdClienteCot">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIdVendedorCot">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRegistrarCot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrar Cotizaci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbInstCot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Para registrar esta cotizaci&#xf3;n debes ingresar los siguientes datos:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbIdClienteCot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID del Cliente:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbIdVendedorCot">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID del Vendedor:"/>
       </Properties>
     </Component>
   </SubComponents>
