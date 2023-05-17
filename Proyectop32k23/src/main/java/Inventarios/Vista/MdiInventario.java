@@ -53,7 +53,6 @@ public class MdiInventario extends javax.swing.JFrame {
         mantenimientoExistencias = new javax.swing.JCheckBoxMenuItem();
         mantenimientoMovimientos = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
-        ProcesoExistencias = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         consultaBitacora = new javax.swing.JCheckBoxMenuItem();
         mnuReportes = new javax.swing.JMenu();
@@ -168,15 +167,6 @@ public class MdiInventario extends javax.swing.JFrame {
         mnuGeneral.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
-
-        ProcesoExistencias.setText("Existencias");
-        ProcesoExistencias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProcesoExistenciasActionPerformed(evt);
-            }
-        });
-        mnuProcesos.add(ProcesoExistencias);
-
         mnuGeneral.add(mnuProcesos);
 
         mnuConsultas.setText("Consultas");
@@ -295,15 +285,6 @@ public class MdiInventario extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_consultaBitacoraActionPerformed
 
-    private void ProcesoExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesoExistenciasActionPerformed
-        // TODO add your handling code here:
-        frmAplicacionUsuario ventana = new frmAplicacionUsuario();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
-    }//GEN-LAST:event_ProcesoExistenciasActionPerformed
-
     private void mantenimientoExistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoExistenciasActionPerformed
         // TODO add your handling code here:
         frmExistencias ventana = new frmExistencias();
@@ -365,7 +346,6 @@ public class MdiInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ProcesoExistencias;
     private javax.swing.JCheckBoxMenuItem consultaBitacora;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;
