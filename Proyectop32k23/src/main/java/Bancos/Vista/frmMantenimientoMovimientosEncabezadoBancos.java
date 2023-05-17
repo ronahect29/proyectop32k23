@@ -97,10 +97,10 @@ int codigoAplicacion=5009;
     public frmMantenimientoMovimientosEncabezadoBancos() {
         initComponents();
         llenadoDeTablas();
-        /*llenadoDeCombo1();
-        llenadoDeCombo2();*/
+        //llenadoDeCombo1();
+        llenadoDeCombo2();
         llenadoDeCombo3();
-        //llenadoDeCombo4();
+        llenadoDeCombo4();
     }
 
     /**
