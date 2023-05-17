@@ -102,3 +102,31 @@ public class daoMovimientosEncabezadoBancos {
 
         return rows;
     }
+
+    public int actualizaMovimientosEncabezado (clsMovimientosEncabezadoBancos encabezado) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        try {
+            conn = Conexion.getConnection();
+            System.out.println("ejecutando query: " + SQL_UPDATE);
+            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt.setInt(1, encabezado.getCueEmId());
+            stmt.setInt(2, encabezado.getCodBanco());
+            stmt.setInt(3, encabezado.getCueId());
+            stmt.setInt(4, encabezado.getTipMovId());
+            stmt.setString(5, fechaActual());
+            stmt.setInt(6, encabezado.getMovId());
+            
+            rows = stmt.executeUpdate();
+            System.out.println("Registros actualizado:" + rows);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        return rows;
+    }
