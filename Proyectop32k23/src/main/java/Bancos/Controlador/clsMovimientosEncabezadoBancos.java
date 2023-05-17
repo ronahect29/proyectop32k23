@@ -60,3 +60,53 @@ public class clsMovimientosEncabezadoBancos {
         this.movFecha = movFecha;
         this.cueEmId = cueEmId;
     }
+
+    public int getMovId() {
+        return movId;
+    }
+
+    public void setMovId(int movId) {
+        this.movId = movId;
+    }
+
+    public int getCodBanco() {
+        return codBanco;
+    }
+
+    public void setCodBanco(int codBanco) {
+        this.codBanco = codBanco;
+    }
+
+    public int getCueId() {
+        return cueId;
+    }
+
+    public void setCueId(int cueId) {
+        this.cueId = cueId;
+    }
+
+    public int getTipMovId() {
+        return tipMovId;
+    }
+
+    public void setTipMovId(int tipMovId) {
+        this.tipMovId = tipMovId;
+    }
+
+    public String getMovFecha() {
+        return movFecha;
+    }
+
+    public void setMovFecha(String movFecha) {
+        this.movFecha = movFecha;
+    }
+
+    public int getCueEmId() {
+        return cueEmId;
+    }
+
+    public void setCueEmId(int cueEmId) {
+        this.cueEmId = cueEmId;
+    }
+    
+    
