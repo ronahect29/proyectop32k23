@@ -74,3 +74,31 @@ public class daoMovimientosEncabezadoBancos {
         return MovEncabezadoB;
     }
 
+
+     public int ingresaMovimientosEncabezado (clsMovimientosEncabezadoBancos encabezado) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_INSERT);
+            stmt.setInt(1, encabezado.getMovId());
+            stmt.setInt(2, encabezado.getCodBanco());
+            stmt.setInt(3, encabezado.getCueId());
+            stmt.setInt(4, encabezado.getTipMovId());
+            stmt.setString(5, fechaActual());
+            stmt.setInt(6, encabezado.getCueEmId());
+
+            
+            System.out.println("ejecutando query:" + SQL_INSERT);
+            rows = stmt.executeUpdate();
+            System.out.println("Registros afectados:" + rows);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        return rows;
+    }
