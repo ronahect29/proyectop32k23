@@ -147,7 +147,7 @@ int codigoAplicacion=5009;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Tipo Moneda");
+        setTitle("Mantenimiento Movimiento Encabezado");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -172,7 +172,7 @@ int codigoAplicacion=5009;
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Movimiento Enacvezado");
+        label1.setText("Movimiento Encabezado");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +322,7 @@ int codigoAplicacion=5009;
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 489, Short.MAX_VALUE))
+                        .addGap(294, 487, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                         .addContainerGap())))
