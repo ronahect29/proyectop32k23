@@ -110,3 +110,48 @@ public class clsMovimientosEncabezadoBancos {
     }
     
     
+    @Override
+    public String toString() {
+        return "clsMovimientosEncabezadoBancos{" + "movId =" + movId    + ", codBanco=" + codBanco + ", cueId=" + cueId + ", tipMovId  =" + tipMovId   +", movFecha=" + movFecha + ", cueEmId  =" + cueEmId   + '}';
+    }
+    //Metodos de acceso a la capa controlador
+    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado)
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        return daoMovimientosEncabezadoBancos.consultaMovimientosEncabezadoPorCodigo(encabezado);
+    }
+    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorId(clsMovimientosEncabezadoBancos encabezado)
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        return daoMovimientosEncabezadoBancos.consultaMovimientosEncabezadoPorId(encabezado);
+    }    
+    public List<clsMovimientosEncabezadoBancos> getListadoMovEncabezado()
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        List<clsMovimientosEncabezadoBancos> listadoMovimientosEncabezado = daoMovimientosEncabezadoBancos.consultaMovimientosEncabezado();
+        return listadoMovimientosEncabezado;
+    }
+    public int setborrarMovimientosEncabezado(clsMovimientosEncabezadoBancos encabezado)
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        return daoMovimientosEncabezadoBancos.borrarMovimientosEncabezado(encabezado);
+    }          
+    public int setingresaMovimientosEncabezado(clsMovimientosEncabezadoBancos encabezado)
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        return daoMovimientosEncabezadoBancos.ingresaMovimientosEncabezado(encabezado);
+    }              
+    public int setModificarMovimientosEncabezado(clsMovimientosEncabezadoBancos encabezado)
+    {
+        daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
+        return daoMovimientosEncabezadoBancos.actualizaMovimientosEncabezado(encabezado);
+    }              
+
+    public void getMovimientosEncabezado(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getMovimientosEncabezado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
