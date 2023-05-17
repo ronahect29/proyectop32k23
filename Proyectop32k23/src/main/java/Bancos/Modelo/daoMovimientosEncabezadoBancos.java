@@ -152,3 +152,83 @@ public class daoMovimientosEncabezadoBancos {
 
         return rows;
     }
+
+    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + encabezado);
+            stmt = conn.prepareStatement(SQL_SELECT_NOMBRE);
+            //stmt.setInt(1, encabezado.getIdMov());            
+            stmt.setInt(1, encabezado.getCodBanco());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("movId");
+                int codigo = rs.getInt("codBanco");
+                int idcuenta = rs.getInt("cueId");
+                int idTipoMonv = rs.getInt("tipMovId");
+                String fecha = rs.getString("movFecha");
+                int idCuentaEm = rs.getInt("cueEmId");
+                //moneda = new clsMovimientosEncabezadoBancos();
+                encabezado.setMovId(id);
+                encabezado.setCodBanco(codigo);
+                encabezado.setCueId(idcuenta);
+                encabezado.setTipMovId(idTipoMonv);
+                encabezado.setMovFecha(fecha);
+                encabezado.setCueEmId(idCuentaEm);
+                System.out.println(" registro consultado: " + encabezado);                
+            }
+            //System.out.println("Registros buscado:" + persona);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        //return personas;  // Si se utiliza un ArrayList
+        return encabezado;
+    }
+    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorId(clsMovimientosEncabezadoBancos encabezado) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + encabezado);
+            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt.setInt(1, encabezado.getMovId());            
+            //stmt.setString(1, moneda.getTipMondNombre());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("movId");
+                int codigo = rs.getInt("codBanco");
+                int idcuenta = rs.getInt("cueId");
+                int idTipoMonv = rs.getInt("tipMovId");
+                String fecha = rs.getString("movFecha");
+                int idCuentaEm = rs.getInt("cueEmId");
+                //moneda = new clsMovimientosEncabezadoBancos();
+                encabezado.setMovId(id);
+                encabezado.setCodBanco(codigo);
+                encabezado.setCueId(idcuenta);
+                encabezado.setTipMovId(idTipoMonv);
+                encabezado.setMovFecha(fecha);
+                encabezado.setCueEmId(idCuentaEm);
+                System.out.println(" registro consultado: " + encabezado);                 
+            }
+            //System.out.println("Registros buscado:" + persona);
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        //return personas;  // Si se utiliza un ArrayList
+        return encabezado;
+    }    
+}
