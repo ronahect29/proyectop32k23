@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//Hecho por: Alyson Vannesa Rodríguez Quezada 9959-21-829
 package Bancos.Vista;
 
 
 import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentasBancos;
+//import Bancos.Controlador.clsCuentasBancos;
+//import Bancos.Controlador.clsTipoCuentasBancos;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +26,7 @@ import javax.swing.JOptionPane;
  */
 public class frmMantenimientoCuentasBancos extends javax.swing.JInternalFrame {
     
-int codigoAplicacion=1006;
+int codigoAplicacion=5006;
 
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
@@ -32,6 +35,7 @@ int codigoAplicacion=1006;
         for (int i = 0; i < empleados.size(); i++) {
             cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
         } */
+        
     }
 
     public void llenadoDeTablas() {
@@ -43,6 +47,7 @@ int codigoAplicacion=1006;
         modelo.addColumn("Tipo Cuenta");
         modelo.addColumn("Estatus");
         clsCuentasBancos cuenta = new clsCuentasBancos();
+        
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsCuentasBancos> listaCuenta = cuenta.getListadoCuentas();
         tablaCuentas.setModel(modelo);
@@ -92,14 +97,14 @@ int codigoAplicacion=1006;
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         label7 = new javax.swing.JLabel();
         label10 = new javax.swing.JLabel();
         txtEstatus = new javax.swing.JTextField();
         label8 = new javax.swing.JLabel();
-        txtTipoC = new javax.swing.JTextField();
+        cbIdPersona = new javax.swing.JComboBox<>();
+        cbTipoCuenta = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -107,7 +112,7 @@ int codigoAplicacion=1006;
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Mantenimiento Cuentas Bancos");
+        setTitle(" Cuentas Bancos");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -206,10 +211,6 @@ int codigoAplicacion=1006;
             }
         });
 
-        txtID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtID.setOpaque(false);
-
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("ID Persona");
 
@@ -230,15 +231,20 @@ int codigoAplicacion=1006;
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Tipo Cuenta");
 
-        txtTipoC.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtTipoC.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtTipoC.setOpaque(false);
+        cbIdPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbIdPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbIdPersonaActionPerformed(evt);
+            }
+        });
+
+        cbTipoCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +262,7 @@ int codigoAplicacion=1006;
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -295,24 +301,18 @@ int codigoAplicacion=1006;
                                             .addGap(58, 58, 58)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(txtSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                                                .addComponent(txtID)))
+                                                .addComponent(cbIdPersona, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(label8)
                                             .addGap(50, 50, 50)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtTipoC, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                                                .addComponent(txtEstatus)))))))
+                                            .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cbTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label1)
-                        .addGap(294, 359, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(label1)
+                    .addComponent(btnActualizar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,11 +337,11 @@ int codigoAplicacion=1006;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label6)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbIdPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label8)
-                            .addComponent(txtTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label10)
@@ -365,7 +365,7 @@ int codigoAplicacion=1006;
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizar)
-                        .addContainerGap(98, Short.MAX_VALUE))))
+                        .addContainerGap(102, Short.MAX_VALUE))))
         );
 
         pack();
@@ -393,9 +393,8 @@ int codigoAplicacion=1006;
         cuenta.setIdCuenta(Integer.parseInt(txtId.getText()));
         cuenta.setNumeroCuenta(Integer.parseInt(txtNumero.getText()));
         cuenta.setSaldoCuenta(Double.parseDouble(txtSaldo.getText()));
-        cuenta.setIdPersona(Integer.parseInt(txtID.getText()));
-        cuenta.setIdTipoCuenta(Integer.parseInt(txtTipoC.getText()));
         cuenta.setEstatusCuenta(txtEstatus.getText());
+        
         cuenta.setIngresarCuenta(cuenta);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -415,8 +414,6 @@ int codigoAplicacion=1006;
         System.out.println("Cuenta retornado:" + cuenta);        
         txtNumero.setText(Integer.toString(cuenta.getNumeroCuenta()));
         txtSaldo.setText(Double.toString(cuenta.getSaldoCuenta()));
-        txtID.setText(Integer.toString(cuenta.getIdPersona()));
-        txtTipoC.setText(Integer.toString(cuenta.getIdTipoCuenta()));
         txtEstatus.setText(cuenta.getEstatusCuenta());
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -424,13 +421,11 @@ int codigoAplicacion=1006;
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-//        // TODO add your handling code here:
+        // TODO add your handling code here:
         clsCuentasBancos cuenta = new clsCuentasBancos();
         cuenta.setIdCuenta(Integer.parseInt(txtbuscado.getText()));
         cuenta.setNumeroCuenta(Integer.parseInt(txtNumero.getText()));
         cuenta.setSaldoCuenta(Double.parseDouble(txtSaldo.getText()));
-        cuenta.setIdPersona(Integer.parseInt(txtID.getText()));
-        cuenta.setIdTipoCuenta(Integer.parseInt(txtTipoC.getText()));
         cuenta.setEstatusCuenta(txtEstatus.getText());
         cuenta.setModificarCuenta(cuenta);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -454,7 +449,6 @@ int codigoAplicacion=1006;
         txtNumero.setText("");
         txtSaldo.setText("");
         txtbuscado.setText("");
-        txtID.setText("");
         txtEstatus.setText("");
     }
     public void habilitarBotones()
@@ -502,6 +496,10 @@ int codigoAplicacion=1006;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSaldoActionPerformed
 
+    private void cbIdPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIdPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbIdPersonaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -510,6 +508,8 @@ int codigoAplicacion=1006;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cbIdPersona;
+    private javax.swing.JComboBox<String> cbTipoCuenta;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -525,11 +525,9 @@ int codigoAplicacion=1006;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaCuentas;
     private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtSaldo;
-    private javax.swing.JTextField txtTipoC;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
 }
