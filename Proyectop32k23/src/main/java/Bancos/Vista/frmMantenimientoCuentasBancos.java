@@ -9,9 +9,10 @@ package Bancos.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentasBancos;
-//import Bancos.Controlador.clsCuentasBancos;
+//import Bancos.Controlador.clsPersonasBancos;
 //import Bancos.Controlador.clsTipoCuentasBancos;
 import Seguridad.Controlador.clsUsuarioConectado;
+import java.awt.Component;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -28,15 +29,27 @@ public class frmMantenimientoCuentasBancos extends javax.swing.JInternalFrame {
     
 int codigoAplicacion=5006;
 
-    public void llenadoDeCombos() {
-        /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-        List<Empleado> empleados = empleadoDAO.select();
-        cbox_empleado.addItem("Seleccione una opción");
-        for (int i = 0; i < empleados.size(); i++) {
-            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
-        } */
+    /*public void llenadoDeComboIdPersona() {
+        clsPersonasBancos personasB = new clsPersonasBancos();
+        List<clsPersonasBancos> listaPersonas = personasB.getListadoPersonas();
+        cbIdPersona.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbIdPersona.addItem("Seleccionar...")
+        for (int i = 0; i < listaPersonas.size(); i++) {
+            cbIdPersona.addItem(String.valueOf(listaPersonas.get(i).getIdPersona()));
+        } 
         
-    }
+    }*/
+
+/*   public void llenadoDeComboTipoCuenta() {
+        clsTipoCuentasBancos cuentasB = new clsTipoCuentasBancos();
+        List<clsTipoCuentasBancos> listaTipoCuentas = cuentasB.getListadoTipoCuentas();
+        cbTipoCuenta.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbTipoCuenta.addItem("Seleccionar...")
+        for (int i = 0; i < listaTipoCuentas.size(); i++) {
+            cbTipoCuenta.addItem(String.valueOf(listaTipoCuentas.get(i).getTipoCuenta()));
+        } 
+        
+    }*/
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -66,7 +79,8 @@ int codigoAplicacion=5006;
     public frmMantenimientoCuentasBancos() {
         initComponents();
         llenadoDeTablas();
-        llenadoDeCombos();
+        //llenadoDeComboIdPersona();
+        //llenadoDeComboTipoCuenta();
     }
 
     /**
