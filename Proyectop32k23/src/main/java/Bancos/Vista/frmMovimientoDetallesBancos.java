@@ -36,22 +36,22 @@ int codigoAplicacion= 5002;
         } */
     }
 public void llenadoDeCombo2() {
-    clsTipoMoneda cuentasB = new clsTipoMoneda();
-    List<clsTipoMoneda> listaCuentasbancos = cuentasB.getListadoMonedas();
+    clsTipoMoneda TM = new clsTipoMoneda();
+    List<clsTipoMoneda> listaTipoMonedas = TM.getListadoMonedas();
     cbTipoMovimiento.setAlignmentX(Component.CENTER_ALIGNMENT);
     cbTipoMovimiento.addItem("Seleccionar...");
-    for (int i = 0; i < listaCuentasbancos.size(); i++) {
-        cbTipoMovimiento.addItem(String.valueOf(listaCuentasbancos.get(i).getTipModId()));
+    for (int i = 0; i < listaTipoMonedas.size(); i++) {
+        cbTipoMovimiento.addItem(String.valueOf(listaTipoMonedas.get(i).getTipModId()));
     }
 }
 
 public void llenadoDeCombo3() {
-    clsConceptosBancos TipoMB = new clsConceptosBancos();
-    List<clsConceptosBancos> listaclsTipoMovimientoBancos = TipoMB.getListadoConceptos();
+    clsConceptosBancos Concep = new clsConceptosBancos();
+    List<clsConceptosBancos> listaConceptoss = Concep.getListadoConceptos();
     cbConcepto.setAlignmentX(Component.CENTER_ALIGNMENT);
     cbConcepto.addItem("Seleccionar..."); 
-    for (int i = 0; i < listaclsTipoMovimientoBancos.size(); i++) {
-        cbConcepto.addItem(String.valueOf(listaclsTipoMovimientoBancos.get(i).getIdConcepto()));
+    for (int i = 0; i < listaConceptoss.size(); i++) {
+        cbConcepto.addItem(String.valueOf(listaConceptoss.get(i).getIdConcepto()));
     }
 }
 
