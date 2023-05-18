@@ -82,7 +82,7 @@ int codigoAplicacion=5009;
 
         List<clsMovimientosEncabezadoBancos> listadoMovEncabezado = encabezado.getListadoMovEncabezado();
         tablaMovimientoEncavezado.setModel(modelo);
-        String[] dato = new String[5];
+        String[] dato = new String[6];
         for (int i = 0; i < listadoMovEncabezado.size(); i++) {
             dato[0] = Integer.toString(listadoMovEncabezado.get(i).getMovId());
             dato[1] = Integer.toString(listadoMovEncabezado.get(i).getCodBanco());
