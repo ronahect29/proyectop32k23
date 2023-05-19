@@ -55,6 +55,7 @@ public class MdiBancos extends javax.swing.JFrame {
         mnuProcesos = new javax.swing.JMenu();
         cuentaEmpresa = new javax.swing.JCheckBoxMenuItem();
         MovimientoEnacabezado = new javax.swing.JCheckBoxMenuItem();
+        MovDetallesBancos = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         consultaBitacora = new javax.swing.JCheckBoxMenuItem();
         mnuReportes = new javax.swing.JMenu();
@@ -172,13 +173,21 @@ public class MdiBancos extends javax.swing.JFrame {
         mnuProcesos.add(cuentaEmpresa);
 
         MovimientoEnacabezado.setSelected(true);
-        MovimientoEnacabezado.setText("Movimiento Enacabezado");
+        MovimientoEnacabezado.setText("Movimiento Encabezado");
         MovimientoEnacabezado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MovimientoEnacabezadoActionPerformed(evt);
             }
         });
         mnuProcesos.add(MovimientoEnacabezado);
+
+        MovDetallesBancos.setText("Movimiento Detalles");
+        MovDetallesBancos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MovDetallesBancosActionPerformed(evt);
+            }
+        });
+        mnuProcesos.add(MovDetallesBancos);
 
         mnuGeneral.add(mnuProcesos);
 
@@ -321,6 +330,15 @@ public class MdiBancos extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_MovimientoEnacabezadoActionPerformed
 
+    private void MovDetallesBancosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovDetallesBancosActionPerformed
+        // TODO add your handling code here:
+          frmMovimientoDetallesBancos ventana = new frmMovimientoDetallesBancos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_MovDetallesBancosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -365,6 +383,7 @@ public class MdiBancos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem MantenimientoTipoMoneda;
+    private javax.swing.JMenuItem MovDetallesBancos;
     private javax.swing.JCheckBoxMenuItem MovimientoEnacabezado;
     private javax.swing.JCheckBoxMenuItem consultaBitacora;
     private javax.swing.JCheckBoxMenuItem cuentaEmpresa;
