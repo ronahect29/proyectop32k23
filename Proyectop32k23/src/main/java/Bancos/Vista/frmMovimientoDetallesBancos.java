@@ -38,10 +38,10 @@ int codigoAplicacion= 5002;
 public void llenadoDeCombo2() {
     clsTipoMoneda TM = new clsTipoMoneda();
     List<clsTipoMoneda> listaTipoMonedas = TM.getListadoMonedas();
-    cbTipoMovimiento.setAlignmentX(Component.CENTER_ALIGNMENT);
-    cbTipoMovimiento.addItem("Seleccionar...");
+    cbMovimientoMoneda.setAlignmentX(Component.CENTER_ALIGNMENT);
+    cbMovimientoMoneda.addItem("Seleccionar...");
     for (int i = 0; i < listaTipoMonedas.size(); i++) {
-        cbTipoMovimiento.addItem(String.valueOf(listaTipoMonedas.get(i).getTipModId()));
+        cbMovimientoMoneda.addItem(String.valueOf(listaTipoMonedas.get(i).getTipModId()));
     }
 }
 
@@ -58,21 +58,21 @@ public void llenadoDeCombo3() {
 public void llenadoDeCombo4() {
     clsMovimientosEncabezadoBancos movEncabezado = new clsMovimientosEncabezadoBancos();
     List<clsMovimientosEncabezadoBancos> listaMovEncabezado = movEncabezado.getListadoMovEncabezado();
-    cbMovimiento.setAlignmentX(Component.CENTER_ALIGNMENT);
-    cbMovimiento.addItem("Seleccionar...");
+    cbMovimientoEncabezado.setAlignmentX(Component.CENTER_ALIGNMENT);
+    cbMovimientoEncabezado.addItem("Seleccionar...");
     for (int i = 0; i < listaMovEncabezado.size(); i++) {
-        cbMovimiento.addItem(String.valueOf(listaMovEncabezado.get(i).getMovId()));
+        cbMovimientoEncabezado.addItem(String.valueOf(listaMovEncabezado.get(i).getMovId()));
     }
 }
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id Movimiento Detalles");
-        modelo.addColumn("Id Movimiento");
+        modelo.addColumn("Id Movimiento Encabezado");
         modelo.addColumn("Costo");
         modelo.addColumn("Concepto");
         modelo.addColumn("Saldo");
-        modelo.addColumn("Tipo Movimiento");
+        modelo.addColumn("Id Movimiento Moneda");
         clsMovimientoDetallesBancos tipou = new clsMovimientoDetallesBancos();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsMovimientoDetallesBancos> listaTipoBancos = tipou.getListadoMovimiento();
@@ -131,9 +131,9 @@ public void llenadoDeCombo4() {
         label8 = new javax.swing.JLabel();
         label9 = new javax.swing.JLabel();
         txtbuscado = new javax.swing.JTextField();
-        cbMovimiento = new javax.swing.JComboBox<>();
+        cbMovimientoEncabezado = new javax.swing.JComboBox<>();
         cbConcepto = new javax.swing.JComboBox<>();
-        cbTipoMovimiento = new javax.swing.JComboBox<>();
+        cbMovimientoMoneda = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -177,7 +177,7 @@ public void llenadoDeCombo4() {
         });
 
         label3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label3.setText("Id Movimiento");
+        label3.setText("Id Movimiento Encabezado");
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +250,7 @@ public void llenadoDeCombo4() {
         label8.setText("Id Concepto");
 
         label9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label9.setText("Id TIpo Movimento");
+        label9.setText("Id TIpo Movimento Moneda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,9 +308,9 @@ public void llenadoDeCombo4() {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cbMovimiento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbMovimientoEncabezado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cbConcepto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cbTipoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbMovimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,10 +357,10 @@ public void llenadoDeCombo4() {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(label8)
                                             .addComponent(cbConcepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(cbMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbMovimientoEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(10, 10, 10)
                                 .addComponent(label9))
-                            .addComponent(cbTipoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbMovimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -401,11 +401,11 @@ public void llenadoDeCombo4() {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         clsMovimientoDetallesBancos banco = new clsMovimientoDetallesBancos();
     banco.setIdMovimientoDetalles(Integer.parseInt(txtIdMovDetalles.getText()));
-    banco.setIdMovimiento(Integer.parseInt(cbMovimiento.getSelectedItem().toString()));
+    banco.setIdMovimiento(Integer.parseInt(cbMovimientoEncabezado.getSelectedItem().toString()));
     banco.setMovimientoCosto(Float.parseFloat(txtCosto.getText()));
     banco.setIdConcepto(Integer.parseInt(cbConcepto.getSelectedItem().toString()));
     banco.setMovimientoSaldo(Float.parseFloat(txtSaldo.getText())); 
-    banco.setIdTipoMovimiento(Integer.parseInt(cbTipoMovimiento.getSelectedItem().toString()));
+    banco.setIdTipoMovimiento(Integer.parseInt(cbMovimientoMoneda.getSelectedItem().toString()));
     banco.setIngresarMovimiento(banco);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -505,8 +505,8 @@ txtSaldo.setText(Float.toString(banco.getMovimientoSaldo()));
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cbConcepto;
-    private javax.swing.JComboBox<String> cbMovimiento;
-    private javax.swing.JComboBox<String> cbTipoMovimiento;
+    private javax.swing.JComboBox<String> cbMovimientoEncabezado;
+    private javax.swing.JComboBox<String> cbMovimientoMoneda;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
