@@ -18,12 +18,12 @@ import java.util.List;
  */
 public class daoBancoExterno {
 
-    private static final String SQL_SELECT = "SELECT codBanco, banNombre, banPais, tipModId FROM tbl_bancoExterno";
-    private static final String SQL_INSERT = "INSERT INTO tbl_bancoExterno(codBanco, banNombre, banPais, tipModId) VALUES(?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_bancoExterno SET banNombre=?, banPais=?,  tipModId=?  WHERE codBanco = ?";
+    private static final String SQL_SELECT = "SELECT codBanco, banNombre, banPaís, tipModId FROM tbl_bancoExterno";
+    private static final String SQL_INSERT = "INSERT INTO tbl_bancoExterno(codBanco, banNombre, banPaís, tipModId) VALUES(?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_bancoExterno SET banNombre=?, banPaís=?,  tipModId=?  WHERE codBanco = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_bancoExterno WHERE codBanco=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT codBanco, banNombre, banPais, tipModId  FROM tbl_bancoExterno WHERE banNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT codBanco, banNombre, banPais, tipModId  FROM tbl_bancoExterno WHERE codBanco = ?";     
+    private static final String SQL_SELECT_NOMBRE = "SELECT codBanco, banNombre, banPaís, tipModId  FROM tbl_bancoExterno WHERE banNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT codBanco, banNombre, banPaís, tipModId  FROM tbl_bancoExterno WHERE codBanco = ?";     
 
 
 
@@ -40,7 +40,7 @@ public class daoBancoExterno {
             while (rs.next()) {
                 int id = rs.getInt("codBanco");
                 String nombre = rs.getString("banNombre");
-                String pais = rs.getString("banPais");
+                String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt ("tipModId");
                 clsBancoExterno banco = new clsBancoExterno();
                 banco.setCodigoBanco(id);
@@ -147,7 +147,7 @@ public class daoBancoExterno {
             while (rs.next()) {
                 int id = rs.getInt("codBanco");
                 String nombre = rs.getString("banNombre");
-                String pais = rs.getString("banPais");
+                String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt("tipModId");
                 //moneda = new clsTipoMoneda();
                 banco.setCodigoBanco(id);
@@ -182,7 +182,7 @@ public class daoBancoExterno {
             while (rs.next()) {
                 int id = rs.getInt("codBanco");
                 String nombre = rs.getString("banNombre");
-                String pais = rs.getString("banPais");
+                String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt("tipModId");
                 //moneda = new clsTipoMoneda();
                 banco.setCodigoBanco(id);

@@ -8,8 +8,11 @@ package Bancos.Vista;
 
 
 import Seguridad.Controlador.clsBitacora;
+import Bancos.Controlador.clsBancoExterno;
 import Bancos.Controlador.clsTipoMoneda;
+import Bancos.Modelo.daoTipoMoneda;
 import Seguridad.Controlador.clsUsuarioConectado;
+import java.awt.Component;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -24,35 +27,36 @@ import javax.swing.JOptionPane;
  */
 public class frmBancoExterno extends javax.swing.JInternalFrame {
     
-int codigoAplicacion=5003;
+int codigoAplicacion=5009;
 
     public void llenadoDeCombos() {
-        /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-        List<Empleado> empleados = empleadoDAO.select();
-        cbox_empleado.addItem("Seleccione una opción");
-        for (int i = 0; i < empleados.size(); i++) {
-            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
-        } */
+         clsTipoMoneda moneda = new clsTipoMoneda();
+        List<clsTipoMoneda> listaTipoMonedas = moneda.getListadoMonedas();
+        cbTipoMoneda.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbTipoMoneda.addItem("Seleccionar...");
+        for (int i = 0; i < listaTipoMonedas.size(); i++) {
+            cbTipoMoneda.addItem(String.valueOf(listaTipoMonedas.get(i).getTipModId()));
+        }
     }
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("Nombre moneda");
-        modelo.addColumn("abreviatura");
-        modelo.addColumn("valor");
+        modelo.addColumn("Nombre Banco");
+        modelo.addColumn("País Banco");
+        modelo.addColumn("Tipo de Moneda");
 
-        clsTipoMoneda moneda = new clsTipoMoneda();
+        clsBancoExterno banco = new clsBancoExterno();
         //VendedorDAO vendedorDAO = new VendedorDAO();
 
-        List<clsTipoMoneda> listadoMonedas = moneda.getListadoMonedas();
-        tablaTipoMoneda.setModel(modelo);
+        List<clsBancoExterno> listadoBanco = banco.getListadoBancosExternos();
+        tablaBancoExterno.setModel(modelo);
         String[] dato = new String[4];
-        for (int i = 0; i < listadoMonedas.size(); i++) {
-            dato[0] = Integer.toString(listadoMonedas.get(i).getTipModId());
-            dato[1] = listadoMonedas .get(i).getTipMondNombre();
-            dato[2] = listadoMonedas .get(i).getTipMondAbreviacion();
-            dato[3] = Float.toString(listadoMonedas.get(i).getTipModValor());
+        for (int i = 0; i < listadoBanco.size(); i++) {
+            dato[0] = Integer.toString(listadoBanco.get(i).getCodigoBanco());
+            dato[1] = listadoBanco.get(i).getNombreBanco();
+            dato[2] = listadoBanco.get(i).getPaisBanco();
+            dato[3] = Integer.toString(listadoBanco.get(i).getTipoMonedaId());
             modelo.addRow(dato);
         }       
     }
@@ -84,17 +88,17 @@ int codigoAplicacion=5003;
         txtNombre = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaTipoMoneda = new javax.swing.JTable();
-        txtAbreviacion = new javax.swing.JTextField();
+        tablaBancoExterno = new javax.swing.JTable();
+        txtPais = new javax.swing.JTextField();
         label5 = new javax.swing.JLabel();
         lb = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtValor = new javax.swing.JTextField();
         label7 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
+        cbTipoMoneda = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -103,7 +107,7 @@ int codigoAplicacion=5003;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Tipo Moneda");
+        setTitle("Mantenimiento Banco Externo");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -128,7 +132,7 @@ int codigoAplicacion=5003;
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Usuarios");
+        label1.setText("Bancos Externos");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +142,7 @@ int codigoAplicacion=5003;
         });
 
         label3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label3.setText("Nombre");
+        label3.setText("Nombre Banco");
 
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -156,8 +160,8 @@ int codigoAplicacion=5003;
             }
         });
 
-        tablaTipoMoneda.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        tablaTipoMoneda.setModel(new javax.swing.table.DefaultTableModel(
+        tablaBancoExterno.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tablaBancoExterno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -173,14 +177,14 @@ int codigoAplicacion=5003;
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tablaTipoMoneda);
+        jScrollPane1.setViewportView(tablaBancoExterno);
 
-        txtAbreviacion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtAbreviacion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtAbreviacion.setOpaque(false);
+        txtPais.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtPais.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtPais.setOpaque(false);
 
         label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label5.setText("Abreviacion");
+        label5.setText("País del Banco");
 
         lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
@@ -202,24 +206,20 @@ int codigoAplicacion=5003;
             }
         });
 
-        txtValor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtValor.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtValor.setOpaque(false);
-
         label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label7.setText("valor");
+        label7.setText("Tipo de moneda");
 
-        txtid.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtid.setOpaque(false);
-        txtid.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtCodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtCodigo.setOpaque(false);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
 
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label6.setText("ID");
+        label6.setText("Código Banco");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,10 +236,10 @@ int codigoAplicacion=5003;
                             .addComponent(label6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtValor, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtAbreviacion)
+                            .addComponent(txtPais)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtid, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbTipoMoneda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -274,7 +274,7 @@ int codigoAplicacion=5003;
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 573, Short.MAX_VALUE))
+                        .addGap(294, 528, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -290,20 +290,20 @@ int codigoAplicacion=5003;
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label6)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label3)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAbreviacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label5))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                            .addComponent(label7)
+                            .addComponent(cbTipoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
                             .addComponent(btnEliminar)
@@ -331,9 +331,9 @@ int codigoAplicacion=5003;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsTipoMoneda moneda = new clsTipoMoneda();
-        moneda.setTipModId(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=moneda.setBorrarMoneda(moneda);
+        clsBancoExterno banco = new clsBancoExterno();
+        banco.setCodigoBanco(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=banco.setBorrarBancoExterno(banco);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
@@ -347,13 +347,13 @@ int codigoAplicacion=5003;
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
-            clsTipoMoneda moneda = new clsTipoMoneda();
-            moneda.setTipModId(Integer.parseInt(txtid.getText()));
-            moneda.setTipMondNombre(txtNombre.getText());
-            moneda.setTipMondAbreviacion(txtAbreviacion.getText());
-            moneda.setTipModValor(Float.parseFloat(txtValor.getText()));
+            clsBancoExterno banco = new clsBancoExterno();
+            banco.setCodigoBanco(Integer.parseInt(txtCodigo.getText()));
+            banco.setNombreBanco(txtNombre.getText());
+            banco.setPaisBanco(txtPais.getText());
+            banco.setTipoMonedaId(Integer.parseInt(cbTipoMoneda.getSelectedItem().toString()));
             
-            moneda.setIngresarMoneda(moneda);
+            banco.setIngresarBancoExterno(banco);
             JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
             int resultadoBitacora=0;
@@ -366,14 +366,13 @@ int codigoAplicacion=5003;
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
             // TODO add your handling code here:
-        clsTipoMoneda moneda = new clsTipoMoneda();
+        clsBancoExterno banco = new clsBancoExterno();
         //usuario.setNombreUsuario(txtbuscado.getText());        
-        moneda.setTipModId(Integer.parseInt(txtbuscado.getText()));        
-        moneda = moneda.getBuscarInformacionMonedaPorId(moneda);
-        System.out.println("Usuario retornado:" + moneda);        
-        txtNombre.setText(moneda.getTipMondNombre());
-        txtAbreviacion.setText(moneda.getTipMondAbreviacion());
-       txtValor.setText(String.valueOf(moneda.getTipModValor()));
+        banco.setCodigoBanco(Integer.parseInt(txtbuscado.getText()));        
+        banco = banco.getBuscarInformacionBancoPorId(banco);
+        System.out.println("Banco retornado:" + banco);        
+        txtNombre.setText(banco.getNombreBanco());
+        txtPais.setText(banco.getPaisBanco());
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -382,14 +381,14 @@ int codigoAplicacion=5003;
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsTipoMoneda moneda = new clsTipoMoneda();
-        moneda.setTipModId(Integer.parseInt(txtbuscado.getText()));
-        moneda.setTipMondNombre(txtNombre.getText());
-        moneda.setTipMondAbreviacion(txtAbreviacion.getText());
-        moneda.setTipModValor(Float.parseFloat(txtValor.getText()));
+        clsBancoExterno banco = new clsBancoExterno();
+        banco.setCodigoBanco(Integer.parseInt(txtbuscado.getText()));
+        banco.setNombreBanco(txtNombre.getText());
+        banco.setPaisBanco(txtPais.getText());
+        banco.setTipoMonedaId(Integer.parseInt(cbTipoMoneda.getSelectedItem().toString()));
         
 
-        moneda.setModificarMoneda(moneda);
+        banco.setModificarBancoExterno(banco);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
@@ -408,10 +407,9 @@ int codigoAplicacion=5003;
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
     {
-        txtid.setText("");
+        txtCodigo.setText("");
         txtNombre.setText("");
-        txtAbreviacion.setText("");
-        txtValor.setText("");
+        txtPais.setText("");
         txtbuscado.setText("");
 
     }
@@ -454,9 +452,9 @@ int codigoAplicacion=5003;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtidActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -466,6 +464,7 @@ int codigoAplicacion=5003;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cbTipoMoneda;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -477,11 +476,10 @@ int codigoAplicacion=5003;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
-    private javax.swing.JTable tablaTipoMoneda;
-    private javax.swing.JTextField txtAbreviacion;
+    private javax.swing.JTable tablaBancoExterno;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtValor;
+    private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtbuscado;
-    private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }
