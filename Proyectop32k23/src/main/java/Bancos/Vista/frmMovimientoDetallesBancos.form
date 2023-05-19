@@ -105,10 +105,10 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cbMovimiento" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbMovimientoEncabezado" alignment="0" max="32767" attributes="0"/>
                                       <Component id="cbConcepto" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="cbTipoMovimiento" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="cbMovimientoMoneda" min="-2" pref="175" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -173,12 +173,12 @@
                                           <Component id="cbConcepto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="cbMovimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbMovimientoEncabezado" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="label9" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="cbTipoMovimiento" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbMovimientoMoneda" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="68" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -252,7 +252,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Id Movimiento"/>
+        <Property name="text" type="java.lang.String" value="Id Movimiento Encabezado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnLimpiar">
@@ -446,12 +446,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Id TIpo Movimento"/>
+        <Property name="text" type="java.lang.String" value="Id TIpo Movimento Moneda"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtbuscado">
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbMovimiento">
+    <Component class="javax.swing.JComboBox" name="cbMovimientoEncabezado">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -461,7 +461,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbTipoMovimiento">
+    <Component class="javax.swing.JComboBox" name="cbMovimientoMoneda">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
