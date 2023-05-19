@@ -20,7 +20,7 @@ public class daoMovimientos {
     private static final String SQL_SELECT = "SELECT movCodigo, movDescripcion, movEfecto, movEstatus FROM tbl_movimientos";
     private static final String SQL_INSERT = "INSERT INTO tbl_movimientos(movDescripcion, movEfecto, movEstatus) VALUES(?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_movimientos SET movDescripcion=?, movEfecto=?, movEstatus=? WHERE movCodigo = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_movimientos WHERE modCodigo=?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_movimientos WHERE movCodigo=?";
    // private static final String SQL_SELECT_EFECTO = "SELECT movCodigo, movDescripcion, movEfecto, movEstatus FROM tbl_movimientos WHERE movEfecto = ?";
     private static final String SQL_SELECT_ID = "SELECT movCodigo, movDescripcion, movEfecto, movEstatus FROM tbl_movimientos WHERE movCodigo = ?";    
 

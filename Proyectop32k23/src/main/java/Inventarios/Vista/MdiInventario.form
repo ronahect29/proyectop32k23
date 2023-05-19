@@ -127,16 +127,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Procesos"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="ProcesoExistencias">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Existencias"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcesoExistenciasActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuConsultas">
           <Properties>
