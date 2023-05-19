@@ -52,6 +52,7 @@ public class MdiBancos extends javax.swing.JFrame {
         mantenimientoTipoPersonaBancos = new javax.swing.JCheckBoxMenuItem();
         mantenimientoTipoMovimientoBancos = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        mantenimientoBancoExterno = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         cuentaEmpresa = new javax.swing.JCheckBoxMenuItem();
         MovimientoEnacabezado = new javax.swing.JCheckBoxMenuItem();
@@ -156,6 +157,15 @@ public class MdiBancos extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientos.add(jCheckBoxMenuItem2);
+
+        mantenimientoBancoExterno.setSelected(true);
+        mantenimientoBancoExterno.setText("Mantenimiento Banco Externo");
+        mantenimientoBancoExterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoBancoExternoActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimientos.add(mantenimientoBancoExterno);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -339,6 +349,15 @@ public class MdiBancos extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_MovDetallesBancosActionPerformed
 
+    private void mantenimientoBancoExternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoBancoExternoActionPerformed
+        // TODO add your handling code here:
+        frmBancoExterno ventana = new frmBancoExterno();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_mantenimientoBancoExternoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,6 +413,7 @@ public class MdiBancos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JCheckBoxMenuItem mantenimientoBancoExterno;
     private javax.swing.JCheckBoxMenuItem mantenimientoConceptosBancos;
     private javax.swing.JCheckBoxMenuItem mantenimientoTipoMovimientoBancos;
     private javax.swing.JCheckBoxMenuItem mantenimientoTipoPersonaBancos;
