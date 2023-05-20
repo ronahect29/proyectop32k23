@@ -14,7 +14,7 @@ public class clsCuentaEmpresa {
     private int IdCuentaEm;
     private int NumeroCuentaEm;
     private double SaldoCuentaEm;
-    private String TipoCuentaEm;
+    private int cueTipoId;
     private String EstatusCuentaEm;
     private int CodigoBanco;
 
@@ -36,26 +36,26 @@ public class clsCuentaEmpresa {
         this.SaldoCuentaEm = SaldoCuentaEm;
     }
 
-    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, String TipoCuentaEm) {
+    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, int cueTipoId) {
         this.IdCuentaEm = IdCuentaEm;
         this.NumeroCuentaEm = NumeroCuentaEm;
         this.SaldoCuentaEm = SaldoCuentaEm;
-        this.TipoCuentaEm = TipoCuentaEm;
+        this.cueTipoId = cueTipoId;
     }
 
-    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, String TipoCuentaEm, String EstatusCuentaEm) {
+    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, int cueTipoId, String EstatusCuentaEm) {
         this.IdCuentaEm = IdCuentaEm;
         this.NumeroCuentaEm = NumeroCuentaEm;
         this.SaldoCuentaEm = SaldoCuentaEm;
-        this.TipoCuentaEm = TipoCuentaEm;
+        this.cueTipoId = cueTipoId;
         this.EstatusCuentaEm = EstatusCuentaEm;
     }
 
-    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, String TipoCuentaEm, String EstatusCuentaEm, int CodigoBanco) {
+    public clsCuentaEmpresa(int IdCuentaEm, int NumeroCuentaEm, double SaldoCuentaEm, int cueTipoId, String EstatusCuentaEm, int CodigoBanco) {
         this.IdCuentaEm = IdCuentaEm;
         this.NumeroCuentaEm = NumeroCuentaEm;
         this.SaldoCuentaEm = SaldoCuentaEm;
-        this.TipoCuentaEm = TipoCuentaEm;
+        this.cueTipoId = cueTipoId;
         this.EstatusCuentaEm = EstatusCuentaEm;
         this.CodigoBanco = CodigoBanco;
     }
@@ -84,12 +84,12 @@ public class clsCuentaEmpresa {
         this.SaldoCuentaEm = SaldoCuentaEm;
     }
 
-    public String getTipoCuentaEm() {
-        return TipoCuentaEm;
+    public int getCueTipoId() {
+        return cueTipoId;
     }
 
-    public void setTipoCuentaEm(String TipoCuentaEm) {
-        this.TipoCuentaEm = TipoCuentaEm;
+    public void setCueTipoId(int cueTipoId) {
+        this.cueTipoId = cueTipoId;
     }
 
     public String getEstatusCuentaEm() {
@@ -111,7 +111,7 @@ public class clsCuentaEmpresa {
    
     @Override
     public String toString() {
-        return "clsCuentaEmpresa{" + "IdCuentaEm=" + IdCuentaEm + ", NumeroCuentaEm=" + NumeroCuentaEm + ", SaldoCuentaEm=" + SaldoCuentaEm + ", TipoCuentaEm=" + TipoCuentaEm + ", EstatusCuentaEm=" + EstatusCuentaEm + ", CodigoBanco=" + CodigoBanco + '}';
+        return "clsCuentaEmpresa{" + "IdCuentaEm=" + IdCuentaEm + ", NumeroCuentaEm=" + NumeroCuentaEm + ", SaldoCuentaEm=" + SaldoCuentaEm + ", cueTipoId=" + cueTipoId + ", EstatusCuentaEm=" + EstatusCuentaEm + ", CodigoBanco=" + CodigoBanco + '}';
     }
     //Metodos de acceso a la capa controlador
     

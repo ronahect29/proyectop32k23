@@ -10,6 +10,7 @@ import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentaEmpresa;
 import Bancos.Controlador.clsBancoExterno;
 import Bancos.Controlador.clsTipoMoneda;
+import Bancos.Controlador.clsTipoCuentas;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.awt.Component;
 import java.util.List;
@@ -37,34 +38,45 @@ int codigoAplicacion=5008;
             cbCodigo.addItem(String.valueOf(listaBancos.get(i).getCodigoBanco()));
         }
     }
-
-    public void llenadoDeTablas() {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Cuenta");
-        modelo.addColumn("Numero de Cuenta");
-        modelo.addColumn("Saldo");
-        modelo.addColumn("Tipo Cuenta");
-        modelo.addColumn("Estatus");
-        modelo.addColumn("Codigo Banco");
-        clsCuentaEmpresa cuentaem = new clsCuentaEmpresa();
-        List<clsCuentaEmpresa> listaCuentaEmpresa = cuentaem.getListadoCuentaEmpresas();
-        tablaCuentaEmpresa.setModel(modelo);
-        String[] dato = new String[6];
-        for (int i = 0; i < listaCuentaEmpresa.size(); i++) {
-            dato[0] = Integer.toString(listaCuentaEmpresa.get(i).getIdCuentaEm());
-            dato[1] = Integer.toString(listaCuentaEmpresa.get(i).getNumeroCuentaEm());
-            dato[2] = Double.toString(listaCuentaEmpresa.get(i).getSaldoCuentaEm());
-            dato[3] = (listaCuentaEmpresa.get(i).getTipoCuentaEm());
-            dato[4] = (listaCuentaEmpresa.get(i).getEstatusCuentaEm());
-            dato[5] = Integer.toString(listaCuentaEmpresa.get(i).getCodigoBanco());
-            modelo.addRow(dato);
-        }       
+    public void llenadoDeCombos2(){
+        clsTipoCuentas cuenta = new clsTipoCuentas();
+        List<clsTipoCuentas> listaCuentas = cuenta.getListadoTipoCuentas();
+        cbTipo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbTipo.addItem("Seleccionar...");
+        for (int i = 0; i < listaCuentas.size(); i++) {
+            cbTipo.addItem(String.valueOf(listaCuentas.get(i).getTipoCueId()));
+        }
     }
+
+public void llenadoDeTablas() {
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID Cuenta");
+    modelo.addColumn("Numero de Cuenta");
+    modelo.addColumn("Saldo");
+    modelo.addColumn("Estatus");
+    modelo.addColumn("Codigo Banco");
+    modelo.addColumn("Tipo Cuenta"); // Movido al final
+    clsCuentaEmpresa cuentaem = new clsCuentaEmpresa();
+    List<clsCuentaEmpresa> listaCuentaEmpresa = cuentaem.getListadoCuentaEmpresas();
+    tablaCuentaEmpresa.setModel(modelo);
+    String[] dato = new String[6];
+    for (int i = 0; i < listaCuentaEmpresa.size(); i++) {
+        dato[0] = Integer.toString(listaCuentaEmpresa.get(i).getIdCuentaEm());
+        dato[1] = Integer.toString(listaCuentaEmpresa.get(i).getNumeroCuentaEm());
+        dato[2] = Double.toString(listaCuentaEmpresa.get(i).getSaldoCuentaEm());
+        dato[3] = listaCuentaEmpresa.get(i).getEstatusCuentaEm();
+        dato[4] = Integer.toString(listaCuentaEmpresa.get(i).getCodigoBanco());
+        dato[5] = Integer.toString(listaCuentaEmpresa.get(i).getCueTipoId());
+        modelo.addRow(dato);
+    }       
+}
+
 
     public frmCuentaEmpresa() {
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();
+        llenadoDeCombos2();
     }
 
     /**
@@ -101,10 +113,10 @@ int codigoAplicacion=5008;
         label7 = new javax.swing.JLabel();
         label10 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
-        txtTipoC = new javax.swing.JTextField();
         rbHabilitado = new javax.swing.JRadioButton();
         rbDeshabilitado = new javax.swing.JRadioButton();
         cbCodigo = new javax.swing.JComboBox<>();
+        cbTipo = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -227,10 +239,6 @@ int codigoAplicacion=5008;
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Tipo Cuenta");
 
-        txtTipoC.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtTipoC.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtTipoC.setOpaque(false);
-
         estatus.add(rbHabilitado);
         rbHabilitado.setText("Habilitado");
 
@@ -290,22 +298,18 @@ int codigoAplicacion=5008;
                                 .addComponent(label7))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label6)
+                                    .addComponent(label10)
+                                    .addComponent(label8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(label8)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(txtTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(label6)
-                                            .addComponent(label10))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(rbHabilitado)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(rbDeshabilitado))
-                                            .addComponent(cbCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(rbHabilitado)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbDeshabilitado))
+                                    .addComponent(cbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -338,7 +342,7 @@ int codigoAplicacion=5008;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label8)
-                            .addComponent(txtTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label10)
@@ -369,7 +373,7 @@ int codigoAplicacion=5008;
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizar)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -397,7 +401,7 @@ int codigoAplicacion=5008;
         cuentaem.setIdCuentaEm(Integer.parseInt(txtId.getText()));
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
-        cuentaem.setTipoCuentaEm(txtTipoC.getText());
+        cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
         int contador = 0;
         String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
         if (!estatus.isEmpty()) {
@@ -440,7 +444,14 @@ int codigoAplicacion=5008;
             }
         }
         
-        txtTipoC.setText(cuentaem.getEstatusCuentaEm());
+        int tipo = cuentaem.getCueTipoId();
+        for (int i = 1; i < cbTipo.getItemCount(); i++) {
+            int item = Integer.parseInt(cbTipo.getItemAt(i).toString());
+            if (item == tipo) {
+                cbTipo.setSelectedIndex(i);
+                break;
+            }
+        }
         
         rbHabilitado.setSelected(cuentaem.getEstatusCuentaEm().equals("T"));
         rbDeshabilitado.setSelected(cuentaem.getEstatusCuentaEm().equals("F"));
@@ -457,7 +468,7 @@ int codigoAplicacion=5008;
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
         cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
-        cuentaem.setTipoCuentaEm(txtTipoC.getText());
+        cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
         int contador = 0;
         String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
         if (!estatus.isEmpty()) {
@@ -491,7 +502,7 @@ int codigoAplicacion=5008;
         txtId.setText("");
         txtNumero.setText("");
         txtSaldo.setText("");
-        txtTipoC.setText("");
+        cbTipo.setSelectedIndex(0);
         txtbuscado.setText("");
         cbCodigo.setSelectedIndex(0);
         estatus.clearSelection();
@@ -550,6 +561,7 @@ int codigoAplicacion=5008;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cbCodigo;
+    private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.ButtonGroup estatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -570,7 +582,6 @@ int codigoAplicacion=5008;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtSaldo;
-    private javax.swing.JTextField txtTipoC;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
 }

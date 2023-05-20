@@ -105,27 +105,20 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="label8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="txtTipoC" min="-2" pref="260" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbTipo" min="-2" pref="261" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="rbHabilitado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="rbDeshabilitado" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="label10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="rbHabilitado" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="rbDeshabilitado" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="cbCodigo" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="cbCodigo" min="-2" pref="261" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -171,7 +164,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="label8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTipoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -211,7 +204,7 @@
                       <Component id="btnActualizar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -464,21 +457,6 @@
         <Property name="text" type="java.lang.String" value="Tipo Cuenta"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTipoC">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Century Gothic" size="12" style="0"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-            <MatteColorBorder bottom="1" left="0" right="0" top="0">
-              <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
-            </MatteColorBorder>
-          </Border>
-        </Property>
-        <Property name="opaque" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JRadioButton" name="rbHabilitado">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -496,6 +474,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbCodigo">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbTipo">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
