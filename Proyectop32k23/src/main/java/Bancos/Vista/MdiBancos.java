@@ -370,7 +370,7 @@ public class MdiBancos extends javax.swing.JFrame {
 
     private void mantenimientoTipoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoTipoCuentaActionPerformed
         // TODO add your handling code here:
-        frmMantenimientoTipoCeuntas ventana = new frmMantenimientoTipoCeuntas();
+        frmMantenimientoTipoCuentas ventana = new frmMantenimientoTipoCuentas();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();

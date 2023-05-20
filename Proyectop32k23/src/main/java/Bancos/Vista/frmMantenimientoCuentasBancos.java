@@ -10,7 +10,7 @@ package Bancos.Vista;
 import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentasBancos;
 //import Bancos.Controlador.clsPersonasBancos;
-//import Bancos.Controlador.clsTipoCuentasBancos;
+import Bancos.Controlador.clsTipoCuentas;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.awt.Component;
 import java.util.List;
@@ -40,16 +40,15 @@ int codigoAplicacion=5006;
         
     }*/
 
-/*   public void llenadoDeComboTipoCuenta() {
-        clsTipoCuentasBancos cuentasB = new clsTipoCuentasBancos();
-        List<clsTipoCuentasBancos> listaTipoCuentas = cuentasB.getListadoTipoCuentas();
+    public void llenadoDeComboTipoCuenta() {
+        clsTipoCuentas cuentas = new clsTipoCuentas();
+        List<clsTipoCuentas> listaTipoCuentas = cuentas.getListadoTipoCuentas();
         cbTipoCuenta.setAlignmentX(Component.CENTER_ALIGNMENT);
-        cbTipoCuenta.addItem("Seleccionar...")
         for (int i = 0; i < listaTipoCuentas.size(); i++) {
-            cbTipoCuenta.addItem(String.valueOf(listaTipoCuentas.get(i).getTipoCuenta()));
+            cbTipoCuenta.addItem(String.valueOf(listaTipoCuentas.get(i).getTipoCueId()));
         } 
         
-    }*/
+    }
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -80,7 +79,7 @@ int codigoAplicacion=5006;
         initComponents();
         llenadoDeTablas();
         //llenadoDeComboIdPersona();
-        //llenadoDeComboTipoCuenta();
+        llenadoDeComboTipoCuenta();
     }
 
     /**
@@ -245,14 +244,17 @@ int codigoAplicacion=5006;
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Tipo Cuenta");
 
-        cbIdPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbIdPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbIdPersonaActionPerformed(evt);
             }
         });
 
-        cbTipoCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoCuentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -513,6 +515,10 @@ int codigoAplicacion=5006;
     private void cbIdPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIdPersonaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbIdPersonaActionPerformed
+
+    private void cbTipoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoCuentaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
