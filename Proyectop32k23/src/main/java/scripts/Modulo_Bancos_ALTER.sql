@@ -16,3 +16,6 @@ ALTER TABLE tbl_cuentaEmpresaBancos ADD cueTipoId INT(5) NOT NULL;
 ALTER TABLE tbl_cuentaEmpresaBancos ADD CONSTRAINT FK_cueTipoId_cuentaEmpresaBancos
 FOREIGN KEY (cueTipoId) REFERENCES tbl_tipoCuentasBancos(cueTipoId);
 
+--modificamos el tipo de dato de fecha para movimiento encabezado de un DATETIME a un DATE
+alter table tbl_movimientosencabezadobancos modify movFecha DATE;
+
