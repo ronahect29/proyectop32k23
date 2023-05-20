@@ -73,6 +73,8 @@ int codigoAplicacion=5001;
 
         lb2 = new javax.swing.JLabel();
         lbusu = new javax.swing.JLabel();
+        efectos = new javax.swing.ButtonGroup();
+        estatus = new javax.swing.ButtonGroup();
         btnEliminar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -90,12 +92,14 @@ int codigoAplicacion=5001;
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtEfecto = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         label9 = new javax.swing.JLabel();
-        txtEstatus = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
         label7 = new javax.swing.JLabel();
+        rbPositivo = new javax.swing.JRadioButton();
+        rbNegativo = new javax.swing.JRadioButton();
+        rbHabilitado = new javax.swing.JRadioButton();
+        rbDeshabilitado = new javax.swing.JRadioButton();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -198,19 +202,11 @@ int codigoAplicacion=5001;
             }
         });
 
-        txtEfecto.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtEfecto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtEfecto.setOpaque(false);
-
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("Efecto");
 
         label9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label9.setText("Estatus");
-
-        txtEstatus.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtEstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtEstatus.setOpaque(false);
 
         txtId.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtId.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -219,6 +215,23 @@ int codigoAplicacion=5001;
         label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label7.setText("ID");
 
+        efectos.add(rbPositivo);
+        rbPositivo.setText("Positivo");
+        rbPositivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPositivoActionPerformed(evt);
+            }
+        });
+
+        efectos.add(rbNegativo);
+        rbNegativo.setText("Negativo");
+
+        estatus.add(rbHabilitado);
+        rbHabilitado.setText("Habilitado");
+
+        estatus.add(rbDeshabilitado);
+        rbDeshabilitado.setText("Deshabilitado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,54 +239,52 @@ int codigoAplicacion=5001;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label9)
-                                .addGap(59, 59, 59)
-                                .addComponent(txtEstatus))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label6)
-                                .addGap(63, 63, 63)
-                                .addComponent(txtEfecto)))
-                        .addGap(26, 26, 26))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(label5)
+                            .addComponent(label3)
+                            .addComponent(label7)
+                            .addComponent(label9)
+                            .addComponent(label6))
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(label4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(14, 14, 14)
-                                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label5)
-                                    .addComponent(label3)
-                                    .addComponent(label7))
-                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                                     .addComponent(txtId)
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(9, 9, 9)))
+                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbPositivo)
+                                    .addComponent(rbHabilitado))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbDeshabilitado)
+                                    .addComponent(rbNegativo))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizar)
@@ -310,13 +321,19 @@ int codigoAplicacion=5001;
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(label6)
-                                    .addComponent(txtEfecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(label9)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(label6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(label9))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(rbPositivo)
+                                            .addComponent(rbNegativo))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(rbHabilitado)
+                                            .addComponent(rbDeshabilitado))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -364,16 +381,32 @@ int codigoAplicacion=5001;
         concepto.setIdConcepto(Integer.parseInt(txtId.getText()));
         concepto.setNombreConcepto(txtNombre.getText());
         concepto.setDescripcionConcepto(txtDescripcion.getText());
-        concepto.setEfectoConcepto(txtEfecto.getText());
-        concepto.setEstatusConcepto(txtEstatus.getText());
-        concepto.setIngresarConcepto(concepto);
-        JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
-        limpiarTextos();
+        
+        int contador = 0;
+        String efectoConcepto = rbPositivo.isSelected() ? "P" : (rbNegativo.isSelected() ? "N" : "");
+        String estatusConcepto = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
+        if (!efectoConcepto.isEmpty()) {
+            contador++;
+            concepto.setEfectoConcepto(efectoConcepto);
+        }
+        if (!estatusConcepto.isEmpty()) {
+            contador++;
+            concepto.setEstatusConcepto(estatusConcepto);
+        }
+        if (contador == 2) {
+            // Los dos botones de cada ButtonGroup están seleccionados
+            concepto.setIngresarConcepto(concepto);
+            JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+            llenadoDeTablas();
+            limpiarTextos();
+        } else {
+            // No se cumple la condición de selección de dos botones
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un botón de cada grupo.");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -385,8 +418,13 @@ int codigoAplicacion=5001;
         System.out.println("Concepto retornado:" + concepto);        
         txtNombre.setText(concepto.getNombreConcepto());
         txtDescripcion.setText(concepto.getDescripcionConcepto());
-        txtEfecto.setText(concepto.getEfectoConcepto());
-        txtEstatus.setText(concepto.getEstatusConcepto());
+        
+        rbPositivo.setSelected(concepto.getEfectoConcepto().equals("P"));
+        rbNegativo.setSelected(concepto.getEfectoConcepto().equals("N"));
+
+        rbHabilitado.setSelected(concepto.getEstatusConcepto().equals("T"));
+        rbDeshabilitado.setSelected(concepto.getEstatusConcepto().equals("F"));
+
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");
@@ -398,18 +436,34 @@ int codigoAplicacion=5001;
         concepto.setIdConcepto(Integer.parseInt(txtbuscado.getText()));
         concepto.setNombreConcepto(txtNombre.getText());
         concepto.setDescripcionConcepto(txtDescripcion.getText());
-        concepto.setEfectoConcepto(txtEfecto.getText());
-        concepto.setEstatusConcepto(txtEstatus.getText());
-        concepto.setModificarConcepto(concepto);
-        JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
-        llenadoDeTablas();
         
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-        
-        limpiarTextos();
+        int contador = 0;
+        String efectoConcepto = rbPositivo.isSelected() ? "P" : (rbNegativo.isSelected() ? "N" : "");
+        String estatusConcepto = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
+        if (!efectoConcepto.isEmpty()) {
+            contador++;
+            concepto.setEfectoConcepto(efectoConcepto);
+        }
+        if (!estatusConcepto.isEmpty()) {
+            contador++;
+            concepto.setEstatusConcepto(estatusConcepto);
+        }
+        if (contador == 2) {
+            // Los dos botones de cada ButtonGroup están seleccionados
+            concepto.setModificarConcepto(concepto);
+            JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
+            llenadoDeTablas();
+
+            int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+
+            limpiarTextos();
+        } else {
+            // No se cumple la condición de selección de dos botones
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un botón de cada grupo.");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -417,14 +471,14 @@ int codigoAplicacion=5001;
         habilitarBotones();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarActionPerformed
-    public void limpiarTextos()
-    {
+    public void limpiarTextos() {
         txtNombre.setText("");
         txtDescripcion.setText("");
         txtbuscado.setText("");
-        txtEfecto.setText("");
-        txtEstatus.setText("");
+        efectos.clearSelection();
+        estatus.clearSelection();
     }
+
     public void habilitarBotones()
     {
         btnRegistrar.setEnabled(true);
@@ -466,6 +520,10 @@ int codigoAplicacion=5001;
         llenadoDeTablas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void rbPositivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPositivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPositivoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -474,6 +532,8 @@ int codigoAplicacion=5001;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.ButtonGroup efectos;
+    private javax.swing.ButtonGroup estatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -486,10 +546,12 @@ int codigoAplicacion=5001;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
+    private javax.swing.JRadioButton rbDeshabilitado;
+    private javax.swing.JRadioButton rbHabilitado;
+    private javax.swing.JRadioButton rbNegativo;
+    private javax.swing.JRadioButton rbPositivo;
     private javax.swing.JTable tablaConceptos;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtEfecto;
-    private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtbuscado;

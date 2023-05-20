@@ -18,12 +18,12 @@ import java.util.List;
  */
 public class daoBancoExterno {
 
-    private static final String SQL_SELECT = "SELECT codBanco, banNombre, banPaís, tipModId FROM tbl_bancoExterno";
-    private static final String SQL_INSERT = "INSERT INTO tbl_bancoExterno(codBanco, banNombre, banPaís, tipModId) VALUES(?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_bancoExterno SET banNombre=?, banPaís=?,  tipModId=?  WHERE codBanco = ?";
+    private static final String SQL_SELECT = "SELECT codBanco, banNombre, banPaís, tipModId, estatus FROM tbl_bancoExterno";
+    private static final String SQL_INSERT = "INSERT INTO tbl_bancoExterno(codBanco, banNombre, banPaís, tipModId, estatus) VALUES(?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_bancoExterno SET banNombre=?, banPaís=?,  tipModId=?, estatus=?  WHERE codBanco = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_bancoExterno WHERE codBanco=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT codBanco, banNombre, banPaís, tipModId  FROM tbl_bancoExterno WHERE banNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT codBanco, banNombre, banPaís, tipModId  FROM tbl_bancoExterno WHERE codBanco = ?";     
+    private static final String SQL_SELECT_NOMBRE = "SELECT codBanco, banNombre, banPaís, tipModId, estatus  FROM tbl_bancoExterno WHERE banNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT codBanco, banNombre, banPaís, tipModId, estatus  FROM tbl_bancoExterno WHERE codBanco = ?";     
 
 
 
@@ -42,11 +42,13 @@ public class daoBancoExterno {
                 String nombre = rs.getString("banNombre");
                 String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt ("tipModId");
+                String Estatus =rs.getString("estatus");
                 clsBancoExterno banco = new clsBancoExterno();
                 banco.setCodigoBanco(id);
                 banco.setNombreBanco(nombre);
                 banco.setPaisBanco(pais);
                 banco.setTipoMonedaId(tipoMond);
+                banco.setEstatus(Estatus);
                 bancos.add(banco);
             }
         } catch (SQLException ex) {
@@ -71,6 +73,7 @@ public class daoBancoExterno {
             stmt.setString(2, banco.getNombreBanco());
             stmt.setString(3, banco.getPaisBanco());
             stmt.setInt(4, banco.getTipoMonedaId());
+            stmt.setString(5, banco.getEstatus());
             
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -97,6 +100,7 @@ public class daoBancoExterno {
             stmt.setString(2, banco.getPaisBanco());
             stmt.setInt(3, banco.getTipoMonedaId());
             stmt.setInt(4, banco.getCodigoBanco());
+            stmt.setString(5, banco.getEstatus());
             
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -149,11 +153,13 @@ public class daoBancoExterno {
                 String nombre = rs.getString("banNombre");
                 String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt("tipModId");
+                String Estatus = rs.getString("estatus");
                 //moneda = new clsTipoMoneda();
                 banco.setCodigoBanco(id);
                 banco.setNombreBanco(nombre);
                 banco.setPaisBanco(pais);
                 banco.setTipoMonedaId(tipoMond);
+                banco.setEstatus(Estatus);
                 System.out.println(" registro consultado: " + banco);                
             }
             //System.out.println("Registros buscado:" + persona);
@@ -184,11 +190,13 @@ public class daoBancoExterno {
                 String nombre = rs.getString("banNombre");
                 String pais = rs.getString("banPaís");
                 int tipoMond = rs.getInt("tipModId");
+                String Estatus = rs.getString("estatus");
                 //moneda = new clsTipoMoneda();
                 banco.setCodigoBanco(id);
                 banco.setNombreBanco(nombre);
                 banco.setPaisBanco(pais);
                 banco.setTipoMonedaId(tipoMond);
+                banco.setEstatus(Estatus);
                 System.out.println(" registro consultado: " + banco);                
             }
             //System.out.println("Registros buscado:" + persona);

@@ -191,7 +191,7 @@ public class MdiBancos extends javax.swing.JFrame {
         });
         mnuProcesos.add(MovimientoEnacabezado);
 
-        MovDetallesBancos.setText("Movimiento Detalles");
+        MovDetallesBancos.setText("Movimientos");
         MovDetallesBancos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MovDetallesBancosActionPerformed(evt);
@@ -342,7 +342,7 @@ public class MdiBancos extends javax.swing.JFrame {
 
     private void MovDetallesBancosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovDetallesBancosActionPerformed
         // TODO add your handling code here:
-          frmMovimientoDetallesBancos ventana = new frmMovimientoDetallesBancos();
+          frmMovimientoBancos ventana = new frmMovimientoBancos();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
