@@ -53,6 +53,7 @@ public class MdiBancos extends javax.swing.JFrame {
         mantenimientoTipoMovimientoBancos = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         mantenimientoBancoExterno = new javax.swing.JCheckBoxMenuItem();
+        mantenimientoTipoCuenta = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         cuentaEmpresa = new javax.swing.JCheckBoxMenuItem();
         MovimientoEnacabezado = new javax.swing.JCheckBoxMenuItem();
@@ -166,6 +167,15 @@ public class MdiBancos extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientos.add(mantenimientoBancoExterno);
+
+        mantenimientoTipoCuenta.setSelected(true);
+        mantenimientoTipoCuenta.setText("Mantenimiento Tipo Cuenta");
+        mantenimientoTipoCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mantenimientoTipoCuentaActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimientos.add(mantenimientoTipoCuenta);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -358,6 +368,15 @@ public class MdiBancos extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_mantenimientoBancoExternoActionPerformed
 
+    private void mantenimientoTipoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoTipoCuentaActionPerformed
+        // TODO add your handling code here:
+        frmMantenimientoTipoCeuntas ventana = new frmMantenimientoTipoCeuntas();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_mantenimientoTipoCuentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -415,6 +434,7 @@ public class MdiBancos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JCheckBoxMenuItem mantenimientoBancoExterno;
     private javax.swing.JCheckBoxMenuItem mantenimientoConceptosBancos;
+    private javax.swing.JCheckBoxMenuItem mantenimientoTipoCuenta;
     private javax.swing.JCheckBoxMenuItem mantenimientoTipoMovimientoBancos;
     private javax.swing.JCheckBoxMenuItem mantenimientoTipoPersonaBancos;
     private javax.swing.JMenu mnuArchivo;
