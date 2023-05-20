@@ -8,6 +8,7 @@ package Bancos.Vista;
 import Bancos.Controlador.clsTipoPersonaBancos;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
+import java.awt.Component;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -48,11 +49,12 @@ int codigoAplicacion= 5002;
             modelo.addRow(dato);
         }       
     }
-
+    
     public frmMantenimientoTipoPersonaBancos() {
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();
+     
     }
 
     /**
@@ -66,6 +68,7 @@ int codigoAplicacion= 5002;
 
         lb2 = new javax.swing.JLabel();
         lbusu = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         btnEliminar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -77,7 +80,6 @@ int codigoAplicacion= 5002;
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
-        txtContrasena = new javax.swing.JTextField();
         label5 = new javax.swing.JLabel();
         lb = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -85,6 +87,9 @@ int codigoAplicacion= 5002;
         btnActualizar = new javax.swing.JButton();
         label6 = new javax.swing.JLabel();
         txtTipoPersona = new javax.swing.JTextField();
+        label7 = new javax.swing.JLabel();
+        RBHabilitado = new javax.swing.JRadioButton();
+        RBDeshabilitado = new javax.swing.JRadioButton();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -94,6 +99,7 @@ int codigoAplicacion= 5002;
         setMaximizable(true);
         setResizable(true);
         setTitle("Mantenimiento Tipo Persona");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -160,10 +166,6 @@ int codigoAplicacion= 5002;
         });
         jScrollPane1.setViewportView(tablaUsuarios);
 
-        txtContrasena.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtContrasena.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtContrasena.setOpaque(false);
-
         label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label5.setText("Estatus");
 
@@ -194,6 +196,15 @@ int codigoAplicacion= 5002;
         txtTipoPersona.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtTipoPersona.setOpaque(false);
 
+        label7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label7.setText("Seleccionar:");
+
+        buttonGroup1.add(RBHabilitado);
+        RBHabilitado.setText("Habilitado");
+
+        buttonGroup1.add(RBDeshabilitado);
+        RBDeshabilitado.setText("Deshabilitado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,11 +234,7 @@ int codigoAplicacion= 5002;
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(label5)
-                                .addGap(66, 66, 66)
-                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -238,10 +245,20 @@ int codigoAplicacion= 5002;
                                         .addGap(33, 33, 33)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                                    .addComponent(txtTipoPersona))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
+                                    .addComponent(txtTipoPersona))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label5)
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label7)
+                                        .addComponent(RBHabilitado))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(RBDeshabilitado)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizar)
@@ -250,7 +267,7 @@ int codigoAplicacion= 5002;
                         .addComponent(label1)
                         .addGap(294, 544, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -272,10 +289,14 @@ int codigoAplicacion= 5002;
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label3)))
                             .addComponent(lb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label5)
+                            .addComponent(RBHabilitado))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RBDeshabilitado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -292,7 +313,7 @@ int codigoAplicacion= 5002;
                             .addComponent(label4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnActualizar)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -317,7 +338,13 @@ int codigoAplicacion= 5002;
         clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
         banco.setIdTipoPersonaBancos(Integer.parseInt(txtTipoPersona.getText()));
         banco.setTipoDescripcionBancos(txtDescripcion.getText());
-        banco.setTipoEstatusBancos(txtContrasena.getText());
+       // banco.setTipoEstatusBancos(txtContrasena.getText());
+       if (RBHabilitado.isSelected()){
+                banco.setTipoEstatusBancos("Habilitado");
+       }
+       if (RBDeshabilitado.isSelected()){
+            banco.setTipoEstatusBancos("Deshabilitado");
+      }
         banco.setIngresarBanco(banco);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -336,7 +363,7 @@ int codigoAplicacion= 5002;
         banco = banco.getBuscarInformacionBancoPorTipo(banco);
         System.out.println("Usuario retornado:" + banco);        
         txtDescripcion.setText(banco.getTipoDescripcionBancos());
-        txtContrasena.setText(banco.getTipoEstatusBancos());
+      //  txtContrasena.setText(banco.getTipoEstatusBancos());
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "REA");
@@ -347,7 +374,7 @@ int codigoAplicacion= 5002;
         clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
         banco.setIdTipoPersonaBancos(Integer.parseInt(txtbuscado.getText()));
         banco.setTipoDescripcionBancos(txtDescripcion.getText());
-        banco.setTipoEstatusBancos(txtContrasena.getText());
+     //   banco.setTipoEstatusBancos(txtContrasena.getText());
         banco.setModificarBanco(banco);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);  
@@ -366,7 +393,7 @@ int codigoAplicacion= 5002;
     public void limpiarTextos()
     {
         txtDescripcion.setText("");
-        txtContrasena.setText("");
+      //  txtContrasena.setText("");
         txtbuscado.setText("");
         txtTipoPersona.setText("");
     }
@@ -407,12 +434,15 @@ int codigoAplicacion= 5002;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RBDeshabilitado;
+    private javax.swing.JRadioButton RBHabilitado;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -420,11 +450,11 @@ int codigoAplicacion= 5002;
     private javax.swing.JLabel label4;
     private javax.swing.JLabel label5;
     private javax.swing.JLabel label6;
+    private javax.swing.JLabel label7;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaUsuarios;
-    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtTipoPersona;
     private javax.swing.JTextField txtbuscado;

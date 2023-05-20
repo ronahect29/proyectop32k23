@@ -149,7 +149,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MovDetallesBancos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Movimiento Detalles"/>
+                <Property name="text" type="java.lang.String" value="Movimientos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MovDetallesBancosActionPerformed"/>
