@@ -8,7 +8,10 @@ package Bancos.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentaEmpresa;
+import Bancos.Controlador.clsBancoExterno;
+import Bancos.Controlador.clsTipoMoneda;
 import Seguridad.Controlador.clsUsuarioConectado;
+import java.awt.Component;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -26,12 +29,13 @@ public class frmCuentaEmpresa extends javax.swing.JInternalFrame {
 int codigoAplicacion=5008;
 
     public void llenadoDeCombos() {
-        /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-        List<Empleado> empleados = empleadoDAO.select();
-        cbox_empleado.addItem("Seleccione una opción");
-        for (int i = 0; i < empleados.size(); i++) {
-            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
-        } */
+        clsBancoExterno banco = new clsBancoExterno();
+        List<clsBancoExterno> listaBancos = banco.getListadoBancosExternos();
+        cbCodigo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbCodigo.addItem("Seleccionar...");
+        for (int i = 0; i < listaBancos.size(); i++) {
+            cbCodigo.addItem(String.valueOf(listaBancos.get(i).getCodigoBanco()));
+        }
     }
 
     public void llenadoDeTablas() {
@@ -74,6 +78,7 @@ int codigoAplicacion=5008;
 
         lb2 = new javax.swing.JLabel();
         lbusu = new javax.swing.JLabel();
+        estatus = new javax.swing.ButtonGroup();
         btnEliminar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -91,14 +96,15 @@ int codigoAplicacion=5008;
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtCodigo = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         label7 = new javax.swing.JLabel();
         label10 = new javax.swing.JLabel();
-        txtEstatus = new javax.swing.JTextField();
         label8 = new javax.swing.JLabel();
         txtTipoC = new javax.swing.JTextField();
+        rbHabilitado = new javax.swing.JRadioButton();
+        rbDeshabilitado = new javax.swing.JRadioButton();
+        cbCodigo = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -205,10 +211,6 @@ int codigoAplicacion=5008;
             }
         });
 
-        txtCodigo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtCodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtCodigo.setOpaque(false);
-
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("Código del Banco");
 
@@ -222,16 +224,18 @@ int codigoAplicacion=5008;
         label10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label10.setText("Estatus");
 
-        txtEstatus.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtEstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtEstatus.setOpaque(false);
-
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Tipo Cuenta");
 
         txtTipoC.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtTipoC.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtTipoC.setOpaque(false);
+
+        estatus.add(rbHabilitado);
+        rbHabilitado.setText("Habilitado");
+
+        estatus.add(rbDeshabilitado);
+        rbDeshabilitado.setText("Deshabilitado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,18 +290,22 @@ int codigoAplicacion=5008;
                                 .addComponent(label7))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(label8)
                                         .addGap(50, 50, 50)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtTipoC)
-                                            .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtTipoC, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(label6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(label6)
+                                            .addComponent(label10))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rbHabilitado)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rbDeshabilitado))
+                                            .addComponent(cbCodigo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -334,11 +342,12 @@ int codigoAplicacion=5008;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label10)
-                            .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbHabilitado)
+                            .addComponent(rbDeshabilitado))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label6)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -360,7 +369,7 @@ int codigoAplicacion=5008;
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizar)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -389,16 +398,27 @@ int codigoAplicacion=5008;
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
         cuentaem.setTipoCuentaEm(txtTipoC.getText());
-        cuentaem.setEstatusCuentaEm(txtEstatus.getText());
-        cuentaem.setCodigoBanco(Integer.parseInt(txtCodigo.getText()));
-        cuentaem.setIngresarCuentaEm(cuentaem);
-        JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
-        limpiarTextos();
+        int contador = 0;
+        String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
+        if (!estatus.isEmpty()) {
+            contador++;
+            cuentaem.setEstatusCuentaEm(estatus);
+        }
+        if (contador == 1) {
+            // Los dos botones de cada ButtonGroup están seleccionados
+            cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
+            cuentaem.setIngresarCuentaEm(cuentaem);
+            JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+            llenadoDeTablas();
+            limpiarTextos();
+        } else {
+            // No se cumple la condición de selección de dos botones
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -410,9 +430,21 @@ int codigoAplicacion=5008;
         System.out.println("Cuenta retornado:" + cuentaem);        
         txtNumero.setText(Integer.toString(cuentaem.getNumeroCuentaEm()));
         txtSaldo.setText(Double.toString(cuentaem.getSaldoCuentaEm()));
-        txtCodigo.setText(cuentaem.getTipoCuentaEm());
+        
+        int codigo = cuentaem.getCodigoBanco();
+        for (int i = 1; i < cbCodigo.getItemCount(); i++) {
+            int item = Integer.parseInt(cbCodigo.getItemAt(i).toString());
+            if (item == codigo) {
+                cbCodigo.setSelectedIndex(i);
+                break;
+            }
+        }
+        
         txtTipoC.setText(cuentaem.getEstatusCuentaEm());
-        txtEstatus.setText(Integer.toString(cuentaem.getCodigoBanco()));
+        
+        rbHabilitado.setSelected(cuentaem.getEstatusCuentaEm().equals("T"));
+        rbDeshabilitado.setSelected(cuentaem.getEstatusCuentaEm().equals("F"));
+        
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "QRY");
@@ -424,19 +456,29 @@ int codigoAplicacion=5008;
         cuentaem.setIdCuentaEm(Integer.parseInt(txtbuscado.getText()));
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
-        cuentaem.setTipoCuentaEm(txtCodigo.getText());
-        cuentaem.setEstatusCuentaEm(txtTipoC.getText());
-        cuentaem.setCodigoBanco(Integer.parseInt(txtEstatus.getText()));
-        cuentaem.setModificarCuentaEm(cuentaem);
-        JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
-        llenadoDeTablas();
-        
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-        
-        limpiarTextos();
+        cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
+        cuentaem.setTipoCuentaEm(txtTipoC.getText());
+        int contador = 0;
+        String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
+        if (!estatus.isEmpty()) {
+            contador++;
+            cuentaem.setEstatusCuentaEm(estatus);
+        }
+        if (contador == 1) {
+            cuentaem.setModificarCuentaEm(cuentaem);
+            JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
+            llenadoDeTablas();
+
+            int resultadoBitacora=0;
+            clsBitacora bitacoraRegistro = new clsBitacora();
+            resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+
+            limpiarTextos();
+        } else {
+            // No se cumple la condición de selección de botones
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -451,8 +493,8 @@ int codigoAplicacion=5008;
         txtSaldo.setText("");
         txtTipoC.setText("");
         txtbuscado.setText("");
-        txtCodigo.setText("");
-        txtEstatus.setText("");
+        cbCodigo.setSelectedIndex(0);
+        estatus.clearSelection();
     }
     public void habilitarBotones()
     {
@@ -507,6 +549,8 @@ int codigoAplicacion=5008;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cbCodigo;
+    private javax.swing.ButtonGroup estatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -520,9 +564,9 @@ int codigoAplicacion=5008;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
+    private javax.swing.JRadioButton rbDeshabilitado;
+    private javax.swing.JRadioButton rbHabilitado;
     private javax.swing.JTable tablaCuentaEmpresa;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtSaldo;

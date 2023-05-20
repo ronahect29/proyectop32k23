@@ -19,6 +19,7 @@ public class clsBancoExterno {
     private String nombreBanco;
     private String paisBanco;
     private int tipoMonedaId;
+    private String estatus;
 
     public clsBancoExterno() {
     }
@@ -43,6 +44,14 @@ public class clsBancoExterno {
         this.nombreBanco = nombreBanco;
         this.paisBanco = paisBanco;
         this.tipoMonedaId = tipoMonedaId;
+    }
+
+    public clsBancoExterno(int codigoBanco, String nombreBanco, String paisBanco, int tipoMonedaId, String estatus) {
+        this.codigoBanco = codigoBanco;
+        this.nombreBanco = nombreBanco;
+        this.paisBanco = paisBanco;
+        this.tipoMonedaId = tipoMonedaId;
+        this.estatus = estatus;
     }
 
     public int getCodigoBanco() {
@@ -76,12 +85,19 @@ public class clsBancoExterno {
     public void setTipoMonedaId(int tipoMonedaId) {
         this.tipoMonedaId = tipoMonedaId;
     }
-    
 
-  
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    
     @Override
     public String toString() {
-        return "clsBancoExterno{" + "codigoBanco =" + codigoBanco    + ", nombreBanco=" + nombreBanco + ", paisBanco=" + paisBanco + ", tipoMonedaId  =" + tipoMonedaId   + '}';
+        return "clsBancoExterno{" + "codigoBanco =" + codigoBanco    + ", nombreBanco=" + nombreBanco + ", paisBanco=" + paisBanco + ", tipoMonedaId  =" + tipoMonedaId + ", estatus  =" + estatus + '}';
     }
     //Metodos de acceso a la capa controlador
     public clsBancoExterno getBuscarInformacionBancoPorNombre(clsBancoExterno banco)
