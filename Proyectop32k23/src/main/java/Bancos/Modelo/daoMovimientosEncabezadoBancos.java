@@ -23,20 +23,10 @@ public class daoMovimientosEncabezadoBancos {
     private static final String SQL_INSERT = "INSERT INTO tbl_movimientosEncabezadoBancos(movId, codBanco, cueId, tipMovId, movFecha, cueEmId) VALUES(?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_movimientosEncabezadoBancos SET codBanco=?, cueId=?,  tipMovId=?, movFecha=?,  cueEmId=?  WHERE movId = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_movimientosEncabezadoBancos WHERE movId=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT movId, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE  codBanco = ?";
+   private static final String SQL_SELECT_NOMBRE = "SELECT movId, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE codBanco = ?";
     private static final String SQL_SELECT_ID = "SELECT codBanco, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE movId = ?";     
 
 
-
-    public String fechaActual() {
-
-        java.util.Date fecha = new java.util.Date();
-        //SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY/MM/dd HH:mm:ss");
-
-        return formatoFecha.format(fecha);
-
-    }
 
    public List<clsMovimientosEncabezadoBancos> consultaMovimientosEncabezado() {
         Connection conn = null;
@@ -86,7 +76,7 @@ public class daoMovimientosEncabezadoBancos {
             stmt.setInt(2, encabezado.getCodBanco());
             stmt.setInt(3, encabezado.getCueId());
             stmt.setInt(4, encabezado.getTipMovId());
-            stmt.setString(5, fechaActual());
+            stmt.setString(5, encabezado.getMovFecha());
             stmt.setInt(6, encabezado.getCueEmId());
 
             
@@ -111,11 +101,11 @@ public class daoMovimientosEncabezadoBancos {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setInt(1, encabezado.getCueEmId());
-            stmt.setInt(2, encabezado.getCodBanco());
+            stmt.setInt(1, encabezado.getCodBanco());
+            stmt.setInt(2, encabezado.getCueEmId());
             stmt.setInt(3, encabezado.getCueId());
             stmt.setInt(4, encabezado.getTipMovId());
-            stmt.setString(5, fechaActual());
+            stmt.setString(5, encabezado.getMovFecha());
             stmt.setInt(6, encabezado.getMovId());
             
             rows = stmt.executeUpdate();
@@ -153,7 +143,7 @@ public class daoMovimientosEncabezadoBancos {
         return rows;
     }
 
-    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado) {
+   public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -192,13 +182,14 @@ public class daoMovimientosEncabezadoBancos {
         //return personas;  // Si se utiliza un ArrayList
         return encabezado;
     }
+
     public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorId(clsMovimientosEncabezadoBancos encabezado) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + encabezado);
+            System.out.println("Ejecutando query:" + SQL_SELECT_ID + " objeto recibido: " + encabezado);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
             stmt.setInt(1, encabezado.getMovId());            
             //stmt.setString(1, moneda.getTipMondNombre());
