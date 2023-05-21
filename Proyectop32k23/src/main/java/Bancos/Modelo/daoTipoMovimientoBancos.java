@@ -5,6 +5,7 @@
 package Bancos.Modelo;
 
 
+import Bancos.Controlador.clsBancoExterno;
 import Bancos.Controlador.clsTipoMovimientoBancos;
 import Seguridad.Modelo.Conexion;
 import java.sql.*;

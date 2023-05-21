@@ -345,8 +345,7 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         }
         
         movimiento.setTipoMovimientoId(Integer.parseInt(txtTipoMovimiento.getText()));
-        movimiento.setNombreMovimiento(txtNombre.getText());
-        //movimiento.setEstatusMovimiento(txtEstatus.getText());
+        movimiento.setNombreMovimiento(txtNombre.getText());   
         movimiento.setIngresarTipoMovimiento(movimiento);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -366,10 +365,9 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         movimiento = movimiento.getBuscarInformacionTipoMovimientoPorId(movimiento);
         System.out.println("Movimiento retornado:" + movimiento);        
         txtNombre.setText(movimiento.getNombreMovimiento());
-        //txtEstatus.setText(movimiento.getEstatusMovimiento());
         
-        rbHabilitar.setSelected(movimiento.getEstatusMovimiento().equals("T"));
-        rbDeshabilitar.setSelected(movimiento.getEstatusMovimiento().equals("F"));
+        rbHabilitar.setSelected(movimiento.getEstatusMovimiento().equals("Habilitado"));
+        rbDeshabilitar.setSelected(movimiento.getEstatusMovimiento().equals("Desabilitado"));
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -383,13 +381,36 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         movimiento.setNombreMovimiento(txtNombre.getText());
         //movimiento.setEstatusMovimiento(txtEstatus.getText());
         movimiento.setModificarTipoMovimiento(movimiento);
-        JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);  
+        
+
+        String estatusMovimiento = "";
+        
+        if (rbHabilitar.isSelected()) {estatusMovimiento = "Habilitado";
+} 
+        else if (rbDeshabilitar.isSelected()) {
+        estatusMovimiento = "Deshabilitado";
+}
+                
+        if (!estatusMovimiento.isEmpty()) {
+            contador++;
+            movimiento.setEstatusMovimiento(estatusMovimiento);
+            movimiento.setModificarTipoMovimiento(movimiento);
+        }
+        else if (contador == 1) {
+            movimiento.setModificarTipoMovimiento(movimiento);
+            JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
+                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
+        llenadoDeTablas();
+        
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-        llenadoDeTablas();
+       
         limpiarTextos();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+                }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -402,7 +423,6 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         txtNombre.setText("");
         txtbuscado.setText("");
         txtTipoMovimiento.setText("");
-        //txtEstatus.setText("");
         tipoEstatus.clearSelection();
             
     }
