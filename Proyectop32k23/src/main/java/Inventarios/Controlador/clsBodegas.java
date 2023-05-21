@@ -6,6 +6,7 @@
 package Inventarios.Controlador;
 import java.util.List;
 import Inventarios.Modelo.daoBodegas;
+import com.toedter.calendar.JDateChooser;
 /**
  *
  * @author visitante
@@ -143,6 +144,10 @@ public class clsBodegas {
     }
 
     public void add(List<clsBodegas> Bodegas) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setgeinicial(JDateChooser finicial) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

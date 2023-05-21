@@ -11,6 +11,7 @@ import Inventarios.Controlador.clsBodegas;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -52,6 +53,8 @@ public class frmBodegas extends javax.swing.JInternalFrame {
             dato[4] = listaBodegas.get(i).getfSalidaBodega();
             dato[5] = listaBodegas.get(i).getEstatusBodegas();
             modelo.addRow(dato);
+            
+
         }       
     }
 
@@ -346,6 +349,8 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         clsBodegas bodegas = new clsBodegas();
         bodegas.setNombreBodegas(txtNombre.getText());
         bodegas.setDescripcionBodega(txtDescripcion.getText());
+       
+             
         bodegas.setfIngresoBodega(txtFechaIngreso.getText());
         bodegas.setfSalidaBodega(txtFechaSalida.getText());
         bodegas.setEstatusBodegas(String.valueOf(cboEstatus.getSelectedItem()));
