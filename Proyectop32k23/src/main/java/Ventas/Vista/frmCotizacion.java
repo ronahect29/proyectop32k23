@@ -3,11 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-//Carlos Emanuel Hernandez Garcia
-//9959-21-363
-//Mantenimiento Vendedores
 package Ventas.Vista;
 
 
@@ -36,15 +31,15 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
         } */
     }
 
-   
 
-//a
+    private DefaultTableModel modeloTabla;
     
+    public frmCotizacion() {
+        initComponents();
+        modeloTabla = (DefaultTableModel) tblCotActual.getModel();
+    }
 
-
-int codigoAplicacion = 3004;
-
-    
+    int codigoAplicacion = 3004;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +110,11 @@ int codigoAplicacion = 3004;
         txtTotalCot.setEditable(false);
 
         btnAgregarCot.setText("Agregar");
+        btnAgregarCot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCotActionPerformed(evt);
+            }
+        });
 
         btnModificarCot.setText("Modificar");
         btnModificarCot.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +127,7 @@ int codigoAplicacion = 3004;
 
         tblCotActual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", "", ""},
-                {"", "", ""},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Codigo Producto", "Cantidad", "SubTotal"
@@ -279,6 +276,7 @@ int codigoAplicacion = 3004;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnModificarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCotActionPerformed
         // TODO add your handling code here:
         
@@ -335,8 +333,42 @@ int codigoAplicacion = 3004;
    public void limpiarTextos()
     {
         txtCantProdCot.setText("");
-        txtCodProdCot.setText("");    
-    }
+        txtCodProdCot.setText("");  }
+
+//María José Véliz Ochoa 
+//9959-21-5909
+
+    private void btnAgregarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCotActionPerformed
+        // TODO add your handling code here:
+        int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
+        int cantidad = Integer.parseInt(txtCantProdCot.getText());
+        clsCotizacion cotizacion = new clsCotizacion();
+        if (cotizacion.verificarExistencias(codigoProducto) >= cantidad) {
+            double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
+            double sumaSubTotal = precio * cantidad;
+            
+            // Agregar los datos a la tabla
+            Object[] fila = {codigoProducto, cantidad, sumaSubTotal};
+            modeloTabla.addRow(fila);
+
+            
+             double suma = 0.0;
+             int columnaSubTotal = 2; 
+
+             int filas = tblCotActual.getRowCount();
+             for (int i = 0; i < filas; i++) {
+             double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
+             suma += valor;
+             txtTotalCot.setText(String.valueOf(suma));   
+             }       
+        } else {
+            JOptionPane.showMessageDialog(this, "El producto no existe o no tiene existencias.");
+        }
+            
+         limpiarTextos(); 
+    }//GEN-LAST:event_btnAgregarCotActionPerformed
+                                         
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -366,4 +398,6 @@ int codigoAplicacion = 3004;
     private javax.swing.JTextField txtIdVendedorCot;
     private javax.swing.JTextField txtTotalCot;
     // End of variables declaration//GEN-END:variables
+
+
 }

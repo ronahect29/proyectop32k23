@@ -242,6 +242,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarCotActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCodProdCot">
     </Component>
@@ -270,25 +273,10 @@
         <Component class="javax.swing.JTable" name="tblCotActual">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
-                <Column editable="true" title="Codigo Producto" type="java.lang.Object">
-                  <Data value=""/>
-                  <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="Cantidad" type="java.lang.Object">
-                  <Data value=""/>
-                  <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="SubTotal" type="java.lang.Object">
-                  <Data value=""/>
-                  <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+              <Table columnCount="3" rowCount="0">
+                <Column editable="true" title="Codigo Producto" type="java.lang.Object"/>
+                <Column editable="true" title="Cantidad" type="java.lang.Object"/>
+                <Column editable="true" title="SubTotal" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>

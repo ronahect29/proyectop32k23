@@ -10,12 +10,23 @@
 package Ventas.Controlador;
 import java.util.List;
 import Ventas.Modelo.daoVendedores;
+import javax.swing.table.DefaultTableModel;
+import Ventas.Modelo.daoCotizacion;
+import java.util.ArrayList;
 /**
  *
  * @author visitante
  */
 
 public class clsCotizacion {
-
-                  
+    
+    
+    public double obtenerPrecioProducto(int codigoProducto) {
+    daoCotizacion dao = new daoCotizacion();
+    return dao.obtenerPrecioProducto(codigoProducto);
+} 
+    public int verificarExistencias(int codigoProducto) {
+    daoCotizacion dao = new daoCotizacion();
+    return dao.verificarExistencias(codigoProducto);
+}   
 }
