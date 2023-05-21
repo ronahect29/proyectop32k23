@@ -16,3 +16,5 @@ ALTER TABLE tbl_cuentaEmpresaBancos ADD cueTipoId INT(5) NOT NULL;
 ALTER TABLE tbl_cuentaEmpresaBancos ADD CONSTRAINT FK_cueTipoId_cuentaEmpresaBancos
 FOREIGN KEY (cueTipoId) REFERENCES tbl_tipoCuentasBancos(cueTipoId);
 
+ALTER TABLE tbl_tipoMovimientoBancos modify tipMovEstatus varchar(15) not null;
+ALTER TABLE tbl_cuentasBancos modify cueestatus varchar(15) not null;
