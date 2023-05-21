@@ -83,10 +83,10 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtEfecto = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
-        txtEstatus = new javax.swing.JTextField();
+        cboEfecto = new javax.swing.JComboBox<>();
+        cboEstatus = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -179,16 +179,15 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
             }
         });
 
-        txtEfecto.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtEfecto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("Efecto");
 
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Estatus");
 
-        txtEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cboEfecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
+
+        cboEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "F" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,19 +220,19 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label6)
-                                    .addComponent(label8))
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEfecto, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(12, 12, 12)
+                                .addComponent(label8)
+                                .addGap(324, 324, 324)
                                 .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(label3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label3)
+                                    .addComponent(label6))
                                 .addGap(18, 18, 18)
-                                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(cboEstatus, javax.swing.GroupLayout.Alignment.LEADING, 0, 95, Short.MAX_VALUE)
+                                        .addComponent(cboEfecto, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -261,14 +260,14 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label3)
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtEfecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label6))
+                                    .addComponent(label6)
+                                    .addComponent(cboEfecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label8)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cboEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -315,8 +314,8 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
         
         clsMovimientos movimientos = new clsMovimientos();
         movimientos.setDescripcionMovimiento(txtDescripcion.getText());
-        movimientos.setEfectoMovimiento(txtEfecto.getText());
-        movimientos.setEstatusMovimiento(txtEstatus.getText());
+        movimientos.setEfectoMovimiento(String.valueOf(cboEfecto.getSelectedItem()));
+        movimientos.setEstatusMovimiento(String.valueOf(cboEstatus.getSelectedItem()));
         movimientos.setIngresarMovimientos(movimientos);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -336,8 +335,8 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
         movimientos = movimientos.getBuscarInformacionMovimientosPorId(movimientos);
         System.out.println("Usuario retornado:" + movimientos);
         txtDescripcion.setText(movimientos.getDescripcionMovimiento());
-        txtEfecto.setText(movimientos.getEfectoMovimiento());
-        txtEstatus.setText(movimientos.getEstatusMovimiento());
+        cboEfecto.setSelectedItem(movimientos.getEfectoMovimiento());
+        cboEstatus.setSelectedItem(movimientos.getEstatusMovimiento());
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -350,8 +349,8 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
         clsMovimientos movimientos = new clsMovimientos();
         movimientos.setIdMovimiento(Integer.parseInt(txtbuscado.getText()));
         movimientos.setDescripcionMovimiento(txtDescripcion.getText());
-        movimientos.setEfectoMovimiento(txtEfecto.getText());
-        movimientos.setEstatusMovimiento(txtEstatus.getText());
+        movimientos.setEfectoMovimiento(String.valueOf(cboEfecto.getSelectedItem()));
+        movimientos.setEstatusMovimiento(String.valueOf(cboEstatus.getSelectedItem()));
         movimientos.setModificarMovimientos(movimientos);
         
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -374,8 +373,6 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
     public void limpiarTextos()
     {
         txtDescripcion.setText("");
-        txtEfecto.setText("");
-        txtEstatus.setText("");
         txtbuscado.setText("");
     }
     public void habilitarBotones()
@@ -429,6 +426,8 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cboEfecto;
+    private javax.swing.JComboBox<String> cboEstatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -441,8 +440,6 @@ public class frmMovimientos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaMovimientos;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtEfecto;
-    private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
 }

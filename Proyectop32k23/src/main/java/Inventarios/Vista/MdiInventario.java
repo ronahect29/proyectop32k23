@@ -28,11 +28,12 @@ public class MdiInventario extends javax.swing.JFrame {
         this.setExtendedState(MdiInventario.MAXIMIZED_BOTH);
         this.setTitle("MDI Inventarios");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
-        //ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
-        //Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
-        //lbl.setIcon(fondo);
-        //this.repaint();
+  
+        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
+        Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
+        lbl.setIcon(fondo);
+        this.repaint();
+
     }
 
     /**
@@ -88,16 +89,18 @@ public class MdiInventario extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 282, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        mnuGeneral.setBackground(new java.awt.Color(153, 255, 153));
 
         mnuArchivo.setText("Archivo");
         mnuArchivo.addActionListener(new java.awt.event.ActionListener() {

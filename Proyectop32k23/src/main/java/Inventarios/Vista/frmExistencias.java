@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import Seguridad.Modelo.Conexion;
 
 /**
  *
@@ -50,11 +51,14 @@ public class frmExistencias extends javax.swing.JInternalFrame {
             modelo.addRow(dato);
         }       
     }
-
+    private Conexion conn = new Conexion();
+    
     public frmExistencias() {
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();
+        this.cboProducto.setModel(conn.Obt_CodigoP());
+        this.cboBodega.setModel(conn.Obt_CodigoB());
     }
 
     /**
@@ -87,6 +91,8 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         label6 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
         txtEstatus = new javax.swing.JTextField();
+        cboProducto = new javax.swing.JComboBox<>();
+        cboBodega = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -190,6 +196,10 @@ public class frmExistencias extends javax.swing.JInternalFrame {
 
         txtEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        cboProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboBodega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,24 +229,25 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label3)
+                            .addComponent(label6)
+                            .addComponent(label8))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label6)
-                                    .addComponent(label8))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(49, 49, 49)
-                                        .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(175, 175, 175)
-                                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(175, 175, 175)
+                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(label3)
-                                .addGap(44, 44, 44)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cboBodega, 0, 100, Short.MAX_VALUE)
+                                    .addComponent(cboProducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(84, 84, 84)))))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -246,7 +257,7 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                         .addComponent(label1)
                         .addGap(294, 484, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -260,14 +271,16 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label3))
+                                    .addComponent(label3)
+                                    .addComponent(cboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label6))
+                                    .addComponent(label6)
+                                    .addComponent(cboBodega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label8)
@@ -318,8 +331,8 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), clsBitacora, "INS");
         
         clsExistencias existencias = new clsExistencias();
-        existencias.setIdProductos(Integer.parseInt(txtNombre.getText()));
-        existencias.setIdBodegas(Integer.parseInt(txtPrecios.getText()));
+        existencias.setIdProductos(Integer.parseInt(String.valueOf(cboProducto.getSelectedItem())));
+        existencias.setIdBodegas(Integer.parseInt(String.valueOf(cboBodega.getSelectedItem())));
         existencias.setExistenciasSaldo(Integer.parseInt(txtEstatus.getText()));
         existencias.setIngresarExistencias(existencias);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
@@ -341,8 +354,8 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         //existencias.setIdBodegas(Integer.parseInt(txtbuscado.getText()));
         existencias = existencias.getBuscarInformacionExistenciasPorId(existencias);
         System.out.println("Usuario retornado:" + existencias);
-        txtNombre.setText(Integer.toString(existencias.getIdProductos()));
-        txtPrecios.setText(Integer.toString(existencias.getIdBodegas()));
+        cboProducto.setSelectedItem(Integer.toString(existencias.getIdProductos()));
+        cboBodega.setSelectedItem(Integer.toString(existencias.getIdBodegas()));
         txtEstatus.setText(Integer.toString(existencias.getExistenciasSaldo()));
         
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -355,7 +368,7 @@ public class frmExistencias extends javax.swing.JInternalFrame {
 
         clsExistencias existencias = new clsExistencias();
         existencias.setIdProductos(Integer.parseInt(txtbuscado.getText()));
-        existencias.setIdBodegas(Integer.parseInt (txtNombre.getText()));
+        existencias.setIdBodegas(Integer.parseInt(String.valueOf(cboBodega.getSelectedItem())));
         existencias.setExistenciasSaldo(Integer.parseInt(txtPrecios.getText()));        
         existencias.setModificarExistencias(existencias);
         
@@ -434,6 +447,8 @@ public class frmExistencias extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cboBodega;
+    private javax.swing.JComboBox<String> cboProducto;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;

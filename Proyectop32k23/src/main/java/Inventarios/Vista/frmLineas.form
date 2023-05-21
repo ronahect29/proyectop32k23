@@ -77,10 +77,9 @@
                                   <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtPrecios" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                                  <Component id="txtEstatus" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="cboEstatus" min="-2" pref="95" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtPrecios" min="-2" pref="263" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="lb" min="-2" pref="13" max="-2" attributes="0"/>
                           </Group>
@@ -100,10 +99,10 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="294" pref="596" max="32767" attributes="0"/>
+                      <EmptySpace min="294" pref="495" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" pref="619" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="518" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -134,7 +133,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="label8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEstatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboEstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -327,10 +326,18 @@
         <Property name="text" type="java.lang.String" value="Estatus"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEstatus">
+    <Component class="javax.swing.JComboBox" name="cboEstatus">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="T"/>
+            <StringItem index="1" value="F"/>
+          </StringArray>
+        </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

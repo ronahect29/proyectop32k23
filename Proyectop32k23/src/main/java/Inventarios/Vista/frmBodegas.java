@@ -95,9 +95,9 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         txtFechaSalida = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
-        txtEstatus = new javax.swing.JTextField();
         label9 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
+        cboEstatus = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -205,10 +205,10 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Estatus");
 
-        txtEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         label9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label9.setText("Descripcion");
+
+        cboEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "F" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,24 +242,24 @@ public class frmBodegas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label5)
-                                    .addComponent(label6)
-                                    .addComponent(label8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label3)
                                     .addComponent(label9))
                                 .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label5)
+                                    .addComponent(label6)
+                                    .addComponent(label8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cboEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -301,7 +301,7 @@ public class frmBodegas extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label8)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cboEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -353,7 +353,7 @@ public class frmBodegas extends javax.swing.JInternalFrame {
              
         bodegas.setfIngresoBodega(txtFechaIngreso.getText());
         bodegas.setfSalidaBodega(txtFechaSalida.getText());
-        bodegas.setEstatusBodegas(txtEstatus.getText());
+        bodegas.setEstatusBodegas(String.valueOf(cboEstatus.getSelectedItem()));
         bodegas.setIngresarBodegas(bodegas);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -376,7 +376,7 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         txtDescripcion.setText(bodegas.getDescripcionBodega());
         txtFechaIngreso.setText(bodegas.getfIngresoBodega());
         txtFechaSalida.setText(bodegas.getfSalidaBodega());
-        txtEstatus.setText(bodegas.getEstatusBodegas());
+        cboEstatus.setSelectedItem(bodegas.getEstatusBodegas());
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -392,7 +392,7 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         bodegas.setDescripcionBodega(txtDescripcion.getText());
         bodegas.setfIngresoBodega(txtFechaIngreso.getText());
         bodegas.setfSalidaBodega(txtFechaSalida.getText());
-        bodegas.setEstatusBodegas(txtEstatus.getText());
+        bodegas.setEstatusBodegas(String.valueOf(cboEstatus.getSelectedItem()));
         bodegas.setModificarBodegas(bodegas);
         
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -417,7 +417,6 @@ public class frmBodegas extends javax.swing.JInternalFrame {
         txtDescripcion.setText("");
         txtFechaIngreso.setText("");
         txtFechaSalida.setText("");
-        txtEstatus.setText("");
         txtbuscado.setText("");
     }
     public void habilitarBotones()
@@ -471,6 +470,7 @@ public class frmBodegas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cboEstatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -485,7 +485,6 @@ public class frmBodegas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaBodegas;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtFechaIngreso;
     private javax.swing.JTextField txtFechaSalida;
     private javax.swing.JTextField txtNombre;
