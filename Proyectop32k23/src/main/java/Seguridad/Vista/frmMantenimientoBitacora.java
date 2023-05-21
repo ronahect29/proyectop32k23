@@ -33,10 +33,10 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
         modelo.addColumn("ID ");
         modelo.addColumn("Fecha");
         modelo.addColumn("Accion");
-         modelo.addColumn("Id Usuario");
-          modelo.addColumn("Id Aplicacion");
-           modelo.addColumn("IP");
-            modelo.addColumn("Nombre PC");
+        modelo.addColumn("IP");
+        modelo.addColumn("Id Usuario");
+        modelo.addColumn("Id Aplicacion");
+        modelo.addColumn("Nombre PC");
         daoBitacora aplicacionDAO = new daoBitacora();
         List<clsBitacora> aplicaciones = aplicacionDAO.select();
         tablaAplicaciones.setModel(modelo);
@@ -45,10 +45,10 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
             dato[0] = Integer.toString(aplicaciones.get(i).getIdBitacora());
             dato[1] = aplicaciones.get(i).getFechaBitacora();
             dato[2] = aplicaciones.get(i). getAccionBitacora();
-               dato[3] = Integer.toString(aplicaciones.get(i).getIdUsuario());
-               dato[4] = Integer.toString(aplicaciones.get(i).getIdAplicacion());
-               dato[5] = aplicaciones.get(i).getIpBitacora();
-                dato[6] = aplicaciones.get(i).getNombrePcBitacora();
+            dato[3] = aplicaciones.get(i).getIpBitacora();
+            dato[4] = Integer.toString(aplicaciones.get(i).getIdUsuario());
+            dato[5] = Integer.toString(aplicaciones.get(i).getIdAplicacion());
+            dato[6] = aplicaciones.get(i).getNombrePcBitacora();
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
         }
@@ -65,10 +65,10 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
         modelo.addColumn("ID ");
         modelo.addColumn("Fecha");
         modelo.addColumn("Accion");
-         modelo.addColumn("Id Usuario");
-          modelo.addColumn("Id Aplicacion");
-           modelo.addColumn("IP");
-            modelo.addColumn("Nombre PC");
+        modelo.addColumn("IP");
+        modelo.addColumn("Id Usuario");
+        modelo.addColumn("Id Aplicacion");
+        modelo.addColumn("Nombre PC");
         clsBitacora bitacora = new clsBitacora();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsBitacora> aplicaciones = bitacora.getListadoBitacora(Primerafecha, Segundafecha);
@@ -78,10 +78,10 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
             dato[0] = Integer.toString(aplicaciones.get(i).getIdBitacora());
             dato[1] = aplicaciones.get(i).getFechaBitacora();
             dato[2] = aplicaciones.get(i). getAccionBitacora();
-               dato[3] = Integer.toString(aplicaciones.get(i).getIdUsuario());
-               dato[4] = Integer.toString(aplicaciones.get(i).getIdAplicacion());
-               dato[5] = aplicaciones.get(i).getIpBitacora();
-                dato[6] = aplicaciones.get(i).getNombrePcBitacora();
+            dato[3] = aplicaciones.get(i).getIpBitacora();
+            dato[4] = Integer.toString(aplicaciones.get(i).getIdUsuario());
+            dato[5] = Integer.toString(aplicaciones.get(i).getIdAplicacion());
+            dato[6] = aplicaciones.get(i).getNombrePcBitacora();
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
         }
