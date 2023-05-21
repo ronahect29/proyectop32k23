@@ -30,10 +30,9 @@ public class frmMantenimientoCuentasBancos extends javax.swing.JInternalFrame {
 int codigoAplicacion=5006;
 
     /*public void llenadoDeComboIdPersona() {
-        clsPersonasBancos personasB = new clsPersonasBancos();
-        List<clsPersonasBancos> listaPersonas = personasB.getListadoPersonas();
+        clsPersonaBancos personas = new clsPersonaBancos();
+        List<clsPersonaBancos> listaPersonas = personas.getListadoBancoPersonas();
         cbIdPersona.setAlignmentX(Component.CENTER_ALIGNMENT);
-        cbIdPersona.addItem("Seleccionar...")
         for (int i = 0; i < listaPersonas.size(); i++) {
             cbIdPersona.addItem(String.valueOf(listaPersonas.get(i).getIdPersona()));
         } 
@@ -437,6 +436,8 @@ int codigoAplicacion=5006;
         cuenta.setIdCuenta(Integer.parseInt(txtId.getText()));
         cuenta.setNumeroCuenta(Integer.parseInt(txtNumero.getText()));
         cuenta.setSaldoCuenta(Double.parseDouble(txtSaldo.getText()));
+        cuenta.setIdPersona(Integer.parseInt(cbIdPersona.getSelectedItem().toString()));
+        cuenta.setIdTipoCuenta(Integer.parseInt(cbTipoCuenta.getSelectedItem().toString()));
         
         cuenta.setIngresarCuenta(cuenta);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
@@ -459,6 +460,24 @@ int codigoAplicacion=5006;
         txtNumero.setText(Integer.toString(cuenta.getNumeroCuenta()));
         txtSaldo.setText(Double.toString(cuenta.getSaldoCuenta()));
         
+        int IdPersona = cuenta.getIdPersona();
+        for (int i = 1; i < cbIdPersona.getItemCount(); i++) {
+            int item = Integer.parseInt(cbIdPersona.getItemAt(i).toString());
+            if (item == IdPersona) {
+                cbIdPersona.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        int IdTipoCuenta = cuenta.getIdTipoCuenta();
+        for (int i = 1; i < cbTipoCuenta.getItemCount(); i++) {
+            int item = Integer.parseInt(cbTipoCuenta.getItemAt(i).toString());
+            if (item == IdTipoCuenta) {
+                cbTipoCuenta.setSelectedIndex(i);
+                break;
+            }
+        }
+     
         rbHabilitar.setSelected(cuenta.getEstatusCuenta().equals("Habilitado"));
         rbDeshabilitar.setSelected(cuenta.getEstatusCuenta().equals("Desabilitado"));
         
@@ -473,7 +492,8 @@ int codigoAplicacion=5006;
         cuenta.setIdCuenta(Integer.parseInt(txtbuscado.getText()));
         cuenta.setNumeroCuenta(Integer.parseInt(txtNumero.getText()));
         cuenta.setSaldoCuenta(Double.parseDouble(txtSaldo.getText()));
-        //cuenta.setEstatusCuenta(txtEstatus.getText());
+        cuenta.setIdPersona(Integer.parseInt(cbIdPersona.getSelectedItem().toString()));
+        cuenta.setIdTipoCuenta(Integer.parseInt(cbTipoCuenta.getSelectedItem().toString()));
         cuenta.setModificarCuenta(cuenta);
         
         String estatusCuenta = "";
@@ -515,9 +535,12 @@ int codigoAplicacion=5006;
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
     {
+        txtId.setText("");
         txtNumero.setText("");
         txtSaldo.setText("");
         txtbuscado.setText("");
+        cbIdPersona.setSelectedIndex(0);
+        cbTipoCuenta.setSelectedIndex(0);
         tipoEstatus.clearSelection();
     }
     public void habilitarBotones()
