@@ -117,6 +117,11 @@ int codigoAplicacion = 3004;
         btnAgregarCot.setText("Agregar");
 
         btnModificarCot.setText("Modificar");
+        btnModificarCot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCotActionPerformed(evt);
+            }
+        });
 
         btnEliminarCot.setText("Eliminar");
 
@@ -273,7 +278,65 @@ int codigoAplicacion = 3004;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
+    private void btnModificarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCotActionPerformed
+        // TODO add your handling code here:
+        
+        // Obtener los datos ingresados
+        int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
+        int nuevaCantidad = Integer.parseInt(txtCantProdCot.getText());
+        clsCotizacion cotizacion = new clsCotizacion();
+        
+        
+// Verificar si el código de producto existe en la tabla de cotización
+        boolean productoEncontrado = false;
+        int filaModificar = -1;
+        for (int i = 0; i < modeloTabla.getRowCount(); i++) {
+            int codigo = (int) modeloTabla.getValueAt(i, 0);
+            if (codigo == codigoProducto) {
+                productoEncontrado = true;
+                filaModificar = i;
+                break;
+            }
+        }
+        if (productoEncontrado) {
+                // Actualizar el subtotal y el total
+            if (cotizacion.verificarExistencias(codigoProducto) >= nuevaCantidad) {
+                double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
+                double sumaSubTotal = precio * nuevaCantidad;
+                
+                // Actualizar la cantidad en la fila correspondiente
+                modeloTabla.setValueAt(nuevaCantidad, filaModificar, 1);
+                
+                // Actualizar el subtotal en la fila correspondiente
+                modeloTabla.setValueAt(sumaSubTotal, filaModificar, 2);
+                
+               // Actualizar el total
+                double suma = 0.0;
+                int columnaSubTotal = 2;
+                int filas = tblCotActual.getRowCount();
+                
+                for (int i = 0; i < filas; i++) {
+                    double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
+                    suma += valor;
+                }
+                
+                txtTotalCot.setText(String.valueOf(suma));
+            }else {
+                JOptionPane.showMessageDialog(null, "El producto no tiene existencias.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "El código de producto no existe en la cotización actual.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        limpiarTextos(); 
+        
+    }//GEN-LAST:event_btnModificarCotActionPerformed
+   public void limpiarTextos()
+    {
+        txtCantProdCot.setText("");
+        txtCodProdCot.setText("");    
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
