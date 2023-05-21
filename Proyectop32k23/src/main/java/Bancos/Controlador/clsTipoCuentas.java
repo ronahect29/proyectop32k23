@@ -80,8 +80,8 @@ public class clsTipoCuentas {
     public List<clsTipoCuentas> getListadoTipoCuentas()
     {
         daoTipoCuentas daotipocuenta = new daoTipoCuentas();
-        List<clsTipoCuentas> listadoTipoCeutna = daotipocuenta.consultaTipoCuenta();
-        return listadoTipoCeutna;
+        List<clsTipoCuentas> listadoTipoCuenta = daotipocuenta.consultaTipoCuenta();
+        return listadoTipoCuenta;
     }
     public int setBorrarTipoCuenta(clsTipoCuentas cuenta)
     {

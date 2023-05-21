@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author visitante
  */
-public class frmMantenimientoTipoCeuntas extends javax.swing.JInternalFrame {
+public class frmMantenimientoTipoCuentas extends javax.swing.JInternalFrame {
     int codigoAplicacion= 50011;
 
     public void llenadoDeCombos() {
@@ -49,7 +49,7 @@ public class frmMantenimientoTipoCeuntas extends javax.swing.JInternalFrame {
         }       
     }
 
-    public frmMantenimientoTipoCeuntas() {
+    public frmMantenimientoTipoCuentas() {
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();

@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//Hecho por: Alyson Vannesa Rodríguez Quezada 9959-21-829
 package Bancos.Modelo;
 
 import Bancos.Controlador.clsCuentasBancos;
@@ -17,12 +18,12 @@ import java.util.List;
  */
 public class daoCuentasBancos {
 
-    private static final String SQL_SELECT = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasbancos";
-    private static final String SQL_INSERT = "INSERT INTO tbl_cuentasbancos(cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus) VALUES(?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_cuentasbancos SET cueNumero=?, cueSaldo=?, perId=?, cueTipoId=?, cueestatus=? WHERE cueId = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_cuentasbancos WHERE cueId=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasbancos WHERE cueNumero = ?";
-    private static final String SQL_SELECT_ID = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasbancos WHERE cueId = ?";
+    private static final String SQL_SELECT = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasBancos";
+    private static final String SQL_INSERT = "INSERT INTO tbl_cuentasBancos(cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_cuentasBancos SET cueNumero=?, cueSaldo=?, perId=?, cueTipoId=?, cueestatus=? WHERE cueId = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_cuentasBancos WHERE cueId=?";
+    private static final String SQL_SELECT_NOMBRE = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasBancos WHERE cueNumero = ?";
+    private static final String SQL_SELECT_ID = "SELECT cueId, cueNumero, cueSaldo, perId, cueTipoId, cueestatus FROM tbl_cuentasBancos WHERE cueId = ?";
      
 
     public List<clsCuentasBancos> consultaCuenta() {
@@ -41,7 +42,7 @@ public class daoCuentasBancos {
                 double saldo = rs.getDouble("cueSaldo");
                 int persona = rs.getInt("perId");
                 int tipoC = rs.getInt("cueTipoId");
-		String estatus = rs.getString("cueestatus");
+		String estatus = rs.getString("cueEstatus");
                 clsCuentasBancos cuenta = new clsCuentasBancos();
                 cuenta.setIdCuenta(id);
                 cuenta.setNumeroCuenta(cuentaN);
@@ -73,6 +74,7 @@ public class daoCuentasBancos {
             stmt.setInt(4, cuenta.getIdPersona());
             stmt.setInt(5, cuenta.getIdTipoCuenta());
             stmt.setString(6, cuenta.getEstatusCuenta());
+            
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);
@@ -153,7 +155,7 @@ public class daoCuentasBancos {
                 double saldo = rs.getDouble("cueSaldo");
                 int persona = rs.getInt("perId");
                 int tipoC = rs.getInt("cueTipoId");
-                String estatus = rs.getString("cueestatus");
+                String estatus = rs.getString("cueEstatus");
                 //cuenta = new clsCuentaBancos();
                 cuenta.setIdCuenta(id);
                 cuenta.setNumeroCuenta(numero);

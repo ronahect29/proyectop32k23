@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//Hecho por: Alyson Vannesa Rodríguez Quezada 9959-21-829
 package Bancos.Controlador;
 import java.util.List;
 import Bancos.Modelo.daoCuentasBancos;
