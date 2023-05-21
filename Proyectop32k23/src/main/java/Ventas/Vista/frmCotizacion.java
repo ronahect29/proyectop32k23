@@ -282,12 +282,34 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
 
     private void btnEliminarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCotActionPerformed
         // TODO add your handling code here:
-         int registrosBorrados=0;
-        clsCotizacion cotizacion = new clsCotizacion();
-        cotizacion.setIdCotizacion(Integer.parseInt(txtCodProdCot.getText()));
-        registrosBorrados=cotizacion.setBorrarCotizacion(cotizacion);
-        JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
+
+// Lógica para buscar y eliminar la fila en la JTable
+DefaultTableModel model = (DefaultTableModel) tblCotActual.getModel();
+int rowCount = model.getRowCount();
+double suma = 0.0; // Variable para almacenar la suma de los subtotales
+boolean codigoEncontrado = false; // Variable para indicar si se encuentra el código en la tabla
+
+for (int i = 0; i < rowCount; i++) {
+    int codigo = (int) model.getValueAt(i, 0); // Obtener el valor de la columna "Codigo Producto"
+
+    if (codigo == codigoProducto) {
+        model.removeRow(i); // Eliminar la fila si se encuentra una coincidencia
+        rowCount--; // Reducir el número de filas después de eliminar una fila
+        i--; // Decrementar el índice para evitar saltar la siguiente fila en la iteración
+        codigoEncontrado = true; // Marcar el código como encontrado
+    } else {
+        double subtotal = (double) model.getValueAt(i, 2); // Obtener el valor del subtotal
+        suma += subtotal; // Sumar el subtotal a la suma
+    }
+
+}
+if (!codigoEncontrado) {
+    JOptionPane.showMessageDialog(null, "No existe este código en tu cotización actual", "Error", JOptionPane.ERROR_MESSAGE);
+}
+txtTotalCot.setText(String.valueOf(suma));
+limpiarTextos(); 
+
     }//GEN-LAST:event_btnEliminarCotActionPerformed
    
 
@@ -354,33 +376,46 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
 //9959-21-5909
 
     private void btnAgregarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCotActionPerformed
-        // TODO add your handling code here:
-        int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
-        int cantidad = Integer.parseInt(txtCantProdCot.getText());
-        clsCotizacion cotizacion = new clsCotizacion();
-        if (cotizacion.verificarExistencias(codigoProducto) >= cantidad) {
-            double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
-            double sumaSubTotal = precio * cantidad;
-            
-            // Agregar los datos a la tabla
-            Object[] fila = {codigoProducto, cantidad, sumaSubTotal};
-            modeloTabla.addRow(fila);
-
-            
-             double suma = 0.0;
-             int columnaSubTotal = 2; 
-
-             int filas = tblCotActual.getRowCount();
-             for (int i = 0; i < filas; i++) {
-             double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
-             suma += valor;
-             txtTotalCot.setText(String.valueOf(suma));   
-             }       
-        } else {
-            JOptionPane.showMessageDialog(this, "El producto no existe o no tiene existencias.");
+int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
+    int cantidad = Integer.parseInt(txtCantProdCot.getText());
+    clsCotizacion cotizacion = new clsCotizacion();
+    
+    // Verificar si el producto ya está registrado en la tabla
+    boolean productoExistente = false;
+    int filas = tblCotActual.getRowCount();
+    for (int i = 0; i < filas; i++) {
+        int codigo = (int) tblCotActual.getValueAt(i, 0);
+        if (codigo == codigoProducto) {
+            productoExistente = true;
+            break;
         }
-            
-         limpiarTextos(); 
+    }
+    
+    if (productoExistente) {
+        JOptionPane.showMessageDialog(this, "Este Producto ya está registrado, puedes intentar MODIFICAR.");
+    } else if (cotizacion.verificarExistencias(codigoProducto) >= cantidad) {
+        double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
+        double sumaSubTotal = precio * cantidad;
+        
+        // Agregar los datos a la tabla
+        Object[] fila = {codigoProducto, cantidad, sumaSubTotal};
+        modeloTabla.addRow(fila);
+
+        double suma = 0.0;
+        int columnaSubTotal = 2; 
+
+        filas = tblCotActual.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
+            suma += valor;
+        }
+        
+        txtTotalCot.setText(String.valueOf(suma));
+    } else {
+        JOptionPane.showMessageDialog(this, "El producto no existe o no tiene existencias.");
+    }
+    
+    limpiarTextos();
     }//GEN-LAST:event_btnAgregarCotActionPerformed
                                          
 

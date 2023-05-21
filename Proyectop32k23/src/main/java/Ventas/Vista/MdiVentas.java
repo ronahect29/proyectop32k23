@@ -49,6 +49,8 @@ public class MdiVentas extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnuProcesosVentas = new javax.swing.JMenu();
+        mnuCotizaciones = new javax.swing.JMenu();
+        mnuNuevaCotizacion = new javax.swing.JCheckBoxMenuItem();
         mnuConsultasVentas = new javax.swing.JMenu();
         mnuReportesVentas = new javax.swing.JMenu();
         mnuAyudasVentas = new javax.swing.JMenu();
@@ -134,6 +136,20 @@ public class MdiVentas extends javax.swing.JFrame {
         mnuGeneralVentas.add(mnuCatalogosVentas);
 
         mnuProcesosVentas.setText("Procesos");
+
+        mnuCotizaciones.setText("Cotizaciones");
+
+        mnuNuevaCotizacion.setSelected(true);
+        mnuNuevaCotizacion.setText("Nueva Cotizacion");
+        mnuNuevaCotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuNuevaCotizacionActionPerformed(evt);
+            }
+        });
+        mnuCotizaciones.add(mnuNuevaCotizacion);
+
+        mnuProcesosVentas.add(mnuCotizaciones);
+
         mnuGeneralVentas.add(mnuProcesosVentas);
 
         mnuConsultasVentas.setText("Consultas");
@@ -220,6 +236,15 @@ public class MdiVentas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void mnuNuevaCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevaCotizacionActionPerformed
+        // TODO add your handling code here:
+        frmCotizacion ventana = new frmCotizacion();
+        jDesktopPaneVentas.add(ventana);
+        Dimension desktopSize = jDesktopPaneVentas.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_mnuNuevaCotizacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,7 +298,9 @@ public class MdiVentas extends javax.swing.JFrame {
     private javax.swing.JMenu mnuCatalogosMantenimientosVentas;
     private javax.swing.JMenu mnuCatalogosVentas;
     private javax.swing.JMenu mnuConsultasVentas;
+    private javax.swing.JMenu mnuCotizaciones;
     private javax.swing.JMenuBar mnuGeneralVentas;
+    private javax.swing.JCheckBoxMenuItem mnuNuevaCotizacion;
     private javax.swing.JMenu mnuProcesosVentas;
     private javax.swing.JMenu mnuReportesVentas;
     private javax.swing.JCheckBoxMenuItem mnuSalirSistemaVentas;
