@@ -19,12 +19,12 @@ import java.util.List;
  */
 public class daoMovimientosEncabezadoBancos {
 
-    private static final String SQL_SELECT = "SELECT movId, codBanco, cueId, tipMovId, movFecha, cueEmId FROM tbl_movimientosEncabezadoBancos";
+   private static final String SQL_SELECT = "SELECT movId, codBanco, cueId, tipMovId, movFecha, cueEmId FROM tbl_movimientosEncabezadoBancos";
     private static final String SQL_INSERT = "INSERT INTO tbl_movimientosEncabezadoBancos(movId, codBanco, cueId, tipMovId, movFecha, cueEmId) VALUES(?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_movimientosEncabezadoBancos SET codBanco=?, cueId=?,  tipMovId=?, movFecha=?,  cueEmId=?  WHERE movId = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_movimientosEncabezadoBancos WHERE movId=?";
-   private static final String SQL_SELECT_NOMBRE = "SELECT movId, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE codBanco = ?";
-    private static final String SQL_SELECT_ID = "SELECT codBanco, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE movId = ?";     
+   private static final String SQL_SELECT_NOMBRE = "SELECT movId, codBanco, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE codBanco = ?";
+    private static final String SQL_SELECT_ID = "SELECT movId, codBanco, cueId, tipMovId, movFecha, cueEmId  FROM tbl_movimientosEncabezadoBancos WHERE movId = ?";     
 
 
 
@@ -102,10 +102,10 @@ public class daoMovimientosEncabezadoBancos {
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setInt(1, encabezado.getCodBanco());
-            stmt.setInt(2, encabezado.getCueEmId());
-            stmt.setInt(3, encabezado.getCueId());
-            stmt.setInt(4, encabezado.getTipMovId());
-            stmt.setString(5, encabezado.getMovFecha());
+            stmt.setInt(2, encabezado.getCueId());
+            stmt.setInt(3, encabezado.getTipMovId());
+            stmt.setString(4, encabezado.getMovFecha());
+            stmt.setInt(5, encabezado.getCueEmId());
             stmt.setInt(6, encabezado.getMovId());
             
             rows = stmt.executeUpdate();

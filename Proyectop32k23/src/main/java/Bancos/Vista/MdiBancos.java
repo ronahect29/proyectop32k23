@@ -57,6 +57,7 @@ public class MdiBancos extends javax.swing.JFrame {
         mnuProcesos = new javax.swing.JMenu();
         cuentaEmpresa = new javax.swing.JCheckBoxMenuItem();
         MovDetallesBancos = new javax.swing.JMenuItem();
+        PersonaBancoss = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         consultaBitacora = new javax.swing.JCheckBoxMenuItem();
         mnuReportes = new javax.swing.JMenu();
@@ -198,6 +199,14 @@ public class MdiBancos extends javax.swing.JFrame {
             }
         });
         mnuProcesos.add(MovDetallesBancos);
+
+        PersonaBancoss.setText("Personas Bancos");
+        PersonaBancoss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PersonaBancossActionPerformed(evt);
+            }
+        });
+        mnuProcesos.add(PersonaBancoss);
 
         mnuGeneral.add(mnuProcesos);
 
@@ -358,6 +367,16 @@ public class MdiBancos extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_mantenimientoTipoCuentaActionPerformed
 
+    private void PersonaBancossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonaBancossActionPerformed
+        // TODO add your handling code here:
+         frmPersonaBancos ventana = new  frmPersonaBancos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+        
+    }//GEN-LAST:event_PersonaBancossActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -403,6 +422,7 @@ public class MdiBancos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem MantenimientoTipoMoneda;
     private javax.swing.JMenuItem MovDetallesBancos;
+    private javax.swing.JMenuItem PersonaBancoss;
     private javax.swing.JCheckBoxMenuItem consultaBitacora;
     private javax.swing.JCheckBoxMenuItem cuentaEmpresa;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;

@@ -5,6 +5,7 @@
  */
 package Bancos.Vista;
 
+import Bancos.Controlador.clsPersonaBancos;
 import Bancos.Controlador.clsTipoPersonaBancos;
 import Seguridad.Controlador.clsBitacora;
 import Seguridad.Controlador.clsUsuarioConectado;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author visitante
  */
-public class frmMantenimientoTipoPersonaBancos extends javax.swing.JInternalFrame {
+public class frmPersonaBancos extends javax.swing.JInternalFrame {
 int codigoAplicacion= 5002;
 
     public void llenadoDeCombos() {
@@ -34,27 +35,40 @@ int codigoAplicacion= 5002;
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("TipoPersona");
-        modelo.addColumn("Descripcion");
+        modelo.addColumn("Id");
+        modelo.addColumn("Nombre Persona");
+        modelo.addColumn("Id Tipo Persona");
         modelo.addColumn("Estatus");
-        clsTipoPersonaBancos tipou = new clsTipoPersonaBancos();
+        clsPersonaBancos Persona = new clsPersonaBancos();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsTipoPersonaBancos> listaTipoBancos = tipou.getListadoBancos();
+        List<clsPersonaBancos> listaPersonaBancos = Persona.getListadoBancoPersonas();
         tablaUsuarios.setModel(modelo);
-        String[] dato = new String[3];
-        for (int i = 0; i < listaTipoBancos .size(); i++) {
-           dato[0] = Integer.toString(listaTipoBancos.get(i).getIdTipoPersonaBancos());
-            dato[1] = listaTipoBancos .get(i).getTipoDescripcionBancos();
-            dato[2] = listaTipoBancos .get(i).getTipoEstatusBancos();
+        String[] dato = new String[4];
+        for (int i = 0; i < listaPersonaBancos .size(); i++) {
+           dato[0] = Integer.toString(listaPersonaBancos.get(i).getPerId());
+            dato[1] = listaPersonaBancos .get(i).getPerNombre();
+            dato[2] = Integer.toString(listaPersonaBancos.get(i).getPerTipoId());
+            dato[3] = listaPersonaBancos .get(i).getPerEstatus();
             modelo.addRow(dato);
         }       
     }
+    public void llenadoDeTablasComboBox(){
+        
+        clsTipoPersonaBancos tipou = new clsTipoPersonaBancos();
+        List<clsTipoPersonaBancos> listaTipoBancos = tipou.getListadoBancos();
+        cbTipoPersona.addItem("Seleccionar...");
+        for (int i = 0; i < listaTipoBancos .size(); i++) {
+            cbTipoPersona.addItem(String.valueOf(listaTipoBancos.get(i).getIdTipoPersonaBancos()));
+  
+        
+          }
+    }
     
-    public frmMantenimientoTipoPersonaBancos() {
+    public frmPersonaBancos() {
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();
-     
+     llenadoDeTablasComboBox();
     }
 
     /**
@@ -76,7 +90,7 @@ int codigoAplicacion= 5002;
         btnModificar = new javax.swing.JButton();
         label3 = new javax.swing.JLabel();
         txtbuscado = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
+        txtNombrePersona = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
@@ -90,6 +104,8 @@ int codigoAplicacion= 5002;
         label7 = new javax.swing.JLabel();
         RBHabilitado = new javax.swing.JRadioButton();
         RBDeshabilitado = new javax.swing.JRadioButton();
+        cbTipoPersona = new javax.swing.JComboBox<>();
+        label8 = new javax.swing.JLabel();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -98,7 +114,7 @@ int codigoAplicacion= 5002;
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Tipo Persona");
+        setTitle(" Personas Banco");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setVisible(true);
 
@@ -124,7 +140,7 @@ int codigoAplicacion= 5002;
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Tipo Persona");
+        label1.setText("Persona");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,11 +150,11 @@ int codigoAplicacion= 5002;
         });
 
         label3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label3.setText("Descripcion");
+        label3.setText("Nombre Persona");
 
-        txtDescripcion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtDescripcion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        txtDescripcion.setOpaque(false);
+        txtNombrePersona.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtNombrePersona.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtNombrePersona.setOpaque(false);
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +206,7 @@ int codigoAplicacion= 5002;
         });
 
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label6.setText("ID TipoPersona");
+        label6.setText("ID Persona");
 
         txtTipoPersona.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtTipoPersona.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
@@ -204,6 +220,9 @@ int codigoAplicacion= 5002;
 
         buttonGroup1.add(RBDeshabilitado);
         RBDeshabilitado.setText("Deshabilitado");
+
+        label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        label8.setText("Id TIpo Persona");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,19 +255,6 @@ int codigoAplicacion= 5002;
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(label6)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(label3)
-                                        .addGap(33, 33, 33)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                                    .addComponent(txtTipoPersona))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(label5)
                                 .addGap(49, 49, 49)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,17 +263,31 @@ int codigoAplicacion= 5002;
                                         .addComponent(RBHabilitado))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
-                                        .addComponent(RBDeshabilitado)))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                        .addComponent(RBDeshabilitado))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(label3)
+                                    .addComponent(label8)
+                                    .addComponent(label6))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbTipoPersona, 0, 282, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtNombrePersona, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                                            .addComponent(txtTipoPersona))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 544, Short.MAX_VALUE))
+                        .addGap(294, 559, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -286,10 +306,14 @@ int codigoAplicacion= 5002;
                                     .addComponent(txtTipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label3)))
                             .addComponent(lb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label8)
+                            .addComponent(cbTipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addComponent(label7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -313,7 +337,7 @@ int codigoAplicacion= 5002;
                             .addComponent(label4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnActualizar)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -322,9 +346,9 @@ int codigoAplicacion= 5002;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
-        clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
-        banco.setIdTipoPersonaBancos(Integer.parseInt(txtbuscado.getText()));
-        registrosBorrados=banco.setBorrarBanco(banco);
+        clsPersonaBancos Persona = new clsPersonaBancos();
+        Persona.setPerId(Integer.parseInt(txtbuscado.getText()));
+        registrosBorrados=Persona.setBorrarBancoPersona(Persona);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -335,17 +359,27 @@ int codigoAplicacion= 5002;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
-        banco.setIdTipoPersonaBancos(Integer.parseInt(txtTipoPersona.getText()));
-        banco.setTipoDescripcionBancos(txtDescripcion.getText());
+              String Seleccionar;
+           Seleccionar = cbTipoPersona.getSelectedItem().toString();
+ if (Seleccionar.equals("Seleccionar...")) {
+   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona", 
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+}else{
+       
+        clsPersonaBancos Persona = new clsPersonaBancos();
+        Persona.setPerId(Integer.parseInt(txtTipoPersona.getText()));
+        Persona.setPerNombre(txtNombrePersona.getText());
+  
        // banco.setTipoEstatusBancos(txtContrasena.getText());
        if (RBHabilitado.isSelected()){
-                banco.setTipoEstatusBancos("Habilitado");
+                Persona.setPerEstatus("T");
        }
        if (RBDeshabilitado.isSelected()){
-            banco.setTipoEstatusBancos("Deshabilitado");
+            Persona.setPerEstatus("F");
       }
-        banco.setIngresarBanco(banco);
+       
+       Persona.setPerTipoId(Integer.parseInt(cbTipoPersona.getSelectedItem().toString()));
+        Persona.setIngresarBancoPersona(Persona);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         int resultadoBitacora=0;
@@ -353,35 +387,54 @@ int codigoAplicacion= 5002;
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();
         limpiarTextos();
+ }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
-        //aplicacion.setNombreAplicacion(txtbuscado.getText());        
-        banco.setIdTipoPersonaBancos(Integer.parseInt(txtbuscado.getText()));        
-        banco = banco.getBuscarInformacionBancoPorTipo(banco);
-        System.out.println("Usuario retornado:" + banco);        
-        txtDescripcion.setText(banco.getTipoDescripcionBancos());
-      //  txtContrasena.setText(banco.getTipoEstatusBancos());
-      
+       clsPersonaBancos Persona = new clsPersonaBancos();
+               
+        Persona.setPerId(Integer.parseInt(txtbuscado.getText()));        
+        Persona = Persona.getBuscarInformacionBancoPorPersona(Persona);
+        System.out.println("Usuario retornado:" + Persona);        
+        txtNombrePersona.setText(Persona.getPerNombre());
+         
+        int cogidoBanc = Persona.getPerTipoId();
+         
+         
+        for (int i = 1; i < cbTipoPersona.getItemCount(); i++) {
+            int item = Integer.parseInt(cbTipoPersona.getItemAt(i).toString());
+            if (item == cogidoBanc) {
+                cbTipoPersona.setSelectedIndex(i);
+                break;
+            }
+        }
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "REA");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-//        // TODO add your handling code here:
-        clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
-        banco.setIdTipoPersonaBancos(Integer.parseInt(txtbuscado.getText()));
-        banco.setTipoDescripcionBancos(txtDescripcion.getText());
+        // TODO add your handling code here:
+          String Seleccionar;
+           Seleccionar = cbTipoPersona.getSelectedItem().toString();
+ if (Seleccionar.equals("Seleccionar...")) {
+   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona", 
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+}else{
+        clsPersonaBancos Persona = new clsPersonaBancos();
+        Persona.setPerId(Integer.parseInt(txtbuscado.getText()));
+        Persona.setPerNombre(txtNombrePersona.getText());
+        Persona.setPerTipoId(Integer.parseInt(cbTipoPersona.getSelectedItem().toString()));
          if (RBHabilitado.isSelected()){
-                banco.setTipoEstatusBancos("Habilitado");
+                Persona.setPerEstatus("T");
        }
        if (RBDeshabilitado.isSelected()){
-            banco.setTipoEstatusBancos("Deshabilitado");
+            Persona.setPerEstatus("F");
       }
-        banco.setModificarBanco(banco);
+        
+     //   banco.setTipoEstatusBancos(txtContrasena.getText());
+        Persona.setModificarBancoPersona(Persona);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);  
         int resultadoBitacora=0;
@@ -389,6 +442,7 @@ int codigoAplicacion= 5002;
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
         limpiarTextos();
+ } 
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -398,7 +452,7 @@ int codigoAplicacion= 5002;
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
     {
-        txtDescripcion.setText("");
+        txtNombrePersona.setText("");
       //  txtContrasena.setText("");
         txtbuscado.setText("");
         txtTipoPersona.setText("");
@@ -449,6 +503,7 @@ int codigoAplicacion= 5002;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbTipoPersona;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -457,11 +512,12 @@ int codigoAplicacion= 5002;
     private javax.swing.JLabel label5;
     private javax.swing.JLabel label6;
     private javax.swing.JLabel label7;
+    private javax.swing.JLabel label8;
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaUsuarios;
-    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtNombrePersona;
     private javax.swing.JTextField txtTipoPersona;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
