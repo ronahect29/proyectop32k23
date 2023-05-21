@@ -26,10 +26,10 @@ import java.text.SimpleDateFormat;
  */
 public class daoBitacora {
 
-    private static final String SQL_SELECT = "SELECT bitid, bitfecha, bitaccion, usuid, aplid, bitip, bitnombrepc FROM tbl_bitacora";
+    private static final String SQL_SELECT = "SELECT bitid, bitfecha, bitaccion, bitip, usuid, aplid, bitnombrepc FROM tbl_bitacora";
 //private static final String SQL_SELECT = "SELECT bitid, bitfecha, bitaccion, usuid, aplid, bitip, bitnombrepc, calcularDescuento(1000, 10) FROM tbl_bitacora";    
-    private static final String SQL_INSERT = "INSERT INTO tbl_bitacora(bitfecha, bitaccion, usuid, aplid, bitip, bitnombrepc) VALUES(?, ?, ?, ?, ?, ?)";
-    private static final String SQL_QUERY = "SELECT bitid, bitfecha, bitaccion, usuid, aplid, bitip, bitnombrepc FROM tbl_bitacora WHERE bitfecha BETWEEN ? AND ?";    
+    private static final String SQL_INSERT = "INSERT INTO tbl_bitacora(bitfecha, bitaccion, bitip, usuid, aplid, bitnombrepc) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String SQL_QUERY = "SELECT bitid, bitfecha, bitaccion, bitip, usuid, aplid,  bitnombrepc FROM tbl_bitacora WHERE bitfecha BETWEEN ? AND ?";    
 
 
 //se agrega metodo para bitacora
@@ -79,18 +79,18 @@ public class daoBitacora {
                 String fecha = rs.getString("bitfecha");
                 String accion = rs.getString("bitaccion");
                 String ip = rs.getString("bitip");
-                String nombrepc = rs.getString("bitnombrepc");
                 int id_usuario = rs.getInt("usuid");
                 int id_aplicacion = rs.getInt("aplid");
+                String nombrepc = rs.getString("bitnombrepc");
                 
                 bitacora = new clsBitacora();
                 bitacora.setIdBitacora(id_bitacora);
                 bitacora.setFechaBitacora(fecha);
                 bitacora.setAccionBitacora(accion);
                 bitacora.setIpBitacora(ip);
-                bitacora.setNombrePcBitacora(nombrepc);
                 bitacora.setIdUsuario(id_usuario);
                 bitacora.setIdAplicacion(id_aplicacion);
+                bitacora.setNombrePcBitacora(nombrepc);
                 
                 bitacoras.add(bitacora);
             }
@@ -128,10 +128,11 @@ public class daoBitacora {
                        
             stmt.setString(1, fechaActual());
             stmt.setString(2, m_accion);
-            stmt.setInt(3, m_usuid);
-            stmt.setInt(4, m_aplicacion);
-            stmt.setString(5, ipAsignada);
+            stmt.setString(3, ipAsignada);
+            stmt.setInt(4, m_usuid);
+            stmt.setInt(5, m_aplicacion);
             stmt.setString(6, nombrepcAsignada);
+            
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);
@@ -165,18 +166,18 @@ public class daoBitacora {
                 String fecha = rs.getString("bitfecha");
                 String accion = rs.getString("bitaccion");
                 String ip = rs.getString("bitip");
-                String nombrepc = rs.getString("bitnombrepc");
                 int id_usuario = rs.getInt("usuid");
                 int id_aplicacion = rs.getInt("aplid");
+                String nombrepc = rs.getString("bitnombrepc");
                 
                 bitacora = new clsBitacora();
                 bitacora.setIdBitacora(id_bitacora);
                 bitacora.setFechaBitacora(fecha);
                 bitacora.setAccionBitacora(accion);
                 bitacora.setIpBitacora(ip);
-                bitacora.setNombrePcBitacora(nombrepc);
                 bitacora.setIdUsuario(id_usuario);
                 bitacora.setIdAplicacion(id_aplicacion);
+                bitacora.setNombrePcBitacora(nombrepc);
                 
                 bitacoras.add(bitacora);
             }
