@@ -14,6 +14,7 @@ package Ventas.Vista;
 import Seguridad.Controlador.clsBitacora;
 import Ventas.Controlador.clsCotizacion;
 import Seguridad.Controlador.clsUsuarioConectado;
+import Ventas.Controlador.clsTienda;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -119,6 +120,11 @@ int codigoAplicacion = 3004;
         btnModificarCot.setText("Modificar");
 
         btnEliminarCot.setText("Eliminar");
+        btnEliminarCot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCotActionPerformed(evt);
+            }
+        });
 
         tblCotActual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,16 +178,14 @@ int codigoAplicacion = 3004;
                                         .addComponent(lbCantProdCot)
                                         .addComponent(lbCodProdCot))
                                     .addComponent(btnAgregarCot))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(btnModificarCot)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(51, 51, 51)
                                         .addComponent(btnEliminarCot))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(205, 205, 205)
@@ -228,7 +232,7 @@ int codigoAplicacion = 3004;
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbCodProdCot)
-                            .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbCantProdCot)
@@ -273,6 +277,16 @@ int codigoAplicacion = 3004;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEliminarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCotActionPerformed
+        // TODO add your handling code here:
+         int registrosBorrados=0;
+        clsCotizacion cotizacion = new clsCotizacion();
+        cotizacion.setIdCotizacion(Integer.parseInt(txtCodProdCot.getText()));
+        registrosBorrados=cotizacion.setBorrarCotizacion(cotizacion);
+        JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnEliminarCotActionPerformed
    
     
 
