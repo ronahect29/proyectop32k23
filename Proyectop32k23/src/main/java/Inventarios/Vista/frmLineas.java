@@ -86,7 +86,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
         txtPrecios = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
-        txtEstatus = new javax.swing.JTextField();
+        cboEstatus = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -188,7 +188,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
         label8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label8.setText("Estatus");
 
-        txtEstatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cboEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "F" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,9 +225,9 @@ public class frmLineas extends javax.swing.JInternalFrame {
                                     .addComponent(label6)
                                     .addComponent(label8))
                                 .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cboEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -241,9 +241,9 @@ public class frmLineas extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
-                        .addGap(294, 596, Short.MAX_VALUE))
+                        .addGap(294, 495, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -268,7 +268,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label8)
-                                    .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cboEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -316,7 +316,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
         clsLineas lineas = new clsLineas();
         lineas.setNombreLineas(txtNombre.getText());
         lineas.setPreciosLineas(Double.parseDouble(txtPrecios.getText()));
-        lineas.setEstatusLineas(txtEstatus.getText());
+        lineas.setEstatusLineas(String.valueOf(cboEstatus.getSelectedItem()));
         lineas.setIngresarLineas(lineas);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -337,7 +337,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
         System.out.println("Usuario retornado:" + lineas);
         txtNombre.setText(lineas.getNombreLineas());
         txtPrecios.setText(Double.toString(lineas.getPreciosLineas()));
-        txtEstatus.setText(lineas.getEstatusLineas());
+        cboEstatus.setSelectedItem(lineas.getEstatusLineas());
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -351,7 +351,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
         lineas.setIdLineas(Integer.parseInt(txtbuscado.getText()));
         lineas.setNombreLineas(txtNombre.getText());
         lineas.setPreciosLineas(Double.parseDouble(txtPrecios.getText()));
-        lineas.setEstatusLineas(txtEstatus.getText());
+        lineas.setEstatusLineas(String.valueOf(cboEstatus.getSelectedItem()));
         lineas.setModificarLineas(lineas);
         
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -375,7 +375,6 @@ public class frmLineas extends javax.swing.JInternalFrame {
     {
         txtNombre.setText("");
         txtPrecios.setText("");
-        txtEstatus.setText("");
         txtbuscado.setText("");
     }
     public void habilitarBotones()
@@ -429,6 +428,7 @@ public class frmLineas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JComboBox<String> cboEstatus;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
@@ -440,7 +440,6 @@ public class frmLineas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaLineas;
-    private javax.swing.JTextField txtEstatus;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecios;
     private javax.swing.JTextField txtbuscado;
