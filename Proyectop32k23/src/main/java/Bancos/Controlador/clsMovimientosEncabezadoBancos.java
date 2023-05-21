@@ -115,12 +115,12 @@ public class clsMovimientosEncabezadoBancos {
         return "clsMovimientosEncabezadoBancos{" + "movId =" + movId    + ", codBanco=" + codBanco + ", cueId=" + cueId + ", tipMovId  =" + tipMovId   +", movFecha=" + movFecha + ", cueEmId  =" + cueEmId   + '}';
     }
     //Metodos de acceso a la capa controlador
-    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado)
+    public clsMovimientosEncabezadoBancos getBuscarMovimientosEncabezadoPorCodigo(clsMovimientosEncabezadoBancos encabezado)
     {
         daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
         return daoMovimientosEncabezadoBancos.consultaMovimientosEncabezadoPorCodigo(encabezado);
     }
-    public clsMovimientosEncabezadoBancos consultaMovimientosEncabezadoPorId(clsMovimientosEncabezadoBancos encabezado)
+    public clsMovimientosEncabezadoBancos getBuscarMovimientosEncabezadoPorId(clsMovimientosEncabezadoBancos encabezado)
     {
         daoMovimientosEncabezadoBancos daoMovimientosEncabezadoBancos = new daoMovimientosEncabezadoBancos();
         return daoMovimientosEncabezadoBancos.consultaMovimientosEncabezadoPorId(encabezado);

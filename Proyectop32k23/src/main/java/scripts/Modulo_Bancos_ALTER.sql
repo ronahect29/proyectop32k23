@@ -16,5 +16,9 @@ ALTER TABLE tbl_cuentaEmpresaBancos ADD cueTipoId INT(5) NOT NULL;
 ALTER TABLE tbl_cuentaEmpresaBancos ADD CONSTRAINT FK_cueTipoId_cuentaEmpresaBancos
 FOREIGN KEY (cueTipoId) REFERENCES tbl_tipoCuentasBancos(cueTipoId);
 
+-- Modificando el tamaño del VARCHAR del estatus
 ALTER TABLE tbl_tipoMovimientoBancos modify tipMovEstatus varchar(15) not null;
 ALTER TABLE tbl_cuentasBancos modify cueestatus varchar(15) not null;
+
+--modificamos el tipo de dato de fecha para movimiento encabezado de un DATETIME a un DATE
+alter table tbl_movimientosencabezadobancos modify movFecha DATE;
