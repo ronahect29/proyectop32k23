@@ -29,10 +29,10 @@ public class MdiInventario extends javax.swing.JFrame {
         this.setTitle("MDI Inventarios");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
-        Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
-        lbl.setIcon(fondo);
-        this.repaint();
+        //ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
+        //Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
+        //lbl.setIcon(fondo);
+        //this.repaint();
     }
 
     /**
