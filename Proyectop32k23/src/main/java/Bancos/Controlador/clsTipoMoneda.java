@@ -16,32 +16,7 @@ public class clsTipoMoneda {
     private String tipMondNombre;
     private String tipMondAbreviacion;
     private float tipModValor;
-    
-    public clsTipoMoneda() {
-    }
-
-    public clsTipoMoneda(int tipModId) {
-        this.tipModId = tipModId;
-    }
-
-    public clsTipoMoneda(int tipModId, String tipMondNombre) {
-        this.tipModId = tipModId;
-        this.tipMondNombre = tipMondNombre;
-    }
-
-    public clsTipoMoneda(int tipModId, String tipMondNombre, String tipMondAbreviacion) {
-        this.tipModId = tipModId;
-        this.tipMondNombre = tipMondNombre;
-        this.tipMondAbreviacion = tipMondAbreviacion;
-    }
-
-    public clsTipoMoneda(int tipModId, String tipMondNombre, String tipMondAbreviacion, float tipModValor) {
-        this.tipModId = tipModId;
-        this.tipMondNombre = tipMondNombre;
-        this.tipMondAbreviacion = tipMondAbreviacion;
-        this.tipModValor = tipModValor;
-    }
-
+    private String estatus;
 
     public int getTipModId() {
         return tipModId;
@@ -74,12 +49,52 @@ public class clsTipoMoneda {
     public void setTipModValor(float tipModValor) {
         this.tipModValor = tipModValor;
     }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    public clsTipoMoneda() {
+    }
+
+    public clsTipoMoneda(int tipModId) {
+        this.tipModId = tipModId;
+    }
+
+    public clsTipoMoneda(int tipModId, String tipMondNombre) {
+        this.tipModId = tipModId;
+        this.tipMondNombre = tipMondNombre;
+    }
+
+    public clsTipoMoneda(int tipModId, String tipMondNombre, String tipMondAbreviacion) {
+        this.tipModId = tipModId;
+        this.tipMondNombre = tipMondNombre;
+        this.tipMondAbreviacion = tipMondAbreviacion;
+    }
+
+    public clsTipoMoneda(int tipModId, String tipMondNombre, String tipMondAbreviacion, float tipModValor) {
+        this.tipModId = tipModId;
+        this.tipMondNombre = tipMondNombre;
+        this.tipMondAbreviacion = tipMondAbreviacion;
+        this.tipModValor = tipModValor;
+    }
+
+    public clsTipoMoneda(int tipModId, String tipMondNombre, String tipMondAbreviacion, float tipModValor, String estatus) {
+        this.tipModId = tipModId;
+        this.tipMondNombre = tipMondNombre;
+        this.tipMondAbreviacion = tipMondAbreviacion;
+        this.tipModValor = tipModValor;
+        this.estatus = estatus;
+    }
     
 
-  
     @Override
     public String toString() {
-        return "clsTipoMoneda{" + "tipModId =" + tipModId    + ", tipMondNombre=" + tipMondNombre + ", tipMondAbreviacion=" + tipMondAbreviacion + ", tipModValor  =" + tipModValor   + '}';
+        return "clsTipoMoneda{" + "tipModId =" + tipModId    + ", tipMondNombre=" + tipMondNombre + ", tipMondAbreviacion=" + tipMondAbreviacion + ", tipModValor  =" + tipModValor   + ", estatus  =" + estatus +  '}';
     }
     //Metodos de acceso a la capa controlador
     public clsTipoMoneda getBuscarInformacionTipoMonedaPorNombre(clsTipoMoneda moneda)

@@ -18,12 +18,12 @@ import java.util.List;
  */
 public class daoTipoMoneda {
 
-    private static final String SQL_SELECT = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor FROM tbl_monedaBancos";
-    private static final String SQL_INSERT = "INSERT INTO tbl_monedaBancos(tipModId, tipMondNombre, tipMondAbreviacion, tipModValor) VALUES(?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_monedaBancos SET tipMondNombre=?, tipMondAbreviacion=?,  tipModValor=?  WHERE tipModId = ?";
+    private static final String SQL_SELECT = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor, estatus FROM tbl_monedaBancos";
+    private static final String SQL_INSERT = "INSERT INTO tbl_monedaBancos(tipModId, tipMondNombre, tipMondAbreviacion, tipModValor, estatus) VALUES(?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_monedaBancos SET tipMondNombre=?, tipMondAbreviacion=?,  tipModValor=?, estatus=?  WHERE tipModId = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_monedaBancos WHERE tipModId=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor  FROM tbl_monedaBancos WHERE tipMondNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor  FROM tbl_monedaBancos WHERE tipModId = ?";     
+    private static final String SQL_SELECT_NOMBRE = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor, estatus  FROM tbl_monedaBancos WHERE tipMondNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT tipModId, tipMondNombre, tipMondAbreviacion, tipModValor, estatus  FROM tbl_monedaBancos WHERE tipModId = ?";     
 
 
 
@@ -42,11 +42,13 @@ public class daoTipoMoneda {
                 String nombre = rs.getString("tipMondNombre");
                 String abreviacion = rs.getString("tipMondAbreviacion");
                 float valor = rs.getFloat ("tipModValor");
+                String Estatus =rs.getString("estatus");
                 clsTipoMoneda tipmoneda = new clsTipoMoneda();
                 tipmoneda.setTipModId(id);
                 tipmoneda.setTipMondNombre(nombre);
                 tipmoneda.setTipMondAbreviacion(abreviacion);
                 tipmoneda.setTipModValor(valor);
+                tipmoneda.setEstatus(Estatus);
                 tipmonedas.add(tipmoneda);
             }
         } catch (SQLException ex) {
@@ -71,6 +73,7 @@ public class daoTipoMoneda {
             stmt.setString(2, moneda.getTipMondNombre());
             stmt.setString(3, moneda.getTipMondAbreviacion());
             stmt.setFloat(4, moneda.getTipModValor());
+            stmt.setString(5, moneda.getEstatus());
             
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -97,6 +100,7 @@ public class daoTipoMoneda {
             stmt.setString(2, moneda.getTipMondAbreviacion());
             stmt.setFloat(3, moneda.getTipModValor());
             stmt.setInt(4, moneda.getTipModId());
+            stmt.setString(5, moneda.getEstatus());
             
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -149,11 +153,13 @@ public class daoTipoMoneda {
                 String nombre = rs.getString("tipMondNombre");
                 String abreviacion = rs.getString("tipMondAbreviacion");
                 float valor = rs.getFloat("tipModValor");
+                String Estatus = rs.getString("estatus");
                 //moneda = new clsTipoMoneda();
                 moneda.setTipModId(id);
                 moneda.setTipMondNombre(nombre);
                 moneda.setTipMondAbreviacion(abreviacion);
                 moneda.setTipModValor(valor);
+                moneda.setEstatus(Estatus);
                 System.out.println(" registro consultado: " + moneda);                
             }
             //System.out.println("Registros buscado:" + persona);
@@ -184,11 +190,13 @@ public class daoTipoMoneda {
                 String nombre = rs.getString("tipMondNombre");
                 String abreviacion = rs.getString("tipMondAbreviacion");
                 float valor = rs.getFloat("tipModValor");
+                String Estatus = rs.getString("estatus");
                 //moneda = new clsTipoMoneda();
                 moneda.setTipModId(id);
                 moneda. setTipMondNombre (nombre);
                 moneda. setTipMondAbreviacion (abreviacion);
                 moneda. setTipModValor (valor);
+                moneda.setEstatus(Estatus);
                 System.out.println(" registro consultado: " + moneda);                
             }
             //System.out.println("Registros buscado:" + persona);
