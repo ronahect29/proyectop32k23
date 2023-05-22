@@ -34,7 +34,7 @@ int codigoAplicacion=5006;
         List<clsPersonaBancos> listaPersonas = personas.getListadoBancoPersonas();
         cbIdPersona.setAlignmentX(Component.CENTER_ALIGNMENT);
         cbIdPersona.addItem("Seleccionar...");
-        for (int i = 1; i < listaPersonas.size(); i++) {
+        for (int i = 0; i < listaPersonas.size(); i++) {
             cbIdPersona.addItem(String.valueOf(listaPersonas.get(i).getPerId()));
         } 
         
