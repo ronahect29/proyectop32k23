@@ -89,8 +89,8 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         label9 = new javax.swing.JLabel();
         label5 = new javax.swing.JLabel();
         txtTipoMovimiento = new javax.swing.JTextField();
-        rbHabilitar = new javax.swing.JRadioButton();
-        rbDeshabilitar = new javax.swing.JRadioButton();
+        rbHabilitado = new javax.swing.JRadioButton();
+        rbDeshabilitado = new javax.swing.JRadioButton();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -199,16 +199,16 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
             }
         });
 
-        tipoEstatus.add(rbHabilitar);
-        rbHabilitar.setText("Habilitado");
-        rbHabilitar.addActionListener(new java.awt.event.ActionListener() {
+        tipoEstatus.add(rbHabilitado);
+        rbHabilitado.setText("Habilitado");
+        rbHabilitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbHabilitarActionPerformed(evt);
+                rbHabilitadoActionPerformed(evt);
             }
         });
 
-        tipoEstatus.add(rbDeshabilitar);
-        rbDeshabilitar.setText("Deshabilitado");
+        tipoEstatus.add(rbDeshabilitado);
+        rbDeshabilitado.setText("Deshabilitado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,9 +225,9 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(rbHabilitar)
+                                .addComponent(rbHabilitado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbDeshabilitar))
+                                .addComponent(rbDeshabilitado))
                             .addComponent(txtTipoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40))
@@ -291,8 +291,8 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label9)
-                    .addComponent(rbHabilitar)
-                    .addComponent(rbDeshabilitar))
+                    .addComponent(rbHabilitado)
+                    .addComponent(rbDeshabilitado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
@@ -332,12 +332,12 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         clsTipoMovimientoBancos movimiento = new clsTipoMovimientoBancos();
         
-        if(rbHabilitar.isSelected()){
-            movimiento.setEstatusMovimiento("Habilitado");
+        if(rbHabilitado.isSelected()){
+            movimiento.setEstatusMovimiento("T");
         }
         
-        else if(rbDeshabilitar.isSelected()){
-            movimiento.setEstatusMovimiento("Deshabilitado");
+        else if(rbDeshabilitado.isSelected()){
+            movimiento.setEstatusMovimiento("F");
         }
         else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
@@ -366,8 +366,8 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         System.out.println("Movimiento retornado:" + movimiento);        
         txtNombre.setText(movimiento.getNombreMovimiento());
         
-        rbHabilitar.setSelected(movimiento.getEstatusMovimiento().equals("Habilitado"));
-        rbDeshabilitar.setSelected(movimiento.getEstatusMovimiento().equals("Desabilitado"));
+        rbHabilitado.setSelected(movimiento.getEstatusMovimiento().equals("T"));
+        rbDeshabilitado.setSelected(movimiento.getEstatusMovimiento().equals("F"));
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -380,37 +380,29 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         movimiento.setTipoMovimientoId(Integer.parseInt(txtbuscado.getText()));
         movimiento.setNombreMovimiento(txtNombre.getText());
         //movimiento.setEstatusMovimiento(txtEstatus.getText());
-        movimiento.setModificarTipoMovimiento(movimiento);
+        //movimiento.setModificarTipoMovimiento(movimiento);
         
 
-        String estatusMovimiento = "";
-        
-        if (rbHabilitar.isSelected()) {estatusMovimiento = "Habilitado";
-} 
-        else if (rbDeshabilitar.isSelected()) {
-        estatusMovimiento = "Deshabilitado";
-}
-                
-        if (!estatusMovimiento.isEmpty()) {
-            contador++;
-            movimiento.setEstatusMovimiento(estatusMovimiento);
-            movimiento.setModificarTipoMovimiento(movimiento);
-        }
-        else if (contador == 1) {
-            movimiento.setModificarTipoMovimiento(movimiento);
-            JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
-        llenadoDeTablas();
-        
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-       
-        limpiarTextos();
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
-                }
+        int contador = 0;
+            String estatusMovimiento = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
+            if (!estatusMovimiento.isEmpty()) {
+                contador++;
+                movimiento.setEstatusMovimiento(estatusMovimiento);
+            }
+            if (contador == 1) {
+                // Los dos botones de cada ButtonGroup están seleccionados
+                 movimiento.setModificarTipoMovimiento(movimiento);
+                JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+                int resultadoBitacora=0;
+                clsBitacora bitacoraRegistro = new clsBitacora();
+                resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+                llenadoDeTablas();
+                limpiarTextos();
+            } else {
+                // No se cumple la condición de selección de dos botones
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+            }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -465,9 +457,9 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoMovimientoActionPerformed
 
-    private void rbHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbHabilitarActionPerformed
+    private void rbHabilitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbHabilitadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbHabilitarActionPerformed
+    }//GEN-LAST:event_rbHabilitadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -487,8 +479,8 @@ public class frmMantenimientoTipoMovimientoBancos extends javax.swing.JInternalF
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
-    private javax.swing.JRadioButton rbDeshabilitar;
-    private javax.swing.JRadioButton rbHabilitar;
+    private javax.swing.JRadioButton rbDeshabilitado;
+    private javax.swing.JRadioButton rbHabilitado;
     private javax.swing.JTable tablaMovimientos;
     private javax.swing.ButtonGroup tipoEstatus;
     private javax.swing.JTextField txtNombre;

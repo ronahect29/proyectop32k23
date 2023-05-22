@@ -53,9 +53,9 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="rbHabilitar" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbHabilitado" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="rbDeshabilitar" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbDeshabilitado" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtTipoMovimiento" min="-2" pref="263" max="-2" attributes="0"/>
                           <Component id="txtNombre" min="-2" pref="263" max="-2" attributes="0"/>
@@ -142,8 +142,8 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbHabilitar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbDeshabilitar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbHabilitado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbDeshabilitado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -374,7 +374,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoMovimientoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbHabilitar">
+    <Component class="javax.swing.JRadioButton" name="rbHabilitado">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tipoEstatus"/>
@@ -382,10 +382,10 @@
         <Property name="text" type="java.lang.String" value="Habilitado"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbHabilitarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbHabilitadoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbDeshabilitar">
+    <Component class="javax.swing.JRadioButton" name="rbDeshabilitado">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tipoEstatus"/>
