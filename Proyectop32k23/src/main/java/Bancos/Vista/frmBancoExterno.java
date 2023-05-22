@@ -35,7 +35,9 @@ int codigoAplicacion=5009;
         cbTipoMoneda.setAlignmentX(Component.CENTER_ALIGNMENT);
         cbTipoMoneda.addItem("Seleccionar...");
         for (int i = 0; i < listaTipoMonedas.size(); i++) {
-            cbTipoMoneda.addItem(String.valueOf(listaTipoMonedas.get(i).getTipModId()));
+            clsTipoMoneda tipoMoneda = listaTipoMonedas.get(i);
+            String item = tipoMoneda.getTipModId() + " - " + tipoMoneda.getTipMondAbreviacion();
+            cbTipoMoneda.addItem(item);
         }
     }
 
@@ -354,7 +356,9 @@ int codigoAplicacion=5009;
             banco.setCodigoBanco(Integer.parseInt(txtCodigo.getText()));
             banco.setNombreBanco(txtNombre.getText());
             banco.setPaisBanco(txtPais.getText());
-            banco.setTipoMonedaId(Integer.parseInt(cbTipoMoneda.getSelectedItem().toString()));
+            String selectedItem = cbTipoMoneda.getSelectedItem().toString();
+            int itemId = Integer.parseInt(selectedItem.split(" - ")[0]);
+            banco.setTipoMonedaId(itemId);
             
             int contador = 0;
             String estatusBanco = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
@@ -390,8 +394,10 @@ int codigoAplicacion=5009;
         
         int tipoMonedaId = banco.getTipoMonedaId();
         for (int i = 1; i < cbTipoMoneda.getItemCount(); i++) {
-            int item = Integer.parseInt(cbTipoMoneda.getItemAt(i).toString());
-            if (item == tipoMonedaId) {
+            String item = cbTipoMoneda.getItemAt(i).toString();
+            int itemId = Integer.parseInt(item.split(" - ")[0]); // Obtener el ID del item
+            
+            if (itemId == tipoMonedaId) {
                 cbTipoMoneda.setSelectedIndex(i);
                 break;
             }
@@ -411,7 +417,10 @@ int codigoAplicacion=5009;
         banco.setCodigoBanco(Integer.parseInt(txtbuscado.getText()));
         banco.setNombreBanco(txtNombre.getText());
         banco.setPaisBanco(txtPais.getText());
-        banco.setTipoMonedaId(Integer.parseInt(cbTipoMoneda.getSelectedItem().toString()));
+        //banco.setTipoMonedaId(Integer.parseInt(cbTipoMoneda.getSelectedItem().toString()));
+        String selectedItem = cbTipoMoneda.getSelectedItem().toString();
+        String id = selectedItem.split(" - ")[0]; // Obtiene solo la ID
+        banco.setTipoMonedaId(Integer.parseInt(id));
         
         int contador = 0;
         String estatusBanco = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
