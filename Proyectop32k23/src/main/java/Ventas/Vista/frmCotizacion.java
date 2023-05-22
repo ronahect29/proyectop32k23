@@ -16,6 +16,7 @@ import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -400,7 +401,11 @@ limpiarTextos();
    public void limpiarTextos()
     {
         txtCantProdCot.setText("");
-        txtCodProdCot.setText("");  }
+        txtCodProdCot.setText("");
+        txtIdClienteCot.setText("");
+        txtIdVendedorCot.setText("");
+        txtTotalCot.setText("");
+    }
 
 //María José Véliz Ochoa 
 //9959-21-5909
@@ -450,6 +455,30 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
 
     private void btnRegistrarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCotActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tblCotActual.getModel();
+        clsCotizacion cotizacion = new clsCotizacion();
+        int idCliente = Integer.parseInt(txtIdClienteCot.getText());
+                int idVendedor = Integer.parseInt(txtIdVendedorCot.getText());
+                double totalCotizacion = Double.parseDouble(txtTotalCot.getText());
+                LocalDate fechaActual = LocalDate.now();
+                
+                // Registrar en la tabla tbl_cotizacion
+                cotizacion.registrarCotizacion(idCliente, idVendedor, fechaActual, totalCotizacion);
+                
+                // Obtener el último valor agregado en la columna cotid de tbl_cotizacion
+                int cotizacionId = cotizacion.obtenerUltimoIdCotizacion();
+                
+                // Obtener los datos de la JTable tblCotActual y registrar en tbl_cotdetalle
+                cotizacion.registrarCotizacionDetalle(cotizacionId, modelo);
+                limpiarTextos();
+                int rowCount = modelo.getRowCount();
+                for (int i = 0; i < rowCount; i++) {
+                modelo.removeRow(i); // Eliminar la fila si se encuentra una coincidencia
+                rowCount--; // Reducir el número de filas después de eliminar una fila
+                i--; // Decrementar el índice para evitar saltar la siguiente fila en la iteración
+                }
+                
+                
     }//GEN-LAST:event_btnRegistrarCotActionPerformed
          
     

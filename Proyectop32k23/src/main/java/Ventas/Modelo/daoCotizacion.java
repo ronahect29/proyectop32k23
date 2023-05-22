@@ -11,9 +11,11 @@ package Ventas.Modelo;
 import Ventas.Controlador.clsCotizacion;
 import Seguridad.Modelo.Conexion;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -109,5 +111,64 @@ public class daoCotizacion {
 
     return precio;
 }
+  
+  public void registrarCotizacion(int idCliente, int idVendedor, LocalDate fecha, double total) {
+        try (Connection conn = Conexion.getConnection()) {
+            String query = "INSERT INTO tbl_cotizacion (clId, venid, cotfecha, cotTotalGeneral) VALUES (?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+            statement.setInt(1, idCliente);
+            statement.setInt(2, idVendedor);
+            statement.setDate(3, java.sql.Date.valueOf(fecha));
+            statement.setDouble(4, total);
+            
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public int obtenerUltimoIdCotizacion() {
+        int cotizacionId = 0;
+        
+        try (Connection conn = Conexion.getConnection()) {
+            String query = "SELECT MAX(cotid) FROM tbl_cotizacion";
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            if (result.next()) {
+                cotizacionId = result.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return cotizacionId;
+    }
+    
+    public void registrarCotizacionDetalle(int cotizacionId, DefaultTableModel model) {
+        try (Connection conn = Conexion.getConnection()) {
+            String query = "INSERT INTO tbl_cotdetalle (cotid, proCodigo, proPrecios, cotprodcantidad, cotTotalInd) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+            
+            int rowCount = model.getRowCount();
+            
+            for (int i = 0; i < rowCount; i++) {
+                int codigoProducto = (int) model.getValueAt(i, 0);
+                double precioProducto = obtenerPrecioProducto(codigoProducto);
+                int cantidadProducto = (int) model.getValueAt(i, 1);
+                double totalIndividual = (double) model.getValueAt(i, 2);
+                
+                statement.setInt(1, cotizacionId);
+                statement.setInt(2, codigoProducto);
+                statement.setDouble(3, precioProducto);
+                statement.setInt(4, cantidadProducto);
+                statement.setDouble(5, totalIndividual);
+                
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
  
