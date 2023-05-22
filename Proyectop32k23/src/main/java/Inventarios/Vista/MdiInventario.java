@@ -63,7 +63,6 @@ public class MdiInventario extends javax.swing.JFrame {
         mantenimientoBodegas = new javax.swing.JCheckBoxMenuItem();
         mantenimientoExistencias = new javax.swing.JCheckBoxMenuItem();
         mantenimientoMovimientos = new javax.swing.JCheckBoxMenuItem();
-        MantenimientoDetalles = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         movTransaccion = new javax.swing.JCheckBoxMenuItem();
         mnuConsultas = new javax.swing.JMenu();
@@ -183,14 +182,6 @@ public class MdiInventario extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientos.add(mantenimientoMovimientos);
-
-        MantenimientoDetalles.setText("Mantenimiento Detalles");
-        MantenimientoDetalles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MantenimientoDetallesActionPerformed(evt);
-            }
-        });
-        mnuCatalogosMantenimientos.add(MantenimientoDetalles);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -345,16 +336,12 @@ public class MdiInventario extends javax.swing.JFrame {
 
     private void movTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movTransaccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_movTransaccionActionPerformed
-
-    private void MantenimientoDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoDetallesActionPerformed
-        // TODO add your handling code here:
         frmMovDet ventana = new frmMovDet();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
-    }//GEN-LAST:event_MantenimientoDetallesActionPerformed
+    }//GEN-LAST:event_movTransaccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,7 +386,6 @@ public class MdiInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MantenimientoDetalles;
     private javax.swing.JCheckBoxMenuItem consultaBitacora;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;

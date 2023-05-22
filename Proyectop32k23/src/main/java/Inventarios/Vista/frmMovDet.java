@@ -369,7 +369,7 @@ public class frmMovDet extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-     int clsBitacora = 1010;
+     int clsBitacora = 1011;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         //----------

@@ -76,12 +76,15 @@
                                   <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="cboEstatus" min="-2" pref="95" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtPrecios" min="-2" pref="263" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="lb" min="-2" pref="13" max="-2" attributes="0"/>
+                              <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cboEstatus" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
+                                      <Component id="lb" min="-2" pref="13" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtPrecios" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="label3" min="-2" max="-2" attributes="0"/>
