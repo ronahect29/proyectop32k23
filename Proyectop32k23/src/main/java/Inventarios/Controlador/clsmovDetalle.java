@@ -6,7 +6,7 @@
 package Inventarios.Controlador;
 import java.util.List;
 import Inventarios.Modelo.daoBodegas;
-import com.toedter.calendar.JDateChooser;
+
 /**
  *
  * @author visitante
@@ -111,43 +111,41 @@ public class clsmovDetalle {
 
     
     //Metodos de acceso a la capa controlador
-    public clsmovDetalle getBuscarInformacionBodegasPorNombre(clsmovDetalle Bodegas)
+    public clsmovDetalle getBuscarInformacionDetallesPorNombre(clsmovDetalle detalles)
     {
-        daoBodegas daobodegas = new daoBodegas();
-        return daobodegas.consultaBodegasPorNombre(Bodegas);
+        daomovDetalle daomovdetalle = new daomovDetalle();
+        return daomovdetalle.consultaDetallesPorNombre(detalles);
     }
-    public clsmovDetalle getBuscarInformacionBodegasPorId(clsmovDetalle Bodegas)
+    public clsmovDetalle getBuscarInformacionDetallesPorId(clsmovDetalle detalles)
     {
-        daoBodegas daobodegas = new daoBodegas();
-        return daobodegas.consultaBodegasPorId(Bodegas);
+        daomovDetalle daomovdetalle = new daomovDetalle();
+        return daomovdetalle.consultaDetallesPorId(detalles);
     }
-    public List<clsmovDetalle> getListadoBodegas()
+    public List<clsmovDetalle> getListadoDetalles()
     {
-        daoBodegas daobodegas = new daoBodegas();
-        List<clsmovDetalle> listadoBodegas = daobodegas.consultaBodegas();
-        return listadoBodegas;
+         daomovDetalle daomovdetalle = new daomovDetalle();
+        List<clsmovDetalle> listadoDetalles = daomovdetalle.consultaDetalles();
+        return listadoDetalles;
     }
-    public int setBorrarBodegas(clsmovDetalle Bodegas)
+    public int setBorrarDetalles(clsmovDetalle detalles)
     {
-        daoBodegas daobodegas = new daoBodegas();
-        return daobodegas.borrarBodegas(Bodegas);
+        daomovDetalle daomovdetalle = new daomovDetalle();
+        return daomovdetalle.borrarDetalles(detalles);
     }
-    public int setIngresarBodegas(clsmovDetalle Bodegas)
+    public int setIngresarDetalles(clsmovDetalle detalles)
     {
-        daoBodegas daobodegas = new daoBodegas();
-        return daobodegas.ingresaBodegas(Bodegas);
+        daomovDetalle daomovdetalle = new daomovDetalle();
+        return daomovdetalle.ingresaDetalles (detalles);
     }              
-    public int setModificarBodegas(clsmovDetalle Bodegas)
+    public int setModificarDetalles(clsmovDetalle detalles)
     {
-        daoBodegas daobodegas = new daoBodegas();
-        return daobodegas.actualizaBodegas(Bodegas);
+        daomovDetalle daomovdetalle = new daomovDetalle();
+        return daomovdetalle.actualizaDetalles(detalles);
     }
 
-    public void add(List<clsmovDetalle> Bodegas) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setgeinicial(JDateChooser finicial) {
+    public void add(List<clsmovDetalle> detalles) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
+
+    

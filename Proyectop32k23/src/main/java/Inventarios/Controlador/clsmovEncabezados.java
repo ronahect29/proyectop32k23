@@ -72,10 +72,7 @@ public class clsmovEncabezados {
     }
 
     public clsmovEncabezados() {
-    }
-    
-
-   
+    }   
 
     
     //Metodos de acceso a la capa controlador
