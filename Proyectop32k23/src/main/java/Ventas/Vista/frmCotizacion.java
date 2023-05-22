@@ -483,8 +483,11 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
                 }
                 
                 txtTotalCot.setText("");
+                int resultadoBitacora=0;
+                    clsBitacora bitacoraRegistro = new clsBitacora();
+                    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS"); 
                 JOptionPane.showMessageDialog(null, "Cotización #" + cotizacionId + " ha sido registrada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
+                
     }//GEN-LAST:event_btnRegistrarCotActionPerformed
          
     
