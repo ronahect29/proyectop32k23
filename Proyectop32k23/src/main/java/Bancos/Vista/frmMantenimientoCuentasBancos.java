@@ -9,7 +9,7 @@ package Bancos.Vista;
 
 import Seguridad.Controlador.clsBitacora;
 import Bancos.Controlador.clsCuentasBancos;
-//import Bancos.Controlador.clsPersonasBancos;
+import Bancos.Controlador.clsPersonaBancos;
 import Bancos.Controlador.clsTipoCuentas;
 import Seguridad.Controlador.clsUsuarioConectado;
 import java.awt.Component;
@@ -29,20 +29,22 @@ public class frmMantenimientoCuentasBancos extends javax.swing.JInternalFrame {
     
 int codigoAplicacion=5006;
 
-    /*public void llenadoDeComboIdPersona() {
+    public void llenadoDeComboIdPersona() {
         clsPersonaBancos personas = new clsPersonaBancos();
         List<clsPersonaBancos> listaPersonas = personas.getListadoBancoPersonas();
         cbIdPersona.setAlignmentX(Component.CENTER_ALIGNMENT);
-        for (int i = 0; i < listaPersonas.size(); i++) {
-            cbIdPersona.addItem(String.valueOf(listaPersonas.get(i).getIdPersona()));
+        cbIdPersona.addItem("Seleccionar...");
+        for (int i = 1; i < listaPersonas.size(); i++) {
+            cbIdPersona.addItem(String.valueOf(listaPersonas.get(i).getPerId()));
         } 
         
-    }*/
+    }
 
     public void llenadoDeComboTipoCuenta() {
         clsTipoCuentas cuentas = new clsTipoCuentas();
         List<clsTipoCuentas> listaTipoCuentas = cuentas.getListadoTipoCuentas();
         cbTipoCuenta.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cbTipoCuenta.addItem("Seleccionar...");
         for (int i = 0; i < listaTipoCuentas.size(); i++) {
             cbTipoCuenta.addItem(String.valueOf(listaTipoCuentas.get(i).getTipoCueId()));
         } 
@@ -77,7 +79,7 @@ int codigoAplicacion=5006;
     public frmMantenimientoCuentasBancos() {
         initComponents();
         llenadoDeTablas();
-        //llenadoDeComboIdPersona();
+        llenadoDeComboIdPersona();
         llenadoDeComboTipoCuenta();
     }
 
@@ -372,11 +374,11 @@ int codigoAplicacion=5006;
                             .addComponent(label8)
                             .addComponent(cbTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(label10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(rbHabilitar)
-                                .addComponent(rbDeshabilitar)))
+                                .addComponent(rbDeshabilitar))
+                            .addComponent(label10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
@@ -418,20 +420,9 @@ int codigoAplicacion=5006;
         
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
-    int contador=0; 
+    //int contador=0; 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         clsCuentasBancos cuenta = new clsCuentasBancos();
-        if(rbHabilitar.isSelected()){
-            cuenta.setEstatusCuenta("Habilitado");
-        }
-        
-        else if(rbDeshabilitar.isSelected()){
-            cuenta.setEstatusCuenta("Deshabilitado");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
-            return;
-        }
         
         cuenta.setIdCuenta(Integer.parseInt(txtId.getText()));
         cuenta.setNumeroCuenta(Integer.parseInt(txtNumero.getText()));
@@ -439,14 +430,28 @@ int codigoAplicacion=5006;
         cuenta.setIdPersona(Integer.parseInt(cbIdPersona.getSelectedItem().toString()));
         cuenta.setIdTipoCuenta(Integer.parseInt(cbTipoCuenta.getSelectedItem().toString()));
         
+        if(rbHabilitar.isSelected()){
+            cuenta.setEstatusCuenta("T");
+        }
+        
+        else if(rbDeshabilitar.isSelected()){
+            cuenta.setEstatusCuenta("F");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+            return;
+        }
+        
         cuenta.setIngresarCuenta(cuenta);
         JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         
+        llenadoDeTablas();
+        
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
+        
         limpiarTextos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -478,8 +483,8 @@ int codigoAplicacion=5006;
             }
         }
      
-        rbHabilitar.setSelected(cuenta.getEstatusCuenta().equals("Habilitado"));
-        rbDeshabilitar.setSelected(cuenta.getEstatusCuenta().equals("Desabilitado"));
+        rbHabilitar.setSelected(cuenta.getEstatusCuenta().equals("T"));
+        rbDeshabilitar.setSelected(cuenta.getEstatusCuenta().equals("F"));
         
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -496,36 +501,28 @@ int codigoAplicacion=5006;
         cuenta.setIdTipoCuenta(Integer.parseInt(cbTipoCuenta.getSelectedItem().toString()));
         cuenta.setModificarCuenta(cuenta);
         
-        String estatusCuenta = "";
-        
-       if (rbHabilitar.isSelected()) {estatusCuenta = "Habilitado";
-} 
-        else if (rbDeshabilitar.isSelected()) {
-        estatusCuenta = "Deshabilitado";
-}
-                
-        if (!estatusCuenta.isEmpty()) {
-            contador++;
-            cuenta.setEstatusCuenta(estatusCuenta);
-            cuenta.setModificarCuenta(cuenta);
-        }
-        else if (contador == 1) {
-            cuenta.setModificarCuenta(cuenta);
-            JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
-                        "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);      
-        llenadoDeTablas();
-        
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-       
-        limpiarTextos();
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
-                }
-        
-        limpiarTextos();
+       int contador = 0;
+            String estatusCuenta = rbHabilitar.isSelected() ? "T" : (rbDeshabilitar.isSelected() ? "F" : "");
+            if (!estatusCuenta.isEmpty()) {
+                contador++;
+                cuenta.setEstatusCuenta(estatusCuenta);
+            }
+            if (contador == 1) {
+                // Los dos botones de cada ButtonGroup están seleccionados
+                cuenta.setModificarCuenta(cuenta);
+                JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
+                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+                int resultadoBitacora=0;
+                clsBitacora bitacoraRegistro = new clsBitacora();
+                resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+                llenadoDeTablas();
+                limpiarTextos();
+            } else {
+                // No se cumple la condición de selección de dos botones
+                JOptionPane.showMessageDialog(null, "Debe seleccionar un estatus.");
+            }
+
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
