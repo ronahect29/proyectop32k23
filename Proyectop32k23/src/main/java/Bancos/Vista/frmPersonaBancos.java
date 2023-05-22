@@ -360,9 +360,10 @@ int codigoAplicacion= 5002;
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
               String Seleccionar;
+            
            Seleccionar = cbTipoPersona.getSelectedItem().toString();
- if (Seleccionar.equals("Seleccionar...")) {
-   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona", 
+ if (Seleccionar.equals("Seleccionar...")||!RBHabilitado.isSelected() && !RBDeshabilitado.isSelected() ) {
+   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona y Estatus", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
 }else{
        
@@ -398,7 +399,8 @@ int codigoAplicacion= 5002;
         Persona = Persona.getBuscarInformacionBancoPorPersona(Persona);
         System.out.println("Usuario retornado:" + Persona);        
         txtNombrePersona.setText(Persona.getPerNombre());
-         
+         RBHabilitado.setSelected(Persona.getPerEstatus().equals("T"));
+        RBDeshabilitado.setSelected(Persona.getPerEstatus().equals("F")); 
         int cogidoBanc = Persona.getPerTipoId();
          
          
@@ -418,8 +420,8 @@ int codigoAplicacion= 5002;
         // TODO add your handling code here:
           String Seleccionar;
            Seleccionar = cbTipoPersona.getSelectedItem().toString();
- if (Seleccionar.equals("Seleccionar...")) {
-   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona", 
+ if (Seleccionar.equals("Seleccionar...")||!RBHabilitado.isSelected() && !RBDeshabilitado.isSelected()) {
+   JOptionPane.showMessageDialog(null, "Error! Debe Seleccionar un Id Tipo Persona y Estatus", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
 }else{
         clsPersonaBancos Persona = new clsPersonaBancos();
@@ -452,8 +454,9 @@ int codigoAplicacion= 5002;
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
     {
-        txtNombrePersona.setText("");
-      //  txtContrasena.setText("");
+       txtNombrePersona.setText("");
+       cbTipoPersona.setSelectedIndex(0);
+     buttonGroup1.clearSelection();
         txtbuscado.setText("");
         txtTipoPersona.setText("");
     }

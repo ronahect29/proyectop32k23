@@ -327,6 +327,7 @@ int codigoAplicacion= 5002;
         registrosBorrados=banco.setBorrarBanco(banco);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+        
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
@@ -335,24 +336,28 @@ int codigoAplicacion= 5002;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
-        banco.setIdTipoPersonaBancos(Integer.parseInt(txtTipoPersona.getText()));
-        banco.setTipoDescripcionBancos(txtDescripcion.getText());
-       // banco.setTipoEstatusBancos(txtContrasena.getText());
-       if (RBHabilitado.isSelected()){
-                banco.setTipoEstatusBancos("Habilitado");
-       }
-       if (RBDeshabilitado.isSelected()){
-            banco.setTipoEstatusBancos("Deshabilitado");
-      }
-        banco.setIngresarBanco(banco);
-        JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
-                    "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-        int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
-        limpiarTextos();
+  clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
+banco.setIdTipoPersonaBancos(Integer.parseInt(txtTipoPersona.getText()));
+banco.setTipoDescripcionBancos(txtDescripcion.getText());
+
+if (!RBHabilitado.isSelected() && !RBDeshabilitado.isSelected()) {
+    JOptionPane.showMessageDialog(null, "Debes seleccionar una opción para el estatus", "Error", JOptionPane.ERROR_MESSAGE);
+} else {
+    if (RBHabilitado.isSelected()) {
+        banco.setTipoEstatusBancos("T");
+    }
+    if (RBDeshabilitado.isSelected()) {
+        banco.setTipoEstatusBancos("F");
+    }
+
+    banco.setIngresarBanco(banco);
+    JOptionPane.showMessageDialog(null, "Registro Ingresado\n", "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+    int resultadoBitacora = 0;
+    clsBitacora bitacoraRegistro = new clsBitacora();
+    resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+    llenadoDeTablas();
+    limpiarTextos();
+}
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -363,7 +368,8 @@ int codigoAplicacion= 5002;
         banco = banco.getBuscarInformacionBancoPorTipo(banco);
         System.out.println("Usuario retornado:" + banco);        
         txtDescripcion.setText(banco.getTipoDescripcionBancos());
-      //  txtContrasena.setText(banco.getTipoEstatusBancos());
+       RBHabilitado.setSelected(banco.getTipoEstatusBancos().equals("T"));
+        RBDeshabilitado.setSelected(banco.getTipoEstatusBancos().equals("F"));
       
         int resultadoBitacora=0;
         clsBitacora bitacoraRegistro = new clsBitacora();
@@ -375,11 +381,14 @@ int codigoAplicacion= 5002;
         clsTipoPersonaBancos banco = new clsTipoPersonaBancos();
         banco.setIdTipoPersonaBancos(Integer.parseInt(txtbuscado.getText()));
         banco.setTipoDescripcionBancos(txtDescripcion.getText());
+   if (!RBHabilitado.isSelected() && !RBDeshabilitado.isSelected()) {
+    JOptionPane.showMessageDialog(null, "Debes seleccionar una opción para el estatus", "Error", JOptionPane.ERROR_MESSAGE);    
+       }   else{
          if (RBHabilitado.isSelected()){
-                banco.setTipoEstatusBancos("Habilitado");
+                banco.setTipoEstatusBancos("T");
        }
        if (RBDeshabilitado.isSelected()){
-            banco.setTipoEstatusBancos("Deshabilitado");
+            banco.setTipoEstatusBancos("F");
       }
         banco.setModificarBanco(banco);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -389,6 +398,8 @@ int codigoAplicacion= 5002;
         resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
         limpiarTextos();
+   } 
+    
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -399,7 +410,7 @@ int codigoAplicacion= 5002;
     public void limpiarTextos()
     {
         txtDescripcion.setText("");
-      //  txtContrasena.setText("");
+     buttonGroup1.clearSelection();
         txtbuscado.setText("");
         txtTipoPersona.setText("");
     }
