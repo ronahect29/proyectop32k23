@@ -22,11 +22,13 @@ import javax.swing.table.DefaultTableModel;
  * @author maria
  */
 public class daoCotizacion {
+    String usuariobd = "root";
+    String contrabd = "";
     private static final String SQL_SELECT = "SELECT proCodigo, proNombre, proPrecios, proExistencias FROM tbl_productos";
       public int verificarExistencias(int codigoProducto) {
         try {
             // Establecer la conexión a la base de datos
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/proyectop312023?useSSL=false&serverTimezone=UTC","UsuPrueba", "123456");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/proyectop312023?useSSL=false&serverTimezone=UTC",usuariobd, contrabd);
 
             // Verificar existencias del producto en la base de datos
             String consulta = "SELECT proExistencias FROM tbl_productos WHERE proCodigo = ?";
@@ -86,7 +88,7 @@ public class daoCotizacion {
 
     try {
         // Establecer la conexión a la base de datos
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/proyectop312023?useSSL=false&serverTimezone=UTC","UsuPrueba", "123456");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/proyectop312023?useSSL=false&serverTimezone=UTC",usuariobd, contrabd);
 
         // Preparar la consulta SQL para obtener el precio del producto
         String query = "SELECT proPrecios FROM tbl_productos WHERE proCodigo = ?";

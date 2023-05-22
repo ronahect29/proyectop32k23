@@ -46,8 +46,8 @@ public class MdiVentas extends javax.swing.JFrame {
         mnuCatalogosVentas = new javax.swing.JMenu();
         mnuCatalogosMantenimientosVentas = new javax.swing.JMenu();
         mantenimientoClientes = new javax.swing.JCheckBoxMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mantenimientoTiendas = new javax.swing.JMenuItem();
+        mantenimientoVendedores = new javax.swing.JMenuItem();
         mnuProcesosVentas = new javax.swing.JMenu();
         mnuCotizaciones = new javax.swing.JMenu();
         mnuNuevaCotizacion = new javax.swing.JCheckBoxMenuItem();
@@ -115,21 +115,21 @@ public class MdiVentas extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientosVentas.add(mantenimientoClientes);
 
-        jMenuItem3.setText("Mantenimineto tiendas");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mantenimientoTiendas.setText("Mantenimineto tiendas");
+        mantenimientoTiendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mantenimientoTiendasActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimientosVentas.add(jMenuItem3);
+        mnuCatalogosMantenimientosVentas.add(mantenimientoTiendas);
 
-        jMenuItem1.setText("Mantenimiento Vendedores");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mantenimientoVendedores.setText("Mantenimiento Vendedores");
+        mantenimientoVendedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mantenimientoVendedoresActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimientosVentas.add(jMenuItem1);
+        mnuCatalogosMantenimientosVentas.add(mantenimientoVendedores);
 
         mnuCatalogosVentas.add(mnuCatalogosMantenimientosVentas);
 
@@ -217,16 +217,16 @@ public class MdiVentas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuConsultasVentasActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mantenimientoTiendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoTiendasActionPerformed
         // TODO add your handling code here:
         frmMantenimientotiendas ventana = new frmMantenimientotiendas();
         jDesktopPaneVentas.add(ventana);
         Dimension desktopSize = jDesktopPaneVentas.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_mantenimientoTiendasActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mantenimientoVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoVendedoresActionPerformed
         // TODO add your handling code here:
         frmMantenimientoVendedores ventana = new frmMantenimientoVendedores();
         jDesktopPaneVentas.add(ventana);
@@ -234,7 +234,7 @@ public class MdiVentas extends javax.swing.JFrame {
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mantenimientoVendedoresActionPerformed
 
     private void mnuNuevaCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevaCotizacionActionPerformed
         // TODO add your handling code here:
@@ -287,12 +287,12 @@ public class MdiVentas extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1MdiVentas;
     private javax.swing.JDesktopPane jDesktopPaneVentas;
     private javax.swing.JMenu jMenu1MdiVentas;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem1MdiVentas;
     private javax.swing.JMenuItem jMenuItem2MdiVentas;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4MdiVentas;
     private javax.swing.JCheckBoxMenuItem mantenimientoClientes;
+    private javax.swing.JMenuItem mantenimientoTiendas;
+    private javax.swing.JMenuItem mantenimientoVendedores;
     private javax.swing.JMenu mnuArchivoVentas;
     private javax.swing.JMenu mnuAyudasVentas;
     private javax.swing.JMenu mnuCatalogosMantenimientosVentas;

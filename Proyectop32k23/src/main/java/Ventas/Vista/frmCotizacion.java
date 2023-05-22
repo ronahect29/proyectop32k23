@@ -404,7 +404,6 @@ limpiarTextos();
         txtCodProdCot.setText("");
         txtIdClienteCot.setText("");
         txtIdVendedorCot.setText("");
-        txtTotalCot.setText("");
     }
 
 //María José Véliz Ochoa 
@@ -456,11 +455,16 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     private void btnRegistrarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCotActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) tblCotActual.getModel();
+                    if (txtIdClienteCot.getText().isEmpty() || txtIdVendedorCot.getText().isEmpty() || modelo.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "No se ha ingresado la información necesaria", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            }
         clsCotizacion cotizacion = new clsCotizacion();
         int idCliente = Integer.parseInt(txtIdClienteCot.getText());
                 int idVendedor = Integer.parseInt(txtIdVendedorCot.getText());
                 double totalCotizacion = Double.parseDouble(txtTotalCot.getText());
                 LocalDate fechaActual = LocalDate.now();
+
                 
                 // Registrar en la tabla tbl_cotizacion
                 cotizacion.registrarCotizacion(idCliente, idVendedor, fechaActual, totalCotizacion);
@@ -478,7 +482,9 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
                 i--; // Decrementar el índice para evitar saltar la siguiente fila en la iteración
                 }
                 
-                
+                txtTotalCot.setText("");
+                JOptionPane.showMessageDialog(null, "Cotización #" + cotizacionId + " ha sido registrada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_btnRegistrarCotActionPerformed
          
     
