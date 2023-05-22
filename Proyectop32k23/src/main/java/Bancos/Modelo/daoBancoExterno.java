@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//Hecho por: Karla Sofia Góomez Tobar 9959-21-1896
 package Bancos.Modelo;
 
 import Bancos.Controlador.clsBancoExterno;
@@ -99,8 +98,8 @@ public class daoBancoExterno {
             stmt.setString(1, banco.getNombreBanco());
             stmt.setString(2, banco.getPaisBanco());
             stmt.setInt(3, banco.getTipoMonedaId());
-            stmt.setInt(4, banco.getCodigoBanco());
-            stmt.setString(5, banco.getEstatus());
+            stmt.setString(4, banco.getEstatus());
+            stmt.setInt(5, banco.getCodigoBanco());
             
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
