@@ -6,7 +6,7 @@
 package Inventarios.Modelo;
 
 import Seguridad.Modelo.*;
-import Inventarios.Controlador.clsBodegas;
+import Inventarios.Controlador.clsmovEncabezados;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,42 +15,38 @@ import java.util.List;
  *
  * @author visitante
  */
-public class daoBodegas {
+public class daomovEncabezados {
 
-    private static final String SQL_SELECT = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_bodegas(bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus) VALUES(?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE tbl_bodegas SET bodNombre=?, bodDescripcion=?, bodFechaIngreso=?, bodFechaSalida=?, bodEstatus=? WHERE bodCodigo = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_bodegas WHERE bodCodigo=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas WHERE bodNombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas WHERE bodCodigo = ?";    
+    private static final String SQL_SELECT = "SELECT mEnCodigo, movCodigo, mEnfecha, mEnEstatus FROM tbl_movencabezado";
+    private static final String SQL_INSERT = "INSERT INTO tbl_movencabezado(mEnCodigo, movCodigo, mEnfecha, mEnEstatus) VALUES(?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE tbl_movencabezado SET movCodigo=?, mEnfecha=?, mEnEstatus=? WHERE mEnCodigo = ?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_movencabezado WHERE mEnCodigo=?";
+    //private static final String SQL_SELECT_NOMBRE = "SELECT bodCodigo, bodNombre, bodDescripcion, bodFechaIngreso, bodFechaSalida, bodEstatus FROM tbl_bodegas WHERE bodNombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT mEnCodigo, movCodigo, mEnfecha, mEnEstatus FROM tbl_movencabezado WHERE mEnCodigo = ?";    
 
-    public List<clsBodegas> consultaBodegas() {
+    public List<clsmovEncabezados> consultaMovimientos() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<clsBodegas> bodegas = new ArrayList<>();
+        List<clsmovEncabezados> encabezados = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("bodCodigo");
-                String nombre = rs.getString("bodNombre");
-                String descripcion = rs.getString("bodDescripcion");
-                String fIngreso = rs.getString("bodFechaIngreso");
-                String fSalida = rs.getString("bodFechaSalida");
-                String estatus = rs.getString("bodEstatus");
+                int idEn = rs.getInt("mEnCodigo");
+                int idMov = rs.getInt("movCodigo");
+                String fecha = rs.getString("mEnfecha");
+                String estatus = rs.getString("mEnEstatus");
                 
-                clsBodegas Bodegas = new clsBodegas();
-                Bodegas.setIdBodegas(id);
-                Bodegas.setNombreBodegas(nombre);
-                Bodegas.setDescripcionBodega(descripcion);
-                Bodegas.setfIngresoBodega(fIngreso);
-                Bodegas.setfSalidaBodega(fSalida);
-                Bodegas.setEstatusBodegas(estatus);
+                clsmovEncabezados Encabezado = new clsmovEncabezados();
+                Encabezado.setIdEncabezado(idEn);
+                Encabezado.setIdMovimiento(idMov);
+                Encabezado.setFechaMovimiento(fecha);
+                Encabezado.setEstatusMovimiento(estatus);
                 
-                bodegas.add(Bodegas);
+                encabezados.add(Encabezado);
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -59,21 +55,19 @@ public class daoBodegas {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return bodegas;
+        return encabezados;
     }
 
-    public int ingresaBodegas(clsBodegas bodegas) {
+    public int ingresaMovimientos(clsmovEncabezados encabezados) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, bodegas.getNombreBodegas());
-            stmt.setString(2, bodegas.getDescripcionBodega());
-            stmt.setString(3, bodegas.getfIngresoBodega());
-            stmt.setString(4, bodegas.getfSalidaBodega());
-            stmt.setString(5, bodegas.getEstatusBodegas());
+            stmt.setInt(1, encabezados.getIdMovimiento());
+            stmt.setString(2, encabezados.getFechaMovimiento());
+            stmt.setString(3, encabezados.getEstatusMovimiento());
 
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
@@ -88,7 +82,7 @@ public class daoBodegas {
         return rows;
     }
 
-    public int actualizaBodegas(clsBodegas bodegas) {
+    public int actualizaMovimientos(clsmovEncabezados movimientos) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -96,12 +90,10 @@ public class daoBodegas {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, bodegas.getNombreBodegas());
-            stmt.setString(2, bodegas.getDescripcionBodega());
-            stmt.setString(3, bodegas.getfIngresoBodega());
-            stmt.setString(4, bodegas.getfSalidaBodega());
-            stmt.setString(5, bodegas.getEstatusBodegas());
-            stmt.setInt(6, bodegas.getIdBodegas());
+            stmt.setInt(1, movimientos.getIdMovimiento());
+            stmt.setString(2, movimientos.getFechaMovimiento());
+            stmt.setString(3, movimientos.getEstatusMovimiento());
+            stmt.setInt(4, movimientos.getIdEncabezado());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -116,7 +108,7 @@ public class daoBodegas {
         return rows;
     }
 
-    public int borrarBodegas(clsBodegas bodegas) {
+    public int borrarMovimientos(clsmovEncabezados movimientos) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -125,7 +117,7 @@ public class daoBodegas {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, bodegas.getIdBodegas());
+            stmt.setInt(1, movimientos.getIdEncabezado());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -138,7 +130,7 @@ public class daoBodegas {
         return rows;
     }
 
-    public clsBodegas consultaBodegasPorNombre(clsBodegas bodegas) {
+    /*public clsmovEncabezados consultaMovimientosPorNombre(clsmovEncabezados movimientos) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -177,34 +169,30 @@ public class daoBodegas {
 
         //return personas;  // Si se utiliza un ArrayList
         return bodegas;
-    }
-    public clsBodegas consultaBodegasPorId(clsBodegas bodegas) {
+    }*/
+    public clsmovEncabezados consultaMovimientosPorId(clsmovEncabezados movimientos) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + bodegas);
+            //System.out.println("Ejecutando query:" + SQL_SELECT_NOMBRE + " objeto recibido: " + bodegas);
             stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, bodegas.getIdBodegas());            
+            stmt.setInt(1, movimientos.getIdEncabezado());            
             //stmt.setString(1, aplicacion.getNombreAplicacion());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("bodCodigo");
-                String nombre = rs.getString("bodNombre");
-                String descripcion = rs.getString("bodDescripcion");
-                String fIngreso = rs.getString("bodFechaIngreso");
-                String fSalida = rs.getString("bodFechaSalida");
-                String estatus = rs.getString("bodEstatus");
+                int idEn = rs.getInt("mEnCodigo");
+                int idMov = rs.getInt("movCodigo");
+                String fecha = rs.getString("mEnfecha");
+                String estatus = rs.getString("mEnEstatus");
 
                 //aplicacion = new clsAplicacion();
-                bodegas.setIdBodegas(id);
-                bodegas.setNombreBodegas(nombre);
-                bodegas.setDescripcionBodega(descripcion);
-                bodegas.setfIngresoBodega(fIngreso);
-                bodegas.setfSalidaBodega(fSalida);
-                bodegas.setEstatusBodegas(estatus);
-                System.out.println(" registro consultado: " + bodegas);                
+                movimientos.setIdEncabezado(idEn);
+                movimientos.setIdMovimiento(idMov);
+                movimientos.setFechaMovimiento(fecha);
+                movimientos.setEstatusMovimiento(estatus);
+                System.out.println(" registro consultado: " + movimientos);                
             }
             //System.out.println("Registros buscado:" + persona);
         } catch (SQLException ex) {
@@ -216,6 +204,6 @@ public class daoBodegas {
         }
 
         //return personas;  // Si se utiliza un ArrayList
-        return bodegas;
+        return movimientos;
     }    
 }

@@ -6,7 +6,6 @@
 package Inventarios.Controlador;
 import java.util.List;
 import Inventarios.Modelo.daomovEncabezados;
-import com.toedter.calendar.JDateChooser;
 /**
  *
  * @author visitante
@@ -76,11 +75,11 @@ public class clsmovEncabezados {
 
     
     //Metodos de acceso a la capa controlador
-    public clsmovEncabezados getBuscarInformacionMovimientosPorNombre(clsmovEncabezados mov)
+    /*public clsmovEncabezados getBuscarInformacionMovimientosPorNombre(clsmovEncabezados mov)
     {
         daomovEncabezados daomovencabezados = new daomovEncabezados();
-        return daomovencabezados.consultaBodegasPorNombre(mov);
-    }
+        return daomovencabezados.consultaMovimientosPorNombre(mov);
+    }*/
     public clsmovEncabezados getBuscarInformacionMovimientosPorId(clsmovEncabezados mov)
     {
         daomovEncabezados daomovencabezados = new daomovEncabezados();
@@ -112,7 +111,4 @@ public class clsmovEncabezados {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setgeinicial(JDateChooser finicial) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
