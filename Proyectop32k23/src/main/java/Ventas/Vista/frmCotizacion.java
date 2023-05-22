@@ -13,6 +13,9 @@ import Ventas.Controlador.clsTienda;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -38,6 +41,8 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
     public frmCotizacion() {
         initComponents();
         modeloTabla = (DefaultTableModel) tblCotActual.getModel();
+        llenadoDeTablasProductos();
+        llenadoDeCombos();
     }
 
     int codigoAplicacion = 3004;
@@ -157,6 +162,11 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
         lbCantProdCot1.setText("Productos Disponibles:");
 
         btnRegistrarCot.setText("Registrar Cotización");
+        btnRegistrarCot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarCotActionPerformed(evt);
+            }
+        });
 
         lbInstCot.setText("Para registrar esta cotización debes ingresar los siguientes datos:");
 
@@ -311,8 +321,28 @@ txtTotalCot.setText(String.valueOf(suma));
 limpiarTextos(); 
 
     }//GEN-LAST:event_btnEliminarCotActionPerformed
-   
 
+     public void llenadoDeTablasProductos() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("proCodigo");
+        modelo.addColumn("proNombre");
+        modelo.addColumn("proPrecios");
+        modelo.addColumn("proExistencias");
+        clsCotizacion producto = new clsCotizacion();
+        //VendedorDAO vendedorDAO = new VendedorDAO();
+        List<clsCotizacion> listaProductos = producto.getListadoProductos();
+        tblProdDispCot.setModel(modelo);
+        String[] dato = new String[4];
+        for (int i = 0; i < listaProductos.size(); i++) {
+            dato[0] = Integer.toString(listaProductos.get(i).getIdProducto());
+            dato[1] = listaProductos.get(i).getNombreProducto();
+            dato[2] = Double.toString(listaProductos.get(i).getPrecioProducto());
+            dato[3] = Double.toString(listaProductos.get(i).getExistenciaProducto());
+            modelo.addRow(dato);
+        }              
+
+
+    }                
 
     private void btnModificarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCotActionPerformed
         // TODO add your handling code here:
@@ -417,7 +447,13 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     
     limpiarTextos();
     }//GEN-LAST:event_btnAgregarCotActionPerformed
-                                         
+
+    private void btnRegistrarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarCotActionPerformed
+         
+    
+
 
     
 

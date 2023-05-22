@@ -19,7 +19,78 @@ import java.util.ArrayList;
  */
 
 public class clsCotizacion {
-    
+    private int IdProducto;
+    private String NombreProducto;
+    private Double PrecioProducto;
+    private int ExistenciaProducto;
+
+    public clsCotizacion() {
+    }
+
+    public clsCotizacion(int IdCliente) {
+        this.IdProducto = IdCliente;
+    }
+
+    public clsCotizacion(String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+        this.NombreProducto = NombreProducto;
+        this.PrecioProducto = PrecioProducto;
+        this.ExistenciaProducto = ExistenciaProducto;
+    }
+
+    public clsCotizacion(int IdProducto, String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+        this.IdProducto = IdProducto;
+        this.NombreProducto = NombreProducto;
+        this.PrecioProducto = PrecioProducto;
+        this.ExistenciaProducto = ExistenciaProducto;
+    }
+
+    public int getIdProducto() {
+        return IdProducto;
+    }
+
+    public void setIdProducto(int IdProducto) {
+        this.IdProducto = IdProducto;
+    }
+
+    public String getNombreProducto() {
+        return NombreProducto;
+    }
+
+    public void setNombreProducto(String NombreProducto) {
+        this.NombreProducto = NombreProducto;
+    }
+
+
+public Double getPrecioProducto() {
+    return PrecioProducto;
+}
+
+public void setPrecioProducto(Double PrecioProducto) {
+    this.PrecioProducto = PrecioProducto;
+}
+
+public int getExistenciaProducto() {
+    return ExistenciaProducto;
+}
+
+
+public void setExistenciaProducto(int ExistenciaProducto) {
+    this.ExistenciaProducto = ExistenciaProducto;
+}
+
+
+    @Override
+    public String toString() {
+        return "clsCotizacion{" + "IdProducto=" + IdProducto + ", NombreProducto=" + NombreProducto + ", PrecioProducto=" + PrecioProducto + ", ExistenciaProducto=" + ExistenciaProducto + '}';
+    }
+    //Metodos de acceso a la capa controlador
+ 
+    public List<clsCotizacion> getListadoProductos()
+    {
+        daoCotizacion daoProducto = new daoCotizacion();
+        List<clsCotizacion> listadoProductos = daoProducto.consultaProducto();
+        return listadoProductos;
+    }
     
     public double obtenerPrecioProducto(int codigoProducto) {
     daoCotizacion dao = new daoCotizacion();
