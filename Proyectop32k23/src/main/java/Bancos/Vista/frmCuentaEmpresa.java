@@ -35,7 +35,9 @@ int codigoAplicacion=5008;
         cbCodigo.setAlignmentX(Component.CENTER_ALIGNMENT);
         cbCodigo.addItem("Seleccionar...");
         for (int i = 0; i < listaBancos.size(); i++) {
-            cbCodigo.addItem(String.valueOf(listaBancos.get(i).getCodigoBanco()));
+            clsBancoExterno bancoExterno = listaBancos.get(i);
+            String item = bancoExterno.getCodigoBanco()+ " - "+bancoExterno.getNombreBanco();
+            cbCodigo.addItem(item);
         }
     }
     public void llenadoDeCombos2(){
@@ -44,7 +46,9 @@ int codigoAplicacion=5008;
         cbTipo.setAlignmentX(Component.CENTER_ALIGNMENT);
         cbTipo.addItem("Seleccionar...");
         for (int i = 0; i < listaCuentas.size(); i++) {
-            cbTipo.addItem(String.valueOf(listaCuentas.get(i).getTipoCueId()));
+            clsTipoCuentas cuentati =listaCuentas.get(i);
+            String item = cuentati.getTipoCueId()+" - "+cuentati.getTipoCueDescripcion();
+            cbTipo.addItem(item);
         }
     }
 
@@ -401,7 +405,15 @@ public void llenadoDeTablas() {
         cuentaem.setIdCuentaEm(Integer.parseInt(txtId.getText()));
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
-        cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
+        //cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
+        String selectedItem = cbTipo.getSelectedItem().toString();
+        int item = Integer.parseInt(selectedItem.split(" - ")[0]);
+        cuentaem.setCueTipoId(item);
+        //cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
+        String selectItem = cbCodigo.getSelectedItem().toString();
+        int item2 = Integer.parseInt(selectedItem.split(" - ")[0]);
+        cuentaem.setCodigoBanco(item2);
+        
         int contador = 0;
         String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
         if (!estatus.isEmpty()) {
@@ -410,7 +422,6 @@ public void llenadoDeTablas() {
         }
         if (contador == 1) {
             // Los dos botones de cada ButtonGroup están seleccionados
-            cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
             cuentaem.setIngresarCuentaEm(cuentaem);
             JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -437,8 +448,10 @@ public void llenadoDeTablas() {
         
         int codigo = cuentaem.getCodigoBanco();
         for (int i = 1; i < cbCodigo.getItemCount(); i++) {
-            int item = Integer.parseInt(cbCodigo.getItemAt(i).toString());
-            if (item == codigo) {
+            String item = cbCodigo.getItemAt(i).toString();
+            int itemco = Integer.parseInt(item.split(" - ")[0]);
+            
+            if (itemco == codigo) {
                 cbCodigo.setSelectedIndex(i);
                 break;
             }
@@ -446,7 +459,8 @@ public void llenadoDeTablas() {
         
         int tipo = cuentaem.getCueTipoId();
         for (int i = 1; i < cbTipo.getItemCount(); i++) {
-            int item = Integer.parseInt(cbTipo.getItemAt(i).toString());
+            String item2 = cbTipo.getItemAt(i).toString();
+            int item = Integer.parseInt(item2.split(" - ")[0]);
             if (item == tipo) {
                 cbTipo.setSelectedIndex(i);
                 break;
@@ -467,8 +481,15 @@ public void llenadoDeTablas() {
         cuentaem.setIdCuentaEm(Integer.parseInt(txtbuscado.getText()));
         cuentaem.setNumeroCuentaEm(Integer.parseInt(txtNumero.getText()));
         cuentaem.setSaldoCuentaEm(Double.parseDouble(txtSaldo.getText()));
-        cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
-        cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
+        //cuentaem.setCodigoBanco(Integer.parseInt(cbCodigo.getSelectedItem().toString()));
+        String selectItem = cbCodigo.getSelectedItem().toString();
+        String cod = selectItem.split(" - ")[0]; // Obtiene solo la ID
+        cuentaem.setCodigoBanco(Integer.parseInt(cod));
+        //cuentaem.setCueTipoId(Integer.parseInt(cbTipo.getSelectedItem().toString()));
+        String selectedItem = cbTipo.getSelectedItem().toString();
+        String tipo = selectedItem.split(" - ")[0]; // Obtiene solo la ID
+        cuentaem.setCueTipoId(Integer.parseInt(tipo));
+        
         int contador = 0;
         String estatus = rbHabilitado.isSelected() ? "T" : (rbDeshabilitado.isSelected() ? "F" : "");
         if (!estatus.isEmpty()) {
