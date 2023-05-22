@@ -5,117 +5,99 @@
  */
 package Inventarios.Controlador;
 import java.util.List;
-import Inventarios.Modelo.daoBodegas;
+import Inventarios.Modelo.daomovDetalle;
 
 /**
  *
  * @author visitante
  */
 public class clsmovDetalle {
-    private int IdBodegas;
-    private String NombreBodegas;
-    private String DescripcionBodega;
-    private String fIngresoBodega;
-    private String fSalidaBodega;
-    private String EstatusBodegas;
+    private int IdEncabezado;
+    private int IdProducto;
+    private int cantidadesDetalles;
+    private int muestrasDetalles;
+    private int trasladosDetalles;
 
-    public int getIdBodegas() {
-        return IdBodegas;
+    public int getIdEncabezado() {
+        return IdEncabezado;
     }
 
-    public void setIdBodegas(int IdBodegas) {
-        this.IdBodegas = IdBodegas;
+    public void setIdEncabezado(int IdEncabezado) {
+        this.IdEncabezado = IdEncabezado;
     }
 
-    public String getNombreBodegas() {
-        return NombreBodegas;
+    public int getIdProducto() {
+        return IdProducto;
     }
 
-    public void setNombreBodegas(String NombreBodegas) {
-        this.NombreBodegas = NombreBodegas;
+    public void setIdProducto(int IdProducto) {
+        this.IdProducto = IdProducto;
     }
 
-    public String getDescripcionBodega() {
-        return DescripcionBodega;
+    public int getCantidadesDetalles() {
+        return cantidadesDetalles;
     }
 
-    public void setDescripcionBodega(String DescripcionBodega) {
-        this.DescripcionBodega = DescripcionBodega;
+    public void setCantidadesDetalles(int cantidadesDetalles) {
+        this.cantidadesDetalles = cantidadesDetalles;
     }
 
-    public String getfIngresoBodega() {
-        return fIngresoBodega;
+    public int getMuestrasDetalles() {
+        return muestrasDetalles;
     }
 
-    public void setfIngresoBodega(String fIngresoBodega) {
-        this.fIngresoBodega = fIngresoBodega;
+    public void setMuestrasDetalles(int muestrasDetalles) {
+        this.muestrasDetalles = muestrasDetalles;
     }
 
-    public String getfSalidaBodega() {
-        return fSalidaBodega;
+    public int getTrasladosDetalles() {
+        return trasladosDetalles;
     }
 
-    public void setfSalidaBodega(String fSalidaBodega) {
-        this.fSalidaBodega = fSalidaBodega;
+    public void setTrasladosDetalles(int trasladosDetalles) {
+        this.trasladosDetalles = trasladosDetalles;
     }
 
-    public String getEstatusBodegas() {
-        return EstatusBodegas;
+    public clsmovDetalle(int IdEncabezado, int IdProducto, int cantidadesDetalles, int muestrasDetalles, int trasladosDetalles) {
+        this.IdEncabezado = IdEncabezado;
+        this.IdProducto = IdProducto;
+        this.cantidadesDetalles = cantidadesDetalles;
+        this.muestrasDetalles = muestrasDetalles;
+        this.trasladosDetalles = trasladosDetalles;
     }
 
-    public void setEstatusBodegas(String EstatusBodegas) {
-        this.EstatusBodegas = EstatusBodegas;
+    public clsmovDetalle(int IdEncabezado, int IdProducto, int cantidadesDetalles, int muestrasDetalles) {
+        this.IdEncabezado = IdEncabezado;
+        this.IdProducto = IdProducto;
+        this.cantidadesDetalles = cantidadesDetalles;
+        this.muestrasDetalles = muestrasDetalles;
     }
 
-    public clsmovDetalle(int IdBodegas, String NombreBodegas, String DescripcionBodega, String fIngresoBodega, String fSalidaBodega) {
-        this.IdBodegas = IdBodegas;
-        this.NombreBodegas = NombreBodegas;
-        this.DescripcionBodega = DescripcionBodega;
-        this.fIngresoBodega = fIngresoBodega;
-        this.fSalidaBodega = fSalidaBodega;
+    public clsmovDetalle(int IdEncabezado, int IdProducto, int cantidadesDetalles) {
+        this.IdEncabezado = IdEncabezado;
+        this.IdProducto = IdProducto;
+        this.cantidadesDetalles = cantidadesDetalles;
     }
 
-    public clsmovDetalle(int IdBodegas, String NombreBodegas, String DescripcionBodega, String fIngresoBodega, String fSalidaBodega, String EstatusBodegas) {
-        this.IdBodegas = IdBodegas;
-        this.NombreBodegas = NombreBodegas;
-        this.DescripcionBodega = DescripcionBodega;
-        this.fIngresoBodega = fIngresoBodega;
-        this.fSalidaBodega = fSalidaBodega;
-        this.EstatusBodegas = EstatusBodegas;
+    public clsmovDetalle(int IdEncabezado, int IdProducto) {
+        this.IdEncabezado = IdEncabezado;
+        this.IdProducto = IdProducto;
     }
 
-    public clsmovDetalle(int IdBodegas, String NombreBodegas, String DescripcionBodega, String fIngresoBodega) {
-        this.IdBodegas = IdBodegas;
-        this.NombreBodegas = NombreBodegas;
-        this.DescripcionBodega = DescripcionBodega;
-        this.fIngresoBodega = fIngresoBodega;
-    }
-
-    public clsmovDetalle(int IdBodegas, String NombreBodegas, String DescripcionBodega) {
-        this.IdBodegas = IdBodegas;
-        this.NombreBodegas = NombreBodegas;
-        this.DescripcionBodega = DescripcionBodega;
-    }
-
-    public clsmovDetalle(int IdBodegas, String NombreBodegas) {
-        this.IdBodegas = IdBodegas;
-        this.NombreBodegas = NombreBodegas;
-    }
-
-    public clsmovDetalle(int IdBodegas) {
-        this.IdBodegas = IdBodegas;
+    public clsmovDetalle(int IdEncabezado) {
+        this.IdEncabezado = IdEncabezado;
     }
 
     public clsmovDetalle() {
     }
 
-    
+
     //Metodos de acceso a la capa controlador
-    public clsmovDetalle getBuscarInformacionDetallesPorNombre(clsmovDetalle detalles)
+    /*public clsmovDetalle getBuscarInformacionDetallesPorNombre(clsmovDetalle detalles)
     {
         daomovDetalle daomovdetalle = new daomovDetalle();
         return daomovdetalle.consultaDetallesPorNombre(detalles);
-    }
+    }*/
     public clsmovDetalle getBuscarInformacionDetallesPorId(clsmovDetalle detalles)
     {
         daomovDetalle daomovdetalle = new daomovDetalle();
