@@ -29,10 +29,10 @@ public class MdiInventario extends javax.swing.JFrame {
         this.setTitle("MDI Inventarios");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
   
-        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
+        /*ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/SistemaInv.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT));
         lbl.setIcon(fondo);
-        this.repaint();
+        this.repaint();*/
 
     }
 
@@ -64,6 +64,7 @@ public class MdiInventario extends javax.swing.JFrame {
         mantenimientoExistencias = new javax.swing.JCheckBoxMenuItem();
         mantenimientoMovimientos = new javax.swing.JCheckBoxMenuItem();
         mnuProcesos = new javax.swing.JMenu();
+        movTransaccion = new javax.swing.JCheckBoxMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         consultaBitacora = new javax.swing.JCheckBoxMenuItem();
         mnuReportes = new javax.swing.JMenu();
@@ -89,13 +90,13 @@ public class MdiInventario extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 244, Short.MAX_VALUE)
                 .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(151, Short.MAX_VALUE)
                 .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -187,6 +188,16 @@ public class MdiInventario extends javax.swing.JFrame {
         mnuGeneral.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
+
+        movTransaccion.setSelected(true);
+        movTransaccion.setText("Transaccion de movimientos");
+        movTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movTransaccionActionPerformed(evt);
+            }
+        });
+        mnuProcesos.add(movTransaccion);
+
         mnuGeneral.add(mnuProcesos);
 
         mnuConsultas.setText("Consultas");
@@ -323,6 +334,10 @@ public class MdiInventario extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_mantenimientoMovimientosActionPerformed
 
+    private void movTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movTransaccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_movTransaccionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,5 +404,6 @@ public class MdiInventario extends javax.swing.JFrame {
     private javax.swing.JMenu mnuProcesos;
     private javax.swing.JMenu mnuReportes;
     private javax.swing.JCheckBoxMenuItem mnuSalirSistema;
+    private javax.swing.JCheckBoxMenuItem movTransaccion;
     // End of variables declaration//GEN-END:variables
 }

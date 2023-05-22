@@ -79,7 +79,6 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         label3 = new javax.swing.JLabel();
         txtbuscado = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaExistencias = new javax.swing.JTable();
@@ -87,7 +86,6 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
-        txtPrecios = new javax.swing.JTextField();
         label6 = new javax.swing.JLabel();
         label8 = new javax.swing.JLabel();
         txtEstatus = new javax.swing.JTextField();
@@ -144,9 +142,6 @@ public class frmExistencias extends javax.swing.JInternalFrame {
             }
         });
 
-        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,9 +179,6 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-
-        txtPrecios.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtPrecios.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
 
         label6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label6.setText("codigo de la bodega");
@@ -234,19 +226,15 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                             .addComponent(label6)
                             .addComponent(label8))
                         .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(175, 175, 175)
                                 .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cboBodega, 0, 100, Short.MAX_VALUE)
                                     .addComponent(cboProducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPrecios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(84, 84, 84)))))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,12 +261,10 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label3)
                                     .addComponent(cboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label6)
                                     .addComponent(cboBodega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -301,7 +287,7 @@ public class frmExistencias extends javax.swing.JInternalFrame {
                             .addComponent(label4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnActualizar)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -369,7 +355,7 @@ public class frmExistencias extends javax.swing.JInternalFrame {
         clsExistencias existencias = new clsExistencias();
         existencias.setIdProductos(Integer.parseInt(txtbuscado.getText()));
         existencias.setIdBodegas(Integer.parseInt(String.valueOf(cboBodega.getSelectedItem())));
-        existencias.setExistenciasSaldo(Integer.parseInt(txtPrecios.getText()));        
+        existencias.setExistenciasSaldo(Integer.parseInt(txtEstatus.getText()));        
         existencias.setModificarExistencias(existencias);
         
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
@@ -391,15 +377,14 @@ public class frmExistencias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
     public void limpiarTextos()
     {
-        txtNombre.setText("");
-        txtPrecios.setText("");
+        
         txtEstatus.setText("");
         txtbuscado.setText("");
     }
     public void habilitarBotones()
     {
         btnRegistrar.setEnabled(true);
-        btnModificar.setEnabled(true);
+        btnModificar.setEnabled(false);
         btnEliminar.setEnabled(true);
     }
     public void desHabilitarBotones()
@@ -461,8 +446,6 @@ public class frmExistencias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbusu;
     private javax.swing.JTable tablaExistencias;
     private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrecios;
     private javax.swing.JTextField txtbuscado;
     // End of variables declaration//GEN-END:variables
 }
