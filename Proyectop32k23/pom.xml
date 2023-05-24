@@ -12,9 +12,28 @@
             <version>8.0.30</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>com.toedter</groupId>
             <artifactId>jcalendar</artifactId>
             <version>1.4</version>
+=======
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.20.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>2.1.4</version>
+            <classifier>groovydoc</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.11</version>
+            <type>jar.asc.sha256</type>
+            <classifier>groovydoc</classifier>
+>>>>>>> 0f6d78d91ba61839ab1dfd65f7d117e5d6db98d0
         </dependency>
     </dependencies>
     <properties>
