@@ -10,7 +10,7 @@
 package Ventas.Controlador;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import Ventas.Modelo.daoCotizacion;
+import Ventas.Modelo.daoPedidos;
 import java.time.LocalDate;
 import java.util.ArrayList;
 /**
@@ -18,26 +18,26 @@ import java.util.ArrayList;
  * @author visitante
  */
 
-public class clsCotizacion {
+public class clsPedidos {
     private int IdProducto;
     private String NombreProducto;
     private Double PrecioProducto;
     private int ExistenciaProducto;
 
-    public clsCotizacion() {
+    public clsPedidos() {
     }
 
-    public clsCotizacion(int IdCliente) {
+    public clsPedidos(int IdCliente) {
         this.IdProducto = IdCliente;
     }
 
-    public clsCotizacion(String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+    public clsPedidos(String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
         this.NombreProducto = NombreProducto;
         this.PrecioProducto = PrecioProducto;
         this.ExistenciaProducto = ExistenciaProducto;
     }
 
-    public clsCotizacion(int IdProducto, String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
+    public clsPedidos(int IdProducto, String NombreProducto, double PrecioProducto, int ExistenciaProducto) {
         this.IdProducto = IdProducto;
         this.NombreProducto = NombreProducto;
         this.PrecioProducto = PrecioProducto;
@@ -81,38 +81,36 @@ public void setExistenciaProducto(int ExistenciaProducto) {
 
     @Override
     public String toString() {
-        return "clsCotizacion{" + "IdProducto=" + IdProducto + ", NombreProducto=" + NombreProducto + ", PrecioProducto=" + PrecioProducto + ", ExistenciaProducto=" + ExistenciaProducto + '}';
+        return "clsPedidos{" + "IdProducto=" + IdProducto + ", NombreProducto=" + NombreProducto + ", PrecioProducto=" + PrecioProducto + ", ExistenciaProducto=" + ExistenciaProducto + '}';
     }
     //Metodos de acceso a la capa controlador
  
-    public List<clsCotizacion> getListadoProductos()
+    public List<clsPedidos> getListadoProductos()
     {
-        daoCotizacion daoProducto = new daoCotizacion();
-        List<clsCotizacion> listadoProductos = daoProducto.consultaProducto();
+        daoPedidos daoProducto = new daoPedidos();
+        List<clsPedidos> listadoProductos = daoProducto.consultaProducto();
         return listadoProductos;
     }
-    
-    
-    
+        
     public double obtenerPrecioProducto(int codigoProducto) {
-    daoCotizacion dao = new daoCotizacion();
+    daoPedidos dao = new daoPedidos();
     return dao.obtenerPrecioProducto(codigoProducto);
 } 
     public int verificarExistencias(int codigoProducto) {
-    daoCotizacion dao = new daoCotizacion();
+    daoPedidos dao = new daoPedidos();
     return dao.verificarExistencias(codigoProducto);
 }   
-    public void registrarCotizacionDetalle(int cotizacionId, DefaultTableModel model) {
-    daoCotizacion dao = new daoCotizacion();
-    dao.registrarCotizacionDetalle( cotizacionId, model);
+    public void registrarPedidoDetalle(int pedidoId, DefaultTableModel model) {
+    daoPedidos dao = new daoPedidos();
+    dao.registrarPedidoDetalle( pedidoId, model);
 }   
-    public void registrarCotizacion(int idCliente, int idVendedor, LocalDate fecha, double total) {
-    daoCotizacion dao = new daoCotizacion();
-    dao.registrarCotizacion( idCliente,  idVendedor, fecha, total);
+    public void registrarPedido(int idCliente, int idVendedor, LocalDate fecha, double total) {
+    daoPedidos dao = new daoPedidos();
+    dao.registrarPedido( idCliente,  idVendedor, fecha, total);
 }
-    public int obtenerUltimoIdCotizacion() {
-    daoCotizacion dao = new daoCotizacion();
-    return dao.obtenerUltimoIdCotizacion();
+    public int obtenerUltimoIdPedido() {
+    daoPedidos dao = new daoPedidos();
+    return dao.obtenerUltimoIdPedido();
 }
     
 }
