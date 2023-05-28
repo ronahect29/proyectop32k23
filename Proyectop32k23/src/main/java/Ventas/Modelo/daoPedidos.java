@@ -116,7 +116,7 @@ public class daoPedidos {
   
   public void registrarPedido(int idCliente, int idVendedor, LocalDate fecha, double total) {
         try (Connection conn = Conexion.getConnection()) {
-            String query = "INSERT INTO tbl_pedido (clId, venid, cotfecha, cotTotalGeneral) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_pedido (clId, venid, pedfecha, pedTotalGeneral) VALUES (?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setInt(1, idCliente);
             statement.setInt(2, idVendedor);
@@ -149,7 +149,7 @@ public class daoPedidos {
     
     public void registrarPedidoDetalle(int pedidoId, DefaultTableModel model) {
         try (Connection conn = Conexion.getConnection()) {
-            String query = "INSERT INTO tbl_pedidodetalle (pedid, proCodigo, proPrecios, cotprodcantidad, cotTotalInd) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_pedidodetalle (pedid, proCodigo, proPrecios, prodcantidad, pedTotalInd) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             
             int rowCount = model.getRowCount();
