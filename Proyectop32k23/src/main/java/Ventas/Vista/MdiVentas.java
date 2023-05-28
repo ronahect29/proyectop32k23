@@ -56,6 +56,7 @@ public class MdiVentas extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         mnuConsultasVentas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         mnuReportesVentas = new javax.swing.JMenu();
         mnuAyudasVentas = new javax.swing.JMenu();
 
@@ -192,6 +193,15 @@ public class MdiVentas extends javax.swing.JFrame {
         });
         mnuConsultasVentas.add(jMenuItem1);
 
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Consulta Pedidos");
+        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem2ActionPerformed(evt);
+            }
+        });
+        mnuConsultasVentas.add(jCheckBoxMenuItem2);
+
         mnuGeneralVentas.add(mnuConsultasVentas);
 
         mnuReportesVentas.setText("Reportes");
@@ -306,6 +316,15 @@ public class MdiVentas extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        frmConsultaPedido ventana = new frmConsultaPedido();
+        jDesktopPaneVentas.add(ventana);
+        Dimension desktopSize = jDesktopPaneVentas.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
+    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -347,6 +366,7 @@ public class MdiVentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1MdiVentas;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JDesktopPane jDesktopPaneVentas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu1MdiVentas;

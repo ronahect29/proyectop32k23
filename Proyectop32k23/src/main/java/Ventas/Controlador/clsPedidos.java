@@ -23,6 +23,11 @@ public class clsPedidos {
     private String NombreProducto;
     private Double PrecioProducto;
     private int ExistenciaProducto;
+    private int IdCliente;
+    private int IdPed;
+    private String FechaPed;
+    private double TotalPed;
+    private int CantidadProducto;
 
     public clsPedidos() {
     }
@@ -77,7 +82,44 @@ public int getExistenciaProducto() {
 public void setExistenciaProducto(int ExistenciaProducto) {
     this.ExistenciaProducto = ExistenciaProducto;
 }
+public void setCantidadProducto(int CantidadProducto) {
+    this.CantidadProducto = CantidadProducto;
+}
 
+public int getCantidadProducto() {
+    return CantidadProducto;
+}
+public int getIdPed() {
+    return IdPed;
+}
+
+public void setIdPed(int IdPed) {
+    this.IdPed = IdPed;
+}
+
+public int getIdCliente() {
+    return IdCliente;
+}
+
+public void setIdCliente(int IdCliente) {
+    this.IdCliente = IdCliente;
+}
+
+public String getFechaPed() {
+    return FechaPed;
+}
+
+public void setFechaPed(String FechaPed) {
+    this.FechaPed = FechaPed;
+}
+
+public double getTotalPed() {
+    return TotalPed;
+}
+
+public void setTotalPed(double TotalPed) {
+    this.TotalPed = TotalPed;
+}
 
     @Override
     public String toString() {
@@ -90,6 +132,20 @@ public void setExistenciaProducto(int ExistenciaProducto) {
         daoPedidos daoProducto = new daoPedidos();
         List<clsPedidos> listadoProductos = daoProducto.consultaProducto();
         return listadoProductos;
+    }
+    
+    public List<clsPedidos> getListadoPedidos()
+    {
+        daoPedidos daoCots = new daoPedidos();
+        List<clsPedidos> listadoPedidos = daoCots.consultaPedidos();
+        return listadoPedidos;
+    }
+    
+    public List<clsPedidos> getListadoPedidosDetalle(int cotid)
+    {
+        daoPedidos dao = new daoPedidos();
+    return dao.consultaPedidosDetalle(cotid);
+
     }
         
     public double obtenerPrecioProducto(int codigoProducto) {

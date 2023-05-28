@@ -25,6 +25,8 @@ public class daoPedidos {
     String usuariobd = "root";
     String contrabd = "";
     private static final String SQL_SELECT = "SELECT proCodigo, proNombre, proPrecios, proExistencias FROM tbl_productos";
+    private static final String SQL_SELECT_PED = "SELECT pedid, clId, pedfecha, pedTotalGeneral FROM tbl_pedido";
+    private static final String SQL_SELECT_PEDDET = "SELECT pedid, proCodigo, proPrecios, prodcantidad, pedTotalInd FROM tbl_pedidodetalle";
       public int verificarExistencias(int codigoProducto) {
         try {
             // Establecer la conexión a la base de datos
@@ -82,6 +84,90 @@ public class daoPedidos {
 
         return productos;
     }
+      
+       public List<clsPedidos> consultaPedidos() {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+
+        List<clsPedidos> cotizaciones = new ArrayList<>();
+
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_PED);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+
+                int IdPed = rs.getInt("pedid");
+                int IdCliente = rs.getInt("clId");
+                String Fecha = rs.getString("pedFecha");
+                double Total = rs.getDouble("pedTotalGeneral");
+                
+                clsPedidos cotizacion = new clsPedidos();
+                cotizacion.setIdPed(IdPed);
+                cotizacion.setIdCliente(IdCliente);
+                cotizacion.setFechaPed(Fecha);
+                cotizacion.setTotalPed(Total);
+                cotizaciones.add(cotizacion);
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        return cotizaciones;
+    }
+    
+    public List<clsPedidos> consultaPedidosDetalle(int cotid) {
+
+          Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    List<clsPedidos> cotizaciones = new ArrayList<>();
+
+    try {
+        conn = Conexion.getConnection();
+
+        // Reemplaza el parámetro en la consulta SQL
+        String sql = SQL_SELECT_PEDDET + " WHERE pedid ='"+cotid+"'";
+        stmt = conn.prepareStatement(sql);
+        
+        rs = stmt.executeQuery();
+        
+        while (rs.next()) {
+            
+            int IdCot = rs.getInt("pedid");
+            int Codigo = rs.getInt("proCodigo");
+            double Precio = rs.getDouble("proPrecios");
+            int Cantidad = rs.getInt("prodcantidad");
+            double Total = rs.getDouble("pedTotalInd");
+
+            
+            clsPedidos cotizacion = new clsPedidos();
+            cotizacion.setIdPed(IdCot);
+            cotizacion.setIdProducto(Codigo);
+            cotizacion.setPrecioProducto(Precio);
+            cotizacion.setCantidadProducto(Cantidad);
+            cotizacion.setTotalPed(Total);
+            cotizaciones.add(cotizacion);
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace(System.out);
+    } finally {
+        Conexion.close(rs);
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return cotizaciones;
+}
       
   public double obtenerPrecioProducto(int codigoProducto) {
     double precio = 0.0;
