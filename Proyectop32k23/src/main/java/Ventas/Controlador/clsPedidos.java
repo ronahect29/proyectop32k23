@@ -104,9 +104,9 @@ public void setExistenciaProducto(int ExistenciaProducto) {
     daoPedidos dao = new daoPedidos();
     dao.registrarPedidoDetalle( pedidoId, model);
 }   
-    public void registrarPedido(int idCliente, int idVendedor, LocalDate fecha, double total) {
+    public void registrarPedido(int idCliente, LocalDate fecha, double total) {
     daoPedidos dao = new daoPedidos();
-    dao.registrarPedido( idCliente,  idVendedor, fecha, total);
+    dao.registrarPedido( idCliente, fecha, total);
 }
     public int obtenerUltimoIdPedido() {
     daoPedidos dao = new daoPedidos();

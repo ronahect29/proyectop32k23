@@ -10,6 +10,7 @@ package Ventas.Vista;
 import Seguridad.Controlador.clsBitacora;
 import Ventas.Controlador.clsCotizacion;
 import Seguridad.Controlador.clsUsuarioConectado;
+import Ventas.Controlador.clsPedidos;
 import Ventas.Controlador.clsTienda;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -456,25 +457,24 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     private void btnRegistrarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCotActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) tblCotActual.getModel();
-                    if (txtIdClienteCot.getText().isEmpty() || txtIdVendedorCot.getText().isEmpty() || modelo.getRowCount() == 0) {
+                    if (txtIdClienteCot.getText().isEmpty() || modelo.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "No se ha ingresado la información necesaria", "Error", JOptionPane.ERROR_MESSAGE);
             return;
             }
         clsPedidos pedido = new clsPedidos();
         int idCliente = Integer.parseInt(txtIdClienteCot.getText());
-                int idVendedor = Integer.parseInt(txtIdVendedorCot.getText());
                 double totalPedido = Double.parseDouble(txtTotalCot.getText());
                 LocalDate fechaActual = LocalDate.now();
 
                 
                 // Registrar en la tabla tbl_cotizacion
-                pedido.registrarCotizacion(idCliente, idVendedor, fechaActual, totaPedido);
+                pedido.registrarPedido(idCliente, fechaActual, totalPedido);
                 
                 // Obtener el último valor agregado en la columna cotid de tbl_cotizacion
-                int cotizacionId = pedido.obtenerUltimoIdCotizacion();
+                int pedidoId = pedido.obtenerUltimoIdPedido();
                 
                 // Obtener los datos de la JTable tblCotActual y registrar en tbl_cotdetalle
-                pedido.registrarCotizacionDetalle(pedidoId, modelo);
+                pedido.registrarPedidoDetalle(pedidoId, modelo);
                 limpiarTextos();
                 int rowCount = modelo.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
@@ -487,7 +487,7 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
                 int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS"); 
-                JOptionPane.showMessageDialog(null, "Cotización #" + cotizacionId + " ha sido registrada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Pedido #" + pedidoId + " ha sido registrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 
     }//GEN-LAST:event_btnRegistrarCotActionPerformed
          

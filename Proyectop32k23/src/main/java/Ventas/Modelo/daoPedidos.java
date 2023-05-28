@@ -114,14 +114,13 @@ public class daoPedidos {
     return precio;
 }
   
-  public void registrarPedido(int idCliente, int idVendedor, LocalDate fecha, double total) {
+  public void registrarPedido(int idCliente, LocalDate fecha, double total) {
         try (Connection conn = Conexion.getConnection()) {
-            String query = "INSERT INTO tbl_pedido (clId, venid, pedfecha, pedTotalGeneral) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_pedido (clId, pedfecha, pedTotalGeneral) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setInt(1, idCliente);
-            statement.setInt(2, idVendedor);
-            statement.setDate(3, java.sql.Date.valueOf(fecha));
-            statement.setDouble(4, total);
+            statement.setDate(2, java.sql.Date.valueOf(fecha));
+            statement.setDouble(3, total);
             
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -151,7 +150,7 @@ public class daoPedidos {
         try (Connection conn = Conexion.getConnection()) {
             String query = "INSERT INTO tbl_pedidodetalle (pedid, proCodigo, proPrecios, prodcantidad, pedTotalInd) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
-            
+            PreparedStatement stmtUpdate = null;            
             int rowCount = model.getRowCount();
             
             for (int i = 0; i < rowCount; i++) {
@@ -165,6 +164,13 @@ public class daoPedidos {
                 statement.setDouble(3, precioProducto);
                 statement.setInt(4, cantidadProducto);
                 statement.setDouble(5, totalIndividual);
+                
+                
+                // Actualiza las existencias en la tabla tbl_productos
+                stmtUpdate = conn.prepareStatement("UPDATE tbl_productos SET proExistencias = proExistencias - ? WHERE proCodigo = ?");
+                stmtUpdate.setInt(1, cantidadProducto);
+                stmtUpdate.setInt(2, codigoProducto);
+                stmtUpdate.executeUpdate();
                 
                 statement.executeUpdate();
             }
