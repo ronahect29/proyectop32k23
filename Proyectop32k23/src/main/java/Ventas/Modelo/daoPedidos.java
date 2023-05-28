@@ -8,7 +8,7 @@
 //daoVendedores
 
 package Ventas.Modelo;
-import Ventas.Controlador.clsCotizacion;
+import Ventas.Controlador.clsPedidos;
 import Seguridad.Modelo.Conexion;
 import java.sql.*;
 import java.time.LocalDate;
@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author maria
  */
-public class daoCotizacion {
+public class daoPedidos {
     String usuariobd = "root";
     String contrabd = "";
     private static final String SQL_SELECT = "SELECT proCodigo, proNombre, proPrecios, proExistencias FROM tbl_productos";
@@ -44,14 +44,14 @@ public class daoCotizacion {
         }
     }
       
-      public List<clsCotizacion> consultaProducto() {
+      public List<clsPedidos> consultaProducto() {
 
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
 
-        List<clsCotizacion> productos = new ArrayList<>();
+        List<clsPedidos> productos = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -64,7 +64,7 @@ public class daoCotizacion {
                 double Precio = rs.getDouble("proPrecios");
                 int Existencias = rs.getInt("proExistencias");
                 
-                clsCotizacion producto = new clsCotizacion();
+                clsPedidos producto = new clsPedidos();
                 producto.setIdProducto(Id);
                 producto.setNombreProducto(Nombre);
                 producto.setPrecioProducto(Precio);
@@ -114,9 +114,9 @@ public class daoCotizacion {
     return precio;
 }
   
-  public void registrarCotizacion(int idCliente, int idVendedor, LocalDate fecha, double total) {
+  public void registrarPedido(int idCliente, int idVendedor, LocalDate fecha, double total) {
         try (Connection conn = Conexion.getConnection()) {
-            String query = "INSERT INTO tbl_cotizacion (clId, venid, cotfecha, cotTotalGeneral) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_pedido (clId, venid, cotfecha, cotTotalGeneral) VALUES (?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setInt(1, idCliente);
             statement.setInt(2, idVendedor);
@@ -129,27 +129,27 @@ public class daoCotizacion {
         }
     }
     
-    public int obtenerUltimoIdCotizacion() {
-        int cotizacionId = 0;
+    public int obtenerUltimoIdPedido() {
+        int PedidoId = 0;
         
         try (Connection conn = Conexion.getConnection()) {
-            String query = "SELECT MAX(cotid) FROM tbl_cotizacion";
+            String query = "SELECT MAX(pedid) FROM tbl_pedido";
             Statement statement = conn.createStatement();
             ResultSet result = statement.executeQuery(query);
             
             if (result.next()) {
-                cotizacionId = result.getInt(1);
+                PedidoId = result.getInt(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         
-        return cotizacionId;
+        return PedidoId;
     }
     
-    public void registrarCotizacionDetalle(int cotizacionId, DefaultTableModel model) {
+    public void registrarPedidoDetalle(int pedidoId, DefaultTableModel model) {
         try (Connection conn = Conexion.getConnection()) {
-            String query = "INSERT INTO tbl_cotdetalle (cotid, proCodigo, proPrecios, cotprodcantidad, cotTotalInd) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_pedidodetalle (pedid, proCodigo, proPrecios, cotprodcantidad, cotTotalInd) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
             
             int rowCount = model.getRowCount();
@@ -160,7 +160,7 @@ public class daoCotizacion {
                 int cantidadProducto = (int) model.getValueAt(i, 1);
                 double totalIndividual = (double) model.getValueAt(i, 2);
                 
-                statement.setInt(1, cotizacionId);
+                statement.setInt(1, pedidoId);
                 statement.setInt(2, codigoProducto);
                 statement.setDouble(3, precioProducto);
                 statement.setInt(4, cantidadProducto);
