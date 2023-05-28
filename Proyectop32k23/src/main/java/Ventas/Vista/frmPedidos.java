@@ -6,6 +6,7 @@
 package Ventas.Vista;
 
 
+
 import Seguridad.Controlador.clsBitacora;
 import Ventas.Controlador.clsCotizacion;
 import Seguridad.Controlador.clsUsuarioConectado;
@@ -20,12 +21,12 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
-
+//Carlos hernandez
 /**
  *
  * @author visitante
  */
-public class frmCotizacion extends javax.swing.JInternalFrame {
+public class frmPedidos extends javax.swing.JInternalFrame {
 
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
@@ -39,7 +40,7 @@ public class frmCotizacion extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modeloTabla;
     
-    public frmCotizacion() {
+    public frmPedidos() {
         initComponents();
         modeloTabla = (DefaultTableModel) tblCotActual.getModel();
         llenadoDeTablasProductos();
@@ -329,9 +330,9 @@ limpiarTextos();
         modelo.addColumn("proNombre");
         modelo.addColumn("proPrecios");
         modelo.addColumn("proExistencias");
-        clsCotizacion producto = new clsCotizacion();
+        clsPedidos producto = new clsPedidos();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsCotizacion> listaProductos = producto.getListadoProductos();
+        List<clsPedidos> listaProductos = producto.getListadoProductos();
         tblProdDispCot.setModel(modelo);
         String[] dato = new String[4];
         for (int i = 0; i < listaProductos.size(); i++) {
@@ -351,7 +352,7 @@ limpiarTextos();
         // Obtener los datos ingresados
         int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
         int nuevaCantidad = Integer.parseInt(txtCantProdCot.getText());
-        clsCotizacion cotizacion = new clsCotizacion();
+        clsPedidos pedido = new clsPedidos();
         
         
 // Verificar si el código de producto existe en la tabla de cotización
@@ -367,8 +368,8 @@ limpiarTextos();
         }
         if (productoEncontrado) {
                 // Actualizar el subtotal y el total
-            if (cotizacion.verificarExistencias(codigoProducto) >= nuevaCantidad) {
-                double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
+            if (pedido.verificarExistencias(codigoProducto) >= nuevaCantidad) {
+                double precio = pedido.obtenerPrecioProducto(codigoProducto);
                 double sumaSubTotal = precio * nuevaCantidad;
                 
                 // Actualizar la cantidad en la fila correspondiente
@@ -412,7 +413,7 @@ limpiarTextos();
     private void btnAgregarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCotActionPerformed
 int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     int cantidad = Integer.parseInt(txtCantProdCot.getText());
-    clsCotizacion cotizacion = new clsCotizacion();
+    clsPedidos pedido = new clsPedidos();
     
     // Verificar si el producto ya está registrado en la tabla
     boolean productoExistente = false;
@@ -427,8 +428,8 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     
     if (productoExistente) {
         JOptionPane.showMessageDialog(this, "Este Producto ya está registrado, puedes intentar MODIFICAR.");
-    } else if (cotizacion.verificarExistencias(codigoProducto) >= cantidad) {
-        double precio = cotizacion.obtenerPrecioProducto(codigoProducto);
+    } else if (pedido.verificarExistencias(codigoProducto) >= cantidad) {
+        double precio = pedido.obtenerPrecioProducto(codigoProducto);
         double sumaSubTotal = precio * cantidad;
         
         // Agregar los datos a la tabla
@@ -459,21 +460,21 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
             JOptionPane.showMessageDialog(null, "No se ha ingresado la información necesaria", "Error", JOptionPane.ERROR_MESSAGE);
             return;
             }
-        clsCotizacion cotizacion = new clsCotizacion();
+        clsPedidos pedido = new clsPedidos();
         int idCliente = Integer.parseInt(txtIdClienteCot.getText());
                 int idVendedor = Integer.parseInt(txtIdVendedorCot.getText());
-                double totalCotizacion = Double.parseDouble(txtTotalCot.getText());
+                double totalPedido = Double.parseDouble(txtTotalCot.getText());
                 LocalDate fechaActual = LocalDate.now();
 
                 
                 // Registrar en la tabla tbl_cotizacion
-                cotizacion.registrarCotizacion(idCliente, idVendedor, fechaActual, totalCotizacion);
+                pedido.registrarCotizacion(idCliente, idVendedor, fechaActual, totaPedido);
                 
                 // Obtener el último valor agregado en la columna cotid de tbl_cotizacion
-                int cotizacionId = cotizacion.obtenerUltimoIdCotizacion();
+                int cotizacionId = pedido.obtenerUltimoIdCotizacion();
                 
                 // Obtener los datos de la JTable tblCotActual y registrar en tbl_cotdetalle
-                cotizacion.registrarCotizacionDetalle(cotizacionId, modelo);
+                pedido.registrarCotizacionDetalle(pedidoId, modelo);
                 limpiarTextos();
                 int rowCount = modelo.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
