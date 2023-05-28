@@ -6,6 +6,7 @@
 package Ventas.Vista;
 
 
+
 import Seguridad.Controlador.clsBitacora;
 import Ventas.Controlador.clsCotizacion;
 import Seguridad.Controlador.clsUsuarioConectado;
@@ -20,7 +21,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
-
+//Carlos hernandez
 /**
  *
  * @author visitante
