@@ -71,21 +71,21 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Cotizacion = new javax.swing.JLabel();
-        lbusuCotizacion = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPaneProdDispCot = new javax.swing.JScrollPane();
+        lb2CotizacionCons = new javax.swing.JLabel();
+        lbusuCotizacionCons = new javax.swing.JLabel();
+        jScrollPane1CotCons = new javax.swing.JScrollPane();
+        jTable1CotCons = new javax.swing.JTable();
+        jScrollPaneCotReg = new javax.swing.JScrollPane();
         tblCotConsulta = new javax.swing.JTable();
-        lbCantProdCot1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        lbCantProdCot2 = new javax.swing.JLabel();
+        lbCotReg = new javax.swing.JLabel();
+        btnVerDetalleCot = new javax.swing.JButton();
+        btnPedidoCot = new javax.swing.JButton();
+        lbInsCotReg = new javax.swing.JLabel();
 
-        lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Cotizacion.setText(".");
+        lb2CotizacionCons.setForeground(new java.awt.Color(204, 204, 204));
+        lb2CotizacionCons.setText(".");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1CotCons.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -96,7 +96,7 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1CotCons.setViewportView(jTable1CotCons);
 
         setClosable(true);
         setIconifiable(true);
@@ -116,25 +116,25 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneProdDispCot.setViewportView(tblCotConsulta);
+        jScrollPaneCotReg.setViewportView(tblCotConsulta);
 
-        lbCantProdCot1.setText("Cotizaciones Registradas:");
+        lbCotReg.setText("Cotizaciones Registradas:");
 
-        jButton1.setText("Ver Detalle");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVerDetalleCot.setText("Ver Detalle");
+        btnVerDetalleCot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVerDetalleCotActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Realizar Pedido");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnPedidoCot.setText("Realizar Pedido");
+        btnPedidoCot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnPedidoCotActionPerformed(evt);
             }
         });
 
-        lbCantProdCot2.setText("Haz clic en la cotización que quieras trabajar, luego presiona un botón:");
+        lbInsCotReg.setText("Haz clic en la cotización que quieras trabajar, luego presiona un botón:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,44 +142,44 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(394, 394, 394)
-                .addComponent(lbCantProdCot1)
+                .addComponent(lbCotReg)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbCantProdCot2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))
+                    .addComponent(lbInsCotReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneCotReg, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnVerDetalleCot)
                         .addGap(123, 123, 123))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnPedidoCot)
                         .addGap(113, 113, 113))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbCantProdCot1)
+                .addComponent(lbCotReg)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(lbCantProdCot2)
+                .addComponent(lbInsCotReg)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPaneCotReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jButton1)
+                        .addComponent(btnVerDetalleCot)
                         .addGap(66, 66, 66)
-                        .addComponent(jButton2)))
+                        .addComponent(btnPedidoCot)))
                 .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVerDetalleCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalleCotActionPerformed
         // TODO add your handling code here:
 // Crea una instancia de FrmConsultaCotizacionDetalle
                 int filaSeleccionada = tblCotConsulta.getSelectedRow();
@@ -195,9 +195,9 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"QRY"); 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVerDetalleCotActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnPedidoCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoCotActionPerformed
         // TODO add your handling code here:
                 int filaSeleccionada = tblCotConsulta.getSelectedRow();
                 int cotidSeleccionado = Integer.valueOf(tblCotConsulta.getValueAt(filaSeleccionada, 0).toString());
@@ -207,7 +207,7 @@ public class frmConsultaCotizacion extends javax.swing.JInternalFrame {
                 int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS"); 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnPedidoCotActionPerformed
 
      public void llenadoDeTablasCotizaciones() {
         DefaultTableModel modelo = new DefaultTableModel(){
@@ -247,15 +247,15 @@ public int obtenerCotidSeleccionado() {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneProdDispCot;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lb2Cotizacion;
-    private javax.swing.JLabel lbCantProdCot1;
-    private javax.swing.JLabel lbCantProdCot2;
-    private javax.swing.JLabel lbusuCotizacion;
+    private javax.swing.JButton btnPedidoCot;
+    private javax.swing.JButton btnVerDetalleCot;
+    private javax.swing.JScrollPane jScrollPane1CotCons;
+    private javax.swing.JScrollPane jScrollPaneCotReg;
+    private javax.swing.JTable jTable1CotCons;
+    private javax.swing.JLabel lb2CotizacionCons;
+    private javax.swing.JLabel lbCotReg;
+    private javax.swing.JLabel lbInsCotReg;
+    private javax.swing.JLabel lbusuCotizacionCons;
     private javax.swing.JTable tblCotConsulta;
     // End of variables declaration//GEN-END:variables
 

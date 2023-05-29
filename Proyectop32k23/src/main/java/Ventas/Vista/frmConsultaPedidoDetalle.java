@@ -69,18 +69,18 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Cotizacion = new javax.swing.JLabel();
-        lbusuCotizacion = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPaneProdDispCot = new javax.swing.JScrollPane();
-        tblCotConsDet = new javax.swing.JTable();
-        lbCantProdCot1 = new javax.swing.JLabel();
+        lb2PedConsDet = new javax.swing.JLabel();
+        lbusuPedConsDet = new javax.swing.JLabel();
+        jScrollPane1PedDet = new javax.swing.JScrollPane();
+        jTable1PedDet = new javax.swing.JTable();
+        jScrollPanePedRegDet = new javax.swing.JScrollPane();
+        tblPedDetCons = new javax.swing.JTable();
+        lbPedDet = new javax.swing.JLabel();
 
-        lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Cotizacion.setText(".");
+        lb2PedConsDet.setForeground(new java.awt.Color(204, 204, 204));
+        lb2PedConsDet.setText(".");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1PedDet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -91,16 +91,16 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1PedDet.setViewportView(jTable1PedDet);
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Cotizaciones");
+        setTitle("Pedidos");
         setVisible(true);
 
-        tblCotConsDet.setModel(new javax.swing.table.DefaultTableModel(
+        tblPedDetCons.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -111,9 +111,9 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneProdDispCot.setViewportView(tblCotConsDet);
+        jScrollPanePedRegDet.setViewportView(tblPedDetCons);
 
-        lbCantProdCot1.setText("Detalle de la Cotización:");
+        lbPedDet.setText("Detalle del Pedido:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,19 +123,19 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPanePedRegDet, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(391, 391, 391)
-                        .addComponent(lbCantProdCot1)))
+                        .addComponent(lbPedDet)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(58, Short.MAX_VALUE)
-                .addComponent(lbCantProdCot1)
+                .addComponent(lbPedDet)
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanePedRegDet, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -151,7 +151,7 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
         modelo.addColumn("Sub Total");
         clsPedidos cotizacion = new clsPedidos();
         List<clsPedidos> listaCotizaciones = cotizacion.getListadoPedidosDetalle(cotidSeleccionado);
-        tblCotConsDet.setModel(modelo);
+        tblPedDetCons.setModel(modelo);
         String[] dato = new String[5];
         for (int i = 0; i < listaCotizaciones.size(); i++) {
             dato[0] = Integer.toString(listaCotizaciones.get(i).getIdPed());
@@ -172,13 +172,13 @@ public class frmConsultaPedidoDetalle extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneProdDispCot;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lb2Cotizacion;
-    private javax.swing.JLabel lbCantProdCot1;
-    private javax.swing.JLabel lbusuCotizacion;
-    private javax.swing.JTable tblCotConsDet;
+    private javax.swing.JScrollPane jScrollPane1PedDet;
+    private javax.swing.JScrollPane jScrollPanePedRegDet;
+    private javax.swing.JTable jTable1PedDet;
+    private javax.swing.JLabel lb2PedConsDet;
+    private javax.swing.JLabel lbPedDet;
+    private javax.swing.JLabel lbusuPedConsDet;
+    private javax.swing.JTable tblPedDetCons;
     // End of variables declaration//GEN-END:variables
 
 

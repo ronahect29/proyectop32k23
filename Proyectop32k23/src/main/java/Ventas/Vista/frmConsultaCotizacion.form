@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.JLabel" name="lb2Cotizacion">
+    <Component class="javax.swing.JLabel" name="lb2CotizacionCons">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -10,16 +10,16 @@
         <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbusuCotizacion">
+    <Component class="javax.swing.JLabel" name="lbusuCotizacionCons">
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1CotCons">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="jTable1CotCons">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -62,23 +62,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="394" max="-2" attributes="0"/>
-              <Component id="lbCantProdCot1" min="-2" max="-2" attributes="0"/>
+              <Component id="lbCotReg" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lbCantProdCot2" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneProdDispCot" pref="572" max="32767" attributes="0"/>
+                  <Component id="lbInsCotReg" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneCotReg" pref="572" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="121" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerDetalleCot" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPedidoCot" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -89,17 +89,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lbCantProdCot1" min="-2" max="-2" attributes="0"/>
+              <Component id="lbCotReg" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="32" max="32767" attributes="0"/>
-              <Component id="lbCantProdCot2" min="-2" max="-2" attributes="0"/>
+              <Component id="lbInsCotReg" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPaneProdDispCot" min="-2" pref="316" max="-2" attributes="0"/>
+                  <Component id="jScrollPaneCotReg" min="-2" pref="316" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnVerDetalleCot" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPedidoCot" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -108,7 +108,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPaneProdDispCot">
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneCotReg">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -129,28 +129,28 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lbCantProdCot1">
+    <Component class="javax.swing.JLabel" name="lbCotReg">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cotizaciones Registradas:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnVerDetalleCot">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Detalle"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDetalleCotActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnPedidoCot">
       <Properties>
         <Property name="text" type="java.lang.String" value="Realizar Pedido"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPedidoCotActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbCantProdCot2">
+    <Component class="javax.swing.JLabel" name="lbInsCotReg">
       <Properties>
         <Property name="text" type="java.lang.String" value="Haz clic en la cotizaci&#xf3;n que quieras trabajar, luego presiona un bot&#xf3;n:"/>
       </Properties>

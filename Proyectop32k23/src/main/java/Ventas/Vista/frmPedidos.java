@@ -43,12 +43,12 @@ public class frmPedidos extends javax.swing.JInternalFrame {
     
     public frmPedidos() {
         initComponents();
-        modeloTabla = (DefaultTableModel) tblCotActual.getModel();
+        modeloTabla = (DefaultTableModel) tblPedActual.getModel();
         llenadoDeTablasProductos();
         llenadoDeCombos();
     }
 
-    int codigoAplicacion = 3004;
+    int codigoAplicacion = 3006;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,36 +59,34 @@ public class frmPedidos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Cotizacion = new javax.swing.JLabel();
-        lbusuCotizacion = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        lbCodProdCot = new javax.swing.JLabel();
-        lbCotActual = new javax.swing.JLabel();
-        lbCantProdCot = new javax.swing.JLabel();
-        lbTotalCot = new javax.swing.JLabel();
-        txtTotalCot = new javax.swing.JTextField();
-        btnAgregarCot = new javax.swing.JButton();
-        txtCodProdCot = new javax.swing.JTextField();
-        btnModificarCot = new javax.swing.JButton();
-        txtCantProdCot = new javax.swing.JTextField();
-        btnEliminarCot = new javax.swing.JButton();
-        jScrollPaneCotActual = new javax.swing.JScrollPane();
-        tblCotActual = new javax.swing.JTable();
-        jScrollPaneProdDispCot = new javax.swing.JScrollPane();
-        tblProdDispCot = new javax.swing.JTable();
-        lbCantProdCot1 = new javax.swing.JLabel();
-        txtIdClienteCot = new javax.swing.JTextField();
-        txtIdVendedorCot = new javax.swing.JTextField();
-        btnRegistrarCot = new javax.swing.JButton();
-        lbInstCot = new javax.swing.JLabel();
-        lbIdClienteCot = new javax.swing.JLabel();
-        lbIdVendedorCot = new javax.swing.JLabel();
+        lb2Pedido = new javax.swing.JLabel();
+        lbusuPedido = new javax.swing.JLabel();
+        jScrollPanePed2 = new javax.swing.JScrollPane();
+        jTable1Ped = new javax.swing.JTable();
+        lbCodProdPed = new javax.swing.JLabel();
+        lbPedActual = new javax.swing.JLabel();
+        lbCantProdPed = new javax.swing.JLabel();
+        lbTotalPed = new javax.swing.JLabel();
+        txtTotalPed = new javax.swing.JTextField();
+        btnAgregarPed = new javax.swing.JButton();
+        txtCodProdPed = new javax.swing.JTextField();
+        btnModificarPed = new javax.swing.JButton();
+        txtCantProdPed = new javax.swing.JTextField();
+        btnEliminarPed = new javax.swing.JButton();
+        jScrollPanePedActual = new javax.swing.JScrollPane();
+        tblPedActual = new javax.swing.JTable();
+        jScrollPaneProdDispPed = new javax.swing.JScrollPane();
+        tblProdDispPed = new javax.swing.JTable();
+        lbCantProdPed1 = new javax.swing.JLabel();
+        txtIdClientePed = new javax.swing.JTextField();
+        btnRegistrarPed = new javax.swing.JButton();
+        lbInstPed = new javax.swing.JLabel();
+        lbIdClientePed = new javax.swing.JLabel();
 
-        lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Cotizacion.setText(".");
+        lb2Pedido.setForeground(new java.awt.Color(204, 204, 204));
+        lb2Pedido.setText(".");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1Ped.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -99,47 +97,47 @@ public class frmPedidos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPanePed2.setViewportView(jTable1Ped);
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Cotizaciones");
+        setTitle("Pedidos");
         setVisible(true);
 
-        lbCodProdCot.setText("Codigo del Producto:");
+        lbCodProdPed.setText("Codigo del Producto:");
 
-        lbCotActual.setText("Cotización Actual:");
+        lbPedActual.setText("Pedido Actual:");
 
-        lbCantProdCot.setText("Cantidad del Producto:");
+        lbCantProdPed.setText("Cantidad del Producto:");
 
-        lbTotalCot.setText("TOTAL DE LA COTIZACIÓN:");
+        lbTotalPed.setText("TOTAL DEL PEDIDO:");
 
-        txtTotalCot.setEditable(false);
+        txtTotalPed.setEditable(false);
 
-        btnAgregarCot.setText("Agregar");
-        btnAgregarCot.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarPed.setText("Agregar");
+        btnAgregarPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarCotActionPerformed(evt);
+                btnAgregarPedActionPerformed(evt);
             }
         });
 
-        btnModificarCot.setText("Modificar");
-        btnModificarCot.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarPed.setText("Modificar");
+        btnModificarPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarCotActionPerformed(evt);
+                btnModificarPedActionPerformed(evt);
             }
         });
 
-        btnEliminarCot.setText("Eliminar");
-        btnEliminarCot.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarPed.setText("Eliminar");
+        btnEliminarPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarCotActionPerformed(evt);
+                btnEliminarPedActionPerformed(evt);
             }
         });
 
-        tblCotActual.setModel(new javax.swing.table.DefaultTableModel(
+        tblPedActual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -147,9 +145,9 @@ public class frmPedidos extends javax.swing.JInternalFrame {
                 "Codigo Producto", "Cantidad", "SubTotal"
             }
         ));
-        jScrollPaneCotActual.setViewportView(tblCotActual);
+        jScrollPanePedActual.setViewportView(tblPedActual);
 
-        tblProdDispCot.setModel(new javax.swing.table.DefaultTableModel(
+        tblProdDispPed.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -160,145 +158,127 @@ public class frmPedidos extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneProdDispCot.setViewportView(tblProdDispCot);
+        jScrollPaneProdDispPed.setViewportView(tblProdDispPed);
 
-        lbCantProdCot1.setText("Productos Disponibles:");
+        lbCantProdPed1.setText("Productos Disponibles:");
 
-        btnRegistrarCot.setText("Registrar Cotización");
-        btnRegistrarCot.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarPed.setText("Realizar Pedido");
+        btnRegistrarPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarCotActionPerformed(evt);
+                btnRegistrarPedActionPerformed(evt);
             }
         });
 
-        lbInstCot.setText("Para registrar esta cotización debes ingresar los siguientes datos:");
+        lbInstPed.setText("Para registrar este pedido debes ingresar los siguientes datos:");
 
-        lbIdClienteCot.setText("ID del Cliente:");
-
-        lbIdVendedorCot.setText("ID del Vendedor:");
+        lbIdClientePed.setText("ID del Cliente:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbCodProdPed)
+                    .addComponent(lbIdClientePed))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdClientePed, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtCodProdPed, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(lbCantProdPed)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCantProdPed, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jScrollPaneProdDispPed, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbCantProdPed1)
+                        .addGap(172, 172, 172))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRegistrarPed)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbTotalPed)
+                                .addComponent(txtTotalPed, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(123, 123, 123))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(btnAgregarPed)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnModificarPed)
+                        .addGap(82, 82, 82)
+                        .addComponent(btnEliminarPed))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPanePedActual, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lbCantProdCot)
-                                        .addComponent(lbCodProdCot))
-                                    .addComponent(btnAgregarCot))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(btnModificarCot)
-                                        .addGap(51, 51, 51)
-                                        .addComponent(btnEliminarCot))))))
+                                .addGap(376, 376, 376)
+                                .addComponent(lbPedActual))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(lbCantProdCot1)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(lbTotalCot)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbCotActual)
-                                .addGap(168, 168, 168))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(12, 12, 12)
-                                                .addComponent(lbIdVendedorCot)
-                                                .addGap(31, 31, 31)
-                                                .addComponent(txtIdVendedorCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbIdClienteCot)
-                                                .addGap(46, 46, 46)
-                                                .addComponent(txtIdClienteCot, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lbInstCot))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnRegistrarCot)
-                                            .addGap(95, 95, 95)))
-                                    .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(57, 57, 57))))))
+                        .addGap(245, 245, 245)
+                        .addComponent(lbInstPed)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCodProdCot)
-                            .addComponent(txtCodProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCantProdCot)
-                            .addComponent(txtCantProdCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregarCot)
-                            .addComponent(btnModificarCot)
-                            .addComponent(btnEliminarCot)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbCotActual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPaneCotActual, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)))
+                .addGap(17, 17, 17)
+                .addComponent(lbInstPed)
+                .addGap(4, 4, 4)
+                .addComponent(lbCantProdPed1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdClientePed, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbIdClientePed))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbTotalCot)
-                            .addComponent(txtTotalCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbCantProdCot1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(lbCodProdPed)
+                            .addComponent(txtCodProdPed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCantProdPed)
+                            .addComponent(txtCantProdPed, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPaneProdDispPed, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarPed)
+                    .addComponent(btnModificarPed)
+                    .addComponent(btnEliminarPed))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lbInstCot)
+                        .addGap(70, 70, 70)
+                        .addComponent(lbTotalPed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalPed, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnRegistrarPed)
+                        .addContainerGap(112, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbIdClienteCot)
-                            .addComponent(txtIdClienteCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbIdVendedorCot)
-                            .addComponent(txtIdVendedorCot, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegistrarCot)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(lbPedActual)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPanePedActual, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCotActionPerformed
+    private void btnEliminarPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPedActionPerformed
         // TODO add your handling code here:
-int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
+int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
 
 // Lógica para buscar y eliminar la fila en la JTable
-DefaultTableModel model = (DefaultTableModel) tblCotActual.getModel();
+DefaultTableModel model = (DefaultTableModel) tblPedActual.getModel();
 int rowCount = model.getRowCount();
 double suma = 0.0; // Variable para almacenar la suma de los subtotales
 boolean codigoEncontrado = false; // Variable para indicar si se encuentra el código en la tabla
@@ -320,10 +300,10 @@ for (int i = 0; i < rowCount; i++) {
 if (!codigoEncontrado) {
     JOptionPane.showMessageDialog(null, "No existe este código en tu cotización actual", "Error", JOptionPane.ERROR_MESSAGE);
 }
-txtTotalCot.setText(String.valueOf(suma));
+txtTotalPed.setText(String.valueOf(suma));
 limpiarTextos(); 
 
-    }//GEN-LAST:event_btnEliminarCotActionPerformed
+    }//GEN-LAST:event_btnEliminarPedActionPerformed
 
      public void llenadoDeTablasProductos() {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -334,7 +314,7 @@ limpiarTextos();
         clsPedidos producto = new clsPedidos();
         //VendedorDAO vendedorDAO = new VendedorDAO();
         List<clsPedidos> listaProductos = producto.getListadoProductos();
-        tblProdDispCot.setModel(modelo);
+        tblProdDispPed.setModel(modelo);
         String[] dato = new String[4];
         for (int i = 0; i < listaProductos.size(); i++) {
             dato[0] = Integer.toString(listaProductos.get(i).getIdProducto());
@@ -347,12 +327,12 @@ limpiarTextos();
 
     }                
 
-    private void btnModificarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCotActionPerformed
+    private void btnModificarPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPedActionPerformed
         // TODO add your handling code here:
         
         // Obtener los datos ingresados
-        int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
-        int nuevaCantidad = Integer.parseInt(txtCantProdCot.getText());
+        int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
+        int nuevaCantidad = Integer.parseInt(txtCantProdPed.getText());
         clsPedidos pedido = new clsPedidos();
         
         
@@ -382,14 +362,14 @@ limpiarTextos();
                // Actualizar el total
                 double suma = 0.0;
                 int columnaSubTotal = 2;
-                int filas = tblCotActual.getRowCount();
+                int filas = tblPedActual.getRowCount();
                 
                 for (int i = 0; i < filas; i++) {
-                    double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
+                    double valor = (double) tblPedActual.getValueAt(i, columnaSubTotal);
                     suma += valor;
                 }
                 
-                txtTotalCot.setText(String.valueOf(suma));
+                txtTotalPed.setText(String.valueOf(suma));
             }else {
                 JOptionPane.showMessageDialog(null, "El producto no tiene existencias.", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -399,28 +379,31 @@ limpiarTextos();
         
         limpiarTextos(); 
         
-    }//GEN-LAST:event_btnModificarCotActionPerformed
+    }//GEN-LAST:event_btnModificarPedActionPerformed
    public void limpiarTextos()
     {
-        txtCantProdCot.setText("");
-        txtCodProdCot.setText("");
-        txtIdClienteCot.setText("");
-        txtIdVendedorCot.setText("");
+        txtCantProdPed.setText("");
+        txtCodProdPed.setText("");
+    }
+   
+      public void limpiarTextosCliente()
+    {
+        txtIdClientePed.setText("");
     }
 
 //María José Véliz Ochoa 
 //9959-21-5909
 
-    private void btnAgregarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCotActionPerformed
-int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
-    int cantidad = Integer.parseInt(txtCantProdCot.getText());
+    private void btnAgregarPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPedActionPerformed
+int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
+    int cantidad = Integer.parseInt(txtCantProdPed.getText());
     clsPedidos pedido = new clsPedidos();
     
     // Verificar si el producto ya está registrado en la tabla
     boolean productoExistente = false;
-    int filas = tblCotActual.getRowCount();
+    int filas = tblPedActual.getRowCount();
     for (int i = 0; i < filas; i++) {
-        int codigo = (int) tblCotActual.getValueAt(i, 0);
+        int codigo = (int) tblPedActual.getValueAt(i, 0);
         if (codigo == codigoProducto) {
             productoExistente = true;
             break;
@@ -440,30 +423,30 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
         double suma = 0.0;
         int columnaSubTotal = 2; 
 
-        filas = tblCotActual.getRowCount();
+        filas = tblPedActual.getRowCount();
         for (int i = 0; i < filas; i++) {
-            double valor = (double) tblCotActual.getValueAt(i, columnaSubTotal);
+            double valor = (double) tblPedActual.getValueAt(i, columnaSubTotal);
             suma += valor;
         }
         
-        txtTotalCot.setText(String.valueOf(suma));
+        txtTotalPed.setText(String.valueOf(suma));
     } else {
         JOptionPane.showMessageDialog(this, "El producto no existe o no tiene existencias.");
     }
     
     limpiarTextos();
-    }//GEN-LAST:event_btnAgregarCotActionPerformed
+    }//GEN-LAST:event_btnAgregarPedActionPerformed
 
-    private void btnRegistrarCotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCotActionPerformed
+    private void btnRegistrarPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPedActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tblCotActual.getModel();
-                    if (txtIdClienteCot.getText().isEmpty() || modelo.getRowCount() == 0) {
+        DefaultTableModel modelo = (DefaultTableModel) tblPedActual.getModel();
+                    if (txtIdClientePed.getText().isEmpty() || modelo.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "No se ha ingresado la información necesaria", "Error", JOptionPane.ERROR_MESSAGE);
             return;
             }
         clsPedidos pedido = new clsPedidos();
-        int idCliente = Integer.parseInt(txtIdClienteCot.getText());
-                double totalPedido = Double.parseDouble(txtTotalCot.getText());
+        int idCliente = Integer.parseInt(txtIdClientePed.getText());
+                double totalPedido = Double.parseDouble(txtTotalPed.getText());
                 LocalDate fechaActual = LocalDate.now();
 
                 
@@ -476,6 +459,7 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
                 // Obtener los datos de la JTable tblCotActual y registrar en tbl_cotdetalle
                 pedido.registrarPedidoDetalle(pedidoId, modelo);
                 limpiarTextos();
+                limpiarTextosCliente();
                 int rowCount = modelo.getRowCount();
                 for (int i = 0; i < rowCount; i++) {
                 modelo.removeRow(i); // Eliminar la fila si se encuentra una coincidencia
@@ -483,13 +467,13 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
                 i--; // Decrementar el índice para evitar saltar la siguiente fila en la iteración
                 }
                 
-                txtTotalCot.setText("");
+                txtTotalPed.setText("");
                 int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS"); 
                 JOptionPane.showMessageDialog(null, "Pedido #" + pedidoId + " ha sido registrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 
-    }//GEN-LAST:event_btnRegistrarCotActionPerformed
+    }//GEN-LAST:event_btnRegistrarPedActionPerformed
          
     
 
@@ -497,31 +481,29 @@ int codigoProducto = Integer.parseInt(txtCodProdCot.getText());
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCot;
-    private javax.swing.JButton btnEliminarCot;
-    private javax.swing.JButton btnModificarCot;
-    private javax.swing.JButton btnRegistrarCot;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneCotActual;
-    private javax.swing.JScrollPane jScrollPaneProdDispCot;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lb2Cotizacion;
-    private javax.swing.JLabel lbCantProdCot;
-    private javax.swing.JLabel lbCantProdCot1;
-    private javax.swing.JLabel lbCodProdCot;
-    private javax.swing.JLabel lbCotActual;
-    private javax.swing.JLabel lbIdClienteCot;
-    private javax.swing.JLabel lbIdVendedorCot;
-    private javax.swing.JLabel lbInstCot;
-    private javax.swing.JLabel lbTotalCot;
-    private javax.swing.JLabel lbusuCotizacion;
-    private javax.swing.JTable tblCotActual;
-    private javax.swing.JTable tblProdDispCot;
-    private javax.swing.JTextField txtCantProdCot;
-    private javax.swing.JTextField txtCodProdCot;
-    private javax.swing.JTextField txtIdClienteCot;
-    private javax.swing.JTextField txtIdVendedorCot;
-    private javax.swing.JTextField txtTotalCot;
+    private javax.swing.JButton btnAgregarPed;
+    private javax.swing.JButton btnEliminarPed;
+    private javax.swing.JButton btnModificarPed;
+    private javax.swing.JButton btnRegistrarPed;
+    private javax.swing.JScrollPane jScrollPanePed2;
+    private javax.swing.JScrollPane jScrollPanePedActual;
+    private javax.swing.JScrollPane jScrollPaneProdDispPed;
+    private javax.swing.JTable jTable1Ped;
+    private javax.swing.JLabel lb2Pedido;
+    private javax.swing.JLabel lbCantProdPed;
+    private javax.swing.JLabel lbCantProdPed1;
+    private javax.swing.JLabel lbCodProdPed;
+    private javax.swing.JLabel lbIdClientePed;
+    private javax.swing.JLabel lbInstPed;
+    private javax.swing.JLabel lbPedActual;
+    private javax.swing.JLabel lbTotalPed;
+    private javax.swing.JLabel lbusuPedido;
+    private javax.swing.JTable tblPedActual;
+    private javax.swing.JTable tblProdDispPed;
+    private javax.swing.JTextField txtCantProdPed;
+    private javax.swing.JTextField txtCodProdPed;
+    private javax.swing.JTextField txtIdClientePed;
+    private javax.swing.JTextField txtTotalPed;
     // End of variables declaration//GEN-END:variables
 
 

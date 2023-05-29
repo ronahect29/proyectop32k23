@@ -57,7 +57,7 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
         llenadoDeCombos();
     }
 
-    int codigoAplicacion = 3006;
+    int codigoAplicacion = 3005;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,18 +68,18 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lb2Cotizacion = new javax.swing.JLabel();
-        lbusuCotizacion = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPaneProdDispCot = new javax.swing.JScrollPane();
+        lb2CotizacionConsDet = new javax.swing.JLabel();
+        lbusuCotizacionConsDet = new javax.swing.JLabel();
+        jScrollPane1CotDetCons = new javax.swing.JScrollPane();
+        jTable1CotDetCons = new javax.swing.JTable();
+        jScrollPaneCotReg = new javax.swing.JScrollPane();
         tblCotConsDet = new javax.swing.JTable();
-        lbCantProdCot1 = new javax.swing.JLabel();
+        lbCotDetCons = new javax.swing.JLabel();
 
-        lb2Cotizacion.setForeground(new java.awt.Color(204, 204, 204));
-        lb2Cotizacion.setText(".");
+        lb2CotizacionConsDet.setForeground(new java.awt.Color(204, 204, 204));
+        lb2CotizacionConsDet.setText(".");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1CotDetCons.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -90,7 +90,7 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1CotDetCons.setViewportView(jTable1CotDetCons);
 
         setClosable(true);
         setIconifiable(true);
@@ -110,9 +110,9 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneProdDispCot.setViewportView(tblCotConsDet);
+        jScrollPaneCotReg.setViewportView(tblCotConsDet);
 
-        lbCantProdCot1.setText("Detalle de la Cotización:");
+        lbCotDetCons.setText("Detalle de la Cotización:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,19 +122,19 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPaneCotReg, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(391, 391, 391)
-                        .addComponent(lbCantProdCot1)))
+                        .addComponent(lbCotDetCons)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(58, Short.MAX_VALUE)
-                .addComponent(lbCantProdCot1)
+                .addComponent(lbCotDetCons)
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPaneProdDispCot, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCotReg, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -171,12 +171,12 @@ public class frmConsultaCotizacionDetalle extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneProdDispCot;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lb2Cotizacion;
-    private javax.swing.JLabel lbCantProdCot1;
-    private javax.swing.JLabel lbusuCotizacion;
+    private javax.swing.JScrollPane jScrollPane1CotDetCons;
+    private javax.swing.JScrollPane jScrollPaneCotReg;
+    private javax.swing.JTable jTable1CotDetCons;
+    private javax.swing.JLabel lb2CotizacionConsDet;
+    private javax.swing.JLabel lbCotDetCons;
+    private javax.swing.JLabel lbusuCotizacionConsDet;
     private javax.swing.JTable tblCotConsDet;
     // End of variables declaration//GEN-END:variables
 
