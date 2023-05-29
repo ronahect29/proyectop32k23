@@ -298,7 +298,7 @@ for (int i = 0; i < rowCount; i++) {
 
 }
 if (!codigoEncontrado) {
-    JOptionPane.showMessageDialog(null, "No existe este código en tu cotización actual", "Error", JOptionPane.ERROR_MESSAGE);
+    JOptionPane.showMessageDialog(null, "No existe este código en tu pedido actual", "Error", JOptionPane.ERROR_MESSAGE);
 }
 txtTotalPed.setText(String.valueOf(suma));
 limpiarTextos(); 
@@ -433,8 +433,9 @@ int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
     } else {
         JOptionPane.showMessageDialog(this, "El producto no existe o no tiene existencias.");
     }
-    
     limpiarTextos();
+
+
     }//GEN-LAST:event_btnAgregarPedActionPerformed
 
     private void btnRegistrarPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPedActionPerformed
@@ -458,6 +459,7 @@ int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
                 
                 // Obtener los datos de la JTable tblCotActual y registrar en tbl_cotdetalle
                 pedido.registrarPedidoDetalle(pedidoId, modelo);
+                
                 limpiarTextos();
                 limpiarTextosCliente();
                 int rowCount = modelo.getRowCount();
@@ -466,12 +468,16 @@ int codigoProducto = Integer.parseInt(txtCodProdPed.getText());
                 rowCount--; // Reducir el número de filas después de eliminar una fila
                 i--; // Decrementar el índice para evitar saltar la siguiente fila en la iteración
                 }
-                
+                    DefaultTableModel modeloTabla = (DefaultTableModel) tblProdDispPed.getModel();
+    modeloTabla.setRowCount(0);
+    tblProdDispPed.repaint();
+    llenadoDeTablasProductos();
                 txtTotalPed.setText("");
                 int resultadoBitacora=0;
                     clsBitacora bitacoraRegistro = new clsBitacora();
                     resultadoBitacora = bitacoraRegistro.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(),codigoAplicacion,"INS"); 
                 JOptionPane.showMessageDialog(null, "Pedido #" + pedidoId + " ha sido registrado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
                 
     }//GEN-LAST:event_btnRegistrarPedActionPerformed
          
