@@ -337,9 +337,6 @@ public class MdiInventario extends javax.swing.JFrame {
     private void movTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movTransaccionActionPerformed
         // TODO add your handling code here:
 
-    }                                              
-
-
         frmMovDet ventana = new frmMovDet();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
