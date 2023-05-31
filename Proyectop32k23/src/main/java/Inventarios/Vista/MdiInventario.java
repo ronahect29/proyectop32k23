@@ -418,4 +418,4 @@ public class MdiInventario extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem mnuSalirSistema;
     private javax.swing.JCheckBoxMenuItem movTransaccion;
     // End of variables declaration//GEN-END:variables
-        
+}        
